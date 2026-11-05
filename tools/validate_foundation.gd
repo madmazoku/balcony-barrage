@@ -27,6 +27,8 @@ func _initialize() -> void:
 			"furniture_speed", "furniture_hit_width"]:
 		if gameplay.get(property) <= 0:
 			failures.append("Expected positive setting: " + property)
+	if gameplay.nut_max_angle_degrees < 0.0 or gameplay.nut_max_angle_degrees > 80.0:
+		failures.append("Nut aiming half-angle must be between 0 and 80 degrees.")
 	if gameplay.armor_parts < 0 or gameplay.wind_amplitude < 0:
 		failures.append("Armor and wind amplitude must be nonnegative.")
 	var pack := presentation.active_pack
