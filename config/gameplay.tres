@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="GameplayConfig" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/config/gameplay_config.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+player_speed = 340.0
+bolt_speed = 760.0
+shot_cooldown = 0.4
+armor_parts = 3
+damage_grace_seconds = 0.9
+normal_balloons = 2
+tank_balloons = 4
+thrower_balloons = 1
+descent_speed = 40.0
+ground_speed = 125.0
+wind_amplitude = 65.0
+wind_period_seconds = 3.5
+nut_interval_seconds = 3.0
+nut_windup_seconds = 0.6
+nut_speed = 230.0
+random_seed = 42
+release_times = PackedFloat32Array(0, 3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33)
+release_roles = PackedStringArray("normal", "normal", "thrower", "tank", "normal", "thrower", "normal", "tank", "thrower", "normal", "tank", "thrower")
+boss_speed = 100.0
+balcony_stages = 5
+boss_jump_seconds = 0.7
+furniture_enabled = false
+furniture_interval_seconds = 5.0
+furniture_windup_seconds = 1.0
+furniture_speed = 180.0
+furniture_hit_width = 80.0
