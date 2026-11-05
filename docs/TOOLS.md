@@ -18,3 +18,6 @@ scripts/inspect_*.py, scripts/check_*.py, scripts/debug_*.py — диагнос�
 
 ## Добавлено в фазе 2
 - tools/test_round.gd — проверка механики и обычного ввода сцены. Вызов: Godot --headless --path <project> --script res://tools/test_round.gd. Переиспользовать при изменении боя.
+
+## Добавлено в фазе 3
+- tools/test_controls.gd — проверка геймпадных, сенсорных и мышиных событий через игровую сцену. Запуск Godot --headless --path <project> --script res://tools/test_controls.gd. Без --headless также выводит имена реально обнаруженных геймпадов. Существующий test_round.gd остаётся проверкой боя.

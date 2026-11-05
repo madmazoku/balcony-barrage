@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ControlsConfig" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/config/controls_config.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+stick_deadzone = 0.25
+drag_threshold = 14.0
+tap_seconds = 0.25
+ground_tap_height = 125.0
