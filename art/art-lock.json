@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "status": "candidate",
+  "scope": "rescue-rangers",
+  "approved_at": null,
+  "image": {
+    "engine": "sdxl",
+    "model_filename": "older/big/ponyDiffusionV6XL_v6StartWithThisOne.safetensors",
+    "model_sha256": null,
+    "sampler": null,
+    "steps": 28,
+    "cfg": 5.5,
+    "width": 1024,
+    "height": 1024,
+    "roles": {
+      "player": {
+        "lora": "Gadget_-_Rescue_Rangers_PonyXL",
+        "lora_sha256": null,
+        "strength": null,
+        "triggers": [
+          "gadget",
+          "cartoon",
+          "mouse ears"
+        ],
+        "reference": null
+      },
+      "boss": {
+        "loras": [],
+        "reference": null
+      },
+      "normal": {
+        "loras": [],
+        "reference": null
+      },
+      "tank": {
+        "loras": [],
+        "reference": null
+      },
+      "thrower": {
+        "loras": [],
+        "reference": null
+      }
+    }
+  },
+  "video": {
+    "status": "not_selected",
+    "model_filename": null,
+    "model_sha256": null
+  },
+  "rules": [
+    "Candidate requires visual acceptance in phase 4 before production.",
+    "Resolve actual filenames and SHA256 hashes before approved status.",
+    "No silent model or LoRA substitutions.",
+    "Store per-asset prompt, seed, spec, input reference and accepted output.",
+    "Alternative packs have their own approved lock."
+  ]
+}

@@ -1,3 +1,15 @@
 # Godot 4+ specific ignores
 .godot/
 /android/
+
+# Local output and secrets
+builds/
+exports/
+*.log
+.env
+.env.*
+*.keystore
+*.jks
+*.safetensors
+*.ckpt
+art/drafts/
