@@ -4,6 +4,15 @@ func _initialize() -> void:
 	var gameplay := load("res://config/gameplay.tres") as GameplayConfig
 	var presentation := load("res://config/presentation.tres") as PresentationConfig
 	var failures: Array[String] = []
+	var controls := load("res://config/controls.tres") as ControlsConfig
+	if controls == null:
+		push_error("Unable to load controls config.")
+		quit(1)
+		return
+	if controls.stick_deadzone <= 0 or controls.stick_deadzone >= 1:
+		failures.append("Stick deadzone must be strictly between 0 and 1.")
+	if controls.drag_threshold <= 0 or controls.tap_seconds <= 0 or controls.ground_tap_height <= 0:
+		failures.append("Touch thresholds must be positive.")
 	if gameplay == null or presentation == null or presentation.active_pack == null:
 		push_error("Unable to load gameplay or active presentation pack.")
 		quit(1)

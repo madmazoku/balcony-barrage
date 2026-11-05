@@ -11,6 +11,7 @@ var scenario_picker: OptionButton
 var furniture_check: CheckButton
 var scenario_ids: Array[String] = ["round", "line", "landing", "damage", "boss", "mixed"]
 var font: Font = ThemeDB.fallback_font
+var controls: PlayerControls
 
 func _ready() -> void:
 	pack = presentation.active_pack
@@ -33,6 +34,15 @@ func _ready() -> void:
 			set_physics_process(false)
 			return
 	model = RoundModel.new(settings)
+	controls = PlayerControls.new()
+	controls.gameplay = settings
+	controls.player_x = model.player.x
+	controls.shot_requested.connect(func(direction: Vector2) -> void:
+		if not paused:
+			model.shoot(direction))
+	controls.pause_requested.connect(_toggle_pause)
+	controls.restart_requested.connect(_restart)
+	add_child(controls)
 	_create_controls()
 	queue_redraw()
 
@@ -47,28 +57,36 @@ func _create_controls() -> void:
 	title.text = "BALCONY BARRAGE  /  ПРОВЕРКА МЕХАНИКИ"
 	title.add_theme_font_size_override("font_size", 24)
 	panel.add_child(title)
-	var controls := HBoxContainer.new()
-	controls.add_theme_constant_override("separation", 14)
-	panel.add_child(controls)
+	var toolbar := HBoxContainer.new()
+	toolbar.add_theme_constant_override("separation", 14)
+	panel.add_child(toolbar)
 	scenario_picker = OptionButton.new()
 	for label in ["Полный раунд", "Две цели на линии", "Последний шарик у земли", "Захват + гайка", "Пустой мешок / босс", "Три типа вместе"]:
 		scenario_picker.add_item(label)
 	scenario_picker.item_selected.connect(func(_index: int) -> void: _restart())
-	controls.add_child(scenario_picker)
+	toolbar.add_child(scenario_picker)
 	var restart := Button.new()
 	restart.text = "Заново [R]"
 	restart.pressed.connect(_restart)
-	controls.add_child(restart)
+	toolbar.add_child(restart)
 	furniture_check = CheckButton.new()
 	furniture_check.text = "Мебель в финале"
 	furniture_check.button_pressed = settings.furniture_enabled
 	furniture_check.toggled.connect(func(enabled: bool) -> void:
 		model.furniture_enabled = enabled)
-	controls.add_child(furniture_check)
+	toolbar.add_child(furniture_check)
 	var pause_button := Button.new()
 	pause_button.text = "Пауза [P]"
-	pause_button.pressed.connect(func() -> void: paused = not paused)
-	controls.add_child(pause_button)
+	pause_button.pressed.connect(_toggle_pause)
+	toolbar.add_child(pause_button)
+	var touch_test := CheckButton.new()
+	touch_test.text = "Тач мышью"
+	touch_test.visible = not OS.has_feature("mobile")
+	touch_test.toggled.connect(func(enabled: bool) -> void:
+		self.controls.clear()
+		self.controls.touch_preview = enabled
+		self.controls.last_device = "touch" if enabled else "keyboard")
+	toolbar.add_child(touch_test)
 	hud = Label.new()
 	hud.add_theme_font_size_override("font_size", 18)
 	panel.add_child(hud)
@@ -78,7 +96,7 @@ func _create_controls() -> void:
 	footer.add_theme_font_size_override("font_size", 17)
 	layer.add_child(footer)
 	# Keyboard focus stays with the game after clicking a prototype control.
-	for control in controls.get_children():
+	for control in toolbar.get_children():
 		control.focus_mode = Control.FOCUS_NONE
 	_update_hud()
 
@@ -87,33 +105,22 @@ func _restart() -> void:
 	model.restart(scenario_ids[scenario_picker.selected])
 	model.furniture_enabled = enabled
 	paused = false
+	controls.clear()
+	controls.accepting_gameplay = true
+	controls.player_x = model.player.x
 	queue_redraw()
 
-func _unhandled_key_input(event: InputEvent) -> void:
-	if not event is InputEventKey or not event.pressed or event.echo or model == null:
-		return
-	match event.physical_keycode:
-		KEY_R:
-			_restart()
-		KEY_P, KEY_ESCAPE:
-			paused = not paused
-		KEY_SPACE:
-			if not paused:
-				var movement: float = _movement()
-				model.shoot(Vector2.UP if is_zero_approx(movement) else Vector2(signf(movement), 0))
-	_update_hud()
-	queue_redraw()
-
-func _movement() -> float:
-	var left: bool = Input.is_physical_key_pressed(KEY_A) or Input.is_physical_key_pressed(KEY_LEFT)
-	var right: bool = Input.is_physical_key_pressed(KEY_D) or Input.is_physical_key_pressed(KEY_RIGHT)
-	return float(right) - float(left)
+func _toggle_pause() -> void:
+	paused = not paused
+	controls.accepting_gameplay = not paused
+	controls.clear()
 
 func _physics_process(delta: float) -> void:
 	if model == null:
 		return
 	if not paused:
-		model.tick(delta, _movement())
+		model.tick(delta, controls.movement(model.player.x, delta))
+	controls.player_x = model.player.x
 	_update_hud()
 	queue_redraw()
 
@@ -122,7 +129,13 @@ func _update_hud() -> void:
 		model.armor, settings.release_roles.size() - model.released,
 		settings.balcony_stages - model.broken_stages, settings.balcony_stages,
 		model.kills, model.elapsed, model.rate()]
-	footer.text = "A/D или ←/→ — бег    Пробел — вверх; с направлением — вбок    R — повтор    P — пауза"
+	match controls.last_device:
+		"gamepad":
+			footer.text = "Стик / крестовина — бег    A / × — выстрел    Y / △ — повтор    Start — пауза"
+		"touch":
+			footer.text = "Тяни — движение    Тап выше наземной полосы — вверх    Тап в полосе — вбок"
+		_:
+			footer.text = "A/D или ←/→ — бег    Пробел — вверх; с направлением — вбок    R — повтор    P — пауза"
 	footer.text += "\n" + ("ПАУЗА" if paused else model.last_event)
 
 func _text(position: Vector2, text: String, size: int = 17) -> void:
@@ -139,6 +152,12 @@ func _draw() -> void:
 		return
 	draw_rect(Rect2(Vector2.ZERO, settings.arena_size), pack.colors["background"])
 	draw_rect(Rect2(0, settings.ground_y, settings.arena_size.x, settings.arena_size.y - settings.ground_y), pack.colors["ground"])
+	if controls.last_device == "touch" or controls.touch_preview:
+		var boundary: float = settings.ground_y - controls.settings.ground_tap_height
+		var band_color: Color = pack.colors["ground"]
+		band_color.a = 0.16
+		draw_rect(Rect2(0, boundary, settings.arena_size.x, settings.ground_y - boundary), band_color)
+		draw_line(Vector2(0, boundary), Vector2(settings.arena_size.x, boundary), pack.colors["ground"])
 	var segment_width: float = (settings.balcony_right - settings.balcony_left) / settings.balcony_stages
 	for stage in settings.balcony_stages:
 		var color: Color = pack.colors["balcony"]
