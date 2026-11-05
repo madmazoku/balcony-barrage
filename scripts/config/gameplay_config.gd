@@ -1,5 +1,27 @@
 class_name GameplayConfig
 extends Resource
+@export_group("Arena")
+@export var arena_size: Vector2
+@export var ground_y: float
+@export var boss_y: float
+@export var balcony_y: float
+@export var balcony_left: float
+@export var balcony_right: float
+@export var spawn_drop: float
+@export var player_size: Vector2
+@export var boss_size: Vector2
+@export var normal_size: Vector2
+@export var tank_size: Vector2
+@export var thrower_size: Vector2
+@export var bolt_size: Vector2
+@export var nut_size: Vector2
+@export var furniture_height: float
+@export var balloon_radius: float
+@export var balloon_spacing: float
+@export var balloon_lift: float
+@export var escape_speed: float
+@export var fall_speed: float
+@export var boss_jump_height: float
 ## Units are pixels and seconds. Authoritative values live in gameplay.tres.
 @export_group("Player")
 @export_range(1.0, 2000.0) var player_speed: float
@@ -18,6 +40,8 @@ extends Resource
 @export_range(0.1, 20.0) var nut_interval_seconds: float
 @export_range(0.01, 5.0) var nut_windup_seconds: float
 @export_range(1.0, 2000.0) var nut_speed: float
+## Half-angle of the downward aiming cone, in degrees.
+@export_range(0.0, 80.0, 1.0) var nut_max_angle_degrees: float
 @export_group("Wave")
 @export var random_seed: int
 ## Parallel arrays: release offset in seconds and normal/tank/thrower role.

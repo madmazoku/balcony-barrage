@@ -4,6 +4,27 @@
 
 [resource]
 script = ExtResource("1")
+arena_size = Vector2(1280, 800)
+ground_y = 714.0
+boss_y = 178.0
+balcony_y = 225.0
+balcony_left = 150.0
+balcony_right = 1130.0
+spawn_drop = 154.0
+player_size = Vector2(54, 66)
+boss_size = Vector2(100, 86)
+normal_size = Vector2(48, 50)
+tank_size = Vector2(76, 58)
+thrower_size = Vector2(34, 56)
+bolt_size = Vector2(8, 20)
+nut_size = Vector2(18, 18)
+furniture_height = 50.0
+balloon_radius = 13.0
+balloon_spacing = 28.0
+balloon_lift = 62.0
+escape_speed = 280.0
+fall_speed = 520.0
+boss_jump_height = 45.0
 player_speed = 340.0
 bolt_speed = 760.0
 shot_cooldown = 0.4
@@ -19,6 +40,7 @@ wind_period_seconds = 3.5
 nut_interval_seconds = 3.0
 nut_windup_seconds = 0.6
 nut_speed = 230.0
+nut_max_angle_degrees = 35.0
 random_seed = 42
 release_times = PackedFloat32Array(0, 3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33)
 release_roles = PackedStringArray("normal", "normal", "thrower", "tank", "normal", "thrower", "normal", "tank", "thrower", "normal", "tank", "thrower")
