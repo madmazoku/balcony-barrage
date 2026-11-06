@@ -191,7 +191,7 @@ func _draw() -> void:
 			for index in positions.size():
 				var balloon: Vector2 = positions[index]
 				var palette_index: int = (int(enemy.variant) + index) % pack.balloon_palette.size()
-				draw_line(enemy.pos, balloon, pack.colors["text"], 1.0)
+				draw_line(enemy.pos, balloon + Vector2(0, settings.balloon_radius), pack.colors["text"], 1.0)
 				draw_circle(balloon, settings.balloon_radius, pack.balloon_palette[palette_index])
 			if enemy.windup > 0:
 				_text(enemy.pos + Vector2(28, 4), "ГАЙКА!")
@@ -263,14 +263,15 @@ func _draw_static() -> void:
 			var positions: Array[Vector2] = model.balloon_positions(enemy)
 			for index in positions.size():
 				var balloon: Vector2 = positions[index]
+				var balloon_size := Vector2(settings.balloon_radius * 2, settings.balloon_radius * 2.6)
+				var knot: Vector2 = balloon + (pack.balloon_rope_anchor - Vector2(0.5, 0.5)) * balloon_size
 				var connection: Vector2 = enemy.pos - Vector2(0, model.body_size(enemy.role).y / 2)
-				var rope: Vector2 = connection - balloon
-				draw_set_transform(balloon, rope.angle() - PI / 2)
+				var rope: Vector2 = connection - knot
+				draw_set_transform(knot, rope.angle() - PI / 2)
 				draw_texture_rect(pack.effects["rope"] as Texture2D, Rect2(-.75, 0, 1.5, rope.length()), false)
 				draw_set_transform(Vector2.ZERO)
 				var color_index: int = (int(enemy.variant) + index) % pack.balloon_sprites.size()
-				_texture_center(pack.balloon_sprites[color_index], balloon,
-					Vector2(settings.balloon_radius * 2, settings.balloon_radius * 2.6))
+				_texture_center(pack.balloon_sprites[color_index], balloon, balloon_size)
 		_sprite_body(enemy.pos, model.body_size(enemy.role), enemy.role, enemy.variant, flip)
 		if enemy.windup > 0:
 			_texture_center(pack.effects["nut"] as Texture2D,

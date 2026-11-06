@@ -40,3 +40,7 @@ scripts/inspect_*.py, scripts/check_*.py, scripts/debug_*.py — диагнос�
 - .github/workflows/web-pages.yml — проверка PR и публикация только master после успешных проверок. Официальные редактор/шаблоны 4.7.2 скачиваются с godotengine/godot-builds, сверяются SHA512 и кешируются.
 - python -m http.server 8765 --bind 127.0.0.1 --directory builds/web — существующий стандартный сервер для локального теста. Не писать дополнительный сервер или оболочку экспорта. Для проверки публичной версии использовать сайт и commit.txt/version.txt.
 - Visual Studio Community 2026 обнаружен. Android-каталог доступных компонентов присутствует, но установленный набор не содержит Android/JDK; SDK не найден по стандартным путям/реестру. Не считать наличие Visual C++ готовностью экспорта APK.
+
+sprite_assets.py build-pack читает weapon_transforms.right/up из art/build-static-pack.json. Исправлять привязки оружия здесь, не вводить смещения в боевом коде и не возвращать старые координаты в утилиту.
+
+Поле balloon_rope_anchor манифеста переносится build-pack в ресурс пакета и описывает нормализованное крепление верёвки к хвостику шарика; не сдвигать ради этого игровые центры в round_model.gd.

@@ -496,10 +496,10 @@
       ],
       "mode": "RGBA",
       "alpha_bounds": [
-        362,
-        369,
-        711,
-        581
+        378,
+        500,
+        727,
+        712
       ]
     },
     "effects/crossbow_left": {
@@ -509,10 +509,10 @@
       ],
       "mode": "RGBA",
       "alpha_bounds": [
-        57,
-        369,
-        406,
-        581
+        41,
+        500,
+        390,
+        712
       ]
     },
     "effects/crossbow_up": {
@@ -820,6 +820,36 @@
     "broken_support_height": 55,
     "method": "Original walking deck retained exactly. Cumulative generated fascia edits restricted below deck; intact supports replaced by generated snapped wood, mirrored on alternating positions. Fixed canvas and scale, no whole-balcony redraw."
   },
+  "weapon_transforms": {
+    "right": {
+      "pivot": [
+        390,
+        600
+      ],
+      "anchor": [
+        500,
+        645
+      ],
+      "scale": 0.38,
+      "clockwise": 6
+    },
+    "up": {
+      "pivot": [
+        390,
+        600
+      ],
+      "anchor": [
+        397,
+        347
+      ],
+      "scale": 0.32,
+      "clockwise": -84
+    }
+  },
+  "balloon_rope_anchor": [
+    0.5,
+    0.98
+  ],
   "player_canvas": [
     768,
     896
