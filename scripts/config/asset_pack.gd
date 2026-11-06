@@ -20,6 +20,9 @@ extends Resource
 @export var balloon_rope_anchor: Vector2
 @export var feedback: FeedbackConfig
 @export var balloon_pop_frames: Dictionary[String, Array]
+## Full action canvases use normalized bounds of their matching neutral role.
+@export var enemy_action_frames: Dictionary[String, Array]
+@export var enemy_frame_bounds: Dictionary[String, Rect2]
 @export var player_anchor: Vector2
 @export var player_body_height: float
 @export var balcony_draw_height: float
@@ -83,6 +86,19 @@ func validation_errors() -> Array[String]:
 			for texture in frames:
 				if not texture is Texture2D:
 					errors.append("Invalid balloon pop frame.")
+	if feedback != null and feedback.enemy_actions_enabled:
+		for role in ["normal", "tank", "thrower"]:
+			var bounds: Rect2 = enemy_frame_bounds.get(role, Rect2())
+			if bounds.size.x <= 0 or bounds.size.y <= 0 or not Rect2(0, 0, 1, 1).encloses(bounds):
+				errors.append("Invalid action reference bounds: " + role)
+		for key in ["thrower_windup", "thrower_release", "normal_capture", "tank_capture", "thrower_capture"]:
+			var role: String = key.get_slice("_", 0)
+			var frames: Array = enemy_action_frames.get(key, [])
+			if frames.is_empty() or frames.size() != character_variants.get(role, []).size():
+				errors.append("Missing action palettes: " + key)
+			for texture in frames:
+				if not texture is Texture2D:
+					errors.append("Invalid action frame: " + key)
 	var player_frame := characters.get("player_right") as Texture2D
 	if player_frame != null:
 		for key in character_keys:

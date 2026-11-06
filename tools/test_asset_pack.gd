@@ -44,6 +44,20 @@ func _run() -> void:
 		missing_pop.balloon_pop_frames = art.balloon_pop_frames.duplicate()
 		missing_pop.balloon_pop_frames.erase("0")
 		check(not missing_pop.validation_errors().is_empty(), "A configured animation pack must include every color.")
+	if art.feedback != null and art.feedback.enemy_actions_enabled:
+		for frames in art.enemy_action_frames.values():
+			for frame in frames:
+				var image: Image = (frame as Texture2D).get_image()
+				check(image.get_size() == Vector2i(512, 512) and not image.is_invisible() and image.detect_alpha() != Image.ALPHA_NONE,
+					"Action poses require nonempty registered RGBA canvases.")
+		var missing_action: AssetPack = art.duplicate()
+		missing_action.enemy_action_frames = art.enemy_action_frames.duplicate()
+		missing_action.enemy_action_frames.erase("tank_capture")
+		check(not missing_action.validation_errors().is_empty(), "Configured actions cannot silently fall back to another pose or pack.")
+		missing_action = art.duplicate()
+		missing_action.enemy_frame_bounds = art.enemy_frame_bounds.duplicate()
+		missing_action.enemy_frame_bounds["normal"] = Rect2(0, 0, 0, 1)
+		check(not missing_action.validation_errors().is_empty(), "Missing alignment bounds must fail before play.")
 	for role in ["normal", "tank", "thrower"]:
 		check(art.character_variants[role].size() == 3, "Each minion role needs three palettes.")
 	check((art.environment["balcony_5"] as Texture2D).get_image().is_invisible(),

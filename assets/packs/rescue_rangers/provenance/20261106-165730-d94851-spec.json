@@ -1,0 +1,12 @@
+{
+  "engine": "flux2",
+  "model": "flux-2-klein-9b-fp8.safetensors",
+  "sampler": "euler",
+  "image_path": "G:\\Git\\Gemini\\media_mcp\\images\\actor-actions\\thrower-reference.png",
+  "mask_path": "G:\\Git\\Gemini\\media_mcp\\images\\actor-actions\\thrower-release-mask.png",
+  "denoise": 0.95,
+  "steps": 25,
+  "guidance": 3.5,
+  "seed": 441192,
+  "prompt": "Edit only the throwing arm on the LEFT of the image to show the FOLLOW-THROUGH just after throwing a nut DOWNWARD. Remove the old raised hand and its nut completely. The long grey throwing arm now bends FORWARD across the patched vest and reaches DOWN to waist level, the EMPTY open hand at the FRONT of the torso pointing down, fingers spread after release. The nut has left the hand, so the throwing hand holds nothing. Replace vacated old arm and old nut area by plain green. Preserve the exact same skinny mouse, head, long muzzle, ears, face, orange scarf, purple vest, shorts, feet, tail and the sack in his OTHER hand. The other arm keeps holding the same bag. Same body position and scale. Clean bold black outlines and flat cel shading matching the original vintage cartoon. A single lowered forward throwing arm and empty hand, not the original raised arm. Uniform vivid green background, no text or extra objects."
+}

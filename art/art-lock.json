@@ -50,7 +50,7 @@
   "rules": [
     "All sprites in this pack use FLUX.2 Klein 9B FP8 and the common parameters below.",
     "No mixing Pony trial artwork into the final pack.",
-    "Per-asset seeds and prompts are recorded in provenance, standard img2img denoise is 0.65; a localized broken-support structural edit uses 0.95, recorded in provenance.",
+    "Per-asset seeds and prompts are recorded in provenance; standard img2img denoise is 0.65. Localized structural/pose edits may use 0.95 with the operation and any retouch recorded per source. The image model, sampler, steps, guidance and LoRA stay fixed.",
     "No LoRA for FLUX.2 Klein.",
     "Generation QA includes content, framing, alpha and alignment in the actual game.",
     "Only generated artwork, alpha extraction, scaling, mirroring and palette variants. No drawn object overlays.",
@@ -70,6 +70,28 @@
     ],
     "notes": "Only generated art and deterministic transforms. Full character and background animation remain later groups.",
     "approved_at": "2026-11-06",
-    "approval": "Owner: хорошо, принимается"
+    "approval": "Owner: хорошо, принимается",
+    "group_2": {
+      "status": "accepted",
+      "branch": "AI-8-enemy-actions",
+      "scope": [
+        "thrower wind-up and release poses",
+        "armor reach, transfer and escape presentation"
+      ],
+      "new_source_runs": [
+        "20261106-165451-22a829",
+        "20261106-170054-9f9470",
+        "20261106-165730-d94851",
+        "20261106-170651-160332"
+      ],
+      "explicit_reuse": {
+        "tank_capture": "Accepted tank pose plus body motion",
+        "thrower_capture": "Generated thrower_release pose"
+      },
+      "notes": "12 new palette PNGs on registered 512x512 canvases; no changes to the previous 63 PNGs or combat timing.",
+      "approved_at": "2026-11-06",
+      "approval": "Owner: принимается",
+      "release": "0.8.0"
+    }
   }
 }

@@ -3,6 +3,8 @@ extends RefCounted
 ## Fixed-step simulation. Rendering and input do not own combat rules.
 signal balloon_popped(position: Vector2, color_variant: int)
 signal armor_removed(part: int, stolen: bool)
+signal thrower_released(enemy: Dictionary)
+signal armor_stolen(part: int, thief: Dictionary)
 
 var config: GameplayConfig
 var rng := RandomNumberGenerator.new()
@@ -166,6 +168,7 @@ func _update_minions(delta: float) -> void:
 	for enemy in minions:
 		var position: Vector2 = enemy.pos
 		var size: Vector2 = body_size(enemy.role)
+		var captured_part: int = -1
 		match enemy.state:
 			"air":
 				position.y += config.descent_speed * delta
@@ -180,6 +183,7 @@ func _update_minions(delta: float) -> void:
 						enemy.windup = maxf(0, enemy.windup - delta)
 						if enemy.windup == 0:
 							_throw_hazard(position, false)
+							thrower_released.emit(enemy)
 							enemy.attack = config.nut_interval_seconds
 					else:
 						enemy.attack -= delta
@@ -190,6 +194,7 @@ func _update_minions(delta: float) -> void:
 				if Rect2(position - size / 2, size).intersects(Rect2(player - config.player_size / 2, config.player_size)):
 					if damage("Захват наземным миньоном", true):
 						enemy.stolen_part = armor if result == "" else -1
+						captured_part = enemy.stolen_part
 						enemy.state = "escape"
 						enemy.escape_direction = -1.0 if position.x < player.x else 1.0
 			"fall":
@@ -197,6 +202,8 @@ func _update_minions(delta: float) -> void:
 			"escape":
 				position.x += enemy.escape_direction * config.escape_speed * delta
 		enemy.pos = position
+		if captured_part >= 0:
+			armor_stolen.emit(captured_part, enemy)
 	minions = minions.filter(func(e: Dictionary) -> bool:
 		return e.pos.y < config.arena_size.y + config.tank_size.y and e.pos.x > -config.tank_size.x and e.pos.x < config.arena_size.x + config.tank_size.x)
 
