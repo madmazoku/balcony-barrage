@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "status": "accepted_static_pack",
+  "scope": "rescue-rangers",
+  "approved_at": "2026-11-05",
+  "image": {
+    "engine": "flux2",
+    "model_filename": "flux-2-klein-9b-fp8.safetensors",
+    "model_sha256": "865ba09f5b4c3cbd3468a4bd3acb9fcb2f8740c54317482f0bcd4ed1d3655cee",
+    "sampler": "euler",
+    "steps": 25,
+    "guidance": 3.5,
+    "width": 1024,
+    "height": 1024,
+    "edit_denoise": 0.65,
+    "loras": [],
+    "roles": {
+      "player": {
+        "loras": [],
+        "reference": "assets/packs/rescue_rangers/characters/player/right.png"
+      },
+      "boss": {
+        "loras": [],
+        "reference": "assets/packs/rescue_rangers/characters/boss.png"
+      },
+      "normal": {
+        "loras": [],
+        "reference": "assets/packs/rescue_rangers/characters/normal.png"
+      },
+      "tank": {
+        "loras": [],
+        "reference": "assets/packs/rescue_rangers/characters/tank.png"
+      },
+      "thrower": {
+        "loras": [],
+        "reference": "assets/packs/rescue_rangers/characters/thrower.png"
+      },
+      "props": {
+        "loras": [],
+        "reference": "assets/packs/rescue_rangers/effects/crossbow.png"
+      }
+    },
+    "structural_edit_denoise": 0.95
+  },
+  "video": {
+    "status": "not_selected",
+    "model_filename": null,
+    "model_sha256": null
+  },
+  "rules": [
+    "All sprites in this pack use FLUX.2 Klein 9B FP8 and the common parameters below.",
+    "No mixing Pony trial artwork into the final pack.",
+    "Per-asset seeds and prompts are recorded in provenance, standard img2img denoise is 0.65; a localized broken-support structural edit uses 0.95, recorded in provenance.",
+    "No LoRA for FLUX.2 Klein.",
+    "Generation QA includes content, framing, alpha and alignment in the actual game.",
+    "Only generated artwork, alpha extraction, scaling, mirroring and palette variants. No drawn object overlays.",
+    "Changing the chosen model after production requires a new version and regeneration of the complete pack."
+  ],
+  "approval_scope": "Owner accepted the complete playable static pack and boss fall on 2026-11-05, requesting furniture attacks enabled by default. Phase 4 accepted; phase 5 animation requires separate acceptance."
+}

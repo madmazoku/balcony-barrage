@@ -51,6 +51,7 @@ extends Resource
 @export_range(1.0, 1000.0) var boss_speed: float
 @export_range(1, 20) var balcony_stages: int
 @export_range(0.01, 5.0) var boss_jump_seconds: float
+@export_range(1.0, 10000.0) var boss_fall_gravity: float
 @export var furniture_enabled: bool
 @export_range(0.1, 20.0) var furniture_interval_seconds: float
 @export_range(0.01, 5.0) var furniture_windup_seconds: float

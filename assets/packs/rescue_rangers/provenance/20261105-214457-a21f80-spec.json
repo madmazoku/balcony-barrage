@@ -1,0 +1,11 @@
+{
+  "engine": "flux2",
+  "model": "flux-2-klein-9b-fp8.safetensors",
+  "sampler": "euler",
+  "width": 1024,
+  "height": 1024,
+  "steps": 25,
+  "guidance": 3.5,
+  "seed": 441133,
+  "prompt": "A single full-body 2D arcade enemy sprite: a very SKINNY RAT henchman from a vintage late-1980s mouse rescue adventure cartoon, clearly distinct from a chunky ordinary rat and a fat tank. Thin wiry body, long narrow pointed snout, large pink rat ears, scruffy dark grey fur, narrow sharp eyes and two small buck teeth, thin pink rat tail. Wearing an opaque purple patched work vest, mustard scarf and loose dark blue short trousers. A brown canvas bag full of visible big silver hexagonal metal NUTS hangs at his hip. He holds ONE silver hex nut in a raised hand, preparing to toss it downward. Other hand grips the bag. Skinny elbows and bent knees, full body three-quarter facing right. Crisp bold black outlines, simple flat cel shading, warm playful palette, vintage Rescue Rangers cartoon style. One character fully visible with generous margins, plain uniform vivid green background. No balloons, no ropes, no text, no scenery or ground shadow."
+}

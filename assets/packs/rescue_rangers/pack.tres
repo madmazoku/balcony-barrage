@@ -1,0 +1,68 @@
+[gd_resource type="Resource" script_class="AssetPack" load_steps=49 format=3]
+
+[ext_resource type="Script" path="res://scripts/config/asset_pack.gd" id="1"]
+[ext_resource type="Texture2D" path="res://assets/packs/rescue_rangers/characters/boss.png" id="2"]
+[ext_resource type="Texture2D" path="res://assets/packs/rescue_rangers/characters/boss_defeated.png" id="3"]
+[ext_resource type="Texture2D" path="res://assets/packs/rescue_rangers/characters/normal.png" id="4"]
+[ext_resource type="Texture2D" path="res://assets/packs/rescue_rangers/characters/normal_warm.png" id="5"]
+[ext_resource type="Texture2D" path="res://assets/packs/rescue_rangers/characters/normal_dark.png" id="6"]
+[ext_resource type="Texture2D" path="res://assets/packs/rescue_rangers/characters/tank.png" id="7"]
+[ext_resource type="Texture2D" path="res://assets/packs/rescue_rangers/characters/tank_warm.png" id="8"]
+[ext_resource type="Texture2D" path="res://assets/packs/rescue_rangers/characters/tank_dark.png" id="9"]
+[ext_resource type="Texture2D" path="res://assets/packs/rescue_rangers/characters/thrower.png" id="10"]
+[ext_resource type="Texture2D" path="res://assets/packs/rescue_rangers/characters/thrower_warm.png" id="11"]
+[ext_resource type="Texture2D" path="res://assets/packs/rescue_rangers/characters/thrower_dark.png" id="12"]
+[ext_resource type="Texture2D" path="res://assets/packs/rescue_rangers/characters/player/right.png" id="13"]
+[ext_resource type="Texture2D" path="res://assets/packs/rescue_rangers/characters/player/left.png" id="14"]
+[ext_resource type="Texture2D" path="res://assets/packs/rescue_rangers/characters/player/up.png" id="15"]
+[ext_resource type="Texture2D" path="res://assets/packs/rescue_rangers/characters/player/armor_0_right.png" id="16"]
+[ext_resource type="Texture2D" path="res://assets/packs/rescue_rangers/characters/player/armor_0_left.png" id="17"]
+[ext_resource type="Texture2D" path="res://assets/packs/rescue_rangers/characters/player/armor_0_up.png" id="18"]
+[ext_resource type="Texture2D" path="res://assets/packs/rescue_rangers/effects/armor_0.png" id="19"]
+[ext_resource type="Texture2D" path="res://assets/packs/rescue_rangers/characters/player/armor_1_right.png" id="20"]
+[ext_resource type="Texture2D" path="res://assets/packs/rescue_rangers/characters/player/armor_1_left.png" id="21"]
+[ext_resource type="Texture2D" path="res://assets/packs/rescue_rangers/characters/player/armor_1_up.png" id="22"]
+[ext_resource type="Texture2D" path="res://assets/packs/rescue_rangers/effects/armor_1.png" id="23"]
+[ext_resource type="Texture2D" path="res://assets/packs/rescue_rangers/characters/player/armor_2_right.png" id="24"]
+[ext_resource type="Texture2D" path="res://assets/packs/rescue_rangers/characters/player/armor_2_left.png" id="25"]
+[ext_resource type="Texture2D" path="res://assets/packs/rescue_rangers/characters/player/armor_2_up.png" id="26"]
+[ext_resource type="Texture2D" path="res://assets/packs/rescue_rangers/effects/armor_2.png" id="27"]
+[ext_resource type="Texture2D" path="res://assets/packs/rescue_rangers/effects/crossbow_right.png" id="28"]
+[ext_resource type="Texture2D" path="res://assets/packs/rescue_rangers/effects/crossbow_left.png" id="29"]
+[ext_resource type="Texture2D" path="res://assets/packs/rescue_rangers/effects/crossbow_up.png" id="30"]
+[ext_resource type="Texture2D" path="res://assets/packs/rescue_rangers/effects/crossbow.png" id="31"]
+[ext_resource type="Texture2D" path="res://assets/packs/rescue_rangers/effects/balloons/color_0.png" id="32"]
+[ext_resource type="Texture2D" path="res://assets/packs/rescue_rangers/effects/balloons/color_1.png" id="33"]
+[ext_resource type="Texture2D" path="res://assets/packs/rescue_rangers/effects/balloons/color_2.png" id="34"]
+[ext_resource type="Texture2D" path="res://assets/packs/rescue_rangers/effects/balloons/color_3.png" id="35"]
+[ext_resource type="Texture2D" path="res://assets/packs/rescue_rangers/effects/rope.png" id="36"]
+[ext_resource type="Texture2D" path="res://assets/packs/rescue_rangers/effects/nut.png" id="37"]
+[ext_resource type="Texture2D" path="res://assets/packs/rescue_rangers/effects/bolt.png" id="38"]
+[ext_resource type="Texture2D" path="res://assets/packs/rescue_rangers/effects/sack.png" id="39"]
+[ext_resource type="Texture2D" path="res://assets/packs/rescue_rangers/effects/furniture.png" id="40"]
+[ext_resource type="Texture2D" path="res://assets/packs/rescue_rangers/environment/background.png" id="41"]
+[ext_resource type="Texture2D" path="res://assets/packs/rescue_rangers/environment/ground.png" id="42"]
+[ext_resource type="Texture2D" path="res://assets/packs/rescue_rangers/environment/balcony_0.png" id="43"]
+[ext_resource type="Texture2D" path="res://assets/packs/rescue_rangers/environment/balcony_1.png" id="44"]
+[ext_resource type="Texture2D" path="res://assets/packs/rescue_rangers/environment/balcony_2.png" id="45"]
+[ext_resource type="Texture2D" path="res://assets/packs/rescue_rangers/environment/balcony_3.png" id="46"]
+[ext_resource type="Texture2D" path="res://assets/packs/rescue_rangers/environment/balcony_4.png" id="47"]
+[ext_resource type="Texture2D" path="res://assets/packs/rescue_rangers/environment/balcony_5.png" id="48"]
+
+[resource]
+script = ExtResource("1")
+pack_id = &"rescue_rangers"
+readiness = "static"
+show_names = false
+audio_mode = "silent"
+player_anchor = Vector2(384, 872)
+player_body_height = 495.0
+balcony_draw_height = 125.0
+display_names = Dictionary[String, String]({"player": "Гаечка", "boss": "Толстопуз", "normal": "Обычный", "tank": "Танк", "thrower": "Метатель"})
+colors = Dictionary[String, Color]({"player": Color(0.7, 0.5, 0.9, 1), "boss": Color(0.45, 0.25, 0.6, 1), "normal": Color(0.5, 0.7, 0.4, 1), "tank": Color(0.7, 0.4, 0.25, 1), "thrower": Color(0.9, 0.7, 0.25, 1), "background": Color(0.09, 0.12, 0.17, 1), "ground": Color(0.25, 0.29, 0.33, 1), "balcony": Color(0.55, 0.5, 0.45, 1), "bolt": Color(1, 0.95, 0.6, 1), "nut": Color(0.7, 0.75, 0.8, 1), "armor": Color(0.7, 0.85, 0.9, 1), "furniture": Color(0.6, 0.3, 0.2, 1), "text": Color(1, 1, 1, 1), "hud_panel": Color(0.1, 0.075, 0.065, 0.88), "result_panel": Color(0.08, 0.055, 0.04, 0.96), "touch_boundary": Color(1, 1, 1, 0.3)})
+balloon_palette = PackedColorArray(0.9, 0.2, 0.3, 1, 0.95, 0.75, 0.2, 1, 0.2, 0.65, 0.95, 1, 0.7, 0.3, 0.9, 1)
+balloon_sprites = Array[Texture2D]([ExtResource("32"), ExtResource("33"), ExtResource("34"), ExtResource("35")])
+characters = Dictionary[String, Resource]({"boss": ExtResource("2"), "boss_defeated": ExtResource("3"), "normal": ExtResource("4"), "tank": ExtResource("7"), "thrower": ExtResource("10"), "player": ExtResource("13"), "player_right": ExtResource("13"), "armor_0_right": ExtResource("16"), "armor_1_right": ExtResource("20"), "armor_2_right": ExtResource("24"), "player_left": ExtResource("14"), "armor_0_left": ExtResource("17"), "armor_1_left": ExtResource("21"), "armor_2_left": ExtResource("25"), "player_up": ExtResource("15"), "armor_0_up": ExtResource("18"), "armor_1_up": ExtResource("22"), "armor_2_up": ExtResource("26")})
+environment = Dictionary[String, Resource]({"background": ExtResource("41"), "ground": ExtResource("42"), "balcony_0": ExtResource("43"), "balcony_1": ExtResource("44"), "balcony_2": ExtResource("45"), "balcony_3": ExtResource("46"), "balcony_4": ExtResource("47"), "balcony_5": ExtResource("48")})
+effects = Dictionary[String, Resource]({"armor_0": ExtResource("19"), "armor_1": ExtResource("23"), "armor_2": ExtResource("27"), "crossbow_right": ExtResource("28"), "crossbow_left": ExtResource("29"), "crossbow_up": ExtResource("30"), "crossbow": ExtResource("31"), "rope": ExtResource("36"), "nut": ExtResource("37"), "bolt": ExtResource("38"), "sack": ExtResource("39"), "furniture": ExtResource("40")})
+character_variants = Dictionary[String, Array]({"normal": [ExtResource("4"), ExtResource("5"), ExtResource("6")], "tank": [ExtResource("7"), ExtResource("8"), ExtResource("9")], "thrower": [ExtResource("10"), ExtResource("11"), ExtResource("12")]})

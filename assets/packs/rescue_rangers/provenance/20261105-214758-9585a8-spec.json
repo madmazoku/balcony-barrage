@@ -1,0 +1,11 @@
+{
+  "engine": "flux2",
+  "model": "flux-2-klein-9b-fp8.safetensors",
+  "sampler": "euler",
+  "width": 1024,
+  "height": 1024,
+  "steps": 25,
+  "guidance": 3.5,
+  "seed": 441136,
+  "prompt": "A full-frame background painting for a vintage late-1980s hand-drawn 2D cartoon arcade game. Front-on view of an old red-brown brick townhouse wall in a cozy city back courtyard, warm golden late-afternoon light, ornate tall windows near the upper corners, old drainpipes at the far left and far right, gentle ivy along the edges, a few distant crates and tufts of grass low at the edges. Most of the center is a simple softly shaded brick wall with restrained detail so characters and projectiles read clearly. The bottom fifteen percent is a level warm cobblestone courtyard floor, shown front-on as a side-view platform game ground. Rich but muted warm colors, crisp hand-drawn dark outlines, simple cel-painted shading, matching Rescue Rangers television animation. No balcony, no characters, no balloons, no weapons, no signs, no text. The upper central area of the wall is open and uncluttered, ready for a separate balcony sprite."
+}

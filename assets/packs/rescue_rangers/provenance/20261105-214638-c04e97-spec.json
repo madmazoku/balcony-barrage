@@ -1,0 +1,11 @@
+{
+  "engine": "flux2",
+  "model": "flux-2-klein-9b-fp8.safetensors",
+  "sampler": "euler",
+  "width": 1024,
+  "height": 1024,
+  "steps": 25,
+  "guidance": 3.5,
+  "seed": 441135,
+  "prompt": "A neatly spaced 2 by 2 sheet of FOUR DIFFERENT isolated cartoon game props, one prop entirely inside each quadrant with very wide empty green gaps. Upper LEFT: one large silver hexagonal METAL NUT, with a clearly visible round threaded hole, three-quarter view. Upper RIGHT: one short crossbow BOLT, slender horizontal brown shaft pointing right, little grey triangular arrowhead and cream feather fins at the rear. Lower LEFT: one big bulging brown CANVAS SACK tied loosely at its neck, a patched cloth bag. Lower RIGHT: one small battered RED upholstered ARMCHAIR with brown wooden legs, as a comical object thrown by a villain. All four props fully visible and separate. Bold clean black outlines, simple flat cel shading, warm colors, consistent vintage 1980s Rescue Rangers cartoon style. Plain uniform vivid green background everywhere between objects. No characters, no hands, no labels, no text, no panel borders, no shadows on the background."
+}

@@ -1,0 +1,11 @@
+{
+  "engine": "flux2",
+  "model": "flux-2-klein-9b-fp8.safetensors",
+  "image_path": "G:\\Git\\Gemini\\media_mcp\\images\\20261105-212409-859e66-final.png",
+  "mask_path": "G:\\Git\\Gemini\\media_mcp\\images\\balcony-flux-bracer-mask.png",
+  "denoise": 0.65,
+  "steps": 25,
+  "guidance": 3.5,
+  "seed": 441123,
+  "prompt": "A clearly visible improvised SILVER METAL WRIST BRACER wraps around the lavender fabric cuff of Gadget's near forearm, immediately to the left of her closed hand near her chest. The bracer is a short curved steel plate over the sleeve, held by a brown cloth strap, with a bold black rim and two rivets. It is a protective armor piece made from a small cut tin can. Keep her exact hand, fingers, arm pose, sleeve, face, hair and the entire rest of the image unchanged. Light grey metal, simple blue-grey flat cel shading, bold dark cartoon outline, same vintage animation style. Only one metal wrist guard, over opaque lavender cloth."
+}

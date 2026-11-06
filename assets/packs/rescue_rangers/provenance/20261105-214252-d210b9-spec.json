@@ -1,0 +1,11 @@
+{
+  "engine": "flux2",
+  "model": "flux-2-klein-9b-fp8.safetensors",
+  "sampler": "euler",
+  "width": 1024,
+  "height": 1024,
+  "steps": 25,
+  "guidance": 3.5,
+  "seed": 441131,
+  "prompt": "A single full-body 2D arcade enemy sprite: a comical scruffy grey rat henchman from a vintage late-1980s mouse rescue adventure cartoon. Compact average build with a large expressive head, rounded pink rat ears, long pointed muzzle, little buck teeth, grey fur, thin curved rat tail. Wearing an opaque navy blue and cream striped short-sleeved shirt, dark blue trousers and a blue knitted cap. Both arms slightly forward in a mischievous reaching pose, knees slightly bent and feet clearly visible, suitable both for hanging below balloons and running on the ground. Facing three-quarter right. Broad clear readable silhouette. Crisp bold black outlines, simple flat cel shading, warm playful cartoon palette, matching vintage Rescue Rangers animation. One character, entire tail, ears and feet visible with wide empty margins, plain uniform vivid green background. No balloons, no ropes, no weapons, no text, no scenery, no ground shadows."
+}

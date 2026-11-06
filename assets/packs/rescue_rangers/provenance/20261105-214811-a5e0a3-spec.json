@@ -1,0 +1,11 @@
+{
+  "engine": "flux2",
+  "model": "flux-2-klein-9b-fp8.safetensors",
+  "sampler": "euler",
+  "width": 1024,
+  "height": 1024,
+  "steps": 25,
+  "guidance": 3.5,
+  "seed": 441137,
+  "prompt": "One isolated very wide shallow VINTAGE BALCONY PLATFORM for a hand-drawn 2D cartoon game, front elevation. A horizontal weathered dark-brown oak floor beam across the top, chunky planks and decorative carved trim, five small old wrought-iron support brackets evenly spaced BELOW the beam, a few loose nails and chips. Entire platform is approximately four times wider than it is tall. The top walking surface is a straight horizontal line. No railing or upright posts above that surface, since the villain sprite stands there separately. Old townhouse balcony, charming worn Victorian craftsmanship, warm brown wood, dark iron, bold clean black outlines, flat cel shading matching late-1980s Rescue Rangers television animation. Centered on a plain uniform vivid green background with generous margins, entire object visible. No building attached, no characters, no text, no ground shadow."
+}

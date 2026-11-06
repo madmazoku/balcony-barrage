@@ -1,0 +1,11 @@
+{
+  "engine": "flux2",
+  "model": "flux-2-klein-9b-fp8.safetensors",
+  "sampler": "euler",
+  "width": 1024,
+  "height": 1024,
+  "steps": 25,
+  "guidance": 3.5,
+  "seed": 441130,
+  "prompt": "A single full-body game sprite of Fat Cat from Chip and Dale Rescue Rangers, the recognizable enormously fat grey anthropomorphic cat crime boss with a broad rounded belly, little black slicked hair tuft, small pink nose, yellow eyes, smug wicked grin and long grey tail. Vintage late-1980s hand-drawn television cartoon, bold clean black outlines, simple flat cel shading, soft warm colors, matching the colorful Rescue Rangers cartoon. He wears an opaque purple business suit jacket and trousers, white shirt, dark red tie and black shoes. Standing facing slightly right, both paws held forward near his enormous belly as if about to reach into a sack, but his hands are empty and there is no sack in this sprite. Entire ears, feet and tail fully visible, compact broad readable silhouette, one character centered with generous empty margin. Plain uniform vivid green background, no scenery, no text, no shadows on the background."
+}
