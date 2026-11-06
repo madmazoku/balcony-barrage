@@ -18,6 +18,8 @@ extends Resource
 @export var balloon_sprites: Array[Texture2D]
 ## Normalized position of the bottom knot in a balloon texture.
 @export var balloon_rope_anchor: Vector2
+@export var feedback: FeedbackConfig
+@export var balloon_pop_frames: Dictionary[String, Array]
 @export var player_anchor: Vector2
 @export var player_body_height: float
 @export var balcony_draw_height: float
@@ -69,6 +71,18 @@ func validation_errors() -> Array[String]:
 			for texture in character_variants[role]:
 				if not texture is Texture2D:
 					errors.append("Invalid minion variant: " + role)
+	if feedback != null or not balloon_pop_frames.is_empty():
+		if feedback == null:
+			errors.append("Animation frames require feedback configuration.")
+		else:
+			errors.append_array(feedback.validation_errors())
+		for index in balloon_sprites.size():
+			var frames: Array = balloon_pop_frames.get(str(index), [])
+			if frames.size() < 2:
+				errors.append("Missing balloon pop sequence: " + str(index))
+			for texture in frames:
+				if not texture is Texture2D:
+					errors.append("Invalid balloon pop frame.")
 	var player_frame := characters.get("player_right") as Texture2D
 	if player_frame != null:
 		for key in character_keys:

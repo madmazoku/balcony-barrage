@@ -44,3 +44,10 @@ scripts/inspect_*.py, scripts/check_*.py, scripts/debug_*.py — диагнос�
 sprite_assets.py build-pack читает weapon_transforms.right/up из art/build-static-pack.json. Исправлять привязки оружия здесь, не вводить смещения в боевом коде и не возвращать старые координаты в утилиту.
 
 Поле balloon_rope_anchor манифеста переносится build-pack в ресурс пакета и описывает нормализованное крепление верёвки к хвостику шарика; не сдвигать ради этого игровые центры в round_model.gd.
+
+## Первая группа анимаций (AI-7)
+- scripts/config/feedback_config.gd / assets/packs/rescue_rangers/feedback.tres — визуальные параметры; исходные значения в feedback манифеста подготовки.
+- scripts/game/round_feedback.gd — только временное состояние/траектории, без боевого RNG и коллизий.
+- tools/test_feedback.gd — проверка событий попадания, правильной детали при краже, кулдауна, паузы/возобновления/очистки и независимости боя от выключенных эффектов. Запуск как прочие проверки; добавлена в CI.
+- sprite_assets.py build-pack расширен опциональными feedback, pop_sheet и sources.balloon_pop. Принятые статичные PNG не меняются; выход 63 PNG при включённой первой группе. Обрезка ячеек, уменьшение и HSV-варианты детерминированы. Не создавать отдельную утилиту анимационных ресурсов.
+- capture_pack.gd расширен --feedback, --feedback-time, --frames, --step; команды и приёмка в README. Дёргает реальные события боя, затем пошагово снимает представление. Для монтажа GIF использован существующий E:/Git/ffmpeg/bin/ffmpeg.exe (crop/scale/hstack/palettegen/paletteuse), отдельного скрипта не добавлено.

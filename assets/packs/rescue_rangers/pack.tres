@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="AssetPack" load_steps=49 format=3]
+[gd_resource type="Resource" script_class="AssetPack" load_steps=66 format=3]
 
 [ext_resource type="Script" path="res://scripts/config/asset_pack.gd" id="1"]
 [ext_resource type="Texture2D" path="res://assets/packs/rescue_rangers/characters/boss.png" id="2"]
@@ -48,6 +48,23 @@
 [ext_resource type="Texture2D" path="res://assets/packs/rescue_rangers/environment/balcony_3.png" id="46"]
 [ext_resource type="Texture2D" path="res://assets/packs/rescue_rangers/environment/balcony_4.png" id="47"]
 [ext_resource type="Texture2D" path="res://assets/packs/rescue_rangers/environment/balcony_5.png" id="48"]
+[ext_resource type="Texture2D" path="res://assets/packs/rescue_rangers/effects/balloon_pop/color_0/frame_0.png" id="49"]
+[ext_resource type="Texture2D" path="res://assets/packs/rescue_rangers/effects/balloon_pop/color_0/frame_1.png" id="50"]
+[ext_resource type="Texture2D" path="res://assets/packs/rescue_rangers/effects/balloon_pop/color_0/frame_2.png" id="51"]
+[ext_resource type="Texture2D" path="res://assets/packs/rescue_rangers/effects/balloon_pop/color_0/frame_3.png" id="52"]
+[ext_resource type="Texture2D" path="res://assets/packs/rescue_rangers/effects/balloon_pop/color_1/frame_0.png" id="53"]
+[ext_resource type="Texture2D" path="res://assets/packs/rescue_rangers/effects/balloon_pop/color_1/frame_1.png" id="54"]
+[ext_resource type="Texture2D" path="res://assets/packs/rescue_rangers/effects/balloon_pop/color_1/frame_2.png" id="55"]
+[ext_resource type="Texture2D" path="res://assets/packs/rescue_rangers/effects/balloon_pop/color_1/frame_3.png" id="56"]
+[ext_resource type="Texture2D" path="res://assets/packs/rescue_rangers/effects/balloon_pop/color_2/frame_0.png" id="57"]
+[ext_resource type="Texture2D" path="res://assets/packs/rescue_rangers/effects/balloon_pop/color_2/frame_1.png" id="58"]
+[ext_resource type="Texture2D" path="res://assets/packs/rescue_rangers/effects/balloon_pop/color_2/frame_2.png" id="59"]
+[ext_resource type="Texture2D" path="res://assets/packs/rescue_rangers/effects/balloon_pop/color_2/frame_3.png" id="60"]
+[ext_resource type="Texture2D" path="res://assets/packs/rescue_rangers/effects/balloon_pop/color_3/frame_0.png" id="61"]
+[ext_resource type="Texture2D" path="res://assets/packs/rescue_rangers/effects/balloon_pop/color_3/frame_1.png" id="62"]
+[ext_resource type="Texture2D" path="res://assets/packs/rescue_rangers/effects/balloon_pop/color_3/frame_2.png" id="63"]
+[ext_resource type="Texture2D" path="res://assets/packs/rescue_rangers/effects/balloon_pop/color_3/frame_3.png" id="64"]
+[ext_resource type="Resource" path="res://assets/packs/rescue_rangers/feedback.tres" id="feedback"]
 
 [resource]
 script = ExtResource("1")
@@ -67,3 +84,5 @@ characters = Dictionary[String, Resource]({"boss": ExtResource("2"), "boss_defea
 environment = Dictionary[String, Resource]({"background": ExtResource("41"), "ground": ExtResource("42"), "balcony_0": ExtResource("43"), "balcony_1": ExtResource("44"), "balcony_2": ExtResource("45"), "balcony_3": ExtResource("46"), "balcony_4": ExtResource("47"), "balcony_5": ExtResource("48")})
 effects = Dictionary[String, Resource]({"armor_0": ExtResource("19"), "armor_1": ExtResource("23"), "armor_2": ExtResource("27"), "crossbow_right": ExtResource("28"), "crossbow_left": ExtResource("29"), "crossbow_up": ExtResource("30"), "crossbow": ExtResource("31"), "rope": ExtResource("36"), "nut": ExtResource("37"), "bolt": ExtResource("38"), "sack": ExtResource("39"), "furniture": ExtResource("40")})
 character_variants = Dictionary[String, Array]({"normal": [ExtResource("4"), ExtResource("5"), ExtResource("6")], "tank": [ExtResource("7"), ExtResource("8"), ExtResource("9")], "thrower": [ExtResource("10"), ExtResource("11"), ExtResource("12")]})
+feedback = ExtResource("feedback")
+balloon_pop_frames = Dictionary[String, Array]({"0": [ExtResource("49"), ExtResource("50"), ExtResource("51"), ExtResource("52")], "1": [ExtResource("53"), ExtResource("54"), ExtResource("55"), ExtResource("56")], "2": [ExtResource("57"), ExtResource("58"), ExtResource("59"), ExtResource("60")], "3": [ExtResource("61"), ExtResource("62"), ExtResource("63"), ExtResource("64")]})

@@ -39,16 +39,47 @@ func _capture() -> void:
 		model.cause = "Проверка финального экрана"
 	var pose: String = options.pose
 	var direction: Vector2 = Vector2.UP if pose == "up" else (Vector2.LEFT if pose == "left" else Vector2.RIGHT)
-	game.call("_shoot", direction)
+	var effect: String = options.get("feedback", "shot")
+	match effect:
+		"pop":
+			model.minions.clear()
+			model.spawn("thrower", Vector2(model.config.arena_size.x / 2, model.config.ground_y - 210))
+			model.minions[0].variant = int(options.get("color", "0"))
+			var balloon: Vector2 = model.balloon_positions(model.minions[0])[0]
+			model.bolts.append({"pos": balloon + Vector2(0, 15), "velocity": Vector2.UP * model.config.bolt_speed})
+			model._update_bolts(0.05)
+			game.set("player_pose", pose)
+		"armor":
+			game.set("player_pose", pose)
+			model.damage("Попадание гайкой")
+		"capture":
+			model.minions.clear()
+			model.spawn("normal", model.player)
+			model.minions[0].state = "ground"
+			model._update_minions(0.001)
+		_:
+			game.call("_shoot", direction)
+	var feedback: RoundFeedback = game.get("feedback")
+	if feedback != null:
+		feedback.advance(float(options.get("feedback-time", "0")))
 	game.call("_update_hud")
-	game.queue_redraw()
-	await RenderingServer.frame_post_draw
-	await process_frame
-	await RenderingServer.frame_post_draw
-	var error: Error = root.get_texture().get_image().save_png(options.capture)
-	if error != OK:
-		push_error("Could not save QA capture.")
-		quit(1)
-		return
-	print("CAPTURE_OK ", options.capture)
+	var count: int = int(options.get("frames", "1"))
+	for index in count:
+		if index > 0 and feedback != null:
+			feedback.advance(float(options.get("step", "0.04")))
+		game.queue_redraw()
+		await RenderingServer.frame_post_draw
+		await process_frame
+		await RenderingServer.frame_post_draw
+		var path: String = options.capture if count == 1 else options.capture.get_basename() + ("-%03d.png" % index)
+		var image: Image = root.get_texture().get_image()
+		var capture_size := Vector2i(int(ProjectSettings.get_setting("display/window/size/window_width_override")), int(ProjectSettings.get_setting("display/window/size/window_height_override")))
+		if capture_size.x > 0 and capture_size.y > 0 and image.get_size() != capture_size:
+			image.resize(capture_size.x, capture_size.y, Image.INTERPOLATE_LANCZOS)
+		var error: Error = image.save_png(path)
+		if error != OK:
+			push_error("Could not save QA capture.")
+			quit(1)
+			return
+	print("CAPTURE_OK ", options.capture, " frames=", count)
 	quit()

@@ -1,0 +1,11 @@
+{
+  "engine": "flux2",
+  "model": "flux-2-klein-9b-fp8.safetensors",
+  "sampler": "euler",
+  "width": 1024,
+  "height": 1024,
+  "steps": 25,
+  "guidance": 3.5,
+  "seed": 441180,
+  "prompt": "A production 2D cartoon sprite sheet with FOUR SEQUENTIAL ANIMATION FRAMES of a bright RED rubber balloon POPPING. Exact layout: two columns and two rows, four equal square cells, no grid lines. All frames are centered in their own cell with generous green margins, same scale and same fixed center. TOP LEFT: the red balloon has just torn open into a jagged red hollow starburst, clearly punctured and losing its oval shape, an empty green hole in its middle. TOP RIGHT: the rubber has broken into six large curled red latex shards expanding away from the empty center. BOTTOM LEFT: the same six red shards are farther apart and smaller, most of the cell is empty green. BOTTOM RIGHT: only three tiny red latex curls remain near the edges, almost completely disappeared. Thick clean BLACK outlines around the red latex pieces, a little pale pink highlight, simple flat red and dark-red cel shading matching late-1980s hand-drawn Rescue Rangers cartoon game assets. Every cell has the identical PLAIN UNIFORM VIVID GREEN background. Only red balloon rubber fragments, no string, no intact balloons, no white flash, no words, no lettering, no labels, no numbers, no panels, no extra objects. The four cells show progressive disintegration, never four intact balloons."
+}

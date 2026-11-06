@@ -56,5 +56,20 @@
     "Only generated artwork, alpha extraction, scaling, mirroring and palette variants. No drawn object overlays.",
     "Changing the chosen model after production requires a new version and regeneration of the complete pack."
   ],
-  "approval_scope": "Owner accepted the complete playable static pack and boss fall on 2026-11-05, requesting furniture attacks enabled by default. Phase 4 accepted; phase 5 animation requires separate acceptance."
+  "approval_scope": "Owner accepted the complete playable static pack and boss fall on 2026-11-05, requesting furniture attacks enabled by default. Phase 4 accepted; phase 5 animation requires separate acceptance.",
+  "animation": {
+    "status": "group_1_accepted",
+    "scope": [
+      "shot recoil using existing generated layers",
+      "four-frame balloon pop",
+      "detached armor flight"
+    ],
+    "image_model": "same image lock; no model or style changes",
+    "new_source_runs": [
+      "20261106-155054-a16d63"
+    ],
+    "notes": "Only generated art and deterministic transforms. Full character and background animation remain later groups.",
+    "approved_at": "2026-11-06",
+    "approval": "Owner: хорошо, принимается"
+  }
 }

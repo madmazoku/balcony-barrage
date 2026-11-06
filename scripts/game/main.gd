@@ -13,6 +13,7 @@ var scenario_ids: Array[String] = ["round", "line", "landing", "damage", "boss",
 var font: Font = ThemeDB.fallback_font
 var controls: PlayerControls
 var player_pose: String = "right"
+var feedback: RoundFeedback
 
 func _ready() -> void:
 	texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
@@ -28,6 +29,10 @@ func _ready() -> void:
 		set_physics_process(false)
 		return
 	model = RoundModel.new(settings)
+	if pack.feedback != null:
+		feedback = RoundFeedback.new(pack.feedback)
+		model.balloon_popped.connect(_on_balloon_popped)
+		model.armor_removed.connect(_on_armor_removed)
 	controls = PlayerControls.new()
 	controls.gameplay = settings
 	controls.player_x = model.player.x
@@ -101,11 +106,51 @@ func _restart() -> void:
 	controls.accepting_gameplay = true
 	controls.player_x = model.player.x
 	player_pose = "right"
+	if feedback != null:
+		feedback.clear()
 	queue_redraw()
 
 func _shoot(direction: Vector2) -> void:
 	if not paused and model.shoot(direction):
 		player_pose = "up" if direction.y < 0 else ("left" if direction.x < 0 else "right")
+		if feedback != null:
+			feedback.shoot(direction)
+
+func _on_balloon_popped(position: Vector2, color_variant: int) -> void:
+	var index: int = color_variant % pack.balloon_sprites.size()
+	feedback.pop(position, index, pack.balloon_pop_frames[str(index)].size())
+
+func _player_visual_transform() -> Transform2D:
+	var foot := Vector2(model.player.x, model.player.y + settings.player_size.y / 2)
+	if feedback == null:
+		return Transform2D(0, foot)
+	var weight: float = feedback.recoil_weight()
+	var angle: float = -feedback.shot_direction.x * deg_to_rad(feedback.settings.shot_tilt_degrees) * weight
+	return Transform2D(angle, Vector2(1, 1 - feedback.settings.shot_squash * weight), 0, foot)
+
+func _on_armor_removed(part: int, stolen: bool) -> void:
+	# A captured piece travels with the escaping thief; a projectile knocks it away.
+	if stolen or part >= 3:
+		return
+	var layer := pack.characters["armor_%d_%s" % [part, player_pose]] as Texture2D
+	var bounds: Rect2i = layer.get_image().get_used_rect()
+	var scale_factor: float = settings.player_size.y / pack.player_body_height
+	var origin: Vector2 = _player_visual_transform() * ((Vector2(bounds.position) + Vector2(bounds.size) / 2 - pack.player_anchor) * scale_factor)
+	feedback.armor(origin, Vector2(bounds.size) * scale_factor, part)
+
+func _draw_feedback() -> void:
+	if feedback == null:
+		return
+	for effect in feedback.effects:
+		if effect.kind == "pop":
+			var frames: Array = pack.balloon_pop_frames[str(effect.variant)]
+			var index: int = mini(frames.size() - 1, int(effect.age / feedback.settings.pop_frame_seconds))
+			var size: float = settings.balloon_radius * 2.6 * feedback.settings.pop_size_multiplier
+			_texture_center(frames[index] as Texture2D, effect.pos, Vector2.ONE * size)
+		else:
+			draw_set_transform(effect.pos, effect.angle)
+			draw_texture_rect(pack.effects["armor_" + str(effect.part)] as Texture2D, Rect2(-effect.size / 2, effect.size), false)
+			draw_set_transform(Vector2.ZERO)
 
 func _toggle_pause() -> void:
 	paused = not paused
@@ -116,6 +161,8 @@ func _physics_process(delta: float) -> void:
 	if model == null:
 		return
 	if not paused:
+		if feedback != null:
+			feedback.advance(delta)
 		var movement: float = controls.movement(model.player.x, delta)
 		model.tick(delta, movement)
 		if model.cooldown <= 0 and not is_zero_approx(movement):
@@ -250,13 +297,14 @@ func _draw_static() -> void:
 		_text(boss_position + Vector2(60, -35), "БРОСОК!")
 	var frame := pack.characters["player_" + player_pose] as Texture2D
 	var scale_factor: float = settings.player_size.y / pack.player_body_height
-	var frame_rect := Rect2(Vector2(model.player.x, model.player.y + settings.player_size.y / 2) -
-		pack.player_anchor * scale_factor, frame.get_size() * scale_factor)
+	var frame_rect := Rect2(-pack.player_anchor * scale_factor, frame.get_size() * scale_factor)
+	draw_set_transform_matrix(_player_visual_transform())
 	var tint := Color(1, 1, 1, .45 if model.grace > 0 else 1.0)
 	draw_texture_rect(frame, frame_rect, false, tint)
 	draw_texture_rect(pack.effects["crossbow_" + player_pose] as Texture2D, frame_rect, false, tint)
 	for part in mini(model.armor, 3):
 		draw_texture_rect(pack.characters["armor_%d_%s" % [part, player_pose]] as Texture2D, frame_rect, false, tint)
+	draw_set_transform(Vector2.ZERO)
 	for enemy in model.minions:
 		var flip: bool = enemy.escape_direction < 0 if enemy.state == "escape" else enemy.pos.x > model.player.x
 		if enemy.state == "air":
@@ -277,8 +325,8 @@ func _draw_static() -> void:
 			_texture_center(pack.effects["nut"] as Texture2D,
 				enemy.pos + Vector2(-model.body_size(enemy.role).x / 2, -model.body_size(enemy.role).y / 2),
 				settings.nut_size)
-		if enemy.state == "escape":
-			_texture_center(pack.effects["armor_1"] as Texture2D, enemy.pos + Vector2(15, 0), Vector2(15, 16))
+		if enemy.state == "escape" and enemy.stolen_part >= 0 and enemy.stolen_part < 3:
+			_texture_center(pack.effects["armor_" + str(enemy.stolen_part)] as Texture2D, enemy.pos + Vector2(15, 0), Vector2(15, 16))
 	for bolt in model.bolts:
 		draw_set_transform(bolt.pos, bolt.velocity.angle())
 		draw_texture_rect(pack.effects["bolt"] as Texture2D,
@@ -288,6 +336,7 @@ func _draw_static() -> void:
 	for hazard in model.hazards:
 		var size: Vector2 = Vector2(settings.furniture_hit_width, settings.furniture_height) if hazard.furniture else settings.nut_size
 		_texture_center(pack.effects["furniture" if hazard.furniture else "nut"] as Texture2D, hazard.pos, size)
+	_draw_feedback()
 	# Functional HUD panels sit over the painting.
 	draw_rect(Rect2(0, 0, settings.arena_size.x, 112), pack.colors["hud_panel"])
 	draw_rect(Rect2(0, settings.ground_y + 3, settings.arena_size.x, settings.arena_size.y - settings.ground_y), pack.colors["hud_panel"])
