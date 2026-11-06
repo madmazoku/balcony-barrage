@@ -16,6 +16,8 @@ extends Resource
 @export_group("Static pack")
 @export var character_variants: Dictionary[String, Array]
 @export var balloon_sprites: Array[Texture2D]
+## Normalized position of the bottom knot in a balloon texture.
+@export var balloon_rope_anchor: Vector2
 @export var player_anchor: Vector2
 @export var player_body_height: float
 @export var balcony_draw_height: float
@@ -53,6 +55,8 @@ func validation_errors() -> Array[String]:
 	for stage in 6:
 		environment_keys.append("balcony_" + str(stage))
 	_check_textures(environment, environment_keys, "environment", errors)
+	if balloon_rope_anchor.x <= 0 or balloon_rope_anchor.x >= 1 or balloon_rope_anchor.y <= 0 or balloon_rope_anchor.y > 1:
+		errors.append("Balloon rope anchor must lie inside the normalized texture frame.")
 	if balloon_sprites.size() != balloon_palette.size():
 		errors.append("Balloon textures and palette must have matching counts.")
 	for texture in balloon_sprites:
