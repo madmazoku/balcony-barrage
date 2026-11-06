@@ -1,6 +1,9 @@
 class_name RoundModel
 extends RefCounted
 ## Fixed-step simulation. Rendering and input do not own combat rules.
+signal balloon_popped(position: Vector2, color_variant: int)
+signal armor_removed(part: int, stolen: bool)
+
 var config: GameplayConfig
 var rng := RandomNumberGenerator.new()
 var minions: Array[Dictionary] = []
@@ -84,7 +87,7 @@ func spawn(role: String, position: Vector2) -> void:
 		"role": role, "pos": position, "base_x": position.x,
 		"hp": config.get(role + "_balloons"), "state": "air",
 		"phase": rng.randf_range(0, TAU), "variant": rng.randi(),
-		"attack": config.nut_interval_seconds, "windup": 0.0,
+		"attack": config.nut_interval_seconds, "windup": 0.0, "stolen_part": -1,
 		"escape_direction": 1.0 if position.x >= player.x else -1.0,
 	})
 
@@ -185,7 +188,8 @@ func _update_minions(delta: float) -> void:
 			"ground":
 				position.x = move_toward(position.x, player.x, config.ground_speed * delta)
 				if Rect2(position - size / 2, size).intersects(Rect2(player - config.player_size / 2, config.player_size)):
-					if damage("Захват наземным миньоном"):
+					if damage("Захват наземным миньоном", true):
+						enemy.stolen_part = armor if result == "" else -1
 						enemy.state = "escape"
 						enemy.escape_direction = -1.0 if position.x < player.x else 1.0
 			"fall":
@@ -196,13 +200,14 @@ func _update_minions(delta: float) -> void:
 	minions = minions.filter(func(e: Dictionary) -> bool:
 		return e.pos.y < config.arena_size.y + config.tank_size.y and e.pos.x > -config.tank_size.x and e.pos.x < config.arena_size.x + config.tank_size.x)
 
-func damage(reason: String) -> bool:
+func damage(reason: String, stolen: bool = false) -> bool:
 	if result != "" or boss_falling or grace > 0:
 		return false
 	if armor > 0:
 		armor -= 1
 		grace = config.damage_grace_seconds
 		last_event = reason + " — потеря брони"
+		armor_removed.emit(armor, stolen)
 	else:
 		result = "lose"
 		cause = reason
@@ -276,10 +281,14 @@ func _update_bolts(delta: float) -> void:
 					target.state = "fall"
 					kills += 1
 				else:
+					var last_balloon: int = int(target.hp) - 1
+					var popped_position: Vector2 = balloon_positions(target)[last_balloon]
+					var popped_variant: int = int(target.variant) + last_balloon
 					target.hp -= 1
 					if target.hp == 0:
 						target.state = "fall"
 						kills += 1
+					balloon_popped.emit(popped_position, popped_variant)
 		else:
 			bolt.pos = finish
 			if not Rect2(-config.bolt_size, config.arena_size + config.bolt_size * 2).has_point(finish):

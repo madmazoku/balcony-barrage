@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="FeedbackConfig" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/config/feedback_config.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+enabled = true
+shot_seconds = 0.16
+shot_tilt_degrees = 3.0
+shot_squash = 0.055
+pop_frame_seconds = 0.055
+pop_size_multiplier = 1.2
+armor_flight_seconds = 1.4
+armor_launch_velocity = Vector2(180.0, -360.0)
+armor_gravity = 1100.0
+armor_spin_radians = 8.0
+armor_size_multiplier = 1.4

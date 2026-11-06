@@ -104,6 +104,70 @@
     "sha256": "d53ed90eb1be36776ab736d9e13f0a47aa5885cd381625521a4bb646c81b89f6"
   },
   {
+    "path": "assets/packs/rescue_rangers/effects/balloon_pop/color_0/frame_0.png",
+    "sha256": "3fc4c90647700d59aab812e723ee901adb12a7c85dfa0a93774a6527dfbb555f"
+  },
+  {
+    "path": "assets/packs/rescue_rangers/effects/balloon_pop/color_0/frame_1.png",
+    "sha256": "5ba5cb24e9786fa0527c0d00810085a765a46c8d4a24d84ee3cdd417d034d84a"
+  },
+  {
+    "path": "assets/packs/rescue_rangers/effects/balloon_pop/color_0/frame_2.png",
+    "sha256": "26efa8f81ec8db50196e75d039bbc6599f922da80ac54c6bc19f7d33fb6cd2e9"
+  },
+  {
+    "path": "assets/packs/rescue_rangers/effects/balloon_pop/color_0/frame_3.png",
+    "sha256": "ba41dcb91fb6ee4e0541bcdfc0859a36bf884e5c08804f06bf64c4309580acfd"
+  },
+  {
+    "path": "assets/packs/rescue_rangers/effects/balloon_pop/color_1/frame_0.png",
+    "sha256": "0c886c839a3ff1bcacd917b52a47b09e50ef1cd0b85f57401dee201a1ad7db85"
+  },
+  {
+    "path": "assets/packs/rescue_rangers/effects/balloon_pop/color_1/frame_1.png",
+    "sha256": "8beac0b865ff7d448945c13d7ba2699543dae88f6fba60165305a9a8a83b0a6d"
+  },
+  {
+    "path": "assets/packs/rescue_rangers/effects/balloon_pop/color_1/frame_2.png",
+    "sha256": "b2397b8c2c3a25edbde5f44a145086daa63adbc76b7e47041b77a058d4c5440e"
+  },
+  {
+    "path": "assets/packs/rescue_rangers/effects/balloon_pop/color_1/frame_3.png",
+    "sha256": "985eda8fcafb71a5af2bd6e84c88d5847cae9e7e6294f293e0cfdd4db3f4974a"
+  },
+  {
+    "path": "assets/packs/rescue_rangers/effects/balloon_pop/color_2/frame_0.png",
+    "sha256": "ebc9e35c367d796cf6f630a00fc7789522d36d1376c5c9713cee7fbbcd6cb013"
+  },
+  {
+    "path": "assets/packs/rescue_rangers/effects/balloon_pop/color_2/frame_1.png",
+    "sha256": "cae47dbd6a8e7202ae807d88aa45077c87095468ce3f1336f5176d44f06e48ea"
+  },
+  {
+    "path": "assets/packs/rescue_rangers/effects/balloon_pop/color_2/frame_2.png",
+    "sha256": "fe97642a772551fb42653867e809c1ecb8d0a8c916ce8a8cf642435a0f0df131"
+  },
+  {
+    "path": "assets/packs/rescue_rangers/effects/balloon_pop/color_2/frame_3.png",
+    "sha256": "4f0252b624c278bb0681e38c4ef07cfdddebd1baaa03e61b2259917730817017"
+  },
+  {
+    "path": "assets/packs/rescue_rangers/effects/balloon_pop/color_3/frame_0.png",
+    "sha256": "2243f26c5baf16faaf18a9f056eae1016cccdab91fa27de8984d3fc7670b6af1"
+  },
+  {
+    "path": "assets/packs/rescue_rangers/effects/balloon_pop/color_3/frame_1.png",
+    "sha256": "71bbf2628dc6661428c2b8648edb876e67e78795fe7eacdce9393247fa02eaa6"
+  },
+  {
+    "path": "assets/packs/rescue_rangers/effects/balloon_pop/color_3/frame_2.png",
+    "sha256": "38b54421a10678ee362a5853f523e8d4c03e265c8e6f412a7ab71411612cc24f"
+  },
+  {
+    "path": "assets/packs/rescue_rangers/effects/balloon_pop/color_3/frame_3.png",
+    "sha256": "e9d5af62b7d8ed6810f987e6a99592d16b8094c2af0fb6519981ac97f3d98084"
+  },
+  {
     "path": "assets/packs/rescue_rangers/effects/balloons/color_0.png",
     "sha256": "3f5e5bf20c6177eb852d6d615c7dff46ad90f365923116f39ed537378f1fe4ec"
   },

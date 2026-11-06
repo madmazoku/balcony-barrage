@@ -147,6 +147,14 @@
       "run_prefix": "20261105-223530-65a844",
       "image_path": "art/sources/rescue_rangers/balcony-progressive-4.png",
       "spec_path": "assets/packs/rescue_rangers/provenance/20261105-223530-65a844-spec.json"
+    },
+    "balloon_pop": {
+      "run_prefix": "20261106-155054-a16d63",
+      "image_path": "art/sources/rescue_rangers/20261106-155054-a16d63.png",
+      "spec_path": "assets/packs/rescue_rangers/provenance/20261106-155054-a16d63-spec.json",
+      "engine": "flux2",
+      "model": "flux-2-klein-9b-fp8.safetensors",
+      "seed": 441180
     }
   },
   "output": "assets/packs/rescue_rangers",
@@ -246,5 +254,53 @@
   "balloon_rope_anchor": [
     0.5,
     0.98
-  ]
+  ],
+  "pop_sheet": {
+    "crops": [
+      [
+        8,
+        8,
+        504,
+        504
+      ],
+      [
+        520,
+        8,
+        1016,
+        504
+      ],
+      [
+        8,
+        520,
+        504,
+        1016
+      ],
+      [
+        520,
+        520,
+        1016,
+        1016
+      ]
+    ],
+    "frame_size": [
+      256,
+      256
+    ]
+  },
+  "feedback": {
+    "enabled": true,
+    "shot_seconds": 0.16,
+    "shot_tilt_degrees": 3.0,
+    "shot_squash": 0.055,
+    "pop_frame_seconds": 0.055,
+    "pop_size_multiplier": 1.2,
+    "armor_flight_seconds": 1.4,
+    "armor_launch_velocity": [
+      180.0,
+      -360.0
+    ],
+    "armor_gravity": 1100.0,
+    "armor_spin_radians": 8.0,
+    "armor_size_multiplier": 1.4
+  }
 }

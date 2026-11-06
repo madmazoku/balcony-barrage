@@ -32,6 +32,18 @@ func _run() -> void:
 			check(image != null and not image.is_invisible(), "Empty sprite: " + key)
 			if image != null:
 				check(image.detect_alpha() != Image.ALPHA_NONE, "Foreground sprite must have alpha: " + key)
+	if art.feedback != null:
+		for frames in art.balloon_pop_frames.values():
+			var frame_size: Vector2i = (frames[0] as Texture2D).get_image().get_size()
+			for frame in frames:
+				var image: Image = (frame as Texture2D).get_image()
+				check(not image.is_invisible() and image.detect_alpha() != Image.ALPHA_NONE,
+					"Pop frames must contain generated art and transparent background.")
+				check(image.get_size() == frame_size, "Pop sequence must retain a fixed canvas.")
+		var missing_pop: AssetPack = art.duplicate()
+		missing_pop.balloon_pop_frames = art.balloon_pop_frames.duplicate()
+		missing_pop.balloon_pop_frames.erase("0")
+		check(not missing_pop.validation_errors().is_empty(), "A configured animation pack must include every color.")
 	for role in ["normal", "tank", "thrower"]:
 		check(art.character_variants[role].size() == 3, "Each minion role needs three palettes.")
 	check((art.environment["balcony_5"] as Texture2D).get_image().is_invisible(),
