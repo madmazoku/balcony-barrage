@@ -1,0 +1,12 @@
+{
+  "engine": "flux2",
+  "model": "flux-2-klein-9b-fp8.safetensors",
+  "sampler": "euler",
+  "image_path": "G:\\Git\\Gemini\\media_mcp\\images\\actor-actions\\normal-reference.png",
+  "mask_path": "G:\\Git\\Gemini\\media_mcp\\images\\actor-actions\\normal-capture-mask.png",
+  "denoise": 0.95,
+  "steps": 25,
+  "guidance": 3.5,
+  "seed": 441195,
+  "prompt": "Only change the TWO arms of this exact cheerful grey mouse into a GRABBING pose. Both grey forearms extend FORWARD to the RIGHT side of the picture, with both open pink hands reaching ahead at chest height, fingers curled to snatch something. The hands are empty. The near arm reaches farther right; the other arm reaches just behind it. The original low fists are replaced by these extended arms. Preserve the same navy-blue and pale-yellow HORIZONTALLY STRIPED short-sleeve T-shirt with exactly the same colors, sleeves and torso shape. Preserve the blue cap, face, ears, body, blue pants, raised knee, bare feet, and tail exactly at their original positions. Same grey fur, pink palms, bold clean black outline and simple flat cel shading of the reference vintage cartoon. Only two arms and two hands, empty green space around the extended hands. Uniform green background, no new props, no text."
+}

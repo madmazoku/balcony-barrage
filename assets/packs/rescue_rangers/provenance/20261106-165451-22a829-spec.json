@@ -1,0 +1,12 @@
+{
+  "engine": "flux2",
+  "model": "flux-2-klein-9b-fp8.safetensors",
+  "sampler": "euler",
+  "image_path": "G:\\Git\\Gemini\\media_mcp\\images\\actor-actions\\thrower-reference.png",
+  "mask_path": "G:\\Git\\Gemini\\media_mcp\\images\\actor-actions\\thrower-windup-mask.png",
+  "denoise": 0.95,
+  "steps": 25,
+  "guidance": 3.5,
+  "seed": 441191,
+  "prompt": "A clearly DIFFERENT throwing pose for this exact skinny grey cartoon mouse. The arm on the LEFT side of the picture is raised HIGH OVERHEAD: the hand gripping the metal nut is up near the TOP LEFT corner beside the TOP of the ear, with the forearm almost VERTICAL. The elbow is bent high, ready to throw DOWNWARDS. Completely replace the old low throwing hand and the old low elbow. The nut is HELD between the raised fingers, never floating. Fill the vacated old hand area with plain green background. Preserve the mouse's head, face, ears, long pointed muzzle, orange scarf, patched purple vest, shorts, bag held in the other hand, legs and feet at precisely their original positions. Uniform green backdrop, bold black cartoon outlines and flat cel shading in the same vintage hand-drawn television style. One new overhead throwing arm on the left, not the original pose."
+}

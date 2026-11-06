@@ -33,6 +33,8 @@ func _ready() -> void:
 		feedback = RoundFeedback.new(pack.feedback)
 		model.balloon_popped.connect(_on_balloon_popped)
 		model.armor_removed.connect(_on_armor_removed)
+		model.thrower_released.connect(_on_thrower_released)
+		model.armor_stolen.connect(_on_armor_stolen)
 	controls = PlayerControls.new()
 	controls.gameplay = settings
 	controls.player_x = model.player.x
@@ -128,15 +130,86 @@ func _player_visual_transform() -> Transform2D:
 	var angle: float = -feedback.shot_direction.x * deg_to_rad(feedback.settings.shot_tilt_degrees) * weight
 	return Transform2D(angle, Vector2(1, 1 - feedback.settings.shot_squash * weight), 0, foot)
 
-func _on_armor_removed(part: int, stolen: bool) -> void:
-	# A captured piece travels with the escaping thief; a projectile knocks it away.
-	if stolen or part >= 3:
-		return
+func _armor_visual_origin(part: int) -> Dictionary:
 	var layer := pack.characters["armor_%d_%s" % [part, player_pose]] as Texture2D
 	var bounds: Rect2i = layer.get_image().get_used_rect()
 	var scale_factor: float = settings.player_size.y / pack.player_body_height
 	var origin: Vector2 = _player_visual_transform() * ((Vector2(bounds.position) + Vector2(bounds.size) / 2 - pack.player_anchor) * scale_factor)
-	feedback.armor(origin, Vector2(bounds.size) * scale_factor, part)
+	return {"pos": origin, "size": Vector2(bounds.size) * scale_factor}
+
+func _on_armor_removed(part: int, stolen: bool) -> void:
+	if stolen or part >= 3:
+		return
+	var piece: Dictionary = _armor_visual_origin(part)
+	feedback.armor(piece.pos, piece.size, part)
+
+func _on_thrower_released(enemy: Dictionary) -> void:
+	feedback.release(enemy)
+
+func _on_armor_stolen(part: int, thief: Dictionary) -> void:
+	if part >= 3:
+		return
+	var piece: Dictionary = _armor_visual_origin(part)
+	feedback.steal(piece.pos, piece.size, part, thief)
+
+func _enemy_actions_active() -> bool:
+	return feedback != null and feedback.settings.enabled and feedback.settings.enemy_actions_enabled
+
+func _enemy_visual_pose(enemy: Dictionary) -> Dictionary:
+	var pose: Dictionary = {"pos": enemy.pos, "flip": enemy.escape_direction < 0 if enemy.state == "escape" else enemy.pos.x > model.player.x,
+		"action": "", "angle": 0.0}
+	if not _enemy_actions_active():
+		return pose
+	if enemy.state == "air" and enemy.role == "thrower":
+		var weight: float = 0.0
+		if enemy.windup > 0:
+			pose.action = "thrower_windup"
+			weight = clampf(1.0 - enemy.windup / settings.nut_windup_seconds, 0, 1)
+		else:
+			var release: Dictionary = feedback.enemy_effect(enemy, "release")
+			if not release.is_empty():
+				pose.action = "thrower_release"
+				weight = 1.0 - release.age / release.lifetime
+		pose.angle = deg_to_rad(feedback.settings.windup_tilt_degrees) * weight * (1 if pose.flip else -1)
+	if enemy.state == "escape":
+		var steal: Dictionary = feedback.enemy_effect(enemy, "steal")
+		if not steal.is_empty():
+			var phase: float = steal.age / steal.lifetime
+			var reach: float = feedback.settings.capture_reach_fraction
+			if phase < reach:
+				pose.pos = steal.start_pos
+				pose.flip = enemy.escape_direction > 0
+				pose.action = enemy.role + "_capture"
+			else:
+				pose.pos = (steal.start_pos as Vector2).lerp(enemy.pos, smoothstep(reach, 1, phase))
+			pose.angle = deg_to_rad(feedback.settings.capture_tilt_degrees) * sin(PI * phase) * enemy.escape_direction
+	return pose
+
+func _carried_armor_pose(enemy: Dictionary) -> Dictionary:
+	if not _enemy_actions_active():
+		return {"pos": enemy.pos + Vector2(15, 0), "size": Vector2(15, 16)}
+	var pose: Dictionary = _enemy_visual_pose(enemy)
+	var side: float = enemy.escape_direction
+	var steal: Dictionary = feedback.enemy_effect(enemy, "steal")
+	if not steal.is_empty():
+		var phase: float = steal.age / steal.lifetime
+		side = lerpf(-side, side, smoothstep(feedback.settings.capture_reach_fraction, 1, phase))
+	return {"pos": pose.pos + feedback.settings.carry_offset * Vector2(side, 1), "size": feedback.settings.carry_size}
+
+func _draw_enemy(enemy: Dictionary) -> void:
+	var pose: Dictionary = _enemy_visual_pose(enemy)
+	var size: Vector2 = model.body_size(enemy.role)
+	if pose.action == "":
+		_sprite_body(pose.pos, size, enemy.role, enemy.variant, pose.flip)
+		return
+	var options: Array = pack.enemy_action_frames[pose.action]
+	var texture := options[int(enemy.variant) % options.size()] as Texture2D
+	var reference: Rect2 = pack.enemy_frame_bounds[enemy.role]
+	var scale_factor: Vector2 = size / (texture.get_size() * reference.size)
+	var frame := Rect2(-reference.get_center() * texture.get_size() * scale_factor, texture.get_size() * scale_factor)
+	draw_set_transform(pose.pos, pose.angle, Vector2(-1, 1) if pose.flip else Vector2.ONE)
+	draw_texture_rect(texture, frame, false)
+	draw_set_transform(Vector2.ZERO)
 
 func _draw_feedback() -> void:
 	if feedback == null:
@@ -147,10 +220,15 @@ func _draw_feedback() -> void:
 			var index: int = mini(frames.size() - 1, int(effect.age / feedback.settings.pop_frame_seconds))
 			var size: float = settings.balloon_radius * 2.6 * feedback.settings.pop_size_multiplier
 			_texture_center(frames[index] as Texture2D, effect.pos, Vector2.ONE * size)
-		else:
+		elif effect.kind == "armor":
 			draw_set_transform(effect.pos, effect.angle)
 			draw_texture_rect(pack.effects["armor_" + str(effect.part)] as Texture2D, Rect2(-effect.size / 2, effect.size), false)
 			draw_set_transform(Vector2.ZERO)
+		elif effect.kind == "steal":
+			var target: Dictionary = _carried_armor_pose(effect.enemy)
+			var progress: float = smoothstep(0, feedback.settings.armor_transfer_seconds, effect.age)
+			_texture_center(pack.effects["armor_" + str(effect.part)] as Texture2D,
+				(effect.pos as Vector2).lerp(target.pos, progress), (effect.size as Vector2).lerp(target.size, progress))
 
 func _toggle_pause() -> void:
 	paused = not paused
@@ -306,7 +384,6 @@ func _draw_static() -> void:
 		draw_texture_rect(pack.characters["armor_%d_%s" % [part, player_pose]] as Texture2D, frame_rect, false, tint)
 	draw_set_transform(Vector2.ZERO)
 	for enemy in model.minions:
-		var flip: bool = enemy.escape_direction < 0 if enemy.state == "escape" else enemy.pos.x > model.player.x
 		if enemy.state == "air":
 			var positions: Array[Vector2] = model.balloon_positions(enemy)
 			for index in positions.size():
@@ -320,13 +397,15 @@ func _draw_static() -> void:
 				draw_set_transform(Vector2.ZERO)
 				var color_index: int = (int(enemy.variant) + index) % pack.balloon_sprites.size()
 				_texture_center(pack.balloon_sprites[color_index], balloon, balloon_size)
-		_sprite_body(enemy.pos, model.body_size(enemy.role), enemy.role, enemy.variant, flip)
-		if enemy.windup > 0:
+		_draw_enemy(enemy)
+		if enemy.windup > 0 and not _enemy_actions_active():
 			_texture_center(pack.effects["nut"] as Texture2D,
-				enemy.pos + Vector2(-model.body_size(enemy.role).x / 2, -model.body_size(enemy.role).y / 2),
-				settings.nut_size)
+				enemy.pos + Vector2(-model.body_size(enemy.role).x / 2, -model.body_size(enemy.role).y / 2), settings.nut_size)
 		if enemy.state == "escape" and enemy.stolen_part >= 0 and enemy.stolen_part < 3:
-			_texture_center(pack.effects["armor_" + str(enemy.stolen_part)] as Texture2D, enemy.pos + Vector2(15, 0), Vector2(15, 16))
+			var transferring: bool = _enemy_actions_active() and not feedback.enemy_effect(enemy, "steal").is_empty()
+			if not transferring:
+				var carried: Dictionary = _carried_armor_pose(enemy)
+				_texture_center(pack.effects["armor_" + str(enemy.stolen_part)] as Texture2D, carried.pos, carried.size)
 	for bolt in model.bolts:
 		draw_set_transform(bolt.pos, bolt.velocity.angle())
 		draw_texture_rect(pack.effects["bolt"] as Texture2D,

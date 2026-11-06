@@ -1,5 +1,53 @@
 [
   {
+    "path": "assets/packs/rescue_rangers/characters/actions/normal_capture/base.png",
+    "sha256": "52fc2c9c0633e683e521711a443d2e3a301579da83c17f19452b202352226001"
+  },
+  {
+    "path": "assets/packs/rescue_rangers/characters/actions/normal_capture/dark.png",
+    "sha256": "452a505e8d8ef0d460daf32ec7c2e1a1f1d9ce45a36d011a2d370e1ad831cca4"
+  },
+  {
+    "path": "assets/packs/rescue_rangers/characters/actions/normal_capture/warm.png",
+    "sha256": "c421c7d9ff09388e87028465f9c09ed10886703ed77859f92ccccf0eca86fa74"
+  },
+  {
+    "path": "assets/packs/rescue_rangers/characters/actions/tank_capture/base.png",
+    "sha256": "7e442d3f2232389b6e02b0c59a595513fa2c69e55b3da588ea0560f012618ff0"
+  },
+  {
+    "path": "assets/packs/rescue_rangers/characters/actions/tank_capture/dark.png",
+    "sha256": "d1316ce2f9d992a91fcd0fe081b258750fa8c2a61482e9f637abb047493e1a86"
+  },
+  {
+    "path": "assets/packs/rescue_rangers/characters/actions/tank_capture/warm.png",
+    "sha256": "7c5d833f24f2c3120e4a3dd6b7740fb97921f906c01677ec8defb96b96723d7c"
+  },
+  {
+    "path": "assets/packs/rescue_rangers/characters/actions/thrower_release/base.png",
+    "sha256": "d8adaab69552826911c532368189d4b6723f256938d678e1308d19fab9bbfb9a"
+  },
+  {
+    "path": "assets/packs/rescue_rangers/characters/actions/thrower_release/dark.png",
+    "sha256": "cb4cb003f56afa0f283c865d4eda850186ec4d7d23e7452674a8348bbe713287"
+  },
+  {
+    "path": "assets/packs/rescue_rangers/characters/actions/thrower_release/warm.png",
+    "sha256": "4fbbee50423100eb716264e1fe2c4b3bd605338b9b7ecb1715eebfb39e841643"
+  },
+  {
+    "path": "assets/packs/rescue_rangers/characters/actions/thrower_windup/base.png",
+    "sha256": "f98a98743d4b7af1d298dd845f1d1191adf9e2bedf8f93d00e86da0486a9ad73"
+  },
+  {
+    "path": "assets/packs/rescue_rangers/characters/actions/thrower_windup/dark.png",
+    "sha256": "667eadb4c963be8c4ef7098178b8353a5e1d5ad2bc4bb3d9d8dc603914256747"
+  },
+  {
+    "path": "assets/packs/rescue_rangers/characters/actions/thrower_windup/warm.png",
+    "sha256": "bb40c20cce1ab13f3dc4c5a4986f5407a31c8afbc3002c4f63f556ccf6931113"
+  },
+  {
     "path": "assets/packs/rescue_rangers/characters/boss.png",
     "sha256": "2c7a23bd544ef73b2a1b3d3edf7e318f44bdf42b1314d70cb73898a1728de72a"
   },

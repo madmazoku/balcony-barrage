@@ -40,6 +40,22 @@ func armor(position: Vector2, size: Vector2, part: int) -> void:
 		"angle": 0.0, "spin": settings.armor_spin_radians * side,
 		"age": 0.0, "lifetime": settings.armor_flight_seconds})
 
+func release(enemy: Dictionary) -> void:
+	if settings.enabled and settings.enemy_actions_enabled:
+		effects.append({"kind": "release", "enemy": enemy, "age": 0.0, "lifetime": settings.release_seconds})
+
+func steal(position: Vector2, size: Vector2, part: int, enemy: Dictionary) -> void:
+	if settings.enabled and settings.enemy_actions_enabled:
+		effects.append({"kind": "steal", "enemy": enemy, "start_pos": enemy.pos,
+			"pos": position, "size": size, "part": part,
+			"age": 0.0, "lifetime": settings.capture_seconds})
+
+func enemy_effect(enemy: Dictionary, kind: String) -> Dictionary:
+	for effect in effects:
+		if effect.kind == kind and is_same(effect.enemy, enemy):
+			return effect
+	return {}
+
 func advance(delta: float) -> void:
 	shot_remaining = maxf(0.0, shot_remaining - delta)
 	for effect in effects:

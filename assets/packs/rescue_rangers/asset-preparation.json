@@ -156,6 +156,107 @@
       "engine": "flux2",
       "model": "flux-2-klein-9b-fp8.safetensors",
       "seed": 441180
+    },
+    "thrower_windup": {
+      "run_prefix": "20261106-170054-9f9470",
+      "image_path": "art/sources/rescue_rangers/actions/thrower_windup.png",
+      "spec_path": "assets/packs/rescue_rangers/provenance/20261106-170054-9f9470-spec.json",
+      "engine": "flux2",
+      "model": "flux-2-klein-9b-fp8.safetensors",
+      "seed": 441193,
+      "width": 1024,
+      "height": 1024,
+      "native_width": 1024,
+      "native_height": 1024,
+      "raw_image_path": "art/sources/rescue_rangers/actions/20261106-170054-9f9470-raw.png",
+      "reference": "art/sources/rescue_rangers/actions/thrower-reference.png",
+      "mask": "art/sources/rescue_rangers/actions/thrower-windup-mask.png",
+      "retouch": {
+        "reference": "art/sources/rescue_rangers/actions/20261106-165451-22a829-locked.png",
+        "mask": "art/sources/rescue_rangers/actions/thrower-windup-polish-mask.png",
+        "denoise": 0.65,
+        "run_prefix": "20261106-170054-9f9470"
+      },
+      "denoise": 0.95,
+      "palette_cleanup": "Gray fur correction within the generated upper-arm region only.",
+      "alpha_cleanup": {
+        "regions": [
+          [
+            305,
+            210,
+            435,
+            286
+          ],
+          [
+            325,
+            390,
+            395,
+            515
+          ]
+        ],
+        "note": "Background cleanup around generated gray arm; retain generated gray pixels and adjacent black outlines only in these background regions.",
+        "minimum_gray_core_value": 80
+      },
+      "removed_detached_artifact": [
+        725,
+        276,
+        805,
+        343
+      ],
+      "operation": "Localized generated pose edit; preserve reference outside edit mask; palette correction and alpha background cleanup; no drawn objects."
+    },
+    "thrower_release": {
+      "run_prefix": "20261106-165730-d94851",
+      "image_path": "art/sources/rescue_rangers/actions/thrower_release.png",
+      "spec_path": "assets/packs/rescue_rangers/provenance/20261106-165730-d94851-spec.json",
+      "engine": "flux2",
+      "model": "flux-2-klein-9b-fp8.safetensors",
+      "seed": 441192,
+      "width": 1024,
+      "height": 1024,
+      "native_width": 1024,
+      "native_height": 1024,
+      "raw_image_path": "art/sources/rescue_rangers/actions/20261106-165730-d94851-raw.png",
+      "reference": "art/sources/rescue_rangers/actions/thrower-reference.png",
+      "mask": "art/sources/rescue_rangers/actions/thrower-release-mask.png",
+      "denoise": 0.95,
+      "palette_cleanup": "Purple vest palette correction within generated chest region only.",
+      "alpha_cleanup": {
+        "regions": [
+          [
+            90,
+            205,
+            395,
+            535
+          ]
+        ],
+        "note": "Background cleanup around generated gray arm; retain generated gray pixels and adjacent black outlines only in these background regions.",
+        "minimum_gray_core_value": 80
+      },
+      "removed_detached_artifact": [
+        725,
+        276,
+        805,
+        343
+      ],
+      "operation": "Localized generated pose edit; preserve reference outside edit mask; palette correction and alpha background cleanup; no drawn objects."
+    },
+    "normal_capture": {
+      "run_prefix": "20261106-170651-160332",
+      "image_path": "art/sources/rescue_rangers/actions/normal_capture.png",
+      "spec_path": "assets/packs/rescue_rangers/provenance/20261106-170651-160332-spec.json",
+      "engine": "flux2",
+      "model": "flux-2-klein-9b-fp8.safetensors",
+      "seed": 441195,
+      "width": 1024,
+      "height": 1024,
+      "native_width": 1024,
+      "native_height": 1024,
+      "raw_image_path": "art/sources/rescue_rangers/actions/20261106-170651-160332-raw.png",
+      "reference": "art/sources/rescue_rangers/actions/normal-reference.png",
+      "mask": "art/sources/rescue_rangers/actions/normal-capture-mask.png",
+      "denoise": 0.95,
+      "operation": "Localized generated pose edit; preserve reference outside edit mask; palette correction and alpha background cleanup; no drawn objects."
     }
   },
   "prepared": {
@@ -765,6 +866,162 @@
       "mode": "RGBA",
       "alpha_bounds": null
     },
+    "characters/actions/thrower_windup/base": {
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "alpha_bounds": [
+        92,
+        22,
+        420,
+        496
+      ]
+    },
+    "characters/actions/thrower_windup/warm": {
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "alpha_bounds": [
+        92,
+        22,
+        420,
+        496
+      ]
+    },
+    "characters/actions/thrower_windup/dark": {
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "alpha_bounds": [
+        92,
+        22,
+        420,
+        496
+      ]
+    },
+    "characters/actions/thrower_release/base": {
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "alpha_bounds": [
+        92,
+        22,
+        420,
+        496
+      ]
+    },
+    "characters/actions/thrower_release/warm": {
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "alpha_bounds": [
+        92,
+        22,
+        420,
+        496
+      ]
+    },
+    "characters/actions/thrower_release/dark": {
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "alpha_bounds": [
+        92,
+        22,
+        420,
+        496
+      ]
+    },
+    "characters/actions/normal_capture/base": {
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "alpha_bounds": [
+        53,
+        52,
+        407,
+        471
+      ]
+    },
+    "characters/actions/normal_capture/warm": {
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "alpha_bounds": [
+        53,
+        52,
+        407,
+        471
+      ]
+    },
+    "characters/actions/normal_capture/dark": {
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "alpha_bounds": [
+        53,
+        52,
+        407,
+        471
+      ]
+    },
+    "characters/actions/tank_capture/base": {
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "alpha_bounds": [
+        23,
+        32,
+        479,
+        496
+      ]
+    },
+    "characters/actions/tank_capture/warm": {
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "alpha_bounds": [
+        23,
+        32,
+        479,
+        496
+      ]
+    },
+    "characters/actions/tank_capture/dark": {
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "alpha_bounds": [
+        23,
+        32,
+        479,
+        496
+      ]
+    },
     "effects/balloon_pop/color_0/frame_0": {
       "size": [
         256,
@@ -1080,7 +1337,22 @@
     ],
     "armor_gravity": 1100.0,
     "armor_spin_radians": 8.0,
-    "armor_size_multiplier": 1.4
+    "armor_size_multiplier": 1.4,
+    "enemy_actions_enabled": true,
+    "release_seconds": 0.18,
+    "capture_seconds": 0.28,
+    "armor_transfer_seconds": 0.16,
+    "windup_tilt_degrees": 7.0,
+    "capture_tilt_degrees": 10.0,
+    "capture_reach_fraction": 0.5,
+    "carry_offset": [
+      15.0,
+      0.0
+    ],
+    "carry_size": [
+      15.0,
+      16.0
+    ]
   },
   "pop_sheet": {
     "crops": [
@@ -1113,6 +1385,51 @@
       256,
       256
     ]
+  },
+  "actor_actions": {
+    "frame_size": [
+      512,
+      512
+    ],
+    "reference_bounds": {
+      "normal": [
+        0.1083984375,
+        0.107421875,
+        0.681640625,
+        0.8076171875
+      ],
+      "tank": [
+        0.05078125,
+        0.0673828125,
+        0.8798828125,
+        0.8955078125
+      ],
+      "thrower": [
+        0.169921875,
+        0.048828125,
+        0.64453125,
+        0.9140625
+      ]
+    },
+    "entries": {
+      "thrower_windup": {
+        "source": "thrower_windup"
+      },
+      "thrower_release": {
+        "source": "thrower_release"
+      },
+      "normal_capture": {
+        "source": "normal_capture"
+      },
+      "tank_capture": {
+        "source": "tank",
+        "note": "Explicit reuse of accepted open-arm tank; body motion supplies the reach."
+      },
+      "thrower_capture": {
+        "share_with": "thrower_release",
+        "note": "Explicit reuse of lowered free-hand pose."
+      }
+    }
   },
   "player_canvas": [
     768,

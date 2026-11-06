@@ -54,9 +54,17 @@ func _capture() -> void:
 			model.damage("Попадание гайкой")
 		"capture":
 			model.minions.clear()
-			model.spawn("normal", model.player)
+			var role: String = options.get("role", "normal")
+			var side: float = float(options.get("side", "1"))
+			var offset: float = (model.body_size(role).x + model.config.player_size.x) / 2 - 1
+			model.spawn(role, Vector2(model.player.x + side * offset, model.config.ground_y - model.body_size(role).y / 2))
 			model.minions[0].state = "ground"
 			model._update_minions(0.001)
+		"windup":
+			model.minions.clear()
+			model.spawn("thrower", Vector2(model.config.arena_size.x / 2, model.config.ground_y - 210))
+			model.minions[0].windup = model.config.nut_windup_seconds
+			model.minions[0].variant = int(options.get("color", "0"))
 		_:
 			game.call("_shoot", direction)
 	var feedback: RoundFeedback = game.get("feedback")
@@ -66,7 +74,10 @@ func _capture() -> void:
 	var count: int = int(options.get("frames", "1"))
 	for index in count:
 		if index > 0 and feedback != null:
-			feedback.advance(float(options.get("step", "0.04")))
+			if options.get("simulate", "false") == "true":
+				game.call("_physics_process", float(options.get("step", "0.04")))
+			else:
+				feedback.advance(float(options.get("step", "0.04")))
 		game.queue_redraw()
 		await RenderingServer.frame_post_draw
 		await process_frame

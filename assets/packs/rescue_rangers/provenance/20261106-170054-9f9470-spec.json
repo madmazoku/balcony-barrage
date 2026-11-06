@@ -1,0 +1,12 @@
+{
+  "engine": "flux2",
+  "model": "flux-2-klein-9b-fp8.safetensors",
+  "sampler": "euler",
+  "image_path": "G:\\Git\\Gemini\\media_mcp\\images\\actor-actions\\20261106-165451-22a829-locked.png",
+  "mask_path": "G:\\Git\\Gemini\\media_mcp\\images\\actor-actions\\thrower-windup-polish-mask.png",
+  "denoise": 0.65,
+  "steps": 25,
+  "guidance": 3.5,
+  "seed": 441193,
+  "prompt": "Clean up this existing raised-arm animation pose WITHOUT moving the arm. The mouse has a BARE DARK GREY FURRY UPPER ARM, continuing the same bare grey forearm, attached directly at the armhole of the PATCHED PURPLE SLEEVELESS VEST. Replace the yellow sleeve with bare grey fur. The orange scarf is wrapped tightly at the neck; the small orange protrusion behind the upper arm is removed to green background. The space between the raised forearm and the left ear is perfectly plain GREEN, with no pink extra shape and no black specks. There are exactly TWO pink ears, both already in their correct positions on the head. Keep the metal nut held high overhead, the raised hand, the forearm, the face, bag and all other details exactly unchanged. Same black outline and flat cel shading as the reference."
+}
