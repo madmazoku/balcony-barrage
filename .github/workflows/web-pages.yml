@@ -1,0 +1,100 @@
+name: Check and publish accepted game
+
+on:
+  pull_request:
+    branches: [master]
+  push:
+    branches: [master]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: web-pages-${{ github.ref }}
+  cancel-in-progress: false
+
+env:
+  GODOT_VERSION: 4.7.2
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v6
+      - name: Cache official Godot editor and Web templates
+        id: godot-cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.local/bin/godot
+            ~/.local/share/godot/export_templates/${{ env.GODOT_VERSION }}.stable
+          key: godot-linux-web-${{ env.GODOT_VERSION }}-v1
+      - name: Install verified official Godot files
+        if: steps.godot-cache.outputs.cache-hit != 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          release="${GODOT_VERSION}-stable"
+          base="https://github.com/godotengine/godot-builds/releases/download/${release}"
+          editor="Godot_v${release}_linux.x86_64.zip"
+          templates="Godot_v${release}_export_templates.tpz"
+          work="$(mktemp -d)"
+          cd "$work"
+          for file in SHA512-SUMS.txt "$editor" "$templates"; do
+            curl --fail --location --retry 3 --output "$file" "$base/$file"
+          done
+          sha512sum --check --ignore-missing SHA512-SUMS.txt
+          mkdir -p "$HOME/.local/bin" "$HOME/.local/share/godot/export_templates/${GODOT_VERSION}.stable"
+          unzip -q "$editor"
+          mv "Godot_v${release}_linux.x86_64" "$HOME/.local/bin/godot"
+          chmod +x "$HOME/.local/bin/godot"
+          unzip -j -q "$templates" 'templates/web*' 'templates/version.txt' -d "$HOME/.local/share/godot/export_templates/${GODOT_VERSION}.stable"
+      - name: Add Godot to PATH
+        run: echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+      - name: Import and validate the accepted game
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot --version
+          godot --headless --path . --editor --import 2>&1 | tee /tmp/godot-import.log
+          if grep -E 'SCRIPT ERROR:|ERROR:' /tmp/godot-import.log; then exit 1; fi
+          for test in validate_foundation test_round test_controls test_asset_pack; do
+            godot --headless --path . --script "res://tools/${test}.gd" --quit-after 600
+          done
+      - name: Export browser build
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p builds/web
+          godot --headless --path . --export-release Web builds/web/index.html
+          test -s builds/web/index.html
+          test -s builds/web/index.js
+          test -s builds/web/index.wasm
+          test -s builds/web/index.pck
+          touch builds/web/.nojekyll
+          printf '%s\n' "$GITHUB_SHA" > builds/web/commit.txt
+          sed -n 's/^config\/version="\(.*\)"/\1/p' project.godot > builds/web/version.txt
+      - name: Configure GitHub Pages
+        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+        uses: actions/configure-pages@v5
+      - name: Upload accepted browser build
+        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: builds/web
+
+  deploy:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Publish accepted game
+        id: deployment
+        uses: actions/deploy-pages@v4

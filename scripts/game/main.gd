@@ -135,7 +135,7 @@ func _update_hud() -> void:
 		"touch":
 			footer.text = "Тяни — движение    Тап выше наземной полосы — вверх    Тап в полосе — вбок"
 		_:
-			footer.text = "A/D или ←/→ — бег    Пробел — вверх; с направлением — вбок    R — повтор    P — пауза"
+			footer.text = "A/D или стрелки — бег    Пробел — вверх; с направлением — вбок    R — повтор    P — пауза"
 	footer.text += "\n" + ("ПАУЗА" if paused else model.last_event)
 
 func _text(position: Vector2, text: String, size: int = 17) -> void:
