@@ -1,0 +1,11 @@
+{
+  "engine": "flux2",
+  "model": "flux-2-klein-9b-fp8.safetensors",
+  "sampler": "euler",
+  "width": 1024,
+  "height": 1024,
+  "steps": 25,
+  "guidance": 3.5,
+  "seed": 441155,
+  "prompt": "One full-body 2D cartoon sprite of DEFEATED FAT CAT from Chip and Dale Rescue Rangers. The very fat grey cat crime boss in a rumpled opaque purple business suit, white shirt and crooked dark red tie is SITTING FLAT ON HIS BOTTOM, legs stretched out in front of him and his big round belly sagging between his knees. His bottom and tail rest low, one paw is planted beside him and one paw rubs his sore head. He has the recognizable grey cat face, little black slicked hair tuft, yellow half-closed eyes, pink nose, whiskers and VERY GRUMPY downturned mouth. Flattened ears, angry frustrated eyebrows, a beige plaster on one cheek, a small bruise and harmless dust smudges. His jacket elbow is torn and clothes are creased after the fall. Seated defeated pose, not standing. Wide squat silhouette with clear empty margin around ears, feet, paws and tail. Warm flat cel shading, bold clean black outlines, same playful vintage late-1980s Rescue Rangers television cartoon style. Plain uniform vivid green background, no scenery, no ground shadow, no text, no other characters."
+}

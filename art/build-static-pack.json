@@ -1,0 +1,220 @@
+{
+  "sources": {
+    "boss": {
+      "run_prefix": "20261105-214234-0730cc",
+      "image_path": "art/sources/rescue_rangers/20261105-214234-0730cc.png",
+      "engine": "flux2",
+      "model": "flux-2-klein-9b-fp8.safetensors",
+      "seed": 441130,
+      "width": 1024,
+      "height": 1024,
+      "native_width": 1024,
+      "native_height": 1024,
+      "spec_path": "assets/packs/rescue_rangers/provenance/20261105-214234-0730cc-spec.json"
+    },
+    "normal": {
+      "run_prefix": "20261105-214252-d210b9",
+      "image_path": "art/sources/rescue_rangers/20261105-214252-d210b9.png",
+      "engine": "flux2",
+      "model": "flux-2-klein-9b-fp8.safetensors",
+      "seed": 441131,
+      "width": 1024,
+      "height": 1024,
+      "native_width": 1024,
+      "native_height": 1024,
+      "spec_path": "assets/packs/rescue_rangers/provenance/20261105-214252-d210b9-spec.json"
+    },
+    "tank": {
+      "run_prefix": "20261105-214440-83746d",
+      "image_path": "art/sources/rescue_rangers/20261105-214440-83746d.png",
+      "engine": "flux2",
+      "model": "flux-2-klein-9b-fp8.safetensors",
+      "seed": 441132,
+      "width": 1024,
+      "height": 1024,
+      "native_width": 1024,
+      "native_height": 1024,
+      "spec_path": "assets/packs/rescue_rangers/provenance/20261105-214440-83746d-spec.json"
+    },
+    "thrower": {
+      "run_prefix": "20261105-214457-a21f80",
+      "image_path": "art/sources/rescue_rangers/20261105-214457-a21f80.png",
+      "engine": "flux2",
+      "model": "flux-2-klein-9b-fp8.safetensors",
+      "seed": 441133,
+      "width": 1024,
+      "height": 1024,
+      "native_width": 1024,
+      "native_height": 1024,
+      "spec_path": "assets/packs/rescue_rangers/provenance/20261105-214457-a21f80-spec.json"
+    },
+    "balloon": {
+      "run_prefix": "20261105-214624-ec2ec8",
+      "image_path": "art/sources/rescue_rangers/20261105-214624-ec2ec8.png",
+      "engine": "flux2",
+      "model": "flux-2-klein-9b-fp8.safetensors",
+      "seed": 441134,
+      "width": 1024,
+      "height": 1024,
+      "native_width": 1024,
+      "native_height": 1024,
+      "spec_path": "assets/packs/rescue_rangers/provenance/20261105-214624-ec2ec8-spec.json"
+    },
+    "props": {
+      "run_prefix": "20261105-214638-c04e97",
+      "image_path": "art/sources/rescue_rangers/20261105-214638-c04e97.png",
+      "engine": "flux2",
+      "model": "flux-2-klein-9b-fp8.safetensors",
+      "seed": 441135,
+      "width": 1024,
+      "height": 1024,
+      "native_width": 1024,
+      "native_height": 1024,
+      "spec_path": "assets/packs/rescue_rangers/provenance/20261105-214638-c04e97-spec.json"
+    },
+    "background": {
+      "run_prefix": "20261105-214758-9585a8",
+      "image_path": "art/sources/rescue_rangers/20261105-214758-9585a8.png",
+      "engine": "flux2",
+      "model": "flux-2-klein-9b-fp8.safetensors",
+      "seed": 441136,
+      "width": 1024,
+      "height": 1024,
+      "native_width": 1024,
+      "native_height": 1024,
+      "spec_path": "assets/packs/rescue_rangers/provenance/20261105-214758-9585a8-spec.json"
+    },
+    "balcony": {
+      "run_prefix": "20261105-214811-a5e0a3",
+      "image_path": "art/sources/rescue_rangers/20261105-214811-a5e0a3.png",
+      "engine": "flux2",
+      "model": "flux-2-klein-9b-fp8.safetensors",
+      "seed": 441137,
+      "width": 1024,
+      "height": 1024,
+      "native_width": 1024,
+      "native_height": 1024,
+      "spec_path": "assets/packs/rescue_rangers/provenance/20261105-214811-a5e0a3-spec.json"
+    },
+    "player_up": {
+      "run_prefix": "20261105-215026-e9efb8",
+      "image_path": "art/sources/rescue_rangers/20261105-215026-e9efb8.png",
+      "engine": "flux2",
+      "model": "flux-2-klein-9b-fp8.safetensors",
+      "seed": 441140,
+      "width": 1024,
+      "height": 1024,
+      "native_width": 1024,
+      "native_height": 1024,
+      "spec_path": "assets/packs/rescue_rangers/provenance/20261105-215026-e9efb8-spec.json"
+    },
+    "player": {
+      "image_path": "art/sources/rescue_rangers/20261105-212409-859e66.png",
+      "run_prefix": "20261105-212409-859e66",
+      "spec_path": "assets/packs/rescue_rangers/provenance/20261105-212409-859e66-spec.json"
+    },
+    "weapon": {
+      "image_path": "art/sources/rescue_rangers/20261105-212345-fa0020.png",
+      "run_prefix": "20261105-212345-fa0020",
+      "spec_path": "assets/packs/rescue_rangers/provenance/20261105-212345-fa0020-spec.json"
+    },
+    "boss_defeated": {
+      "run_prefix": "20261105-223542-9d5af2",
+      "image_path": "art/sources/rescue_rangers/20261105-223542-9d5af2.png",
+      "spec_path": "assets/packs/rescue_rangers/provenance/20261105-223542-9d5af2-spec.json"
+    },
+    "balcony_broken_support": {
+      "run_prefix": "20261105-224558-43f298",
+      "image_path": "art/sources/rescue_rangers/20261105-224558-43f298.png",
+      "spec_path": "assets/packs/rescue_rangers/provenance/20261105-224558-43f298-spec.json"
+    },
+    "balcony_damage_1": {
+      "run_prefix": "20261105-223352-8d8da3",
+      "image_path": "art/sources/rescue_rangers/balcony-progressive-1.png",
+      "spec_path": "assets/packs/rescue_rangers/provenance/20261105-223352-8d8da3-spec.json"
+    },
+    "balcony_damage_2": {
+      "run_prefix": "20261105-223405-a5c985",
+      "image_path": "art/sources/rescue_rangers/balcony-progressive-2.png",
+      "spec_path": "assets/packs/rescue_rangers/provenance/20261105-223405-a5c985-spec.json"
+    },
+    "balcony_damage_3": {
+      "run_prefix": "20261105-223516-6c76e8",
+      "image_path": "art/sources/rescue_rangers/balcony-progressive-3.png",
+      "spec_path": "assets/packs/rescue_rangers/provenance/20261105-223516-6c76e8-spec.json"
+    },
+    "balcony_damage_4": {
+      "run_prefix": "20261105-223530-65a844",
+      "image_path": "art/sources/rescue_rangers/balcony-progressive-4.png",
+      "spec_path": "assets/packs/rescue_rangers/provenance/20261105-223530-65a844-spec.json"
+    }
+  },
+  "output": "assets/packs/rescue_rangers",
+  "armor": [
+    "art/sources/rescue_rangers/armor-layer-0.png",
+    "art/sources/rescue_rangers/armor-layer-1.png",
+    "art/sources/rescue_rangers/armor-layer-2.png"
+  ],
+  "balcony_preparation": {
+    "frame_crop": [
+      20,
+      445,
+      1005,
+      695
+    ],
+    "preserved_deck_rows": 87,
+    "fascia_crop": [
+      0,
+      532,
+      1024,
+      553
+    ],
+    "support_source_crop": [
+      75,
+      172,
+      515,
+      440
+    ],
+    "support_regions": [
+      [
+        100,
+        553,
+        195,
+        650
+      ],
+      [
+        290,
+        553,
+        368,
+        650
+      ],
+      [
+        480,
+        553,
+        548,
+        650
+      ],
+      [
+        665,
+        553,
+        738,
+        650
+      ],
+      [
+        835,
+        553,
+        922,
+        650
+      ]
+    ],
+    "broken_counts": [
+      0,
+      1,
+      2,
+      4,
+      5
+    ],
+    "broken_support_height": 55,
+    "method": "Original walking deck retained exactly. Cumulative generated fascia edits restricted below deck; intact supports replaced by generated snapped wood, mirrored on alternating positions. Fixed canvas and scale, no whole-balcony redraw."
+  }
+}

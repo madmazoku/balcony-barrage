@@ -1,0 +1,11 @@
+{
+  "engine": "flux2",
+  "model": "flux-2-klein-9b-fp8.safetensors",
+  "sampler": "euler",
+  "width": 1024,
+  "height": 1024,
+  "steps": 25,
+  "guidance": 3.5,
+  "seed": 441140,
+  "prompt": "Full-body 2D cartoon game sprite of Gadget Hackwrench from Chip and Dale Rescue Rangers. She is a cute blonde anthropomorphic mouse inventor with a large expressive head, huge round pink ears, blue eyes, little pink nose, long golden blonde hair, blue aviation goggles on top of her head and a long pink mouse tail. She wears a loose opaque lavender long-sleeved mechanic jumpsuit. Standing upright facing three-quarter right, feet planted apart. BOTH ARMS ARE LIFTED HIGH ABOVE HER HEAD. Both empty hands are close together high overhead near the top-right of the frame. Elbows bent outward, forearms nearly vertical. Her head is tilted upward, looking toward her raised hands. The hands are completely EMPTY. Compact cartoon proportions, crisp clean black outlines and simple flat cel shading in warm pastel colors, vintage late-1980s Rescue Rangers cartoon style. Entire character, raised hands, ears, tail and feet fully visible with generous green margins. Plain uniform vivid green background, no objects, no tools, no weapons, no armor, no text or scenery."
+}

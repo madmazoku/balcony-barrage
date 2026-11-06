@@ -1,0 +1,11 @@
+{
+  "engine": "flux2",
+  "model": "flux-2-klein-9b-fp8.safetensors",
+  "sampler": "euler",
+  "width": 1024,
+  "height": 1024,
+  "steps": 25,
+  "guidance": 3.5,
+  "seed": 441134,
+  "prompt": "One isolated bright RED toy balloon for a vintage 2D cartoon arcade game. A plump oval red rubber balloon with a small tied neck at its bottom, bold smooth black outline, a simple pale pink curved highlight and flat cel shading, matching a late-1980s hand-drawn television cartoon. A single thin BLACK STRING extends straight downward from the tied neck, ending well above the bottom edge of the image. The balloon occupies the upper two-thirds of the image and the string the lower quarter. Centered, entire balloon and string visible with generous empty margins. Plain uniform vivid green background. Only one balloon, no character, no text, no scenery, no shadow on the background."
+}

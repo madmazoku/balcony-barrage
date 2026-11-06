@@ -1,0 +1,12 @@
+{
+  "engine": "flux2",
+  "model": "flux-2-klein-9b-fp8.safetensors",
+  "sampler": "euler",
+  "image_path": "G:\\Git\\Gemini\\media_mcp\\images\\20261105-214811-a5e0a3-final.png",
+  "mask_path": "G:\\Git\\Gemini\\media_mcp\\images\\balcony-progressive-mask-1.png",
+  "denoise": 0.65,
+  "steps": 25,
+  "guidance": 3.5,
+  "seed": 441160,
+  "prompt": "The SAME wooden balcony, with LOCALIZED HEAVY DAMAGE ONLY in the LEFT QUARTER. The other three-quarters remain intact. In the newly damaged section, the front fascia plank is snapped into jagged fragments, a large irregular chunk is broken away, and the support bracket below it has snapped with splintered wood and a short plank hanging down. Exposed nails and sharp irregular broken wood ends make the break clear. The gap shows the plain green background. Preserve the narrow straight top walking lip and the original position, scale and perspective of the whole balcony. Keep the remaining undamaged right side exactly intact. Same warm brown wood, bold black cartoon outlines and flat cel shading. Do not repair old damage, do not distribute cracks across the entire structure. Plain green background, no text or characters."
+}

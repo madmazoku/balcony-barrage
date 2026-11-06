@@ -32,7 +32,7 @@ func _initialize() -> void:
 	for property in ["player_speed", "bolt_speed", "shot_cooldown", "damage_grace_seconds",
 			"descent_speed", "ground_speed", "wind_period_seconds", "nut_interval_seconds",
 			"nut_windup_seconds", "nut_speed", "boss_speed", "balcony_stages",
-			"boss_jump_seconds", "furniture_interval_seconds", "furniture_windup_seconds",
+			"boss_jump_seconds", "boss_fall_gravity", "furniture_interval_seconds", "furniture_windup_seconds",
 			"furniture_speed", "furniture_hit_width"]:
 		if gameplay.get(property) <= 0:
 			failures.append("Expected positive setting: " + property)
@@ -50,8 +50,7 @@ func _initialize() -> void:
 			"balcony", "bolt", "nut", "armor", "furniture", "text"]:
 		if not pack.colors.has(key):
 			failures.append("Missing prototype color: " + key)
-	if pack.readiness != "prototype":
-		failures.append("Static/animated pack contracts require phase 4 validator extension.")
+	failures.append_array(pack.validation_errors())
 	for failure in failures:
 		push_error(failure)
 	if failures.is_empty():

@@ -1,0 +1,11 @@
+{
+  "engine": "flux2",
+  "model": "flux-2-klein-9b-fp8.safetensors",
+  "sampler": "euler",
+  "width": 1024,
+  "height": 1024,
+  "steps": 25,
+  "guidance": 3.5,
+  "seed": 441132,
+  "prompt": "A single full-body 2D arcade enemy sprite: a very FAT HEAVY RAT henchman from a vintage late-1980s mouse rescue adventure cartoon. Enormous round belly, extremely broad shoulders and short thick legs, much wider than an ordinary rat, big round pink rat ears, small pointed muzzle, buck teeth and a thick pink rat tail. Brown-grey fur, mischievous dim-witted grin. Wearing an opaque dark red work vest over a cream striped shirt, loose brown trousers, patched heavy boots and a little dark red cap. Arms spread and knees bent in a heavy lumbering step. Facing three-quarter right. Extremely broad squat readable tank silhouette. Crisp bold black outlines, simple flat cel shading, warm playful cartoon palette matching vintage Rescue Rangers animation. One character, entire ears, tail and boots in frame with generous empty margin. Plain uniform vivid green background. No balloons, no ropes, no weapons, no text or scenery, no ground shadow."
+}

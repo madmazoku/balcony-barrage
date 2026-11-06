@@ -1,0 +1,11 @@
+{
+  "engine": "flux2",
+  "model": "flux-2-klein-9b-fp8.safetensors",
+  "image_path": "G:\\Git\\Gemini\\media_mcp\\images\\20261105-212019-d60b8f-final.png",
+  "mask_path": "G:\\Git\\Gemini\\media_mcp\\images\\balcony-flux-crossbow-mask.png",
+  "denoise": 0.65,
+  "steps": 25,
+  "guidance": 3.5,
+  "seed": 441119,
+  "prompt": "Remove the entire wooden crossbow, bow limbs, strings and loaded bolt from this image. Keep Gadget Hackwrench's exact face, hair, ears, goggles, lavender opaque jumpsuit, feet, tail, body pose and the same crisp cartoon style. Her two empty hands should remain at the same chest-level position, relaxed and ready to hold a tool, right hand in a loose grip and left palm supporting an absent object. Reconstruct only the lavender sleeve and natural mouse hands where the weapon used to cover them. All the empty space to the right of her hands and below them must be the same plain green background. Full body cartoon game sprite with no weapon and no armor."
+}

@@ -1,0 +1,11 @@
+{
+  "engine": "flux2",
+  "model": "flux-2-klein-9b-fp8.safetensors",
+  "sampler": "euler",
+  "image_path": "G:\\Git\\Gemini\\media_mcp\\images\\balcony-bracket-reference.png",
+  "denoise": 0.95,
+  "steps": 25,
+  "guidance": 3.5,
+  "seed": 441167,
+  "prompt": "The top horizontal brown beam is still here. The wooden bracket beneath it is BROKEN OFF VERY SHORT. Only a tiny jagged splintered stump is attached just underneath the top beam. The entire lower three quarters of the image are EMPTY PLAIN GREEN BACKGROUND. There is no long vertical support remaining. A short sliver of broken timber hangs sideways near the tiny stump. Cartoon broken wood, warm brown oak with irregular sharp splinters, bold clean black outlines, simple flat cel shading matching a vintage 1980s cartoon game. A snapped stump at the very top, mostly empty green space below it."
+}

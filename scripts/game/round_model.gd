@@ -13,6 +13,8 @@ var elapsed: float = 0.0
 var cooldown: float = 0.0
 var grace: float = 0.0
 var jump_remaining: float = 0.0
+var boss_falling: bool = false
+var boss_fall_velocity: float = 0.0
 var furniture_timer: float = 0.0
 var furniture_windup: float = 0.0
 var armor: int
@@ -42,6 +44,8 @@ func restart(mode: String = "round") -> void:
 	cooldown = 0.0
 	grace = 0.0
 	jump_remaining = 0.0
+	boss_falling = false
+	boss_fall_velocity = 0.0
 	furniture_timer = config.furniture_interval_seconds
 	furniture_windup = 0.0
 	armor = config.armor_parts
@@ -85,7 +89,7 @@ func spawn(role: String, position: Vector2) -> void:
 	})
 
 func shoot(direction: Vector2) -> bool:
-	if result != "" or cooldown > 0.0:
+	if result != "" or boss_falling or cooldown > 0.0:
 		return false
 	# Start outside the player's body, always cardinal.
 	var offset: Vector2 = config.player_size * 0.5 + config.bolt_size
@@ -96,13 +100,16 @@ func shoot(direction: Vector2) -> bool:
 func tick(delta: float, movement: float) -> void:
 	if result != "":
 		return
+	if boss_falling:
+		_update_boss_fall(delta)
+		return
 	elapsed += delta
 	cooldown = maxf(0, cooldown - delta)
 	grace = maxf(0, grace - delta)
 	player.x = clampf(player.x + movement * config.player_speed * delta,
 		config.player_size.x / 2, config.arena_size.x - config.player_size.x / 2)
 	_update_boss(delta)
-	if result != "":
+	if result != "" or boss_falling:
 		return
 	while released < config.release_times.size() and elapsed >= config.release_times[released]:
 		spawn(config.release_roles[released], boss + Vector2(0, config.spawn_drop))
@@ -118,8 +125,10 @@ func _update_boss(delta: float) -> void:
 			broken_stages += 1
 			last_event = "Тяжёлое приземление — балкон треснул"
 			if broken_stages >= config.balcony_stages:
-				result = "win"
-				cause = "Балкон разрушен"
+				boss_falling = true
+				boss_fall_velocity = 0.0
+				furniture_windup = 0.0
+				last_event = "Балкон рухнул — босс падает"
 		return
 	boss.x += boss_direction * config.boss_speed * delta
 	var left: float = config.balcony_left + config.boss_size.x / 2
@@ -138,6 +147,17 @@ func _update_boss(delta: float) -> void:
 		furniture_timer -= delta
 		if furniture_timer <= 0:
 			furniture_windup = config.furniture_windup_seconds
+
+func _update_boss_fall(delta: float) -> void:
+	# Combat and score time stop at collapse; the victory reveal waits for landing.
+	var landing_y: float = config.ground_y - config.boss_size.y / 2
+	boss.y = minf(landing_y, boss.y + boss_fall_velocity * delta + config.boss_fall_gravity * delta * delta / 2)
+	boss_fall_velocity += config.boss_fall_gravity * delta
+	if boss.y >= landing_y:
+		boss_falling = false
+		result = "win"
+		cause = "Балкон разрушен"
+		last_event = "Босс приземлился"
 
 func _update_minions(delta: float) -> void:
 	for enemy in minions:
@@ -177,7 +197,7 @@ func _update_minions(delta: float) -> void:
 		return e.pos.y < config.arena_size.y + config.tank_size.y and e.pos.x > -config.tank_size.x and e.pos.x < config.arena_size.x + config.tank_size.x)
 
 func damage(reason: String) -> bool:
-	if result != "" or grace > 0:
+	if result != "" or boss_falling or grace > 0:
 		return false
 	if armor > 0:
 		armor -= 1

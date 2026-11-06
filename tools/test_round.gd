@@ -75,12 +75,28 @@ func _initialize() -> void:
 		model.tick(0.1, 0)
 		model.tick(config.boss_jump_seconds, 0)
 		check(model.broken_stages == stage + 1, "Each jump must break exactly one stage.")
-	check(model.result == "win", "Final landing must win.")
+	check(model.boss_falling and model.result == "", "Final balcony impact must start a visible fall before victory.")
+	check(is_equal_approx(model.boss.y, config.boss_y), "Collapse must not teleport the boss to the ground.")
+	var collapse_time: float = model.elapsed
+	var player_at_collapse: Vector2 = model.player
+	check(not model.shoot(Vector2.UP) and not model.damage("late nut"), "Combat must stop during the final fall.")
+	model.tick(0.2, 1)
+	var first_fall_y: float = model.boss_draw_position().y
+	check(first_fall_y > config.boss_y and first_fall_y < config.ground_y - config.boss_size.y / 2,
+		"Boss must pass through an intermediate airborne position.")
+	check(model.result == "" and model.elapsed == collapse_time and model.player == player_at_collapse,
+		"Victory reveal must wait for landing, without adding score time or continuing combat.")
+	model.tick(0.2, 0)
+	check(model.boss.y - first_fall_y > first_fall_y - config.boss_y, "Falling boss must accelerate.")
+	model.tick(2.0, 0)
+	check(model.result == "win" and not model.boss_falling, "Ground landing must finish the victory sequence.")
+	check(is_equal_approx(model.boss.y + config.boss_size.y / 2, config.ground_y), "Boss must stop exactly on the ground.")
 	var final_time: float = model.elapsed
 	model.tick(10, 1)
 	check(model.elapsed == final_time, "Round must freeze at the final result.")
 
 	model.restart("boss")
+	check(not model.boss_falling and model.boss_fall_velocity == 0 and model.boss.y == config.boss_y, "Restart must clear the final fall.")
 	model.furniture_enabled = true
 	model.tick(config.furniture_interval_seconds, 0)
 	check(model.furniture_windup > 0, "Furniture must have visible warning.")
