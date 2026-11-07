@@ -1,0 +1,12 @@
+{
+  "engine": "flux2",
+  "model": "flux-2-klein-9b-fp8.safetensors",
+  "steps": 25,
+  "guidance": 3.5,
+  "sampler": "euler",
+  "seed": 441251,
+  "image_path": "G:\\Git\\Gemini\\media_mcp\\images\\run-revision\\boss-reference.png",
+  "mask_path": "G:\\Git\\Gemini\\media_mcp\\images\\run-revision\\boss-mask.png",
+  "denoise": 0.95,
+  "prompt": "Change only the short purple trouser legs and black dress shoes of this exact fat cat boss into a different running passing step. The LEFT knee lifts forward with its complete shiny BLACK DRESS SHOE raised beneath it, while the RIGHT leg supports his weight with its complete shiny BLACK DRESS SHOE on the floor beneath the belly. Two purple trouser legs, two black dress shoes with rounded toes, heels and soles, all fully visible. Keep the purple coat, round belly, folded hands, white collar, red tie, head, face and gray tail exactly as in the reference. The hips remain fixed, no change in body size or position. Same flat vintage cartoon ink colors. Bright green background, no shadow, no extra objects or text."
+}

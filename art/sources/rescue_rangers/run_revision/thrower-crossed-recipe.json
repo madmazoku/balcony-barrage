@@ -1,0 +1,63 @@
+{
+  "source": "thrower",
+  "parts": [
+    {
+      "polygon": [
+        [
+          345,
+          800
+        ],
+        [
+          490,
+          800
+        ],
+        [
+          490,
+          1010
+        ],
+        [
+          250,
+          1010
+        ],
+        [
+          250,
+          900
+        ],
+        [
+          335,
+          900
+        ]
+      ],
+      "shear": 1.3
+    },
+    {
+      "polygon": [
+        [
+          500,
+          800
+        ],
+        [
+          630,
+          800
+        ],
+        [
+          755,
+          1010
+        ],
+        [
+          480,
+          1010
+        ]
+      ],
+      "shear": -1.2
+    }
+  ],
+  "hip_y": 805,
+  "sack_overlay": [
+    580,
+    480,
+    840,
+    855
+  ],
+  "operation": "Extract and transform generated pixels; polygon masks are alpha selection only."
+}

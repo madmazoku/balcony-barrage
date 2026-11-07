@@ -55,3 +55,15 @@ sprite_assets.py build-pack читает weapon_transforms.right/up из art/bui
 ## Принятая группа 2 (AI-8, 0.8.0)
 sprite_assets.py build-pack расширен опциональным actor_actions в прежнем манифесте. Сохраняет полный холст действий, производные палитры и явные shared-слоты; обновляет source-index.json и checksums.json. Итог 75 PNG; прежние 63 сохраняются побайтно.
 capture_pack.gd: --feedback=windup|capture, --simulate=true, --role=normal|tank|thrower, --side=-1|1. При simulate=true кадры продвигаются настоящим _physics_process, поэтому работают замах/гайка/побег; без него прежний изолированный предпросмотр эффектов сохраняется. Пример: --scenario=boss --feedback=capture --role=tank --side=-1 --armor=2 --simulate=true --frames=40 --step=0.04. Монтаж снова выполнен существующим FFmpeg, без новой утилиты.
+
+## Принятая группа 3 (AI-9, 0.9.0)
+- scripts/config/motion_config.gd / motion.tres — дистанция цикла и величина подпрыгивания, без игровых скоростей.
+- scripts/game/round_motion.gd — состояние пройденного расстояния и выбор кадра; использует фактические позиции, не предсказывает и не меняет бой.
+- tools/test_motion.gd — реальная сцена: движение, край экрана, остановка, пауза, сброс, все роли/направления/побег и одинаковый бой с включённым/отключённым бегом. Включён в CI шестой проверкой.
+- sprite_assets.py build-pack расширен опциональным locomotion, читает фиксированную верхнюю полосу игрока и явные последовательности. Повторно используется прежняя утилита, не создавать отдельный генератор кадров.
+- capture_pack.gd: --feedback=run --role=player|normal|tank|thrower --side=-1|1 --simulate=true --focus=actor --frames=32 --step=0.04. --pose=up реально стреляет вверх при готовом кулдауне; --state=escape --part=2 показывает побег с деталью. focus=actor — увеличиваемая вырезка только для QA, обычный игровой рендер не изменён. GIF собран прежним FFmpeg.
+
+## Доработка группы 3 и поражения
+- sprite_assets.py build-pack: enemy_sources.extra_sources/sequence, boss как один вариант палитры. Гаечка использует прежний путь подготовки без изменений.
+- tools/test_defeat.gd: проверка фактических событий урона, визуального носителя, оружия, направления вылета, остановки боя, P/R и выключенных эффектов. Включён седьмой проверкой CI. Вызывать Godot --headless --path <project> --script res://tools/test_defeat.gd --quit-after 600.
+- capture_pack.gd: --feedback=run --role=boss; --feedback=defeat --cause=capture|nut|furniture --role=normal|tank|thrower --side=-1|1 --pose=right|left|up --simulate=true --frames=90 --step=0.04. Захват/попадание вызывают реальные процедуры модели, кадры после lose продвигают только визуальную реакцию. Предпросмотр/монтаж выполнены прежним FFmpeg.

@@ -1,0 +1,12 @@
+{
+  "engine": "flux2",
+  "model": "flux-2-klein-9b-fp8.safetensors",
+  "steps": 25,
+  "guidance": 3.5,
+  "sampler": "euler",
+  "seed": 441220,
+  "image_path": "G:\\Git\\Gemini\\media_mcp\\images\\run-cycle\\thrower-reference.png",
+  "mask_path": "G:\\Git\\Gemini\\media_mcp\\images\\run-cycle\\thrower-front-leg-mask.png",
+  "denoise": 0.95,
+  "prompt": "Change only the FRONT gray leg and its bare foot on the right of this skinny cartoon rat to a running step toward the right. That front leg bends at the knee and reaches diagonally forward toward the right, ending in a complete peach bare rat foot with three small toes. Keep the original long skinny gray furred shin and peach foot colors. Preserve the other leg and its foot on the left exactly as they are. The brown sack of nuts, both hands, purple vest, yellow scarf, dark blue shorts, long nose, head, ears, torso, hips and tail stay unchanged. Exactly two complete legs and two bare feet. Use the same clean black cartoon outlines and flat vintage cartoon shading. Same solid green background, no shadow, no extra objects, no writing."
+}

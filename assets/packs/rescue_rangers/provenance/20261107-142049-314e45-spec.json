@@ -1,0 +1,12 @@
+{
+  "engine": "flux2",
+  "model": "flux-2-klein-9b-fp8.safetensors",
+  "steps": 25,
+  "guidance": 3.5,
+  "sampler": "euler",
+  "seed": 441247,
+  "image_path": "G:\\Git\\Gemini\\media_mcp\\images\\run-revision\\tank-reference.png",
+  "mask_path": "G:\\Git\\Gemini\\media_mcp\\images\\run-revision\\tank-right-mask.png",
+  "denoise": 0.95,
+  "prompt": "Change only the FRONT leg on the RIGHT side of this fat cartoon rat into a lifted running step. Raise that right knee high and bend the lower leg backward, with its complete brown lace-up boot raised below the knee near the belly. Preserve the other LEFT leg and its entire planted brown boot exactly as in the reference. The bent right leg still wears opaque patched brown trousers and a complete worn brown boot with a rounded toe cap, laces, heel and black sole. One raised boot on the right and one planted boot on the left, all inside the image. Keep the belly, belt, vest, shirt, hands, tail, face and hips unchanged. Same thick cartoon outlines and flat colors, solid green background."
+}

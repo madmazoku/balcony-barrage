@@ -257,6 +257,300 @@
       "mask": "art/sources/rescue_rangers/actions/normal-capture-mask.png",
       "denoise": 0.95,
       "operation": "Localized generated pose edit; preserve reference outside edit mask; palette correction and alpha background cleanup; no drawn objects."
+    },
+    "player_a": {
+      "run_prefix": "20261106-173931-489b07",
+      "image_path": "art/sources/rescue_rangers/run/player_a.png",
+      "spec_path": "assets/packs/rescue_rangers/provenance/20261106-173931-489b07-spec.json",
+      "engine": "flux2",
+      "model": "flux-2-klein-9b-fp8.safetensors",
+      "seed": 441210,
+      "width": 1024,
+      "height": 1024,
+      "native_width": 1024,
+      "native_height": 1024,
+      "lower_band_baseline": {
+        "seam": 700,
+        "source_bottom": 940,
+        "target_bottom": 965
+      },
+      "composite_mask": "art/sources/rescue_rangers/run/player-mask.png",
+      "raw_image_path": "art/sources/rescue_rangers/run/20261106-173931-489b07-raw.png",
+      "denoise": 0.95,
+      "reference": "art/sources/rescue_rangers/run/player-reference.png",
+      "generation_mask": "art/sources/rescue_rangers/run/player-mask.png",
+      "operation": "Generated local leg edit, preserve upper body; green key and component cleanup, recorded baseline normalization and generated-pixel composition only."
+    },
+    "player_b": {
+      "run_prefix": "20261106-174351-41d86c",
+      "image_path": "art/sources/rescue_rangers/run/player_b.png",
+      "spec_path": "assets/packs/rescue_rangers/provenance/20261106-174351-41d86c-spec.json",
+      "engine": "flux2",
+      "model": "flux-2-klein-9b-fp8.safetensors",
+      "seed": 441215,
+      "width": 1024,
+      "height": 1024,
+      "native_width": 1024,
+      "native_height": 1024,
+      "lower_band_baseline": {
+        "seam": 700,
+        "source_bottom": 940,
+        "target_bottom": 965
+      },
+      "composite_mask": "art/sources/rescue_rangers/run/player-mask.png",
+      "raw_image_path": "art/sources/rescue_rangers/run/20261106-174351-41d86c-raw.png",
+      "denoise": 0.95,
+      "reference": "art/sources/rescue_rangers/run/player-reference.png",
+      "generation_mask": "art/sources/rescue_rangers/run/player-mask.png",
+      "operation": "Generated local leg edit, preserve upper body; green key and component cleanup, recorded baseline normalization and generated-pixel composition only."
+    },
+    "player_up_a": {
+      "run_prefix": "20261106-174113-ee4fe0",
+      "image_path": "art/sources/rescue_rangers/run/player_up_a.png",
+      "spec_path": "assets/packs/rescue_rangers/provenance/20261106-174113-ee4fe0-spec.json",
+      "engine": "flux2",
+      "model": "flux-2-klein-9b-fp8.safetensors",
+      "seed": 441212,
+      "width": 1024,
+      "height": 1024,
+      "native_width": 1024,
+      "native_height": 1024,
+      "lower_band_baseline": {
+        "seam": 745,
+        "source_bottom": 942,
+        "target_bottom": 981
+      },
+      "composite_mask": "art/sources/rescue_rangers/run/player-up-composite-mask.png",
+      "raw_image_path": "art/sources/rescue_rangers/run/20261106-174113-ee4fe0-raw.png",
+      "denoise": 0.95,
+      "reference": "art/sources/rescue_rangers/run/player_up-reference.png",
+      "generation_mask": "art/sources/rescue_rangers/run/player_up-mask.png",
+      "operation": "Generated local leg edit, preserve upper body; green key and component cleanup, recorded baseline normalization and generated-pixel composition only."
+    },
+    "normal_run": {
+      "run_prefix": "20261106-174900-2ba61e",
+      "image_path": "art/sources/rescue_rangers/run/normal_run.png",
+      "spec_path": "assets/packs/rescue_rangers/provenance/20261106-174900-2ba61e-spec.json",
+      "engine": "flux2",
+      "model": "flux-2-klein-9b-fp8.safetensors",
+      "seed": 441219,
+      "width": 1024,
+      "height": 1024,
+      "native_width": 1024,
+      "native_height": 1024,
+      "alpha_cleanup": "Remove disconnected/long black cast-shadow pixels beneath the generated front foot, retaining the adjacent cartoon outline.",
+      "composite_mask": "art/sources/rescue_rangers/run/normal-front-leg-mask.png",
+      "raw_image_path": "art/sources/rescue_rangers/run/20261106-174900-2ba61e-raw.png",
+      "denoise": 0.95,
+      "reference": "art/sources/rescue_rangers/run/normal-reference.png",
+      "generation_mask": "art/sources/rescue_rangers/run/normal-front-leg-mask.png",
+      "operation": "Generated local leg edit, preserve upper body; green key and component cleanup, recorded baseline normalization and generated-pixel composition only."
+    },
+    "tank_run": {
+      "run_prefix": "20261106-174726-ac9efd",
+      "image_path": "art/sources/rescue_rangers/run/tank_run.png",
+      "spec_path": "assets/packs/rescue_rangers/provenance/20261106-174726-ac9efd-spec.json",
+      "engine": "flux2",
+      "model": "flux-2-klein-9b-fp8.safetensors",
+      "seed": 441218,
+      "width": 1024,
+      "height": 1024,
+      "native_width": 1024,
+      "native_height": 1024,
+      "composite_mask": "art/sources/rescue_rangers/run/tank-mask.png",
+      "raw_image_path": "art/sources/rescue_rangers/run/20261106-174726-ac9efd-raw.png",
+      "denoise": 0.95,
+      "reference": "art/sources/rescue_rangers/run/tank-reference.png",
+      "generation_mask": "art/sources/rescue_rangers/run/tank-mask.png",
+      "operation": "Generated local leg edit, preserve upper body; green key and component cleanup, recorded baseline normalization and generated-pixel composition only."
+    },
+    "thrower_run": {
+      "run_prefix": "20261106-174941-9bd70e",
+      "image_path": "art/sources/rescue_rangers/run/thrower_run.png",
+      "spec_path": "assets/packs/rescue_rangers/provenance/20261106-174941-9bd70e-spec.json",
+      "engine": "flux2",
+      "model": "flux-2-klein-9b-fp8.safetensors",
+      "seed": 441220,
+      "width": 1024,
+      "height": 1024,
+      "native_width": 1024,
+      "native_height": 1024,
+      "composite_mask": "art/sources/rescue_rangers/run/thrower-front-leg-mask.png",
+      "foot_preparation": {
+        "source": "thrower",
+        "crop": [
+          520,
+          895,
+          705,
+          986
+        ],
+        "pivot_in_crop": [
+          40,
+          30
+        ],
+        "anchor": [
+          578,
+          835
+        ],
+        "scale": 0.8,
+        "order": "behind generated running body; original foot pixels only"
+      },
+      "raw_image_path": "art/sources/rescue_rangers/run/20261106-174941-9bd70e-raw.png",
+      "denoise": 0.95,
+      "reference": "art/sources/rescue_rangers/run/thrower-reference.png",
+      "generation_mask": "art/sources/rescue_rangers/run/thrower-front-leg-mask.png",
+      "operation": "Generated local leg edit, preserve upper body; green key and component cleanup, recorded baseline normalization and generated-pixel composition only."
+    },
+    "gait_normal_b": {
+      "run_prefix": "20261107-141313-4c0760",
+      "image_path": "art/sources/rescue_rangers/run_revision/normal_b.png",
+      "spec_path": "assets/packs/rescue_rangers/provenance/20261107-141313-4c0760-spec.json",
+      "engine": "flux2",
+      "model": "flux-2-klein-9b-fp8.safetensors",
+      "seed": 441241,
+      "width": 1024,
+      "height": 1024,
+      "native_width": 1024,
+      "native_height": 1024,
+      "alpha_cleanup": "Remove residual original raised-thigh fragment outside the two generated legs.",
+      "baseline": {
+        "seam": 680,
+        "source_bottom": 988,
+        "target_bottom": 937
+      },
+      "preserve_upper_source_rows": 630,
+      "raw_image_path": "art/sources/rescue_rangers/run_revision/20261107-141313-4c0760-raw.png",
+      "denoise": 0.95,
+      "reference": "art/sources/rescue_rangers/run_revision/normal-reference.png",
+      "mask": "art/sources/rescue_rangers/run_revision/normal-mask.png"
+    },
+    "gait_tank_a": {
+      "run_prefix": "20261107-142049-314e45",
+      "image_path": "art/sources/rescue_rangers/run_revision/tank_a.png",
+      "spec_path": "assets/packs/rescue_rangers/provenance/20261107-142049-314e45-spec.json",
+      "engine": "flux2",
+      "model": "flux-2-klein-9b-fp8.safetensors",
+      "seed": 441247,
+      "width": 1024,
+      "height": 1024,
+      "native_width": 1024,
+      "native_height": 1024,
+      "baseline": {
+        "seam": 715,
+        "source_bottom": 997,
+        "target_bottom": 986
+      },
+      "preserve_upper_source_rows": 715,
+      "raw_image_path": "art/sources/rescue_rangers/run_revision/20261107-142049-314e45-raw.png",
+      "denoise": 0.95,
+      "reference": "art/sources/rescue_rangers/run_revision/tank-reference.png",
+      "mask": "art/sources/rescue_rangers/run_revision/tank-right-mask.png"
+    },
+    "gait_tank_b": {
+      "run_prefix": "20261107-142256-004ea9",
+      "image_path": "art/sources/rescue_rangers/run_revision/tank_b.png",
+      "spec_path": "assets/packs/rescue_rangers/provenance/20261107-142256-004ea9-spec.json",
+      "engine": "flux2",
+      "model": "flux-2-klein-9b-fp8.safetensors",
+      "seed": 441249,
+      "width": 1024,
+      "height": 1024,
+      "native_width": 1024,
+      "native_height": 1024,
+      "boot_preparation": {
+        "source": "tank",
+        "crop": [
+          180,
+          795,
+          435,
+          1000
+        ],
+        "pivot_in_crop": [
+          120,
+          55
+        ],
+        "anchor": [
+          300,
+          880
+        ],
+        "scale": 0.8,
+        "clear_bare_foot": [
+          180,
+          885,
+          520,
+          1010
+        ],
+        "left_leg_shear": 0.5,
+        "hip_y": 715,
+        "operation": "Generated boot and trouser pixels only, alpha selection and affine placement."
+      },
+      "baseline": {
+        "seam": 715,
+        "source_bottom": 990,
+        "target_bottom": 986
+      },
+      "preserve_upper_source_rows": 715,
+      "raw_image_path": "art/sources/rescue_rangers/run_revision/20261107-142256-004ea9-raw.png",
+      "denoise": 0.95,
+      "reference": "art/sources/rescue_rangers/run_revision/tank-reference.png",
+      "mask": "art/sources/rescue_rangers/run_revision/tank-left-mask.png"
+    },
+    "gait_thrower_b": {
+      "run_prefix": "20261107-142230-b212f5",
+      "image_path": "art/sources/rescue_rangers/run_revision/thrower_b.png",
+      "spec_path": "assets/packs/rescue_rangers/provenance/20261107-142230-b212f5-spec.json",
+      "engine": "flux2",
+      "model": "flux-2-klein-9b-fp8.safetensors",
+      "seed": 441248,
+      "width": 1024,
+      "height": 1024,
+      "native_width": 1024,
+      "native_height": 1024,
+      "guide_recipe": "art/sources/rescue_rangers/run_revision/thrower-crossed-recipe.json",
+      "preserve_upper_source_rows": 790,
+      "raw_image_path": "art/sources/rescue_rangers/run_revision/20261107-142230-b212f5-raw.png",
+      "denoise": 0.65,
+      "reference": "art/sources/rescue_rangers/run_revision/thrower-crossed-reference.png",
+      "mask": "art/sources/rescue_rangers/run_revision/thrower-mask.png"
+    },
+    "gait_boss_a": {
+      "run_prefix": "20261107-142332-d5a474",
+      "image_path": "art/sources/rescue_rangers/run_revision/boss_a.png",
+      "spec_path": "assets/packs/rescue_rangers/provenance/20261107-142332-d5a474-spec.json",
+      "engine": "flux2",
+      "model": "flux-2-klein-9b-fp8.safetensors",
+      "seed": 441250,
+      "width": 1024,
+      "height": 1024,
+      "native_width": 1024,
+      "native_height": 1024,
+      "baseline": {
+        "seam": 780,
+        "source_bottom": 989,
+        "target_bottom": 987
+      },
+      "preserve_upper_source_rows": 780,
+      "raw_image_path": "art/sources/rescue_rangers/run_revision/20261107-142332-d5a474-raw.png",
+      "denoise": 0.95,
+      "reference": "art/sources/rescue_rangers/run_revision/boss-reference.png",
+      "mask": "art/sources/rescue_rangers/run_revision/boss-mask.png"
+    },
+    "gait_boss_b": {
+      "run_prefix": "20261107-142452-5e07ad",
+      "image_path": "art/sources/rescue_rangers/run_revision/boss_b.png",
+      "spec_path": "assets/packs/rescue_rangers/provenance/20261107-142452-5e07ad-spec.json",
+      "engine": "flux2",
+      "model": "flux-2-klein-9b-fp8.safetensors",
+      "seed": 441251,
+      "width": 1024,
+      "height": 1024,
+      "native_width": 1024,
+      "native_height": 1024,
+      "preserve_upper_source_rows": 780,
+      "raw_image_path": "art/sources/rescue_rangers/run_revision/20261107-142452-5e07ad-raw.png",
+      "denoise": 0.95,
+      "reference": "art/sources/rescue_rangers/run_revision/boss-reference.png",
+      "mask": "art/sources/rescue_rangers/run_revision/boss-mask.png"
     }
   },
   "prepared": {
@@ -1022,6 +1316,422 @@
         496
       ]
     },
+    "characters/run/player/right_a": {
+      "size": [
+        768,
+        896
+      ],
+      "mode": "RGBA",
+      "alpha_bounds": [
+        166,
+        380,
+        613,
+        876
+      ]
+    },
+    "characters/run/player/left_a": {
+      "size": [
+        768,
+        896
+      ],
+      "mode": "RGBA",
+      "alpha_bounds": [
+        155,
+        380,
+        602,
+        876
+      ]
+    },
+    "characters/run/player/right_b": {
+      "size": [
+        768,
+        896
+      ],
+      "mode": "RGBA",
+      "alpha_bounds": [
+        166,
+        380,
+        613,
+        876
+      ]
+    },
+    "characters/run/player/left_b": {
+      "size": [
+        768,
+        896
+      ],
+      "mode": "RGBA",
+      "alpha_bounds": [
+        155,
+        380,
+        602,
+        876
+      ]
+    },
+    "characters/run/player/up_a": {
+      "size": [
+        768,
+        896
+      ],
+      "mode": "RGBA",
+      "alpha_bounds": [
+        208,
+        260,
+        560,
+        877
+      ]
+    },
+    "characters/run/normal/neutral/base": {
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "alpha_bounds": [
+        53,
+        52,
+        407,
+        471
+      ]
+    },
+    "characters/run/normal/stride/base": {
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "alpha_bounds": [
+        53,
+        52,
+        448,
+        474
+      ]
+    },
+    "characters/run/normal/opposite/base": {
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "alpha_bounds": [
+        53,
+        52,
+        407,
+        471
+      ]
+    },
+    "characters/run/normal/neutral/warm": {
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "alpha_bounds": [
+        53,
+        52,
+        407,
+        471
+      ]
+    },
+    "characters/run/normal/stride/warm": {
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "alpha_bounds": [
+        53,
+        52,
+        448,
+        474
+      ]
+    },
+    "characters/run/normal/opposite/warm": {
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "alpha_bounds": [
+        53,
+        52,
+        407,
+        471
+      ]
+    },
+    "characters/run/normal/neutral/dark": {
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "alpha_bounds": [
+        53,
+        52,
+        407,
+        471
+      ]
+    },
+    "characters/run/normal/stride/dark": {
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "alpha_bounds": [
+        53,
+        52,
+        448,
+        474
+      ]
+    },
+    "characters/run/normal/opposite/dark": {
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "alpha_bounds": [
+        53,
+        52,
+        407,
+        471
+      ]
+    },
+    "characters/run/tank/stride/base": {
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "alpha_bounds": [
+        23,
+        32,
+        479,
+        496
+      ]
+    },
+    "characters/run/tank/opposite/base": {
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "alpha_bounds": [
+        23,
+        32,
+        479,
+        496
+      ]
+    },
+    "characters/run/tank/stride/warm": {
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "alpha_bounds": [
+        23,
+        32,
+        479,
+        496
+      ]
+    },
+    "characters/run/tank/opposite/warm": {
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "alpha_bounds": [
+        23,
+        32,
+        479,
+        496
+      ]
+    },
+    "characters/run/tank/stride/dark": {
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "alpha_bounds": [
+        23,
+        32,
+        479,
+        496
+      ]
+    },
+    "characters/run/tank/opposite/dark": {
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "alpha_bounds": [
+        23,
+        32,
+        479,
+        496
+      ]
+    },
+    "characters/run/thrower/neutral/base": {
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "alpha_bounds": [
+        84,
+        22,
+        420,
+        496
+      ]
+    },
+    "characters/run/thrower/stride/base": {
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "alpha_bounds": [
+        84,
+        22,
+        420,
+        496
+      ]
+    },
+    "characters/run/thrower/opposite/base": {
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "alpha_bounds": [
+        84,
+        22,
+        420,
+        480
+      ]
+    },
+    "characters/run/thrower/neutral/warm": {
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "alpha_bounds": [
+        84,
+        22,
+        420,
+        496
+      ]
+    },
+    "characters/run/thrower/stride/warm": {
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "alpha_bounds": [
+        84,
+        22,
+        420,
+        496
+      ]
+    },
+    "characters/run/thrower/opposite/warm": {
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "alpha_bounds": [
+        84,
+        22,
+        420,
+        480
+      ]
+    },
+    "characters/run/thrower/neutral/dark": {
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "alpha_bounds": [
+        84,
+        22,
+        420,
+        496
+      ]
+    },
+    "characters/run/thrower/stride/dark": {
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "alpha_bounds": [
+        84,
+        22,
+        420,
+        496
+      ]
+    },
+    "characters/run/thrower/opposite/dark": {
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "alpha_bounds": [
+        84,
+        22,
+        420,
+        480
+      ]
+    },
+    "characters/run/boss/neutral/base": {
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "alpha_bounds": [
+        40,
+        24,
+        387,
+        496
+      ]
+    },
+    "characters/run/boss/stride/base": {
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "alpha_bounds": [
+        40,
+        24,
+        435,
+        496
+      ]
+    },
+    "characters/run/boss/opposite/base": {
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "alpha_bounds": [
+        40,
+        24,
+        426,
+        470
+      ]
+    },
     "effects/balloon_pop/color_0/frame_0": {
       "size": [
         256,
@@ -1352,6 +2062,27 @@
     "carry_size": [
       15.0,
       16.0
+    ],
+    "defeat_enabled": true,
+    "defeat_transfer_seconds": 0.22,
+    "defeat_min_seconds": 0.35,
+    "defeat_max_seconds": 6.0,
+    "defeat_offscreen_margin": 120.0,
+    "defeat_launch_velocity": [
+      560.0,
+      -480.0
+    ],
+    "defeat_gravity": 1100.0,
+    "defeat_spin_radians": 5.0,
+    "defeat_carry_offset": [
+      -18.0,
+      -8.0
+    ],
+    "defeat_carry_angle_degrees": 90.0,
+    "defeat_weapon_drop_seconds": 1.5,
+    "defeat_weapon_launch_velocity": [
+      140.0,
+      -220.0
     ]
   },
   "pop_sheet": {
@@ -1409,6 +2140,12 @@
         0.048828125,
         0.64453125,
         0.9140625
+      ],
+      "boss": [
+        0.083984375,
+        0.0517578125,
+        0.666015625,
+        0.912109375
       ]
     },
     "entries": {
@@ -1428,6 +2165,120 @@
       "thrower_capture": {
         "share_with": "thrower_release",
         "note": "Explicit reuse of lowered free-hand pose."
+      }
+    }
+  },
+  "locomotion": {
+    "settings": {
+      "enabled": true,
+      "stride_pixels": {
+        "player": 170.0,
+        "normal": 80.0,
+        "tank": 100.0,
+        "thrower": 85.0,
+        "boss": 100.0
+      },
+      "bob_pixels": {
+        "player": 1.5,
+        "normal": 1.0,
+        "tank": 1.0,
+        "thrower": 1.2,
+        "boss": 1.3
+      },
+      "boss_enabled": true
+    },
+    "player_sources": {
+      "right_a": {
+        "source": "player_a",
+        "pose": "right",
+        "preserve_upper_rows": 727
+      },
+      "right_b": {
+        "source": "player_b",
+        "pose": "right",
+        "preserve_upper_rows": 727
+      },
+      "up_a": {
+        "source": "player_up_a",
+        "pose": "up",
+        "preserve_upper_rows": 718
+      }
+    },
+    "player_sequences": {
+      "right": [
+        "idle",
+        "right_a",
+        "idle",
+        "right_b"
+      ],
+      "left": [
+        "idle",
+        "left_a",
+        "idle",
+        "left_b"
+      ],
+      "up": [
+        "idle",
+        "up_a"
+      ]
+    },
+    "enemy_frame_size": [
+      512,
+      512
+    ],
+    "enemy_sources": {
+      "normal": {
+        "source": "normal_run",
+        "extra_sources": {
+          "opposite": "gait_normal_b"
+        },
+        "sequence": [
+          "neutral",
+          "stride",
+          "neutral",
+          "opposite"
+        ],
+        "preserve_upper_source_rows": 630
+      },
+      "tank": {
+        "source": "gait_tank_a",
+        "neutral_shared": "characters/actions/tank_capture",
+        "extra_sources": {
+          "opposite": "gait_tank_b"
+        },
+        "sequence": [
+          "neutral",
+          "stride",
+          "neutral",
+          "opposite"
+        ],
+        "preserve_upper_source_rows": 715
+      },
+      "thrower": {
+        "source": "thrower_run",
+        "extra_sources": {
+          "opposite": "gait_thrower_b"
+        },
+        "sequence": [
+          "neutral",
+          "stride",
+          "neutral",
+          "opposite"
+        ],
+        "preserve_upper_source_rows": 790
+      },
+      "boss": {
+        "source": "gait_boss_a",
+        "extra_sources": {
+          "opposite": "gait_boss_b"
+        },
+        "sequence": [
+          "neutral",
+          "stride",
+          "neutral",
+          "opposite"
+        ],
+        "preserve_upper_source_rows": 780
       }
     }
   },

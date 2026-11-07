@@ -1,0 +1,12 @@
+{
+  "engine": "flux2",
+  "model": "flux-2-klein-9b-fp8.safetensors",
+  "steps": 25,
+  "guidance": 3.5,
+  "sampler": "euler",
+  "seed": 441218,
+  "image_path": "G:\\Git\\Gemini\\media_mcp\\images\\run-cycle\\tank-reference.png",
+  "mask_path": "G:\\Git\\Gemini\\media_mcp\\images\\run-cycle\\tank-mask.png",
+  "denoise": 0.95,
+  "prompt": "Edit only the trouser legs and boots of this exact fat brown cartoon rat to make the second frame of his heavy run toward the right. Keep the round belly, belt and buckle, cream striped shirt, burgundy vest, head, cap, face, arms, hands, tail and hips unchanged. Same opaque brown patched trousers and worn brown lace-up boots. The nearer knee lifts forward to the right with its complete large brown boot raised off the ground under that knee; the farther leg reaches down behind to the left with its complete boot planted on the original floor baseline. Exactly two chunky trouser legs and two boots, coherent heavy cartoon anatomy. Keep the original stocky silhouette, clean thick black outlines, flat vintage cartoon shading and exact clothing colors. Uniform bright green background, no cast shadow, no writing, no new objects."
+}

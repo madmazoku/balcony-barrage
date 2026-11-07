@@ -1,0 +1,12 @@
+{
+  "engine": "flux2",
+  "model": "flux-2-klein-9b-fp8.safetensors",
+  "steps": 25,
+  "guidance": 3.5,
+  "sampler": "euler",
+  "seed": 441212,
+  "image_path": "G:\\Git\\Gemini\\media_mcp\\images\\run-cycle\\player_up-reference.png",
+  "mask_path": "G:\\Git\\Gemini\\media_mcp\\images\\run-cycle\\player_up-mask.png",
+  "denoise": 0.95,
+  "prompt": "Change only the legs of this exact cartoon mouse mechanic to the contact frame of a running cycle, moving toward the right while aiming upward. Preserve her raised arms, head, hair, goggles, chest, hips and tail exactly in their current positions. Keep the same opaque lavender coveralls, purple outlines and bare peach mouse feet. One leg extends diagonally forward toward the right with its foot on the original ground baseline; the other knee folds backward with its foot lifted behind to the left. A clear asymmetrical running stride with exactly two legs and two bare feet. Keep the top of the pants and hips fixed; the raised hands and face must not move at all. Maintain the same clean vintage hand drawn cartoon ink lines, flat cel shading and colors. Uniform bright green background, one character, no extra objects, no lettering."
+}

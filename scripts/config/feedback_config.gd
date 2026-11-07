@@ -24,6 +24,20 @@ extends Resource
 @export var carry_offset: Vector2
 @export var carry_size: Vector2
 
+@export_group("Defeat presentation")
+@export var defeat_enabled: bool = false
+@export var defeat_transfer_seconds: float
+@export var defeat_min_seconds: float
+@export var defeat_max_seconds: float
+@export var defeat_offscreen_margin: float
+@export var defeat_launch_velocity: Vector2
+@export var defeat_gravity: float
+@export var defeat_spin_radians: float
+@export var defeat_carry_offset: Vector2
+@export var defeat_carry_angle_degrees: float
+@export var defeat_weapon_drop_seconds: float
+@export var defeat_weapon_launch_velocity: Vector2
+
 func validation_errors() -> Array[String]:
 	var errors: Array[String] = []
 	for key in ["shot_seconds", "pop_frame_seconds", "pop_size_multiplier", "armor_flight_seconds", "armor_gravity", "armor_spin_radians", "armor_size_multiplier"]:
@@ -39,4 +53,10 @@ func validation_errors() -> Array[String]:
 			errors.append("Armor transfer and reach must fit inside capture animation.")
 		if carry_size.x <= 0 or carry_size.y <= 0 or windup_tilt_degrees < 0 or capture_tilt_degrees < 0:
 			errors.append("Invalid enemy animation geometry.")
+	if defeat_enabled:
+		for key in ["defeat_transfer_seconds", "defeat_min_seconds", "defeat_max_seconds", "defeat_offscreen_margin", "defeat_gravity", "defeat_weapon_drop_seconds"]:
+			if get(key) <= 0:
+				errors.append("Expected positive defeat visual setting: " + key)
+		if defeat_max_seconds <= maxf(defeat_transfer_seconds, defeat_min_seconds) or defeat_launch_velocity.x <= 0 or defeat_launch_velocity.y >= 0:
+			errors.append("Invalid defeat timing or launch velocity.")
 	return errors

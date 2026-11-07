@@ -1,0 +1,12 @@
+{
+  "engine": "flux2",
+  "model": "flux-2-klein-9b-fp8.safetensors",
+  "steps": 25,
+  "guidance": 3.5,
+  "sampler": "euler",
+  "seed": 441250,
+  "image_path": "G:\\Git\\Gemini\\media_mcp\\images\\run-revision\\boss-reference.png",
+  "mask_path": "G:\\Git\\Gemini\\media_mcp\\images\\run-revision\\boss-mask.png",
+  "denoise": 0.95,
+  "prompt": "Edit only the short trouser legs and black shoes of this exact fat gray cartoon cat boss into a heavy running step toward the right. Keep his face, head, folded hands, purple jacket, red tie, round belly, hips and tail unchanged. One purple trouser leg stretches forward toward the right into a COMPLETE shiny black dress shoe, while the other purple leg bends back toward the left into its complete lifted black dress shoe. The shoes must be fully visible, with clear toes, heels and soles, one shoe ahead and one behind. Same opaque purple suit trousers, thick vintage cartoon outlines and flat cel shading. Keep the waist fixed and the original floor baseline. Solid green background, no cast shadow or writing."
+}

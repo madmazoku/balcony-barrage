@@ -23,6 +23,8 @@ extends Resource
 ## Full action canvases use normalized bounds of their matching neutral role.
 @export var enemy_action_frames: Dictionary[String, Array]
 @export var enemy_frame_bounds: Dictionary[String, Rect2]
+@export var locomotion: MotionConfig
+@export var run_frames: Dictionary[String, Array]
 @export var player_anchor: Vector2
 @export var player_body_height: float
 @export var balcony_draw_height: float
@@ -99,6 +101,26 @@ func validation_errors() -> Array[String]:
 			for texture in frames:
 				if not texture is Texture2D:
 					errors.append("Invalid action frame: " + key)
+	if locomotion != null:
+		errors.append_array(locomotion.validation_errors())
+		for pose in ["right", "left", "up"]:
+			var texture := characters.get("player_" + pose) as Texture2D
+			_check_run_frames("player_" + pose, texture.get_size() if texture != null else Vector2.ZERO, errors)
+		for role in ["normal", "tank", "thrower"]:
+			var bounds: Rect2 = enemy_frame_bounds.get(role, Rect2())
+			if bounds.size.x <= 0 or bounds.size.y <= 0 or not Rect2(0, 0, 1, 1).encloses(bounds):
+				errors.append("Invalid running reference bounds: " + role)
+			for index in character_variants.get(role, []).size():
+				_check_run_frames(role + "_" + str(index), Vector2.ZERO, errors)
+		if locomotion.boss_enabled:
+			var bounds: Rect2 = enemy_frame_bounds.get("boss", Rect2())
+			if bounds.size.x <= 0 or bounds.size.y <= 0 or not Rect2(0, 0, 1, 1).encloses(bounds):
+				errors.append("Invalid boss running reference bounds.")
+			_check_run_frames("boss_0", Vector2.ZERO, errors)
+	elif not run_frames.is_empty():
+		errors.append("Running frames require locomotion settings.")
+	if feedback != null and feedback.defeat_enabled and (locomotion == null or not feedback.enemy_actions_enabled):
+		errors.append("Defeat presentation requires this pack's locomotion and capture poses.")
 	var player_frame := characters.get("player_right") as Texture2D
 	if player_frame != null:
 		for key in character_keys:
@@ -122,3 +144,16 @@ func _check_textures(category: Dictionary, keys: Array[String], label: String, e
 	for key in keys:
 		if not category.get(key) is Texture2D:
 			errors.append("Missing texture in " + label + ": " + key)
+
+func _check_run_frames(key: String, expected_size: Vector2, errors: Array[String]) -> void:
+	var frames: Array = run_frames.get(key, [])
+	if frames.size() < 2:
+		errors.append("Missing running sequence: " + key)
+	var frame_size: Vector2 = expected_size
+	for texture in frames:
+		if not texture is Texture2D:
+			errors.append("Invalid running texture: " + key)
+		elif frame_size == Vector2.ZERO:
+			frame_size = texture.get_size()
+		elif texture.get_size() != frame_size:
+			errors.append("Misaligned running frame dimensions: " + key)

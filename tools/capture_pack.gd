@@ -40,7 +40,24 @@ func _capture() -> void:
 	var pose: String = options.pose
 	var direction: Vector2 = Vector2.UP if pose == "up" else (Vector2.LEFT if pose == "left" else Vector2.RIGHT)
 	var effect: String = options.get("feedback", "shot")
+	game.set("player_pose", pose)
 	match effect:
+		"defeat":
+			model.armor = 0
+			model.minions.clear()
+			model.hazards.clear()
+			var cause: String = options.get("cause", "capture")
+			var side: float = float(options.get("side", "1"))
+			if cause == "capture":
+				var role: String = options.get("role", "normal")
+				var offset: float = (model.body_size(role).x + model.config.player_size.x) / 2 - 1
+				model.spawn(role, Vector2(model.player.x + side * offset, model.config.ground_y - model.body_size(role).y / 2))
+				model.minions[0].state = "ground"
+				model.minions[0].variant = int(options.get("color", "0"))
+				model._update_minions(0.001)
+			else:
+				model.hazards.append({"pos": model.player - Vector2(side * 10, 25), "velocity": Vector2(side * 80, model.config.nut_speed), "furniture": cause == "furniture"})
+				model._update_hazards(0.05)
 		"pop":
 			model.minions.clear()
 			model.spawn("thrower", Vector2(model.config.arena_size.x / 2, model.config.ground_y - 210))
@@ -60,6 +77,28 @@ func _capture() -> void:
 			model.spawn(role, Vector2(model.player.x + side * offset, model.config.ground_y - model.body_size(role).y / 2))
 			model.minions[0].state = "ground"
 			model._update_minions(0.001)
+		"run":
+			model.minions.clear()
+			var role: String = options.get("role", "player")
+			var side: float = float(options.get("side", "1"))
+			if role == "player":
+				model.player.x = 300 if side > 0 else model.config.arena_size.x - 300
+				var axis := InputEventJoypadMotion.new()
+				axis.device = 91
+				axis.axis = JOY_AXIS_LEFT_X
+				axis.axis_value = side
+				(game.get("controls") as PlayerControls)._input(axis)
+			elif role == "boss":
+				model.boss_direction = side
+			else:
+				model.player.x = 1100 if side > 0 else 180
+				model.spawn(role, Vector2(400 if side > 0 else 880, model.config.ground_y - model.body_size(role).y / 2))
+				model.minions[0].state = options.get("state", "ground")
+				model.minions[0].escape_direction = side
+				model.minions[0].variant = int(options.get("color", "0"))
+				model.minions[0].stolen_part = int(options.get("part", "-1"))
+			(game.get("motion") as RoundMotion).reset(model)
+			game.set("player_pose", pose)
 		"windup":
 			model.minions.clear()
 			model.spawn("thrower", Vector2(model.config.arena_size.x / 2, model.config.ground_y - 210))
@@ -76,6 +115,8 @@ func _capture() -> void:
 		if index > 0 and feedback != null:
 			if options.get("simulate", "false") == "true":
 				game.call("_physics_process", float(options.get("step", "0.04")))
+				if effect == "run" and options.get("role", "player") == "player" and pose == "up":
+					game.call("_shoot", Vector2.UP)
 			else:
 				feedback.advance(float(options.get("step", "0.04")))
 		game.queue_redraw()
@@ -87,6 +128,13 @@ func _capture() -> void:
 		var capture_size := Vector2i(int(ProjectSettings.get_setting("display/window/size/window_width_override")), int(ProjectSettings.get_setting("display/window/size/window_height_override")))
 		if capture_size.x > 0 and capture_size.y > 0 and image.get_size() != capture_size:
 			image.resize(capture_size.x, capture_size.y, Image.INTERPOLATE_LANCZOS)
+		if options.get("focus", "") == "actor":
+			var role: String = options.get("role", "player")
+			var position: Vector2 = model.player if role == "player" else (model.boss_draw_position() if role == "boss" else model.minions[0].pos)
+			var ratio: Vector2 = Vector2(image.get_size()) / model.config.arena_size
+			var left: int = clampi(int(position.x * ratio.x) - 90, 0, image.get_width() - 180)
+			var top: int = int(position.y * ratio.y) - 65 if role == "boss" else int((model.config.ground_y - 50) * ratio.y) - 75
+			image = image.get_region(Rect2i(left, top, 180, 130))
 		var error: Error = image.save_png(path)
 		if error != OK:
 			push_error("Could not save QA capture.")

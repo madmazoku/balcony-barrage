@@ -1,0 +1,12 @@
+{
+  "engine": "flux2",
+  "model": "flux-2-klein-9b-fp8.safetensors",
+  "steps": 25,
+  "guidance": 3.5,
+  "sampler": "euler",
+  "seed": 441219,
+  "image_path": "G:\\Git\\Gemini\\media_mcp\\images\\run-cycle\\normal-reference.png",
+  "mask_path": "G:\\Git\\Gemini\\media_mcp\\images\\run-cycle\\normal-front-leg-mask.png",
+  "denoise": 0.95,
+  "prompt": "Edit only the lifted FRONT leg on the right of this cartoon rat. Straighten this front leg diagonally forward to the right into a long running contact stride. It wears the same opaque navy blue trousers, ending at the ankle in a complete peach bare mouse foot with three rounded toes, heel and sole, the foot touching the same floor baseline as the other foot. Preserve the entire planted back leg and its bare foot on the left exactly as they are. Also preserve the tail, striped shirt, waist, arms, face, cap and body proportions. The result is one foot planted below the body and the other leg stepping well forward to the right. Use the same thick black outlines and vintage flat cel colors, navy trousers, peach feet, solid bright green background, no shadow or text."
+}
