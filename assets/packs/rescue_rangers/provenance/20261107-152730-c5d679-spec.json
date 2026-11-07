@@ -1,0 +1,12 @@
+{
+  "engine": "flux2",
+  "model": "flux-2-klein-9b-fp8.safetensors",
+  "steps": 25,
+  "guidance": 3.5,
+  "sampler": "euler",
+  "seed": 441305,
+  "image_path": "G:\\Git\\Gemini\\media_mcp\\images\\boss-actions\\reference.png",
+  "mask_path": "G:\\Git\\Gemini\\media_mcp\\images\\boss-actions\\arms-mask.png",
+  "denoise": 0.95,
+  "prompt": "Keep the exact fat gray cartoon cat, original huge round belly, original CLOSED purple jacket, red necktie and white collar. Change only his right sleeve and EMPTY right hand: the right arm stretches DOWNWARD beside the RIGHT side of his belly, the right paw points down below his waist at the right hip, fingers curling into a gripping gesture. His left hand stays on the front of his belly. Do not open the jacket or slim his body. The original head, face, ears, tail, feet and black shoes remain in their exact original positions. Single clean isolated animation frame, no objects at all. Same bold vintage cartoon outlines and cel colors, same green background."
+}

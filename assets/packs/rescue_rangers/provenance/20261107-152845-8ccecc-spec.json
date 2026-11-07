@@ -1,0 +1,12 @@
+{
+  "engine": "flux2",
+  "model": "flux-2-klein-9b-fp8.safetensors",
+  "steps": 25,
+  "guidance": 3.5,
+  "sampler": "euler",
+  "seed": 441306,
+  "image_path": "G:\\Git\\Gemini\\media_mcp\\images\\boss-actions\\reference.png",
+  "mask_path": "G:\\Git\\Gemini\\media_mcp\\images\\boss-actions\\knees-mask.png",
+  "denoise": 0.95,
+  "prompt": "Edit ONLY the short purple trouser legs and black dress shoes of this exact fat cartoon cat. Standing heavy landing pose, both knees flex slightly outward beneath his massive belly, both black shoes remain flat on the same ground line with their toes pointing outward. He is still STANDING, not sitting, the soles are on the ground. Keep the entire head, purple closed suit jacket, folded paws, body and gray tail exactly unchanged. Same purple trousers, black cartoon ink outlines and flat cel shading. Solid green background, no shadows, no extra marks."
+}

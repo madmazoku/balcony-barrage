@@ -551,6 +551,162 @@
       "denoise": 0.95,
       "reference": "art/sources/rescue_rangers/run_revision/boss-reference.png",
       "mask": "art/sources/rescue_rangers/run_revision/boss-mask.png"
+    },
+    "boss_action_reach": {
+      "image_path": "art/sources/rescue_rangers/boss_actions/reach.png",
+      "run_prefix": "20261107-153209-86efbc",
+      "engine": "flux2",
+      "model": "flux-2-klein-9b-fp8.safetensors",
+      "seed": 441311,
+      "width": 1024,
+      "height": 1024,
+      "spec_path": "assets/packs/rescue_rangers/provenance/20261107-153209-86efbc-spec.json",
+      "preparation": "Same-model coat refinement; restore pose-source upper 430 rows, original generated head polygon and original standing rows from 800; largest alpha component.",
+      "pose_source": "20261107-152730-c5d679"
+    },
+    "boss_action_release": {
+      "image_path": "art/sources/rescue_rangers/boss_actions/release.png",
+      "run_prefix": "20261107-153023-92b000",
+      "engine": "flux2",
+      "model": "flux-2-klein-9b-fp8.safetensors",
+      "seed": 441310,
+      "width": 1024,
+      "height": 1024,
+      "spec_path": "assets/packs/rescue_rangers/provenance/20261107-153023-92b000-spec.json",
+      "preparation": "Same-model coat refinement; restore pose-source upper 430 rows, original generated head polygon and original standing rows from 800; largest alpha component.",
+      "pose_source": "20261107-152250-04c20e"
+    },
+    "boss_action_hold": {
+      "image_path": "art/sources/rescue_rangers/boss_actions/hold.png",
+      "run_prefix": "20261107-152333-0414b8",
+      "engine": "flux2",
+      "model": "flux-2-klein-9b-fp8.safetensors",
+      "seed": 441302,
+      "width": 1024,
+      "height": 1024,
+      "spec_path": "assets/packs/rescue_rangers/provenance/20261107-152333-0414b8-spec.json",
+      "preparation": "Original raised-arm generation, original generated head polygon and standing rows from 800; largest alpha component. Unused coat retouch excluded.",
+      "pose_source": null
+    },
+    "boss_action_air": {
+      "image_path": "art/sources/rescue_rangers/boss_actions/air.png",
+      "run_prefix": "20261107-153411-6451a8",
+      "engine": "flux2",
+      "model": "flux-2-klein-9b-fp8.safetensors",
+      "seed": 441313,
+      "width": 1024,
+      "height": 1024,
+      "spec_path": "assets/packs/rescue_rangers/provenance/20261107-153411-6451a8-spec.json",
+      "preparation": "Same-model coat refinement; restore pose-source upper 430 rows and original generated head polygon; largest alpha component. Bent airborne feet retained.",
+      "pose_source": "20261107-152420-983824"
+    },
+    "boss_action_land": {
+      "image_path": "art/sources/rescue_rangers/boss_actions/land.png",
+      "run_prefix": "20261107-152845-8ccecc",
+      "engine": "flux2",
+      "model": "flux-2-klein-9b-fp8.safetensors",
+      "seed": 441306,
+      "width": 1024,
+      "height": 1024,
+      "spec_path": "assets/packs/rescue_rangers/provenance/20261107-152845-8ccecc-spec.json",
+      "preparation": "Original upper 780 rows; generated bent legs rescaled below that seam to baseline 987; largest alpha component.",
+      "pose_source": null
+    },
+    "sack_open": {
+      "image_path": "art/sources/rescue_rangers/boss_actions/sack_open.png",
+      "run_prefix": "20261107-153724-e0c35f",
+      "engine": "flux2",
+      "model": "flux-2-klein-9b-fp8.safetensors",
+      "seed": 441315,
+      "spec_path": "assets/packs/rescue_rangers/provenance/20261107-153724-e0c35f-spec.json"
+    },
+    "boss_gait_contact_a": {
+      "image_path": "art/sources/rescue_rangers/boss_gait_fix/contact_a.png",
+      "run_prefix": "20261105-214234-0730cc",
+      "engine": "flux2",
+      "model": "flux-2-klein-9b-fp8.safetensors",
+      "seed": 441130,
+      "spec_path": "assets/packs/rescue_rangers/provenance/20261105-214234-0730cc-spec.json",
+      "derived_from": "boss",
+      "preparation": "Alpha-select whole generated trouser legs and shoes, affine shear/lift about hip_y=780, composite beneath unchanged generated torso/tail. No drawn pixels. See boss_gait_fix/gait-recipe.json.",
+      "phase": 0
+    },
+    "boss_gait_recoil_a": {
+      "image_path": "art/sources/rescue_rangers/boss_gait_fix/recoil_a.png",
+      "run_prefix": "20261105-214234-0730cc",
+      "engine": "flux2",
+      "model": "flux-2-klein-9b-fp8.safetensors",
+      "seed": 441130,
+      "spec_path": "assets/packs/rescue_rangers/provenance/20261105-214234-0730cc-spec.json",
+      "derived_from": "boss",
+      "preparation": "Alpha-select whole generated trouser legs and shoes, affine shear/lift about hip_y=780, composite beneath unchanged generated torso/tail. No drawn pixels. See boss_gait_fix/gait-recipe.json.",
+      "phase": 1
+    },
+    "boss_gait_pass_a": {
+      "image_path": "art/sources/rescue_rangers/boss_gait_fix/pass_a.png",
+      "run_prefix": "20261105-214234-0730cc",
+      "engine": "flux2",
+      "model": "flux-2-klein-9b-fp8.safetensors",
+      "seed": 441130,
+      "spec_path": "assets/packs/rescue_rangers/provenance/20261105-214234-0730cc-spec.json",
+      "derived_from": "boss",
+      "preparation": "Alpha-select whole generated trouser legs and shoes, affine shear/lift about hip_y=780, composite beneath unchanged generated torso/tail. No drawn pixels. See boss_gait_fix/gait-recipe.json.",
+      "phase": 2
+    },
+    "boss_gait_lift_a": {
+      "image_path": "art/sources/rescue_rangers/boss_gait_fix/lift_a.png",
+      "run_prefix": "20261105-214234-0730cc",
+      "engine": "flux2",
+      "model": "flux-2-klein-9b-fp8.safetensors",
+      "seed": 441130,
+      "spec_path": "assets/packs/rescue_rangers/provenance/20261105-214234-0730cc-spec.json",
+      "derived_from": "boss",
+      "preparation": "Alpha-select whole generated trouser legs and shoes, affine shear/lift about hip_y=780, composite beneath unchanged generated torso/tail. No drawn pixels. See boss_gait_fix/gait-recipe.json.",
+      "phase": 3
+    },
+    "boss_gait_contact_b": {
+      "image_path": "art/sources/rescue_rangers/boss_gait_fix/contact_b.png",
+      "run_prefix": "20261105-214234-0730cc",
+      "engine": "flux2",
+      "model": "flux-2-klein-9b-fp8.safetensors",
+      "seed": 441130,
+      "spec_path": "assets/packs/rescue_rangers/provenance/20261105-214234-0730cc-spec.json",
+      "derived_from": "boss",
+      "preparation": "Alpha-select whole generated trouser legs and shoes, affine shear/lift about hip_y=780, composite beneath unchanged generated torso/tail. No drawn pixels. See boss_gait_fix/gait-recipe.json.",
+      "phase": 4
+    },
+    "boss_gait_recoil_b": {
+      "image_path": "art/sources/rescue_rangers/boss_gait_fix/recoil_b.png",
+      "run_prefix": "20261105-214234-0730cc",
+      "engine": "flux2",
+      "model": "flux-2-klein-9b-fp8.safetensors",
+      "seed": 441130,
+      "spec_path": "assets/packs/rescue_rangers/provenance/20261105-214234-0730cc-spec.json",
+      "derived_from": "boss",
+      "preparation": "Alpha-select whole generated trouser legs and shoes, affine shear/lift about hip_y=780, composite beneath unchanged generated torso/tail. No drawn pixels. See boss_gait_fix/gait-recipe.json.",
+      "phase": 5
+    },
+    "boss_gait_pass_b": {
+      "image_path": "art/sources/rescue_rangers/boss_gait_fix/pass_b.png",
+      "run_prefix": "20261105-214234-0730cc",
+      "engine": "flux2",
+      "model": "flux-2-klein-9b-fp8.safetensors",
+      "seed": 441130,
+      "spec_path": "assets/packs/rescue_rangers/provenance/20261105-214234-0730cc-spec.json",
+      "derived_from": "boss",
+      "preparation": "Alpha-select whole generated trouser legs and shoes, affine shear/lift about hip_y=780, composite beneath unchanged generated torso/tail. No drawn pixels. See boss_gait_fix/gait-recipe.json.",
+      "phase": 6
+    },
+    "boss_gait_lift_b": {
+      "image_path": "art/sources/rescue_rangers/boss_gait_fix/lift_b.png",
+      "run_prefix": "20261105-214234-0730cc",
+      "engine": "flux2",
+      "model": "flux-2-klein-9b-fp8.safetensors",
+      "seed": 441130,
+      "spec_path": "assets/packs/rescue_rangers/provenance/20261105-214234-0730cc-spec.json",
+      "derived_from": "boss",
+      "preparation": "Alpha-select whole generated trouser legs and shoes, affine shear/lift about hip_y=780, composite beneath unchanged generated torso/tail. No drawn pixels. See boss_gait_fix/gait-recipe.json.",
+      "phase": 7
     }
   },
   "prepared": {
@@ -1316,6 +1472,84 @@
         496
       ]
     },
+    "effects/sack_open": {
+      "size": [
+        651,
+        806
+      ],
+      "mode": "RGBA",
+      "alpha_bounds": [
+        0,
+        0,
+        651,
+        806
+      ]
+    },
+    "characters/boss_actions/reach": {
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "alpha_bounds": [
+        40,
+        24,
+        396,
+        496
+      ]
+    },
+    "characters/boss_actions/release": {
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "alpha_bounds": [
+        40,
+        24,
+        467,
+        496
+      ]
+    },
+    "characters/boss_actions/hold": {
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "alpha_bounds": [
+        40,
+        24,
+        379,
+        496
+      ]
+    },
+    "characters/boss_actions/air": {
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "alpha_bounds": [
+        40,
+        24,
+        464,
+        481
+      ]
+    },
+    "characters/boss_actions/land": {
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "alpha_bounds": [
+        40,
+        24,
+        387,
+        496
+      ]
+    },
     "characters/run/player/right_a": {
       "size": [
         768,
@@ -1693,7 +1927,7 @@
         480
       ]
     },
-    "characters/run/boss/neutral/base": {
+    "characters/run/boss/contact_a/base": {
       "size": [
         512,
         512
@@ -1706,7 +1940,7 @@
         496
       ]
     },
-    "characters/run/boss/stride/base": {
+    "characters/run/boss/recoil_a/base": {
       "size": [
         512,
         512
@@ -1715,11 +1949,11 @@
       "alpha_bounds": [
         40,
         24,
-        435,
+        387,
         496
       ]
     },
-    "characters/run/boss/opposite/base": {
+    "characters/run/boss/pass_a/base": {
       "size": [
         512,
         512
@@ -1728,8 +1962,73 @@
       "alpha_bounds": [
         40,
         24,
-        426,
-        470
+        387,
+        496
+      ]
+    },
+    "characters/run/boss/lift_a/base": {
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "alpha_bounds": [
+        40,
+        24,
+        387,
+        496
+      ]
+    },
+    "characters/run/boss/contact_b/base": {
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "alpha_bounds": [
+        40,
+        24,
+        387,
+        496
+      ]
+    },
+    "characters/run/boss/recoil_b/base": {
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "alpha_bounds": [
+        40,
+        24,
+        387,
+        491
+      ]
+    },
+    "characters/run/boss/pass_b/base": {
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "alpha_bounds": [
+        40,
+        24,
+        387,
+        487
+      ]
+    },
+    "characters/run/boss/lift_b/base": {
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "alpha_bounds": [
+        40,
+        24,
+        387,
+        491
       ]
     },
     "effects/balloon_pop/color_0/frame_0": {
@@ -2176,16 +2475,19 @@
         "normal": 80.0,
         "tank": 100.0,
         "thrower": 85.0,
-        "boss": 100.0
+        "boss": 64.0
       },
       "bob_pixels": {
         "player": 1.5,
         "normal": 1.0,
         "tank": 1.0,
         "thrower": 1.2,
-        "boss": 1.3
+        "boss": 0.5
       },
-      "boss_enabled": true
+      "boss_enabled": true,
+      "bob_cycles": {
+        "boss": 1.0
+      }
     },
     "player_sources": {
       "right_a": {
@@ -2268,18 +2570,81 @@
         "preserve_upper_source_rows": 790
       },
       "boss": {
-        "source": "gait_boss_a",
+        "source": "boss_gait_contact_a",
         "extra_sources": {
-          "opposite": "gait_boss_b"
+          "contact_a": "boss_gait_contact_a",
+          "recoil_a": "boss_gait_recoil_a",
+          "pass_a": "boss_gait_pass_a",
+          "lift_a": "boss_gait_lift_a",
+          "contact_b": "boss_gait_contact_b",
+          "recoil_b": "boss_gait_recoil_b",
+          "pass_b": "boss_gait_pass_b",
+          "lift_b": "boss_gait_lift_b"
         },
         "sequence": [
-          "neutral",
-          "stride",
-          "neutral",
-          "opposite"
+          "contact_a",
+          "recoil_a",
+          "pass_a",
+          "lift_a",
+          "contact_b",
+          "recoil_b",
+          "pass_b",
+          "lift_b"
         ],
         "preserve_upper_source_rows": 780
       }
+    }
+  },
+  "boss_actions": {
+    "entries": {
+      "reach": {
+        "source": "boss_action_reach"
+      },
+      "release": {
+        "source": "boss_action_release"
+      },
+      "hold": {
+        "source": "boss_action_hold"
+      },
+      "air": {
+        "source": "boss_action_air"
+      },
+      "land": {
+        "source": "boss_action_land"
+      }
+    },
+    "props": {
+      "sack_open": "sack_open"
+    },
+    "settings": {
+      "enabled": true,
+      "reach_seconds": 0.55,
+      "release_seconds": 0.32,
+      "throw_seconds": 0.26,
+      "landing_seconds": 0.28,
+      "jump_stretch": 0.08,
+      "landing_squash": 0.16,
+      "sack_offset": [
+        0.38,
+        0.25
+      ],
+      "sack_size": [
+        0.4,
+        0.58
+      ],
+      "sack_pulse": 0.12,
+      "furniture_hold_offset": [
+        0.13,
+        -0.48
+      ],
+      "furniture_lift_offset": [
+        0.35,
+        -0.02
+      ],
+      "swing_fraction": 0.2,
+      "lift_fraction": 0.35,
+      "fall_tilt_degrees": 12,
+      "walking_split_fraction": 0.76171875
     }
   },
   "player_canvas": [

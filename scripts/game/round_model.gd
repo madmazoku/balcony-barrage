@@ -6,6 +6,7 @@ signal armor_removed(part: int, stolen: bool)
 signal thrower_released(enemy: Dictionary)
 signal armor_stolen(part: int, thief: Dictionary)
 signal player_defeated(kind: String, source: Dictionary)
+signal boss_action(kind: String)
 
 var config: GameplayConfig
 var rng := RandomNumberGenerator.new()
@@ -127,6 +128,7 @@ func tick(delta: float, movement: float) -> void:
 	while released < config.release_times.size() and elapsed >= config.release_times[released]:
 		spawn(config.release_roles[released], boss + Vector2(0, config.spawn_drop))
 		released += 1
+		boss_action.emit("release")
 	_update_bolts(delta)
 	_update_minions(delta)
 	_update_hazards(delta)
@@ -136,6 +138,7 @@ func _update_boss(delta: float) -> void:
 		jump_remaining = maxf(0, jump_remaining - delta)
 		if jump_remaining == 0.0:
 			broken_stages += 1
+			boss_action.emit("land")
 			last_event = "Тяжёлое приземление — балкон треснул"
 			if broken_stages >= config.balcony_stages:
 				boss_falling = true
@@ -155,6 +158,7 @@ func _update_boss(delta: float) -> void:
 		furniture_windup = maxf(0, furniture_windup - delta)
 		if furniture_windup == 0:
 			_throw_hazard(boss, true)
+			boss_action.emit("throw")
 			furniture_timer = config.furniture_interval_seconds
 	else:
 		furniture_timer -= delta

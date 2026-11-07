@@ -5,6 +5,7 @@
 [resource]
 script = ExtResource("1")
 enabled = true
-stride_pixels = Dictionary[String, float]({"player": 170.0, "normal": 80.0, "tank": 100.0, "thrower": 85.0, "boss": 100.0})
-bob_pixels = Dictionary[String, float]({"player": 1.5, "normal": 1.0, "tank": 1.0, "thrower": 1.2, "boss": 1.3})
+stride_pixels = Dictionary[String, float]({"player": 170.0, "normal": 80.0, "tank": 100.0, "thrower": 85.0, "boss": 64.0})
+bob_pixels = Dictionary[String, float]({"player": 1.5, "normal": 1.0, "tank": 1.0, "thrower": 1.2, "boss": 0.5})
 boss_enabled = true
+bob_cycles = Dictionary[String, float]({"boss": 1.0})

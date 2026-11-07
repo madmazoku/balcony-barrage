@@ -1,0 +1,12 @@
+{
+  "engine": "flux2",
+  "model": "flux-2-klein-9b-fp8.safetensors",
+  "steps": 25,
+  "guidance": 3.5,
+  "sampler": "euler",
+  "seed": 441313,
+  "image_path": "G:\\Git\\Gemini\\media_mcp\\images\\boss-actions\\air-reference.png",
+  "mask_path": "G:\\Git\\Gemini\\media_mcp\\images\\boss-actions\\coat-mask.png",
+  "denoise": 0.65,
+  "prompt": "Repair only the jacket front of this exact fat gray cartoon cat in his airborne pose, preserving both spread arms and bent legs. His opaque purple suit jacket is smoothly buttoned CLOSED over his enormous round belly, purple lapels joining below the red necktie. Remove the straight horizontal cut across his stomach, replace the exposed white shirt on his belly with a continuous smoothly rounded purple jacket. Coherent curved black outer outline and one closed vertical centre seam. Preserve his head, empty paws, bent legs, black shoes and gray tail exactly. Same bold cel cartoon style and green background."
+}

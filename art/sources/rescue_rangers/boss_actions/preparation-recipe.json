@@ -1,0 +1,31 @@
+{
+  "preserve_head_rows": 330,
+  "standing_preserve_lower_rows": 780,
+  "belly_polygon": [
+    [
+      315,
+      575
+    ],
+    [
+      695,
+      575
+    ],
+    [
+      715,
+      710
+    ],
+    [
+      680,
+      774
+    ],
+    [
+      350,
+      774
+    ],
+    [
+      270,
+      700
+    ]
+  ],
+  "belly_feather": 8
+}

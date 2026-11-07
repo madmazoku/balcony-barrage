@@ -1,0 +1,12 @@
+{
+  "engine": "flux2",
+  "model": "flux-2-klein-9b-fp8.safetensors",
+  "steps": 25,
+  "guidance": 3.5,
+  "sampler": "euler",
+  "seed": 441302,
+  "image_path": "G:\\Git\\Gemini\\media_mcp\\images\\boss-actions\\reference.png",
+  "mask_path": "G:\\Git\\Gemini\\media_mcp\\images\\boss-actions\\arms-mask.png",
+  "denoise": 0.95,
+  "prompt": "Create the overarm wind-up animation pose of this exact fat gray cartoon cat villain. Change only his arms: both bent purple-sleeved arms lift upwards to the right side of his head, with EMPTY gray paws held above shoulder level at the right of his face as if lifting something heavy overhead. No object is drawn, both paws are clearly visible. Keep his exact original head, ears, round belly, purple business suit, original sharp lapels, crisp white shirt collar and long red necktie, tail, purple trouser legs and black shoes. No scarf. Same original head and foot positions, same composition, thick black cartoon outlines and flat cel shading on the unchanged solid green background."
+}

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c3ltasw3t0p8q"
-path="res://.godot/imported/base.png-e27bbd0b32cf8391e9021e29ad14a061.ctex"
+uid="uid://cpe3bt2tv67ve"
+path="res://.godot/imported/base.png-e54e88ce6a0ff771fb1d4f61a80bb6ce.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/packs/rescue_rangers/characters/run/boss/neutral/base.png"
-dest_files=["res://.godot/imported/base.png-e27bbd0b32cf8391e9021e29ad14a061.ctex"]
+source_file="res://assets/packs/rescue_rangers/characters/run/boss/pass_b/base.png"
+dest_files=["res://.godot/imported/base.png-e54e88ce6a0ff771fb1d4f61a80bb6ce.ctex"]
 
 [params]
 

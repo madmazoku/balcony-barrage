@@ -1,0 +1,12 @@
+{
+  "engine": "flux2",
+  "model": "flux-2-klein-9b-fp8.safetensors",
+  "steps": 25,
+  "guidance": 3.5,
+  "sampler": "euler",
+  "seed": 441315,
+  "image_path": "G:\\Git\\Gemini\\media_mcp\\images\\boss-actions\\sack-reference.png",
+  "mask_path": "G:\\Git\\Gemini\\media_mcp\\images\\boss-actions\\sack-mask.png",
+  "denoise": 0.95,
+  "prompt": "Replace the narrow tied neck of this brown patched cloth sack with a WIDE OPEN mouth, as wide as the sack body. The mouth is a large horizontal oval with a deep dark brown empty interior, wide curved cloth rim folding outward on the left and right. There is absolutely no rope around the neck and no constriction, only a large open bag ready to reach inside. Preserve the original rounded brown lower sack with its two stitched patches. Isolated single cartoon open sack, thick black outline and flat warm brown shading, same plain green background. No other objects."
+}
