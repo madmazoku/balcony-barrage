@@ -1,0 +1,12 @@
+{
+  "engine": "flux2",
+  "model": "flux-2-klein-9b-fp8.safetensors",
+  "steps": 25,
+  "guidance": 3.5,
+  "sampler": "euler",
+  "seed": 441303,
+  "image_path": "G:\\Git\\Gemini\\media_mcp\\images\\boss-actions\\reference.png",
+  "mask_path": "G:\\Git\\Gemini\\media_mcp\\images\\boss-actions\\air-mask.png",
+  "denoise": 0.95,
+  "prompt": "Animation frame of the exact same fat gray cartoon cat in the purple suit jumping in surprise. Keep his original large head, ears, facial features, tail and massive rotund purple-coated belly. His EMPTY gray paws are spread out at his sides with open fingers. His short purple trouser legs are bent with both black shoes visibly tucked up underneath his heavy belly. The cat is suspended in midair in the same full-body canvas; do not shift his head. Same purple suit and red necktie over an opaque white shirt, same bold black outlines and flat cel shading, unchanged green background. Only one complete cat, no props, no additional marks or effects."
+}

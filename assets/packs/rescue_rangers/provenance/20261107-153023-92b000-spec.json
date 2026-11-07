@@ -1,0 +1,12 @@
+{
+  "engine": "flux2",
+  "model": "flux-2-klein-9b-fp8.safetensors",
+  "steps": 25,
+  "guidance": 3.5,
+  "sampler": "euler",
+  "seed": 441310,
+  "image_path": "G:\\Git\\Gemini\\media_mcp\\images\\boss-actions\\release-reference.png",
+  "mask_path": "G:\\Git\\Gemini\\media_mcp\\images\\boss-actions\\coat-mask.png",
+  "denoise": 0.65,
+  "prompt": "Repair only the purple jacket front of this exact fat cartoon cat, preserving the head and reaching arm pose. The jacket is smoothly buttoned closed over his enormous round belly. Make the purple lapels continue naturally down to the closed rounded jacket front beneath the red necktie. Remove the unnatural horizontal cut across the jacket and the sharp step at the right edge of the belly: continuous smooth purple cloth with one coherent outer black outline. Preserve the existing gray paws, empty hands, purple sleeves and round body size. Same vintage black ink outlines and flat purple cel shading, green background."
+}

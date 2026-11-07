@@ -135,6 +135,47 @@
       "approved_at": "2026-11-07",
       "approval": "Owner: seems fine",
       "release": "0.9.0"
+    },
+    "group_4": {
+      "status": "accepted",
+      "branch": "AI-10-boss-actions",
+      "scope": [
+        "sack reach and release",
+        "furniture lift, swing and follow-through",
+        "jump, heavy landing and airborne collapse"
+      ],
+      "new_source_runs": [
+        "20261107-152250-04c20e",
+        "20261107-152333-0414b8",
+        "20261107-152420-983824",
+        "20261107-152730-c5d679",
+        "20261107-152845-8ccecc",
+        "20261107-153023-92b000",
+        "20261107-153209-86efbc",
+        "20261107-153411-6451a8",
+        "20261107-153724-e0c35f"
+      ],
+      "runtime_png_count": 118,
+      "model": "same locked FLUX.2 Klein 9B FP8; euler / 25 / 3.5, no LoRA",
+      "notes": "Short generated action poses with separate open sack and furniture; all combat timing unchanged. Background and sounds remain later.",
+      "boss_gait_revision": {
+        "status": "accepted",
+        "date": "2026-11-07",
+        "owner_feedback": "босс как-то странно бегает, ноги пропадают и появляются а не перебирает ими",
+        "source_run": "20261105-214234-0730cc",
+        "method": "Eight continuous phases from alpha-selected whole generated legs and shoes; affine shear/lift around hips, unchanged generated torso/tail. No drawn pixels. A new img2img trial was rejected and is not included.",
+        "runtime_frames": 8,
+        "stride_pixels": 64,
+        "bob_pixels": 0.5,
+        "bob_cycles": 1,
+        "walking_action_layers": "reach/release/hold retain the active running lower-body frame; air/landing retain their dedicated poses",
+        "scope": "Only three obsolete boss-run PNGs replaced; other 110 PNGs from the previous local preview remain unchanged.",
+        "approved_at": "2026-11-07",
+        "approval": "Owner: гуд"
+      },
+      "approved_at": "2026-11-07",
+      "approval": "Owner: гуд",
+      "release": "0.10.0"
     }
   }
 }

@@ -1,0 +1,12 @@
+{
+  "engine": "flux2",
+  "model": "flux-2-klein-9b-fp8.safetensors",
+  "steps": 25,
+  "guidance": 3.5,
+  "sampler": "euler",
+  "seed": 441301,
+  "image_path": "G:\\Git\\Gemini\\media_mcp\\images\\boss-actions\\reference.png",
+  "mask_path": "G:\\Git\\Gemini\\media_mcp\\images\\boss-actions\\arms-mask.png",
+  "denoise": 0.95,
+  "prompt": "Change only the arm pose of this exact fat gray cartoon cat in a purple business suit. He reaches down to the right with his right arm, right paw open at waist height on the right. His left arm stays across his belly. Both hands are completely EMPTY, with every finger visible. This is a clean isolated animation body frame, containing only the cat and his clothing. Keep the exact original purple jacket lapels, straight red necktie, crisp white shirt collar, head, feet and tail. Same original position of head and shoes. Bold black outlines, flat cel colors, same green background. Preserve the rest of the image."
+}

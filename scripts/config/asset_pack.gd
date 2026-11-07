@@ -23,6 +23,8 @@ extends Resource
 ## Full action canvases use normalized bounds of their matching neutral role.
 @export var enemy_action_frames: Dictionary[String, Array]
 @export var enemy_frame_bounds: Dictionary[String, Rect2]
+@export var boss_actions: BossActionConfig
+@export var boss_action_frames: Dictionary[String, Texture2D]
 @export var locomotion: MotionConfig
 @export var run_frames: Dictionary[String, Array]
 @export var player_anchor: Vector2
@@ -121,6 +123,18 @@ func validation_errors() -> Array[String]:
 		errors.append("Running frames require locomotion settings.")
 	if feedback != null and feedback.defeat_enabled and (locomotion == null or not feedback.enemy_actions_enabled):
 		errors.append("Defeat presentation requires this pack's locomotion and capture poses.")
+	if boss_actions != null:
+		_check_textures(effects, ["sack_open"], "boss props", errors)
+		errors.append_array(boss_actions.validation_errors())
+		for key in ["reach", "release", "hold", "air", "land"]:
+			var texture: Texture2D = boss_action_frames.get(key)
+			if texture == null or texture.get_size() != Vector2(512, 512):
+				errors.append("Missing or misaligned boss action: " + key)
+		var bounds: Rect2 = enemy_frame_bounds.get("boss", Rect2())
+		if bounds.size.x <= 0 or bounds.size.y <= 0 or not Rect2(0, 0, 1, 1).encloses(bounds):
+			errors.append("Invalid boss action reference bounds.")
+	elif not boss_action_frames.is_empty():
+		errors.append("Boss action frames require their own configuration.")
 	var player_frame := characters.get("player_right") as Texture2D
 	if player_frame != null:
 		for key in character_keys:

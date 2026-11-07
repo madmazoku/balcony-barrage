@@ -67,3 +67,11 @@ capture_pack.gd: --feedback=windup|capture, --simulate=true, --role=normal|tank|
 - sprite_assets.py build-pack: enemy_sources.extra_sources/sequence, boss как один вариант палитры. Гаечка использует прежний путь подготовки без изменений.
 - tools/test_defeat.gd: проверка фактических событий урона, визуального носителя, оружия, направления вылета, остановки боя, P/R и выключенных эффектов. Включён седьмой проверкой CI. Вызывать Godot --headless --path <project> --script res://tools/test_defeat.gd --quit-after 600.
 - capture_pack.gd: --feedback=run --role=boss; --feedback=defeat --cause=capture|nut|furniture --role=normal|tank|thrower --side=-1|1 --pose=right|left|up --simulate=true --frames=90 --step=0.04. Захват/попадание вызывают реальные процедуры модели, кадры после lose продвигают только визуальную реакцию. Предпросмотр/монтаж выполнены прежним FFmpeg.
+
+## Принятая группа 4 (AI-10, 0.10.0)
+- Существующий sprite_assets.py build-pack читает опциональный boss_actions.entries (source → полный кадр), props (отдельные предметы), settings (BossActionConfig), сохраняет регистрацию, provenance и checksums. Не создавать второй генератор.
+- scripts/game/boss_actions.gd — только состояние представления и выбор позы; scripts/config/boss_action_config.gd — визуальные параметры пакета.
+- tools/test_boss_actions.gd — реальные события выпусков/мебели/попадания и приземления, приоритет обрушения, целостность пакета, пауза/сброс и неизменность полного боя/RNG. Команда как у остальных проверок, --script res://tools/test_boss_actions.gd --quit-after 600; ожидается BOSS_ACTION_TESTS_OK. Восьмая проверка CI.
+- capture_pack.gd расширен --feedback=boss_release|boss_throw|boss_jump --scenario=boss --simulate=true --role=boss --frames=55 --step=0.04. Для окончательного падения прежний --fall-time=0 --feedback=none, затем simulate=true. Это QA-сценарии, не отдельный игровой режим. Монтаж — прежний FFmpeg/Pillow.
+
+Доработка бега босса: текущий build-pack уже поддерживает нужные extra_sources/sequence, новый генератор не создавался. Восемь исходных фаз и gait-recipe.json хранятся в boss_gait_fix. MotionConfig.bob_cycles и BossActionConfig.walking_split_fraction сериализуются прежним механизмом settings. Сравнение нативных серий — capture_pack.gd --feedback=run --role=boss --side=1/-1 --focus=actor --simulate=true --frames=64 --step=0.04.

@@ -42,6 +42,22 @@ func _capture() -> void:
 	var effect: String = options.get("feedback", "shot")
 	game.set("player_pose", pose)
 	match effect:
+		"boss_release":
+			model.restart()
+			model.released = 1
+			model.elapsed = model.config.release_times[1] - 0.65
+			model.player.x = 80
+			model.grace = 1000
+		"boss_throw":
+			model.minions.clear()
+			model.furniture_enabled = true
+			model.furniture_windup = model.config.furniture_windup_seconds
+			model.player.x = 80
+		"boss_jump":
+			model.minions.clear()
+			model.furniture_enabled = false
+			model.bolts.append({"pos": model.boss + Vector2(0, model.config.boss_size.y), "velocity": Vector2.UP * model.config.bolt_speed})
+			model._update_bolts(0.2)
 		"defeat":
 			model.armor = 0
 			model.minions.clear()
@@ -106,6 +122,8 @@ func _capture() -> void:
 			model.minions[0].variant = int(options.get("color", "0"))
 		_:
 			game.call("_shoot", direction)
+	if effect.begins_with("boss_"):
+		model.boss_direction = float(options.get("side", "1"))
 	var feedback: RoundFeedback = game.get("feedback")
 	if feedback != null:
 		feedback.advance(float(options.get("feedback-time", "0")))

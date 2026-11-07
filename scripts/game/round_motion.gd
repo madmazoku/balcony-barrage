@@ -83,4 +83,4 @@ func frame_index(role: String, count: int, enemy: Dictionary = {}) -> int:
 
 func bob(role: String, enemy: Dictionary = {}) -> float:
 	var progress: float = phase(role, enemy)
-	return -absf(sin(TAU * progress * 2)) * settings.bob_pixels[role] if progress >= 0 else 0.0
+	return -absf(sin(TAU * progress * settings.bob_cycles.get(role, 2.0))) * settings.bob_pixels[role] if progress >= 0 else 0.0

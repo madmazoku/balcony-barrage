@@ -15,6 +15,7 @@ var controls: PlayerControls
 var player_pose: String = "right"
 var feedback: RoundFeedback
 var motion: RoundMotion
+var boss_actions: BossActions
 
 func _ready() -> void:
 	texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
@@ -40,6 +41,9 @@ func _ready() -> void:
 		model.thrower_released.connect(_on_thrower_released)
 		model.armor_stolen.connect(_on_armor_stolen)
 		model.player_defeated.connect(_on_player_defeated)
+	if pack.boss_actions != null:
+		boss_actions = BossActions.new(pack.boss_actions)
+		model.boss_action.connect(boss_actions.trigger)
 	controls = PlayerControls.new()
 	controls.gameplay = settings
 	controls.player_x = model.player.x
@@ -110,6 +114,8 @@ func _restart() -> void:
 	model.furniture_enabled = enabled
 	if motion != null:
 		motion.reset(model)
+	if boss_actions != null:
+		boss_actions.clear()
 	paused = false
 	controls.clear()
 	controls.accepting_gameplay = true
@@ -269,12 +275,19 @@ func _draw_enemy(enemy: Dictionary) -> void:
 			return
 	_draw_registered(texture, pose.pos, model.body_size(enemy.role), enemy.role, pose.flip, pose.angle)
 
-func _draw_registered(texture: Texture2D, position: Vector2, size: Vector2, role: String, flip: bool, angle: float = 0.0) -> void:
+func _draw_registered(texture: Texture2D, position: Vector2, size: Vector2, role: String, flip: bool, angle: float = 0.0, stretch: Vector2 = Vector2.ONE, legs: Texture2D = null, split: float = 1.0) -> void:
 	var reference: Rect2 = pack.enemy_frame_bounds[role]
 	var scale_factor: Vector2 = size / (texture.get_size() * reference.size)
 	var frame := Rect2(-reference.get_center() * texture.get_size() * scale_factor, texture.get_size() * scale_factor)
-	draw_set_transform(position, angle, Vector2(-1, 1) if flip else Vector2.ONE)
-	draw_texture_rect(texture, frame, false)
+	draw_set_transform(position, angle, (Vector2(-1, 1) if flip else Vector2.ONE) * stretch)
+	if legs == null:
+		draw_texture_rect(texture, frame, false)
+	else:
+		var top_size := Vector2(frame.size.x, frame.size.y * split)
+		var source_top := Vector2(texture.get_width(), texture.get_height() * split)
+		draw_texture_rect_region(texture, Rect2(frame.position, top_size), Rect2(Vector2.ZERO, source_top))
+		draw_texture_rect_region(legs, Rect2(frame.position + Vector2(0, top_size.y), frame.size - Vector2(0, top_size.y)),
+			Rect2(Vector2(0, source_top.y), legs.get_size() - Vector2(0, source_top.y)))
 	draw_set_transform(Vector2.ZERO)
 
 func _draw_feedback() -> void:
@@ -353,6 +366,8 @@ func _physics_process(delta: float) -> void:
 		var movement: float = controls.movement(model.player.x, delta)
 		if motion != null:
 			motion.begin_step()
+		if boss_actions != null:
+			boss_actions.advance(delta)
 		model.tick(delta, movement)
 		if motion != null:
 			motion.advance(model)
@@ -473,26 +488,14 @@ func _draw_static() -> void:
 		Rect2(Vector2.ZERO, settings.arena_size), false)
 	draw_texture_rect(pack.environment["ground"] as Texture2D,
 		Rect2(0, settings.ground_y, settings.arena_size.x, settings.arena_size.y - settings.ground_y), false)
+	# Backdrop behind actors so a jumping boss stays visible; controls remain on CanvasLayer.
+	draw_rect(Rect2(0, 0, settings.arena_size.x, 112), pack.colors["hud_panel"])
 	# Five authored visual states interpolate across configurable boss health.
 	var stage: int = mini(5, int(ceil(float(model.broken_stages) / settings.balcony_stages * 5)))
 	draw_texture_rect(pack.environment["balcony_" + str(stage)] as Texture2D,
 		Rect2(settings.balcony_left, settings.balcony_y,
 			settings.balcony_right - settings.balcony_left, pack.balcony_draw_height), false)
-	var boss_position: Vector2 = model.boss_draw_position()
-	var boss_frame: int = motion.frame_index("boss", pack.run_frames["boss_0"].size()) if motion != null and motion.settings.boss_enabled else -1
-	if boss_frame >= 0:
-		boss_position.y += motion.bob("boss")
-		_draw_registered(pack.run_frames["boss_0"][boss_frame] as Texture2D, boss_position, settings.boss_size, "boss", model.boss_direction < 0)
-	else:
-		_sprite_body(boss_position, settings.boss_size, "boss_defeated" if model.result == "win" else "boss", 0, model.boss_direction < 0)
-	if model.released < settings.release_roles.size():
-		_texture_center(pack.effects["sack"] as Texture2D,
-			boss_position + settings.boss_size * Vector2(.15, .15), settings.boss_size * Vector2(.42, .60))
-	if model.furniture_windup > 0:
-		_texture_center(pack.effects["furniture"] as Texture2D,
-			boss_position + settings.boss_size * Vector2(.6, -.3),
-			Vector2(settings.furniture_hit_width, settings.furniture_height))
-		_text(boss_position + Vector2(60, -35), "БРОСОК!")
+	_draw_boss()
 	if feedback == null or feedback.defeat.is_empty():
 		var tint := Color(1, 1, 1, .45 if model.grace > 0 else 1.0)
 		_paint_player(_player_frame(), pack.effects["crossbow_" + player_pose] as Texture2D, _player_visual_transform(), model.armor, player_pose, tint)
@@ -532,8 +535,66 @@ func _draw_static() -> void:
 		_texture_center(pack.effects["furniture" if hazard.furniture else "nut"] as Texture2D, hazard.pos, size)
 	_draw_feedback()
 	# Functional HUD panels sit over the painting.
-	draw_rect(Rect2(0, 0, settings.arena_size.x, 112), pack.colors["hud_panel"])
 	draw_rect(Rect2(0, settings.ground_y + 3, settings.arena_size.x, settings.arena_size.y - settings.ground_y), pack.colors["hud_panel"])
 	if controls.last_device == "touch" or controls.touch_preview:
 		var boundary: float = settings.ground_y - controls.settings.ground_tap_height
 		draw_rect(Rect2(0, boundary, settings.arena_size.x, 2), pack.colors["touch_boundary"])
+
+func _boss_visual_pose() -> Dictionary:
+	var pose: Dictionary = boss_actions.pose(model) if boss_actions != null and boss_actions.settings.enabled else {
+		"action": "", "scale": Vector2.ONE, "angle": 0.0, "sack": model.released < settings.release_roles.size(),
+		"sack_weight": 0.0, "furniture": model.furniture_windup > 0, "lift": 0.0}
+	pose.pos = model.boss_draw_position()
+	pose.flip = model.boss_direction < 0
+	if pose.action in ["", "reach", "release", "hold"] and motion != null:
+		pose.pos.y += motion.bob("boss")
+	# Squash around the feet, preserving the original balcony contact point.
+	pose.pos.y += settings.boss_size.y * (1 - pose.scale.y) / 2
+	return pose
+
+func _draw_boss() -> void:
+	var pose: Dictionary = _boss_visual_pose()
+	var visual: BossActionConfig = pack.boss_actions
+	var held_position := Vector2.ZERO
+	var prop_in_front: bool = false
+	if pose.furniture and visual != null and visual.enabled:
+		var offset: Vector2
+		var swing_start: float = 1 - visual.swing_fraction
+		if pose.lift <= swing_start:
+			offset = visual.furniture_lift_offset.lerp(visual.furniture_hold_offset, smoothstep(0, visual.lift_fraction, pose.lift))
+		else:
+			offset = visual.furniture_hold_offset.lerp(Vector2.ZERO, smoothstep(swing_start, 1, pose.lift))
+		offset.x *= -1 if pose.flip else 1
+		held_position = model.boss + settings.boss_size * offset
+		prop_in_front = pose.lift > swing_start
+		# Behind head while lifting, in front during downswing: never hidden inside the body.
+		if not prop_in_front:
+			_texture_center(pack.effects["furniture"] as Texture2D, held_position,
+				Vector2(settings.furniture_hit_width, settings.furniture_height), pose.flip)
+	var boss_frame: int = motion.frame_index("boss", pack.run_frames["boss_0"].size()) if motion != null and motion.settings.boss_enabled else -1
+	if pose.action != "":
+		var legs: Texture2D = null
+		if boss_frame >= 0 and pose.action in ["reach", "release", "hold"]:
+			legs = pack.run_frames["boss_0"][boss_frame] as Texture2D
+		_draw_registered(pack.boss_action_frames[pose.action], pose.pos, settings.boss_size, "boss", pose.flip,
+			pose.angle, pose.scale, legs, visual.walking_split_fraction)
+	elif boss_frame >= 0:
+		_draw_registered(pack.run_frames["boss_0"][boss_frame] as Texture2D, pose.pos, settings.boss_size, "boss", pose.flip)
+	else:
+		_sprite_body(pose.pos, settings.boss_size, "boss_defeated" if model.result == "win" else "boss", 0, pose.flip)
+	if prop_in_front:
+		_texture_center(pack.effects["furniture"] as Texture2D, held_position,
+			Vector2(settings.furniture_hit_width, settings.furniture_height), pose.flip)
+	if pose.sack:
+		var offset: Vector2 = visual.sack_offset if visual != null and visual.enabled else Vector2(.15, .15)
+		var size: Vector2 = visual.sack_size if visual != null and visual.enabled else Vector2(.42, .60)
+		offset.x *= -1 if pose.flip else 1
+		var pulse: float = visual.sack_pulse * pose.sack_weight if visual != null and visual.enabled else 0.0
+		var sack_key: String = "sack_open" if pose.action in ["reach", "release"] else "sack"
+		_texture_center(pack.effects[sack_key] as Texture2D, pose.pos + settings.boss_size * offset,
+			settings.boss_size * size * Vector2(1 + pulse, 1 - pulse), pose.flip)
+	if pose.furniture and not model.boss_falling and model.result == "":
+		if visual == null or not visual.enabled:
+			_texture_center(pack.effects["furniture"] as Texture2D, pose.pos + settings.boss_size * Vector2(.6, -.3),
+				Vector2(settings.furniture_hit_width, settings.furniture_height))
+		_text(pose.pos + Vector2(60, -35), "БРОСОК!")

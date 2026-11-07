@@ -52,6 +52,26 @@
     "sha256": "2c7a23bd544ef73b2a1b3d3edf7e318f44bdf42b1314d70cb73898a1728de72a"
   },
   {
+    "path": "assets/packs/rescue_rangers/characters/boss_actions/air.png",
+    "sha256": "091eb522137aa517cd4383cdb1dafb6bbd32b32cad15959920d86acef9dff5f9"
+  },
+  {
+    "path": "assets/packs/rescue_rangers/characters/boss_actions/hold.png",
+    "sha256": "69fed4e620635756bc700b1fcd03a38a0847e70bb1511b203b1cdc3cc41679bd"
+  },
+  {
+    "path": "assets/packs/rescue_rangers/characters/boss_actions/land.png",
+    "sha256": "243693f7ca3dc31c536329b1402f48dbf7bec80cce93d3d2165017f7d93894e6"
+  },
+  {
+    "path": "assets/packs/rescue_rangers/characters/boss_actions/reach.png",
+    "sha256": "af68c7067a29636f98305e0d35c0da056f2f331a442410f4fd403391d32f2c6f"
+  },
+  {
+    "path": "assets/packs/rescue_rangers/characters/boss_actions/release.png",
+    "sha256": "d8059403d8115754090787b18e14042dc2e8b21f39eb9ba5c1b5d8a08466b43d"
+  },
+  {
     "path": "assets/packs/rescue_rangers/characters/boss_defeated.png",
     "sha256": "c66d3d7b04277ddeab059e95d3d8588dd0375a5017615f2be48de8f9e3f630ef"
   },
@@ -116,16 +136,36 @@
     "sha256": "f51b79bee44ab37b90c9675e25462c7dc5ff25829b9e51d5d68f6b8b4c3b86b2"
   },
   {
-    "path": "assets/packs/rescue_rangers/characters/run/boss/neutral/base.png",
-    "sha256": "cc5d20da64b0648e99ca0c35312a0ce26f47a67840e175794e6e4d227c60a7ff"
+    "path": "assets/packs/rescue_rangers/characters/run/boss/contact_a/base.png",
+    "sha256": "074ec2caccb4a383e0b6379ea4319bb55f121abe8967690d667cb422de308264"
   },
   {
-    "path": "assets/packs/rescue_rangers/characters/run/boss/opposite/base.png",
-    "sha256": "550408b579f8f3b53b361a59f34f08bde44bb0bda78cbf77496dad941016b709"
+    "path": "assets/packs/rescue_rangers/characters/run/boss/contact_b/base.png",
+    "sha256": "b13770fd47471305be0a79d67faeb2810132414dca5ffdedbb105b93fd762e0b"
   },
   {
-    "path": "assets/packs/rescue_rangers/characters/run/boss/stride/base.png",
-    "sha256": "5f1ce1d5770c99e9c5ee8ec3c42e2cfab50197f5b10269ca9a4885892ad399e8"
+    "path": "assets/packs/rescue_rangers/characters/run/boss/lift_a/base.png",
+    "sha256": "4ae604f0145d892b8c03a6743475e8d754e4001befcc64a573d81c6d41540a5e"
+  },
+  {
+    "path": "assets/packs/rescue_rangers/characters/run/boss/lift_b/base.png",
+    "sha256": "ea51c11d08e44345399302304dfbc8cee5354da54ed7f00e5a4eb42ff3cd4c39"
+  },
+  {
+    "path": "assets/packs/rescue_rangers/characters/run/boss/pass_a/base.png",
+    "sha256": "ce5576da9b65cc602c333c236a6588bebf93949a44255ab6e53d6ed51b7b7e6d"
+  },
+  {
+    "path": "assets/packs/rescue_rangers/characters/run/boss/pass_b/base.png",
+    "sha256": "a72024b4076902f63a748096e6dc0447935bcd34b9e17f3d0ae5665807e580bf"
+  },
+  {
+    "path": "assets/packs/rescue_rangers/characters/run/boss/recoil_a/base.png",
+    "sha256": "f87ad1c8bd2a200d9074a4819658152e07f8e699d9ada07b0a2eacdf4063a644"
+  },
+  {
+    "path": "assets/packs/rescue_rangers/characters/run/boss/recoil_b/base.png",
+    "sha256": "024b53be8f2d2ee7c304a7172497cbdd57306790de879ace7d947205b6c5861c"
   },
   {
     "path": "assets/packs/rescue_rangers/characters/run/normal/neutral/base.png",
@@ -394,6 +434,10 @@
   {
     "path": "assets/packs/rescue_rangers/effects/sack.png",
     "sha256": "6305774b795c6033d8118d2055792e16f088488d48da2e1b0ff75000cc5a4e39"
+  },
+  {
+    "path": "assets/packs/rescue_rangers/effects/sack_open.png",
+    "sha256": "9374bc469ce62b467f0f01398220a5b9be57557b5ae108b5f01e3b02c9218aeb"
   },
   {
     "path": "assets/packs/rescue_rangers/environment/background.png",
