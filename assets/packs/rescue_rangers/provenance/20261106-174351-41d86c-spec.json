@@ -1,0 +1,12 @@
+{
+  "engine": "flux2",
+  "model": "flux-2-klein-9b-fp8.safetensors",
+  "steps": 25,
+  "guidance": 3.5,
+  "sampler": "euler",
+  "seed": 441215,
+  "image_path": "G:\\Git\\Gemini\\media_mcp\\images\\run-cycle\\player-reference.png",
+  "mask_path": "G:\\Git\\Gemini\\media_mcp\\images\\run-cycle\\player-mask.png",
+  "denoise": 0.95,
+  "prompt": "Edit the legs of this exact cartoon mouse into a clear passing step for a run to the right. Keep the face, ears, hair, goggles, arms, chest, hips and tail unchanged. She is wearing the same opaque lavender coveralls and is barefoot. Her LEFT leg supports her weight: it extends diagonally backward to a complete peach bare foot flat on the ground near the lower left corner of her body. Her RIGHT thigh points forward to the right, with that knee raised high and bent, and a second complete peach bare foot hanging below the raised knee. Draw both entire bare feet clearly, each with an ankle, heel and three round toes. A leg touching the ground behind and a leg with knee raised in front, not both legs stretched forward. Exactly two legs. Keep the original hip position and original floor height. Same black ink line thickness and vintage cartoon cel colors. Solid green background, no shadow, no text or new objects."
+}

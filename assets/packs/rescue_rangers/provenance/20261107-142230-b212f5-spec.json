@@ -1,0 +1,12 @@
+{
+  "engine": "flux2",
+  "model": "flux-2-klein-9b-fp8.safetensors",
+  "steps": 25,
+  "guidance": 3.5,
+  "sampler": "euler",
+  "seed": 441248,
+  "image_path": "G:\\Git\\Gemini\\media_mcp\\images\\run-revision\\thrower-crossed-reference.png",
+  "mask_path": "G:\\Git\\Gemini\\media_mcp\\images\\run-revision\\thrower-mask.png",
+  "denoise": 0.65,
+  "prompt": "Refine the crossed running legs of this exact cartoon rat while preserving their crossed pose. One complete skinny gray leg crosses diagonally forward to the right, the other complete gray leg goes backward toward the left. Keep BOTH legs and BOTH peach bare feet, with clear ankles, heels and rounded toes. Clean the joints where the legs emerge from the dark blue shorts, retaining the two distinct gray shins. Preserve the hips, brown sack of nuts, torso, hands, head and tail exactly. Same thin gray legs, peach feet, vintage black ink outlines and flat colors, solid green background. No extra legs, no shadow."
+}

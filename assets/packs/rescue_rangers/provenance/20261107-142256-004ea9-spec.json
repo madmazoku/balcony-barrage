@@ -1,0 +1,12 @@
+{
+  "engine": "flux2",
+  "model": "flux-2-klein-9b-fp8.safetensors",
+  "steps": 25,
+  "guidance": 3.5,
+  "sampler": "euler",
+  "seed": 441249,
+  "image_path": "G:\\Git\\Gemini\\media_mcp\\images\\run-revision\\tank-reference.png",
+  "mask_path": "G:\\Git\\Gemini\\media_mcp\\images\\run-revision\\tank-left-mask.png",
+  "denoise": 0.95,
+  "prompt": "Edit only the LEFT leg and boot of this fat cartoon rat. Bend the left knee upward and lift its complete brown lace-up boot up under the left side of the belly, creating the opposite lifted step of a heavy run. The other RIGHT leg and its complete brown boot stay planted exactly as in the reference. Keep the edited trouser leg connected to the left hip: opaque patched brown trousers ending in a fully visible worn brown boot with toe cap, heel and black sole. Exactly two complete boots: the raised left boot and the planted right boot. Keep the shirt, belly, belt, vest, head, arms, hips and tail unchanged. Same cartoon outline and flat colors, solid green background, no shadow or text."
+}

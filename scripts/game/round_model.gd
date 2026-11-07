@@ -5,6 +5,7 @@ signal balloon_popped(position: Vector2, color_variant: int)
 signal armor_removed(part: int, stolen: bool)
 signal thrower_released(enemy: Dictionary)
 signal armor_stolen(part: int, thief: Dictionary)
+signal player_defeated(kind: String, source: Dictionary)
 
 var config: GameplayConfig
 var rng := RandomNumberGenerator.new()
@@ -74,6 +75,13 @@ func restart(mode: String = "round") -> void:
 			spawn("normal", player + Vector2(config.player_size.x, 0))
 			minions[0].state = "ground"
 			hazards.append({"pos": player - Vector2(0, 100), "velocity": Vector2(0, config.nut_speed), "furniture": false})
+		"defeat_capture":
+			armor = 0
+			spawn("normal", Vector2(player.x + config.player_size.x + config.normal_size.x, config.ground_y - config.normal_size.y / 2))
+			minions[0].state = "ground"
+		"defeat_nut", "defeat_furniture":
+			armor = 0
+			_throw_hazard(player - config.player_size * Vector2(1, 2), mode == "defeat_furniture")
 		"boss":
 			pass
 		"mixed":
@@ -192,7 +200,7 @@ func _update_minions(delta: float) -> void:
 			"ground":
 				position.x = move_toward(position.x, player.x, config.ground_speed * delta)
 				if Rect2(position - size / 2, size).intersects(Rect2(player - config.player_size / 2, config.player_size)):
-					if damage("Захват наземным миньоном", true):
+					if damage("Захват наземным миньоном", true, {"enemy": enemy, "pos": position, "direction": -1.0 if position.x < player.x else 1.0}):
 						enemy.stolen_part = armor if result == "" else -1
 						captured_part = enemy.stolen_part
 						enemy.state = "escape"
@@ -207,7 +215,7 @@ func _update_minions(delta: float) -> void:
 	minions = minions.filter(func(e: Dictionary) -> bool:
 		return e.pos.y < config.arena_size.y + config.tank_size.y and e.pos.x > -config.tank_size.x and e.pos.x < config.arena_size.x + config.tank_size.x)
 
-func damage(reason: String, stolen: bool = false) -> bool:
+func damage(reason: String, stolen: bool = false, source: Dictionary = {}) -> bool:
 	if result != "" or boss_falling or grace > 0:
 		return false
 	if armor > 0:
@@ -218,6 +226,8 @@ func damage(reason: String, stolen: bool = false) -> bool:
 	else:
 		result = "lose"
 		cause = reason
+		last_event = reason
+		player_defeated.emit("capture" if stolen else ("furniture" if source.get("furniture", false) else "nut"), source)
 	return true
 
 func _throw_hazard(origin: Vector2, is_furniture: bool) -> void:
@@ -239,7 +249,7 @@ func _update_hazards(delta: float) -> void:
 		var hit: float = segment_hit(start, finish, Rect2(player - (config.player_size + size) / 2, config.player_size + size))
 		hazard.pos = finish
 		if hit <= 1.0:
-			damage("Попадание мебелью" if hazard.furniture else "Попадание гайкой")
+			damage("Попадание мебелью" if hazard.furniture else "Попадание гайкой", false, {"pos": start, "velocity": hazard.velocity, "furniture": hazard.furniture})
 			hazards.remove_at(index)
 		elif not Rect2(-size, config.arena_size + size * 2).has_point(finish):
 			hazards.remove_at(index)

@@ -92,6 +92,49 @@
       "approved_at": "2026-11-06",
       "approval": "Owner: принимается",
       "release": "0.8.0"
+    },
+    "group_3": {
+      "status": "accepted",
+      "branch": "AI-9-run-cycle",
+      "scope": [
+        "distance-driven player running in both directions and while aiming up",
+        "grounded minion running and escape with carried armor"
+      ],
+      "new_source_runs": [
+        "20261106-173931-489b07",
+        "20261106-174351-41d86c",
+        "20261106-174113-ee4fe0",
+        "20261106-174900-2ba61e",
+        "20261106-174726-ac9efd",
+        "20261106-174941-9bd70e"
+      ],
+      "notes": "Initial preview used 95 PNGs; accepted 2026-11-07 revision uses 107. Player running layers preserved; revised minion/boss cycles and defeat presentation accepted together.",
+      "player_approval": {
+        "date": "2026-11-07",
+        "quote": "гаечка бегает хорош",
+        "scope": "Existing player running and layers preserved."
+      },
+      "revision": {
+        "date": "2026-11-07",
+        "scope": [
+          "Four-slot minion cycles with a distinct extra step",
+          "Boss running",
+          "Capture/knockout defeat presentation; separate dropped crossbow on capture"
+        ],
+        "new_source_runs": [
+          "20261107-141313-4c0760",
+          "20261107-142049-314e45",
+          "20261107-142256-004ea9",
+          "20261107-142230-b212f5",
+          "20261107-142332-d5a474",
+          "20261107-142452-5e07ad"
+        ],
+        "model": "unchanged locked FLUX.2 Klein 9B FP8",
+        "notes": "Raw pose edits 0.95, generated-reference refinement 0.65. Only generated pixels, alpha/crop/affine composition; runtime 107 PNGs. Complete revised group accepted by owner: seems fine, 2026-11-07."
+      },
+      "approved_at": "2026-11-07",
+      "approval": "Owner: seems fine",
+      "release": "0.9.0"
     }
   }
 }

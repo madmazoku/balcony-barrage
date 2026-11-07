@@ -59,7 +59,7 @@ jobs:
           godot --version
           godot --headless --path . --editor --import 2>&1 | tee /tmp/godot-import.log
           if grep -E 'SCRIPT ERROR:|ERROR:' /tmp/godot-import.log; then exit 1; fi
-          for test in validate_foundation test_round test_controls test_asset_pack test_feedback; do
+          for test in validate_foundation test_round test_controls test_asset_pack test_feedback test_motion test_defeat; do
             godot --headless --path . --script "res://tools/${test}.gd" --quit-after 600
           done
       - name: Export browser build

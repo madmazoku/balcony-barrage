@@ -166,5 +166,5 @@ func _test_enemy_actions(game: Node) -> void:
 	model.minions[0].state = "ground"
 	var old_count: int = captures.size()
 	model._update_minions(0.001)
-	check(model.result == "lose" and captures.size() == old_count and feedback.effects.is_empty(),
+	check(model.result == "lose" and captures.size() == old_count and feedback.effects.filter(func(effect: Dictionary) -> bool: return effect.kind in ["armor", "steal"]).is_empty(),
 		"An unarmored capture must not create a transfer or invented item.")

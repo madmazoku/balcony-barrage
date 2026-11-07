@@ -58,6 +58,21 @@ func _run() -> void:
 		missing_action.enemy_frame_bounds = art.enemy_frame_bounds.duplicate()
 		missing_action.enemy_frame_bounds["normal"] = Rect2(0, 0, 0, 1)
 		check(not missing_action.validation_errors().is_empty(), "Missing alignment bounds must fail before play.")
+	if art.locomotion != null:
+		for key in art.run_frames:
+			for frame in art.run_frames[key]:
+				var image: Image = (frame as Texture2D).get_image()
+				check(not image.is_invisible() and image.detect_alpha() != Image.ALPHA_NONE, "Running foreground must have usable alpha.")
+		for pose in ["right", "left", "up"]:
+			var neutral: Image = (art.characters["player_" + pose] as Texture2D).get_image()
+			var upper := Rect2i(0, 0, neutral.get_width(), 700)
+			for frame in art.run_frames["player_" + pose]:
+				check((frame as Texture2D).get_image().get_region(upper).get_data() == neutral.get_region(upper).get_data(),
+					"Running must preserve the exact player head, arms and equipment anchors.")
+		var missing_run: AssetPack = art.duplicate()
+		missing_run.run_frames = art.run_frames.duplicate()
+		missing_run.run_frames.erase("player_left")
+		check(not missing_run.validation_errors().is_empty(), "Missing running pose must fail validation.")
 	for role in ["normal", "tank", "thrower"]:
 		check(art.character_variants[role].size() == 3, "Each minion role needs three palettes.")
 	check((art.environment["balcony_5"] as Texture2D).get_image().is_invisible(),

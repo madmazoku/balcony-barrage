@@ -1,0 +1,12 @@
+{
+  "engine": "flux2",
+  "model": "flux-2-klein-9b-fp8.safetensors",
+  "steps": 25,
+  "guidance": 3.5,
+  "sampler": "euler",
+  "seed": 441210,
+  "image_path": "G:\\Git\\Gemini\\media_mcp\\images\\run-cycle\\player-reference.png",
+  "mask_path": "G:\\Git\\Gemini\\media_mcp\\images\\run-cycle\\player-mask.png",
+  "denoise": 0.95,
+  "prompt": "Edit only the lower body and legs of this exact cartoon mouse mechanic for a clean hand drawn 2D game running cycle. Preserve the entire head, hair, ears, goggles, torso above the hips, tail and both arms exactly at their original positions. She wears the same opaque lavender mechanic coveralls and has bare peach mouse feet. Running toward the right, contact pose A: the nearer leg reaches diagonally forward to the right with its bare foot touching the ground at the same baseline as the original feet, while the farther leg bends backward to the left with its heel lifted high. Two clearly separated bent legs, a readable dynamic running stride, anatomically coherent knees under the lavender pants. Keep the hips fixed at their original position. The long blond hair, youthful face, colors, black outlines and flat cel shading are unchanged. Uniform bright green background. One character, one animation frame, no extra objects or writing."
+}

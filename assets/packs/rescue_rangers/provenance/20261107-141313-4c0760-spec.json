@@ -1,0 +1,12 @@
+{
+  "engine": "flux2",
+  "model": "flux-2-klein-9b-fp8.safetensors",
+  "steps": 25,
+  "guidance": 3.5,
+  "sampler": "euler",
+  "seed": 441241,
+  "image_path": "G:\\Git\\Gemini\\media_mcp\\images\\run-revision\\normal-reference.png",
+  "mask_path": "G:\\Git\\Gemini\\media_mcp\\images\\run-revision\\normal-mask.png",
+  "denoise": 0.95,
+  "prompt": "Create the opposite running contact pose for the LEGS of this exact cartoon rat. His head, cap, face, torso, striped navy and cream shirt, hips, arms and tail stay exactly still. The leg from the nearer LEFT hip now swings FORWARD across the body to the RIGHT: its navy trouser leg stretches diagonally toward a complete peach bare foot near the lower right of the image. The other leg, from the RIGHT hip, bends BACK toward the LEFT, with its complete bare peach foot lifted behind. This swaps which leg leads compared to the reference, a clear crossed-leg running stride. Both complete bare feet have ankles, heels and three rounded toes. Same opaque navy trousers, same cartoon outlines and flat cel shading. Keep the hips and the original floor baseline fixed. Solid bright green background, no shadow or writing, one character."
+}

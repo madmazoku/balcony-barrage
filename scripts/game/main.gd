@@ -9,11 +9,12 @@ var hud: Label
 var footer: Label
 var scenario_picker: OptionButton
 var furniture_check: CheckButton
-var scenario_ids: Array[String] = ["round", "line", "landing", "damage", "boss", "mixed"]
+var scenario_ids: Array[String] = ["round", "line", "landing", "damage", "boss", "mixed", "defeat_capture", "defeat_nut", "defeat_furniture"]
 var font: Font = ThemeDB.fallback_font
 var controls: PlayerControls
 var player_pose: String = "right"
 var feedback: RoundFeedback
+var motion: RoundMotion
 
 func _ready() -> void:
 	texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
@@ -29,12 +30,16 @@ func _ready() -> void:
 		set_physics_process(false)
 		return
 	model = RoundModel.new(settings)
+	if pack.locomotion != null:
+		motion = RoundMotion.new(pack.locomotion)
+		motion.reset(model)
 	if pack.feedback != null:
 		feedback = RoundFeedback.new(pack.feedback)
 		model.balloon_popped.connect(_on_balloon_popped)
 		model.armor_removed.connect(_on_armor_removed)
 		model.thrower_released.connect(_on_thrower_released)
 		model.armor_stolen.connect(_on_armor_stolen)
+		model.player_defeated.connect(_on_player_defeated)
 	controls = PlayerControls.new()
 	controls.gameplay = settings
 	controls.player_x = model.player.x
@@ -60,7 +65,7 @@ func _create_controls() -> void:
 	toolbar.add_theme_constant_override("separation", 14)
 	panel.add_child(toolbar)
 	scenario_picker = OptionButton.new()
-	for label in ["Полный раунд", "Две цели на линии", "Последний шарик у земли", "Захват + гайка", "Пустой мешок / босс", "Три типа вместе"]:
+	for label in ["Полный раунд", "Две цели на линии", "Последний шарик у земли", "Захват + гайка", "Пустой мешок / босс", "Три типа вместе", "Поражение от захвата", "Поражение от гайки", "Поражение от мебели"]:
 		scenario_picker.add_item(label)
 	scenario_picker.item_selected.connect(func(_index: int) -> void: _restart())
 	toolbar.add_child(scenario_picker)
@@ -103,6 +108,8 @@ func _restart() -> void:
 	var enabled: bool = furniture_check.button_pressed
 	model.restart(scenario_ids[scenario_picker.selected])
 	model.furniture_enabled = enabled
+	if motion != null:
+		motion.reset(model)
 	paused = false
 	controls.clear()
 	controls.accepting_gameplay = true
@@ -124,13 +131,26 @@ func _on_balloon_popped(position: Vector2, color_variant: int) -> void:
 
 func _player_visual_transform() -> Transform2D:
 	var foot := Vector2(model.player.x, model.player.y + settings.player_size.y / 2)
+	if motion != null:
+		foot.y += motion.bob("player")
 	if feedback == null:
 		return Transform2D(0, foot)
 	var weight: float = feedback.recoil_weight()
 	var angle: float = -feedback.shot_direction.x * deg_to_rad(feedback.settings.shot_tilt_degrees) * weight
 	return Transform2D(angle, Vector2(1, 1 - feedback.settings.shot_squash * weight), 0, foot)
 
+func _player_frame() -> Texture2D:
+	if motion != null:
+		var frames: Array = pack.run_frames["player_" + player_pose]
+		var index: int = motion.frame_index("player", frames.size())
+		if index >= 0:
+			return frames[index] as Texture2D
+	return pack.characters["player_" + player_pose] as Texture2D
+
 func _armor_visual_origin(part: int) -> Dictionary:
+	# Damage can occur inside tick: account for movement before locating the layer.
+	if motion != null:
+		motion.track_player(model.player)
 	var layer := pack.characters["armor_%d_%s" % [part, player_pose]] as Texture2D
 	var bounds: Rect2i = layer.get_image().get_used_rect()
 	var scale_factor: float = settings.player_size.y / pack.player_body_height
@@ -152,6 +172,29 @@ func _on_armor_stolen(part: int, thief: Dictionary) -> void:
 	var piece: Dictionary = _armor_visual_origin(part)
 	feedback.steal(piece.pos, piece.size, part, thief)
 
+func _on_player_defeated(kind: String, source: Dictionary) -> void:
+	if motion != null:
+		motion.track_player(model.player)
+	feedback.begin_defeat(kind, source, _player_visual_transform(), settings.arena_size, settings.player_size.y, settings.escape_speed)
+	if not feedback.defeat.is_empty():
+		feedback.defeat.frame = _player_frame()
+		feedback.defeat.weapon = pack.effects["crossbow_" + player_pose]
+		feedback.defeat.pose = player_pose
+		if kind == "capture":
+			var weapon := pack.effects["crossbow_" + player_pose] as Texture2D
+			var bounds: Rect2i = weapon.get_image().get_used_rect()
+			var piece := AtlasTexture.new()
+			piece.atlas = weapon
+			piece.region = Rect2(bounds)
+			var factor: float = settings.player_size.y / pack.player_body_height
+			var transform: Transform2D = _player_visual_transform()
+			var origin: Vector2 = transform * ((Vector2(bounds.position) + Vector2(bounds.size) / 2 - pack.player_anchor) * factor)
+			feedback.drop_weapon(origin, Vector2(bounds.size) * factor * transform.get_scale(), piece, feedback.defeat.side, transform.get_rotation())
+			feedback.defeat.weapon = null
+
+func _defeated_source(enemy: Dictionary) -> bool:
+	return feedback != null and not feedback.defeat.is_empty() and feedback.defeat.kind == "capture" and is_same(feedback.defeat.source_enemy, enemy)
+
 func _enemy_actions_active() -> bool:
 	return feedback != null and feedback.settings.enabled and feedback.settings.enemy_actions_enabled
 
@@ -159,7 +202,7 @@ func _enemy_visual_pose(enemy: Dictionary) -> Dictionary:
 	var pose: Dictionary = {"pos": enemy.pos, "flip": enemy.escape_direction < 0 if enemy.state == "escape" else enemy.pos.x > model.player.x,
 		"action": "", "angle": 0.0}
 	if not _enemy_actions_active():
-		return pose
+		return _apply_enemy_motion(pose, enemy)
 	if enemy.state == "air" and enemy.role == "thrower":
 		var weight: float = 0.0
 		if enemy.windup > 0:
@@ -183,11 +226,28 @@ func _enemy_visual_pose(enemy: Dictionary) -> Dictionary:
 			else:
 				pose.pos = (steal.start_pos as Vector2).lerp(enemy.pos, smoothstep(reach, 1, phase))
 			pose.angle = deg_to_rad(feedback.settings.capture_tilt_degrees) * sin(PI * phase) * enemy.escape_direction
+	return _apply_enemy_motion(pose, enemy)
+
+func _apply_enemy_motion(pose: Dictionary, enemy: Dictionary) -> Dictionary:
+	pose.run_texture = null
+	if motion == null or pose.action != "" or enemy.state not in ["ground", "escape"]:
+		return pose
+	var key: String = enemy.role + "_" + str(int(enemy.variant) % pack.character_variants[enemy.role].size())
+	var frames: Array = pack.run_frames[key]
+	var index: int = motion.frame_index(enemy.role, frames.size(), enemy)
+	if index >= 0:
+		pose.run_texture = frames[index]
+		var weight: float = 1.0
+		if _enemy_actions_active():
+			var steal: Dictionary = feedback.enemy_effect(enemy, "steal")
+			if not steal.is_empty():
+				weight = smoothstep(feedback.settings.capture_reach_fraction, 1, steal.age / steal.lifetime)
+		pose.pos.y += motion.bob(enemy.role, enemy) * weight
 	return pose
 
 func _carried_armor_pose(enemy: Dictionary) -> Dictionary:
 	if not _enemy_actions_active():
-		return {"pos": enemy.pos + Vector2(15, 0), "size": Vector2(15, 16)}
+		return {"pos": _enemy_visual_pose(enemy).pos + Vector2(15, 0), "size": Vector2(15, 16)}
 	var pose: Dictionary = _enemy_visual_pose(enemy)
 	var side: float = enemy.escape_direction
 	var steal: Dictionary = feedback.enemy_effect(enemy, "steal")
@@ -198,16 +258,22 @@ func _carried_armor_pose(enemy: Dictionary) -> Dictionary:
 
 func _draw_enemy(enemy: Dictionary) -> void:
 	var pose: Dictionary = _enemy_visual_pose(enemy)
-	var size: Vector2 = model.body_size(enemy.role)
-	if pose.action == "":
-		_sprite_body(pose.pos, size, enemy.role, enemy.variant, pose.flip)
-		return
-	var options: Array = pack.enemy_action_frames[pose.action]
-	var texture := options[int(enemy.variant) % options.size()] as Texture2D
-	var reference: Rect2 = pack.enemy_frame_bounds[enemy.role]
+	var texture: Texture2D
+	if pose.action != "":
+		var options: Array = pack.enemy_action_frames[pose.action]
+		texture = options[int(enemy.variant) % options.size()] as Texture2D
+	else:
+		texture = pose.get("run_texture") as Texture2D
+		if texture == null:
+			_sprite_body(pose.pos, model.body_size(enemy.role), enemy.role, enemy.variant, pose.flip)
+			return
+	_draw_registered(texture, pose.pos, model.body_size(enemy.role), enemy.role, pose.flip, pose.angle)
+
+func _draw_registered(texture: Texture2D, position: Vector2, size: Vector2, role: String, flip: bool, angle: float = 0.0) -> void:
+	var reference: Rect2 = pack.enemy_frame_bounds[role]
 	var scale_factor: Vector2 = size / (texture.get_size() * reference.size)
 	var frame := Rect2(-reference.get_center() * texture.get_size() * scale_factor, texture.get_size() * scale_factor)
-	draw_set_transform(pose.pos, pose.angle, Vector2(-1, 1) if pose.flip else Vector2.ONE)
+	draw_set_transform(position, angle, Vector2(-1, 1) if flip else Vector2.ONE)
 	draw_texture_rect(texture, frame, false)
 	draw_set_transform(Vector2.ZERO)
 
@@ -224,11 +290,54 @@ func _draw_feedback() -> void:
 			draw_set_transform(effect.pos, effect.angle)
 			draw_texture_rect(pack.effects["armor_" + str(effect.part)] as Texture2D, Rect2(-effect.size / 2, effect.size), false)
 			draw_set_transform(Vector2.ZERO)
+		elif effect.kind == "weapon":
+			draw_set_transform(effect.pos, effect.angle)
+			draw_texture_rect(effect.texture as Texture2D, Rect2(-effect.size / 2, effect.size), false)
+			draw_set_transform(Vector2.ZERO)
 		elif effect.kind == "steal":
 			var target: Dictionary = _carried_armor_pose(effect.enemy)
 			var progress: float = smoothstep(0, feedback.settings.armor_transfer_seconds, effect.age)
 			_texture_center(pack.effects["armor_" + str(effect.part)] as Texture2D,
 				(effect.pos as Vector2).lerp(target.pos, progress), (effect.size as Vector2).lerp(target.size, progress))
+
+	_draw_defeat()
+
+func _paint_player(frame: Texture2D, weapon: Texture2D, transform: Transform2D, armor_parts: int, pose: String, tint: Color = Color.WHITE) -> void:
+	var scale_factor: float = settings.player_size.y / pack.player_body_height
+	var frame_rect := Rect2(-pack.player_anchor * scale_factor, frame.get_size() * scale_factor)
+	draw_set_transform_matrix(transform)
+	draw_texture_rect(frame, frame_rect, false, tint)
+	if weapon != null:
+		draw_texture_rect(weapon, frame_rect, false, tint)
+	for part in mini(armor_parts, 3):
+		draw_texture_rect(pack.characters["armor_%d_%s" % [part, pose]] as Texture2D, frame_rect, false, tint)
+	draw_set_transform(Vector2.ZERO)
+
+func _draw_defeat() -> void:
+	if feedback.defeat.is_empty() or feedback.defeat.done:
+		return
+	var defeat: Dictionary = feedback.defeat
+	var bob: float = 0.0
+	var carrier: Dictionary = {}
+	var texture: Texture2D
+	var flip: bool = false
+	if defeat.kind == "capture":
+		carrier = defeat.carrier
+		var variant: int = int(carrier.variant) % pack.character_variants[carrier.role].size()
+		if defeat.age < feedback.settings.defeat_transfer_seconds:
+			texture = pack.enemy_action_frames[carrier.role + "_capture"][variant] as Texture2D
+			flip = defeat.side > 0
+		else:
+			var frames: Array = pack.run_frames[carrier.role + "_" + str(variant)]
+			var phase: float = fposmod(defeat.distance, pack.locomotion.stride_pixels[carrier.role]) / pack.locomotion.stride_pixels[carrier.role]
+			texture = frames[mini(frames.size() - 1, int(phase * frames.size()))] as Texture2D
+			bob = -absf(sin(TAU * phase * 2)) * pack.locomotion.bob_pixels[carrier.role]
+			flip = defeat.side < 0
+	var position: Vector2 = defeat.pos + Vector2(0, bob)
+	_paint_player(defeat.frame as Texture2D, defeat.weapon as Texture2D,
+		Transform2D(defeat.angle, defeat.scale, 0, position), 0, defeat.pose)
+	if not carrier.is_empty():
+		_draw_registered(texture, carrier.pos + Vector2(0, bob), model.body_size(carrier.role), carrier.role, flip)
 
 func _toggle_pause() -> void:
 	paused = not paused
@@ -242,7 +351,11 @@ func _physics_process(delta: float) -> void:
 		if feedback != null:
 			feedback.advance(delta)
 		var movement: float = controls.movement(model.player.x, delta)
+		if motion != null:
+			motion.begin_step()
 		model.tick(delta, movement)
+		if motion != null:
+			motion.advance(model)
 		if model.cooldown <= 0 and not is_zero_approx(movement):
 			player_pose = "left" if movement < 0 else "right"
 	controls.player_x = model.player.x
@@ -333,6 +446,8 @@ func _draw() -> void:
 	_draw_result()
 
 func _draw_result() -> void:
+	if model.result == "lose" and feedback != null and not feedback.result_ready():
+		return
 	if model.result != "":
 		draw_rect(Rect2(300, 350, 680, 180), pack.colors.get("result_panel", Color(0.04, 0.06, 0.09, 0.96)))
 		_text(Vector2(340, 395), "ПОБЕДА — балкон рухнул!" if model.result == "win" else "ПОРАЖЕНИЕ — " + model.cause, 26)
@@ -364,7 +479,12 @@ func _draw_static() -> void:
 		Rect2(settings.balcony_left, settings.balcony_y,
 			settings.balcony_right - settings.balcony_left, pack.balcony_draw_height), false)
 	var boss_position: Vector2 = model.boss_draw_position()
-	_sprite_body(boss_position, settings.boss_size, "boss_defeated" if model.result == "win" else "boss", 0, model.boss_direction < 0)
+	var boss_frame: int = motion.frame_index("boss", pack.run_frames["boss_0"].size()) if motion != null and motion.settings.boss_enabled else -1
+	if boss_frame >= 0:
+		boss_position.y += motion.bob("boss")
+		_draw_registered(pack.run_frames["boss_0"][boss_frame] as Texture2D, boss_position, settings.boss_size, "boss", model.boss_direction < 0)
+	else:
+		_sprite_body(boss_position, settings.boss_size, "boss_defeated" if model.result == "win" else "boss", 0, model.boss_direction < 0)
 	if model.released < settings.release_roles.size():
 		_texture_center(pack.effects["sack"] as Texture2D,
 			boss_position + settings.boss_size * Vector2(.15, .15), settings.boss_size * Vector2(.42, .60))
@@ -373,17 +493,12 @@ func _draw_static() -> void:
 			boss_position + settings.boss_size * Vector2(.6, -.3),
 			Vector2(settings.furniture_hit_width, settings.furniture_height))
 		_text(boss_position + Vector2(60, -35), "БРОСОК!")
-	var frame := pack.characters["player_" + player_pose] as Texture2D
-	var scale_factor: float = settings.player_size.y / pack.player_body_height
-	var frame_rect := Rect2(-pack.player_anchor * scale_factor, frame.get_size() * scale_factor)
-	draw_set_transform_matrix(_player_visual_transform())
-	var tint := Color(1, 1, 1, .45 if model.grace > 0 else 1.0)
-	draw_texture_rect(frame, frame_rect, false, tint)
-	draw_texture_rect(pack.effects["crossbow_" + player_pose] as Texture2D, frame_rect, false, tint)
-	for part in mini(model.armor, 3):
-		draw_texture_rect(pack.characters["armor_%d_%s" % [part, player_pose]] as Texture2D, frame_rect, false, tint)
-	draw_set_transform(Vector2.ZERO)
+	if feedback == null or feedback.defeat.is_empty():
+		var tint := Color(1, 1, 1, .45 if model.grace > 0 else 1.0)
+		_paint_player(_player_frame(), pack.effects["crossbow_" + player_pose] as Texture2D, _player_visual_transform(), model.armor, player_pose, tint)
 	for enemy in model.minions:
+		if _defeated_source(enemy):
+			continue
 		if enemy.state == "air":
 			var positions: Array[Vector2] = model.balloon_positions(enemy)
 			for index in positions.size():
