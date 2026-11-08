@@ -42,6 +42,9 @@ func _capture() -> void:
 	var effect: String = options.get("feedback", "shot")
 	game.set("player_pose", pose)
 	match effect:
+		"ambient":
+			model.minions.clear()
+			model.furniture_enabled = false
 		"boss_release":
 			model.restart()
 			model.released = 1
@@ -137,6 +140,8 @@ func _capture() -> void:
 					game.call("_shoot", Vector2.UP)
 			else:
 				feedback.advance(float(options.get("step", "0.04")))
+				if effect == "ambient" and game.get("ambient") != null:
+					(game.get("ambient") as RoundAmbient).advance(float(options.get("step", "0.04")))
 		game.queue_redraw()
 		await RenderingServer.frame_post_draw
 		await process_frame

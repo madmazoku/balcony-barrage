@@ -58,7 +58,7 @@
   ],
   "approval_scope": "Owner accepted the complete playable static pack and boss fall on 2026-11-05, requesting furniture attacks enabled by default. Phase 4 accepted; phase 5 animation requires separate acceptance.",
   "animation": {
-    "status": "group_1_accepted",
+    "status": "phase_5_accepted",
     "scope": [
       "shot recoil using existing generated layers",
       "four-frame balloon pop",
@@ -68,9 +68,9 @@
     "new_source_runs": [
       "20261106-155054-a16d63"
     ],
-    "notes": "Only generated art and deterministic transforms. Full character and background animation remain later groups.",
-    "approved_at": "2026-11-06",
-    "approval": "Owner: хорошо, принимается",
+    "notes": "Only generated art and deterministic transforms. The initial scope list describes group 1; character actions, movement, boss actions and background are recorded in the per-group entries. All five groups accepted on 2026-11-08.",
+    "approved_at": "2026-11-08",
+    "approval": "Owner: принимается (group 5; all five animation groups accepted)",
     "group_2": {
       "status": "accepted",
       "branch": "AI-8-enemy-actions",
@@ -176,6 +176,31 @@
       "approved_at": "2026-11-07",
       "approval": "Owner: гуд",
       "release": "0.10.0"
+    },
+    "current_group": 5,
+    "group_5": {
+      "status": "accepted",
+      "branch": "AI-11-background",
+      "prepared_at": "2026-11-08",
+      "scope": [
+        "quiet ivy sway at the arena edges",
+        "separate generated clean wall and three alpha-selected foliage strips",
+        "pause, restart, decisive-result freeze and optional same-pack static presentation"
+      ],
+      "new_source_runs": [
+        "20261107-163814-32e41f",
+        "20261108-171303-4be2d0"
+      ],
+      "runtime_png_count": 122,
+      "model": "same locked FLUX.2 Klein 9B FP8; euler / 25 / 3.5, no LoRA; masked structural edits denoise 0.95",
+      "notes": "Original 118 runtime PNGs unchanged. Bare wall restored only through explicit alpha mask. Foliage is original generated pixels, not drawn artwork. Right strips are separated around preserved cornice; mesh endpoints pinned. No video, new gameplay states or balance changes. Owner accepted group 5 on 2026-11-08; all five animation groups accepted.",
+      "approved_at": "2026-11-08",
+      "approval": "Owner: принимается",
+      "release": "0.11.0"
+    },
+    "group_1_approval": {
+      "approved_at": "2026-11-06",
+      "approval": "Owner: хорошо, принимается"
     }
   }
 }

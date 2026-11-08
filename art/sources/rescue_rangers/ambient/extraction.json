@@ -1,0 +1,88 @@
+{
+  "source_run": "20261105-214758-9585a8",
+  "rois": {
+    "ivy_left": [
+      25,
+      74,
+      100,
+      815
+    ],
+    "ivy_right": [
+      930,
+      0,
+      984,
+      785
+    ]
+  },
+  "protected_cornice": [
+    930,
+    181,
+    1024,
+    238
+  ],
+  "protected_column_x": 980,
+  "hsv_range": [
+    28,
+    105
+  ],
+  "saturation_min": 45,
+  "green_red_min_ratio": 0.82,
+  "green_blue_min_ratio": 1.15,
+  "outline_dark_max": 90,
+  "outline_seed_distance": 3,
+  "min_component_area": 30,
+  "padding": 8,
+  "layers": {
+    "ivy_left": {
+      "crop": [
+        28,
+        71,
+        93,
+        713
+      ],
+      "rect": [
+        0.02734375,
+        0.0693359375,
+        0.0634765625,
+        0.626953125
+      ]
+    },
+    "ivy_right_top": {
+      "crop": [
+        934,
+        0,
+        988,
+        189
+      ],
+      "rect": [
+        0.912109375,
+        0.0,
+        0.052734375,
+        0.1845703125
+      ]
+    },
+    "ivy_right_lower": {
+      "crop": [
+        930,
+        230,
+        988,
+        743
+      ],
+      "rect": [
+        0.908203125,
+        0.224609375,
+        0.056640625,
+        0.5009765625
+      ]
+    }
+  },
+  "exclude_right_stone_rgb_min": [
+    215,
+    155,
+    95
+  ],
+  "component_cleanup": {
+    "min_area": 40,
+    "min_green_pixels": 10
+  }
+}

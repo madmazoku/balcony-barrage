@@ -440,6 +440,22 @@
     "sha256": "9374bc469ce62b467f0f01398220a5b9be57557b5ae108b5f01e3b02c9218aeb"
   },
   {
+    "path": "assets/packs/rescue_rangers/environment/ambient_background.png",
+    "sha256": "e01041199f339f94edf49636ef20d6ea0da25dde185deff8626ec1fc90f5358f"
+  },
+  {
+    "path": "assets/packs/rescue_rangers/environment/ambient_ivy_left.png",
+    "sha256": "f0d293216e75a3a016fa4c15d12bc1de2add901ab296ca71055c557c9aade538"
+  },
+  {
+    "path": "assets/packs/rescue_rangers/environment/ambient_ivy_right_lower.png",
+    "sha256": "67097b58d40ba18460af4a17d7d5349092ddd02067746dd2cb92d90a6591873f"
+  },
+  {
+    "path": "assets/packs/rescue_rangers/environment/ambient_ivy_right_top.png",
+    "sha256": "4e13545d837a441073d6e6f747aeba2e573617a48e67a05a53a516812c584782"
+  },
+  {
     "path": "assets/packs/rescue_rangers/environment/background.png",
     "sha256": "6ae242d3d79c1d8b34163669985f8c468fd5cecbde2f233ac9a2b70938c26a46"
   },

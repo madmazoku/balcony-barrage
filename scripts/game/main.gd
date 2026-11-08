@@ -15,6 +15,7 @@ var controls: PlayerControls
 var player_pose: String = "right"
 var feedback: RoundFeedback
 var motion: RoundMotion
+var ambient: RoundAmbient
 var boss_actions: BossActions
 
 func _ready() -> void:
@@ -31,6 +32,8 @@ func _ready() -> void:
 		set_physics_process(false)
 		return
 	model = RoundModel.new(settings)
+	if pack.ambient != null:
+		ambient = RoundAmbient.new(pack.ambient, settings.arena_size)
 	if pack.locomotion != null:
 		motion = RoundMotion.new(pack.locomotion)
 		motion.reset(model)
@@ -114,6 +117,8 @@ func _restart() -> void:
 	model.furniture_enabled = enabled
 	if motion != null:
 		motion.reset(model)
+	if ambient != null:
+		ambient.reset()
 	if boss_actions != null:
 		boss_actions.clear()
 	paused = false
@@ -361,6 +366,8 @@ func _physics_process(delta: float) -> void:
 	if model == null:
 		return
 	if not paused:
+		if ambient != null and model.result.is_empty() and not model.boss_falling:
+			ambient.advance(delta)
 		if feedback != null:
 			feedback.advance(delta)
 		var movement: float = controls.movement(model.player.x, delta)
@@ -484,8 +491,13 @@ func _sprite_body(position: Vector2, size: Vector2, role: String, variant: int =
 		_text(position - size / 2 - Vector2(0, 7), pack.display_names[role], 15)
 
 func _draw_static() -> void:
-	draw_texture_rect(pack.environment["background"] as Texture2D,
+	var animated_background: bool = ambient != null and ambient.settings.enabled
+	var background_id: String = "ambient_background" if animated_background else "background"
+	draw_texture_rect(pack.environment[background_id] as Texture2D,
 		Rect2(Vector2.ZERO, settings.arena_size), false)
+	if animated_background:
+		for id in ambient.settings.layer_ids:
+			draw_mesh(ambient.meshes[id], pack.environment["ambient_" + id] as Texture2D)
 	draw_texture_rect(pack.environment["ground"] as Texture2D,
 		Rect2(0, settings.ground_y, settings.arena_size.x, settings.arena_size.y - settings.ground_y), false)
 	# Backdrop behind actors so a jumping boss stays visible; controls remain on CanvasLayer.

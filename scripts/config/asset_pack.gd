@@ -25,6 +25,7 @@ extends Resource
 @export var enemy_frame_bounds: Dictionary[String, Rect2]
 @export var boss_actions: BossActionConfig
 @export var boss_action_frames: Dictionary[String, Texture2D]
+@export var ambient: AmbientConfig
 @export var locomotion: MotionConfig
 @export var run_frames: Dictionary[String, Array]
 @export var player_anchor: Vector2
@@ -64,6 +65,20 @@ func validation_errors() -> Array[String]:
 	for stage in 6:
 		environment_keys.append("balcony_" + str(stage))
 	_check_textures(environment, environment_keys, "environment", errors)
+	if ambient != null:
+		errors.append_array(ambient.validation_errors())
+		var ambient_keys: Array[String] = ["ambient_background"]
+		for id in ambient.layer_ids:
+			ambient_keys.append("ambient_" + id)
+		_check_textures(environment, ambient_keys, "ambient environment", errors)
+		var background := environment.get("ambient_background") as Texture2D
+		if background != null and background.get_size() != ambient.source_size:
+			errors.append("Ambient clean background must match its source canvas.")
+		for id in ambient.layer_ids:
+			var layer := environment.get("ambient_" + id) as Texture2D
+			var area: Rect2 = ambient.layer_rects.get(id, Rect2())
+			if layer != null and not layer.get_size().is_equal_approx(area.size * ambient.source_size):
+				errors.append("Misaligned ambient layer: " + id)
 	if balloon_rope_anchor.x <= 0 or balloon_rope_anchor.x >= 1 or balloon_rope_anchor.y <= 0 or balloon_rope_anchor.y > 1:
 		errors.append("Balloon rope anchor must lie inside the normalized texture frame.")
 	if balloon_sprites.size() != balloon_palette.size():

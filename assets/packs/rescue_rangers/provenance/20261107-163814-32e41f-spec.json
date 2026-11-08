@@ -1,0 +1,12 @@
+{
+  "engine": "flux2",
+  "model": "flux-2-klein-9b-fp8.safetensors",
+  "steps": 25,
+  "guidance": 3.5,
+  "sampler": "euler",
+  "seed": 441351,
+  "image_path": "G:\\Git\\Gemini\\media_mcp\\images\\background-motion\\reference.png",
+  "mask_path": "G:\\Git\\Gemini\\media_mcp\\images\\background-motion\\remove-strips-mask.png",
+  "denoise": 0.95,
+  "prompt": "Erase EVERY green ivy leaf and EVERY climbing plant stem from the masked vertical strips on both edges of this cartoon brick courtyard. All masked areas must become bare brickwork and the continuation of the existing straight drainpipe, matching the neighboring warm orange mortar lines and pipe contours. Absolutely no foliage, plants, vines, leaves, lanterns, lamps, signs or decoration anywhere in the masked strips. Keep the existing windows, stone column, crates and paving unchanged. This is a clean empty architectural background plate of the exact same old brick wall after all climbing plants have been removed. Same thick ink outlines, warm flat cel shading, identical perspective and lighting."
+}
