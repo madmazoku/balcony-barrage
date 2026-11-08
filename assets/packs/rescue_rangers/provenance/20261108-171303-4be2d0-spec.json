@@ -1,0 +1,12 @@
+{
+  "engine": "flux2",
+  "model": "flux-2-klein-9b-fp8.safetensors",
+  "steps": 25,
+  "guidance": 3.5,
+  "sampler": "euler",
+  "seed": 441352,
+  "image_path": "G:\\Git\\Gemini\\media_mcp\\images\\20261107-163814-32e41f-final.png",
+  "mask_path": "G:\\Git\\Gemini\\media_mcp\\images\\background-motion\\remove-extra-pipe-mask.png",
+  "denoise": 0.95,
+  "prompt": "Precisely edit the masked narrow vertical strip on the left of this cartoon brick courtyard. Remove the SECOND thin vertical pipe, its brackets, and the tiny stray leaf near the lower crate. Fill their entire area with plain reddish brick masonry and mortar lines matching the wall to the immediate right. The ONE large drainpipe at the extreme left stays unchanged. The masked strip itself is completely flat, unobstructed red brick wall all the way from top to bottom, no pipe, no vine, no plant, no new objects or decoration. Preserve the existing composition, windows, crates, stone paving and warm cel-shaded cartoon painting style."
+}

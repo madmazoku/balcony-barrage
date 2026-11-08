@@ -706,6 +706,32 @@
       "derived_from": "boss",
       "preparation": "Alpha-select whole generated trouser legs and shoes, affine shear/lift about hip_y=780, composite beneath unchanged generated torso/tail. No drawn pixels. See boss_gait_fix/gait-recipe.json.",
       "phase": 7
+    },
+    "ambient_clean_parent": {
+      "run_prefix": "20261107-163814-32e41f",
+      "image_path": "art/sources/rescue_rangers/ambient/20261107-163814-32e41f.png",
+      "spec_path": "assets/packs/rescue_rangers/provenance/20261107-163814-32e41f-spec.json",
+      "engine": "flux2",
+      "model": "flux-2-klein-9b-fp8.safetensors",
+      "seed": 441351,
+      "width": 1024,
+      "height": 1024,
+      "reference_source": "background",
+      "edit_mask": "art/sources/rescue_rangers/ambient/remove-strips-mask.png",
+      "denoise": 0.95
+    },
+    "ambient_clean": {
+      "run_prefix": "20261108-171303-4be2d0",
+      "image_path": "art/sources/rescue_rangers/ambient/20261108-171303-4be2d0.png",
+      "spec_path": "assets/packs/rescue_rangers/provenance/20261108-171303-4be2d0-spec.json",
+      "engine": "flux2",
+      "model": "flux-2-klein-9b-fp8.safetensors",
+      "seed": 441352,
+      "width": 1024,
+      "height": 1024,
+      "reference_source": "ambient_clean_parent",
+      "edit_mask": "art/sources/rescue_rangers/ambient/remove-extra-pipe-mask.png",
+      "denoise": 0.95
     }
   },
   "output": "assets/packs/rescue_rangers",
@@ -1120,5 +1146,82 @@
       "fall_tilt_degrees": 12,
       "walking_split_fraction": 0.76171875
     }
+  },
+  "ambient": {
+    "clean_source": "ambient_clean",
+    "clean_mask": "art/sources/rescue_rangers/ambient/clean-mask.png",
+    "settings": {
+      "enabled": true,
+      "segments": 16
+    },
+    "layers": {
+      "ivy_left": {
+        "mask": "art/sources/rescue_rangers/ambient/ivy_left-mask.png",
+        "crop": [
+          28,
+          71,
+          93,
+          713
+        ],
+        "rect": [
+          0.02734375,
+          0.0693359375,
+          0.0634765625,
+          0.626953125
+        ],
+        "period": 6.0,
+        "amplitude": [
+          2.5,
+          0.4
+        ],
+        "turns": 1.1,
+        "phase": 0.0
+      },
+      "ivy_right_top": {
+        "mask": "art/sources/rescue_rangers/ambient/ivy_right_top-mask.png",
+        "crop": [
+          934,
+          0,
+          988,
+          189
+        ],
+        "rect": [
+          0.912109375,
+          0.0,
+          0.052734375,
+          0.1845703125
+        ],
+        "period": 4.0,
+        "amplitude": [
+          1.6,
+          0.3
+        ],
+        "turns": 0.85,
+        "phase": 0.25
+      },
+      "ivy_right_lower": {
+        "mask": "art/sources/rescue_rangers/ambient/ivy_right_lower-mask.png",
+        "crop": [
+          930,
+          230,
+          988,
+          743
+        ],
+        "rect": [
+          0.908203125,
+          0.224609375,
+          0.056640625,
+          0.5009765625
+        ],
+        "period": 6.0,
+        "amplitude": [
+          2.8,
+          0.6
+        ],
+        "turns": 1.0,
+        "phase": 0.5
+      }
+    },
+    "notes": "Original generated foliage isolated by alpha masks. Only masked wall restoration uses locked FLUX.2 edits. Center, windows and cornice unchanged. Split right vine above/below cornice, pin mesh ends; no drawn artwork."
   }
 }
