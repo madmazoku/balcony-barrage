@@ -3,6 +3,12 @@ extends Node
 ## Session/menu state around the existing round. The combat model stays unchanged.
 var profile_path: String = "user://profile.cfg"
 var profile: GameProfile
+var catalog: PackCatalog
+var catalog_path: String = "res://config/pack_catalog.json"
+var active_pack_id: String = ""
+var pack_picker: OptionButton
+var pack_preview: TextureRect
+var pack_description: Label
 var game: Node2D
 var style: ShellStyle
 var mode: String = "home"
@@ -24,9 +30,12 @@ var first_button: Button
 
 func _ready() -> void:
 	profile = GameProfile.new(profile_path)
-	game = preload("res://scenes/main.tscn").instantiate()
-	game.managed_session = true
-	add_child(game)
+	catalog = PackCatalog.new(catalog_path)
+	if not catalog.errors.is_empty():
+		push_error("; ".join(catalog.errors))
+		return
+	profile.selected_pack = catalog.resolve(profile.selected_pack)
+	if not _create_game(profile.selected_pack): return
 	if game.model == null or not game.pack.validation_errors().is_empty():
 		return
 	style = game.pack.ui["shell_style"] as ShellStyle
@@ -38,6 +47,38 @@ func _ready() -> void:
 	_create_ui()
 	_apply_preferences()
 	_show("home")
+
+func _create_game(id: String) -> bool:
+	var selected := catalog.load_pack(id)
+	if selected == null:
+		push_error("Cannot start incomplete presentation pack: " + id)
+		return false
+	game = preload("res://scenes/main.tscn").instantiate()
+	game.managed_session = true
+	game.pack_override = selected
+	add_child(game)
+	active_pack_id = id
+	return true
+
+func _apply_selected_pack() -> bool:
+	if active_pack_id == profile.selected_pack: return true
+	if catalog.load_pack(profile.selected_pack) == null: return false
+	# Whole-scene replacement prevents old animation/config resources leaking across packs.
+	game.controls.clear()
+	game.set_physics_process(false)
+	remove_child(game)
+	game.queue_free()
+	if not _create_game(profile.selected_pack): return false
+	style = game.pack.ui["shell_style"] as ShellStyle
+	game.controls.pause_requested.connect(_request_pause)
+	game.controls.restart_requested.connect(start_round)
+	game.controls.last_device = last_device
+	ui_root.theme = _theme()
+	scrim.color = style.dim
+	card.custom_minimum_size.x = style.panel_width
+	pause_button.custom_minimum_size.y = style.button_height
+	_apply_preferences()
+	return true
 
 func _install_menu_controls() -> void:
 	# The built-in UI actions do not guarantee controller bindings in every export.
@@ -100,7 +141,7 @@ func _theme() -> Theme:
 	panel.shadow_color = Color(0, 0, 0, 0.35)
 	panel.shadow_size = 10
 	theme.set_stylebox("panel", "PanelContainer", panel)
-	for type in ["Button", "CheckButton"]:
+	for type in ["Button", "CheckButton", "OptionButton"]:
 		theme.set_color("font_color", type, style.text)
 		theme.set_color("font_hover_color", type, style.text)
 		theme.set_color("font_focus_color", type, style.text)
@@ -155,6 +196,9 @@ func _show(next_mode: String) -> void:
 	status_label = null
 	record_label = null
 	result_detail = null
+	pack_picker = null
+	pack_preview = null
+	pack_description = null
 	var playing: bool = mode == "playing"
 	game.paused = not playing
 	game.set_physics_process(playing)
@@ -188,11 +232,12 @@ func _show(next_mode: String) -> void:
 			_button("В главное меню", leave_round)
 		"settings":
 			_label("НАСТРОЙКИ", true)
+			_pack_choice()
 			_preference("Подсказки во время игры", "show_hints")
 			_preference("Движение фона", "background_motion", game.ambient == null)
 			if not OS.has_feature("mobile"):
 				_preference("Управление касаниями через мышь", "touch_preview")
-			status_label = _label("Изменения сохраняются на этом устройстве.")
+			status_label = _label(_pack_status())
 			_button("Назад", close_panel)
 		"help":
 			_label("КАК ИГРАТЬ", true)
@@ -218,6 +263,53 @@ func _focus_menu() -> void:
 	# Several transitions can happen in one frame; never focus a removed menu.
 	if is_inside_tree() and is_instance_valid(first_button) and first_button.is_inside_tree() and first_button.is_visible_in_tree():
 		first_button.grab_focus()
+
+func _pack_status() -> String:
+	return "Оформление изменится в следующем раунде." if profile.selected_pack != active_pack_id else "Изменения сохраняются на этом устройстве."
+
+func _pack_choice() -> void:
+	var row := HBoxContainer.new()
+	row.add_theme_constant_override("separation", 18)
+	content.add_child(row)
+	pack_preview = TextureRect.new()
+	pack_preview.custom_minimum_size = Vector2(92, 108)
+	pack_preview.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	pack_preview.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	row.add_child(pack_preview)
+	var column := VBoxContainer.new()
+	column.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	row.add_child(column)
+	pack_picker = OptionButton.new()
+	pack_picker.custom_minimum_size.y = style.button_height
+	for entry in catalog.entries:
+		pack_picker.add_item(entry.name)
+		pack_picker.set_item_metadata(pack_picker.item_count - 1, entry.id)
+		if entry.id == profile.selected_pack: pack_picker.select(pack_picker.item_count - 1)
+	column.add_child(pack_picker)
+	pack_picker.item_selected.connect(func(index: int) -> void: select_pack(str(pack_picker.get_item_metadata(index))))
+	pack_description = Label.new()
+	pack_description.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	pack_description.add_theme_color_override("font_color", style.muted)
+	column.add_child(pack_description)
+	_update_pack_preview()
+
+func _update_pack_preview() -> void:
+	var entry := catalog.entry_for(profile.selected_pack)
+	pack_preview.texture = load(entry.preview) as Texture2D
+	pack_description.text = entry.description
+
+func select_pack(id: String) -> bool:
+	# Reject broken/uninstalled packs without saving an unusable preference.
+	if not catalog.has_pack(id) or catalog.load_pack(id) == null: return false
+	profile.selected_pack = id
+	profile.save_profile()
+	if pack_picker != null:
+		for index in pack_picker.item_count:
+			if str(pack_picker.get_item_metadata(index)) == id: pack_picker.select(index)
+		_update_pack_preview()
+	if status_label != null:
+		status_label.text = _pack_status() if profile.last_error == OK else "Не удалось сохранить выбор на этом устройстве."
+	return true
 
 func _preference(text: String, key: String, disabled: bool = false) -> void:
 	var button := CheckButton.new()
@@ -248,6 +340,7 @@ func _apply_preferences() -> void:
 	game.queue_redraw()
 
 func start_round() -> void:
+	if not _apply_selected_pack(): return
 	game.scenario_picker.select(0)
 	game.furniture_check.button_pressed = game.settings.furniture_enabled
 	game._restart()
@@ -261,6 +354,7 @@ func resume_round() -> void:
 		_show("playing")
 
 func leave_round() -> void:
+	if not _apply_selected_pack(): return
 	game._restart()
 	_show("home")
 
@@ -273,6 +367,7 @@ func open_panel(panel: String) -> void:
 	_show(panel)
 
 func close_panel() -> void:
+	if return_mode == "home": _apply_selected_pack()
 	_show(return_mode)
 
 func _record_text() -> String:

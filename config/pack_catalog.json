@@ -1,0 +1,35 @@
+{
+  "schema": 1,
+  "default_pack": "rescue_rangers",
+  "profiles": {
+    "debug": [
+      "rescue_rangers",
+      "forest_glade"
+    ],
+    "release": []
+  },
+  "packs": [
+    {
+      "id": "rescue_rangers",
+      "name": "Спасатели",
+      "description": "Исходный пак. Доступен в отладочном составе.",
+      "path": "res://assets/packs/rescue_rangers/pack.tres",
+      "preview": "res://assets/packs/rescue_rangers/characters/player/right.png",
+      "release_ready": false,
+      "status": "debug_only"
+    },
+    {
+      "id": "forest_glade",
+      "name": "Лесная полянка — в разработке",
+      "description": "Пока инвертированные заглушки. Лесные персонажи появятся после приёмки концептов.",
+      "path": "res://assets/packs/forest_glade/pack.tres",
+      "preview": "res://assets/packs/forest_glade/characters/player/right.png",
+      "release_ready": false,
+      "status": "in_progress",
+      "migration": "res://assets/packs/forest_glade/migration.json"
+    }
+  ],
+  "restricted_packs": [
+    "rescue_rangers"
+  ]
+}

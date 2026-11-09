@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="BossActionConfig" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/config/boss_action_config.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+enabled = true
+reach_seconds = 0.55
+release_seconds = 0.32
+throw_seconds = 0.26
+landing_seconds = 0.28
+jump_stretch = 0.08
+landing_squash = 0.16
+sack_offset = Vector2(0.38, 0.25)
+sack_size = Vector2(0.4, 0.58)
+sack_pulse = 0.12
+furniture_hold_offset = Vector2(0.13, -0.48)
+furniture_lift_offset = Vector2(0.35, -0.02)
+swing_fraction = 0.2
+lift_fraction = 0.35
+fall_tilt_degrees = 12
+walking_split_fraction = 0.76171875

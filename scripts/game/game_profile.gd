@@ -5,6 +5,7 @@ var path: String
 var show_hints: bool = true
 var touch_preview: bool = false
 var background_motion: bool = true
+var selected_pack: String = ""
 var records: Dictionary = {}
 var last_error: Error = OK
 
@@ -21,6 +22,8 @@ func load_profile() -> void:
 		var value: Variant = file.get_value("preferences", key, get(key))
 		if value is bool:
 			set(key, value)
+	var selected: Variant = file.get_value("preferences", "selected_pack", "")
+	if selected is String: selected_pack = selected
 	var stored: Variant = file.get_value("scores", "victories", {})
 	if stored is Dictionary:
 		for key in stored:
@@ -32,6 +35,7 @@ func save_profile() -> Error:
 	file.set_value("profile", "schema", 1)
 	for key in ["show_hints", "touch_preview", "background_motion"]:
 		file.set_value("preferences", key, get(key))
+	file.set_value("preferences", "selected_pack", selected_pack)
 	file.set_value("scores", "victories", records)
 	# A failed write must leave the previous profile intact.
 	last_error = file.save(path + ".tmp")

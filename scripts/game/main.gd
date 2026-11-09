@@ -5,6 +5,7 @@ var hud_layer: CanvasLayer
 var settings: GameplayConfig = preload("res://config/gameplay.tres")
 var presentation: PresentationConfig = preload("res://config/presentation.tres")
 var pack: AssetPack
+var pack_override: AssetPack
 var model: RoundModel
 var paused: bool = false
 var hud: Label
@@ -22,7 +23,7 @@ var boss_actions: BossActions
 
 func _ready() -> void:
 	texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
-	pack = presentation.active_pack
+	pack = pack_override if pack_override != null else presentation.active_pack
 	if pack == null:
 		push_error("No active presentation pack.")
 		set_physics_process(false)

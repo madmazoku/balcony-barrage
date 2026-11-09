@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="MotionConfig" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/config/motion_config.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+enabled = true
+stride_pixels = Dictionary[String, float]({"player": 170.0, "normal": 80.0, "tank": 100.0, "thrower": 85.0, "boss": 64.0})
+bob_pixels = Dictionary[String, float]({"player": 1.5, "normal": 1.0, "tank": 1.0, "thrower": 1.2, "boss": 0.5})
+boss_enabled = true
+bob_cycles = Dictionary[String, float]({"boss": 1.0})
