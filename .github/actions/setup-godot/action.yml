@@ -1,0 +1,43 @@
+name: Verified Godot
+description: Install the locked official Godot editor and required export templates
+inputs:
+  native:
+    description: Include Windows and Android templates
+    default: 'false'
+runs:
+  using: composite
+  steps:
+    - uses: actions/cache@v4
+      id: cache
+      with:
+        path: |
+          ~/.local/bin/godot
+          ~/.local/share/godot/export_templates/4.7.2.stable
+        key: godot-linux-${{ inputs.native == 'true' && 'native' || 'web' }}-4.7.2-v2
+    - if: steps.cache.outputs.cache-hit != 'true'
+      shell: bash
+      env:
+        NATIVE: ${{ inputs.native }}
+      run: |
+        set -euo pipefail
+        release=4.7.2-stable
+        base="https://github.com/godotengine/godot-builds/releases/download/$release"
+        editor="Godot_v${release}_linux.x86_64.zip"
+        templates="Godot_v${release}_export_templates.tpz"
+        work="$(mktemp -d)"
+        cd "$work"
+        for file in SHA512-SUMS.txt "$editor" "$templates"; do
+          curl --fail --location --retry 3 --output "$file" "$base/$file"
+        done
+        sha512sum --check --ignore-missing SHA512-SUMS.txt
+        mkdir -p "$HOME/.local/bin" "$HOME/.local/share/godot/export_templates/4.7.2.stable"
+        unzip -q "$editor"
+        mv "Godot_v${release}_linux.x86_64" "$HOME/.local/bin/godot"
+        chmod +x "$HOME/.local/bin/godot"
+        target="$HOME/.local/share/godot/export_templates/4.7.2.stable"
+        unzip -j -q "$templates" 'templates/web*' 'templates/version.txt' -d "$target"
+        if [[ "$NATIVE" == true ]]; then
+          unzip -j -q "$templates" 'templates/windows*' 'templates/android*' -d "$target"
+        fi
+    - shell: bash
+      run: echo "$HOME/.local/bin" >> "$GITHUB_PATH"

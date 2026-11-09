@@ -5,6 +5,7 @@ on:
     branches: [master]
   push:
     branches: [master]
+    tags: ['[0-9]*.[0-9]*.[0-9]*']
 
 permissions:
   contents: read
@@ -13,88 +14,109 @@ concurrency:
   group: web-pages-${{ github.ref }}
   cancel-in-progress: false
 
-env:
-  GODOT_VERSION: 4.7.2
-
 jobs:
   build:
-    runs-on: ubuntu-latest
-    timeout-minutes: 20
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    env:
+      RELEASE_TAG: ${{ startsWith(github.ref, 'refs/tags/') && github.ref_name || '' }}
     steps:
       - uses: actions/checkout@v6
-      - name: Cache official Godot editor and Web templates
-        id: godot-cache
-        uses: actions/cache@v4
         with:
-          path: |
-            ~/.local/bin/godot
-            ~/.local/share/godot/export_templates/${{ env.GODOT_VERSION }}.stable
-          key: godot-linux-web-${{ env.GODOT_VERSION }}-v1
-      - name: Install verified official Godot files
-        if: steps.godot-cache.outputs.cache-hit != 'true'
-        shell: bash
-        run: |
-          set -euo pipefail
-          release="${GODOT_VERSION}-stable"
-          base="https://github.com/godotengine/godot-builds/releases/download/${release}"
-          editor="Godot_v${release}_linux.x86_64.zip"
-          templates="Godot_v${release}_export_templates.tpz"
-          work="$(mktemp -d)"
-          cd "$work"
-          for file in SHA512-SUMS.txt "$editor" "$templates"; do
-            curl --fail --location --retry 3 --output "$file" "$base/$file"
-          done
-          sha512sum --check --ignore-missing SHA512-SUMS.txt
-          mkdir -p "$HOME/.local/bin" "$HOME/.local/share/godot/export_templates/${GODOT_VERSION}.stable"
-          unzip -q "$editor"
-          mv "Godot_v${release}_linux.x86_64" "$HOME/.local/bin/godot"
-          chmod +x "$HOME/.local/bin/godot"
-          unzip -j -q "$templates" 'templates/web*' 'templates/version.txt' -d "$HOME/.local/share/godot/export_templates/${GODOT_VERSION}.stable"
-      - name: Add Godot to PATH
-        run: echo "$HOME/.local/bin" >> "$GITHUB_PATH"
-      - name: Import and validate the accepted game
-        shell: bash
-        run: |
-          set -euo pipefail
-          godot --version
-          godot --headless --path . --editor --import 2>&1 | tee /tmp/godot-import.log
-          if grep -E 'SCRIPT ERROR:|ERROR:' /tmp/godot-import.log; then exit 1; fi
-          for test in validate_foundation test_round test_controls test_asset_pack test_feedback test_motion test_defeat test_boss_actions test_ambient test_profile test_shell; do
-            godot --headless --path . --script "res://tools/${test}.gd" --quit-after 600
-          done
-      - name: Export browser build
-        shell: bash
-        run: |
-          set -euo pipefail
-          mkdir -p builds/web
-          godot --headless --path . --export-release Web builds/web/index.html
-          test -s builds/web/index.html
-          test -s builds/web/index.js
-          test -s builds/web/index.wasm
-          test -s builds/web/index.pck
-          touch builds/web/.nojekyll
-          printf '%s\n' "$GITHUB_SHA" > builds/web/commit.txt
-          sed -n 's/^config\/version="\(.*\)"/\1/p' project.godot > builds/web/version.txt
-      - name: Configure GitHub Pages
-        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
-        uses: actions/configure-pages@v5
-      - name: Upload accepted browser build
-        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
-        uses: actions/upload-pages-artifact@v4
+          fetch-depth: 0
+      - name: Validate release tag and accepted ancestry
+        run: python tools/release.py validate-tag
+      - uses: ./.github/actions/setup-godot
         with:
-          path: builds/web
+          native: 'true'
+      - uses: actions/setup-java@v6
+        if: github.event_name == 'pull_request' || startsWith(github.ref, 'refs/tags/')
+        with:
+          distribution: temurin
+          java-version: '17'
+      - name: Prepare Android tools
+        if: github.event_name == 'pull_request' || startsWith(github.ref, 'refs/tags/')
+        shell: bash
+        run: |
+          set -euo pipefail
+          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "platform-tools" "build-tools;36.0.0" "platforms;android-36"
+          "$ANDROID_HOME/platform-tools/adb" start-server
+      - name: Check and export candidate builds
+        if: github.event_name == 'pull_request'
+        run: python tools/release.py build --native
+      - name: Check and export accepted preview
+        if: github.ref == 'refs/heads/master'
+        run: python tools/release.py build
+      - name: Check and export signed tag builds
+        if: startsWith(github.ref, 'refs/tags/')
+        env:
+          ANDROID_KEYSTORE_BASE64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
+          ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+          ANDROID_KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
+        run: python tools/release.py build --native
+      - name: Remove temporary signing material
+        if: always()
+        shell: bash
+        run: rm -f "$RUNNER_TEMP/android-release.p12"
+      - uses: actions/upload-artifact@v4
+        if: github.event_name == 'pull_request' || startsWith(github.ref, 'refs/tags/')
+        with:
+          name: game-builds
+          path: builds/release/
+          if-no-files-found: error
+          retention-days: 7
+
+  release:
+    if: startsWith(github.ref, 'refs/tags/')
+    needs: build
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/download-artifact@v4
+        with:
+          name: game-builds
+          path: builds/release
+      - name: Publish complete immutable release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_TAG: ${{ github.ref_name }}
+        run: python tools/release.py publish
 
   deploy:
-    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
-    needs: build
-    runs-on: ubuntu-latest
+    if: always() && github.event_name == 'push' && needs.build.result == 'success' && (needs.release.result == 'success' || needs.release.result == 'skipped')
+    needs: [build, release]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    concurrency:
+      group: balcony-pages-site
+      cancel-in-progress: false
     permissions:
+      contents: read
       pages: write
       id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Publish accepted game
+      # Fetch master after obtaining the site lock; an old tag cannot roll back the root.
+      - uses: actions/checkout@v6
+        with:
+          ref: master
+          fetch-depth: 0
+      - uses: ./.github/actions/setup-godot
+      - name: Check latest accepted root and assemble all released versions
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python tools/release.py check
+          python tools/release.py web
+          python tools/release.py site
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: builds/site
+      - name: Publish accepted game and version catalog
         id: deployment
         uses: actions/deploy-pages@v4

@@ -88,3 +88,10 @@ capture_pack.gd: --feedback=windup|capture, --simulate=true, --role=normal|tank|
 - tools/test_profile.gd и test_shell.gd — сохранение/повторная загрузка, неверные данные, изоляция рекордов и реальная сцена с событиями клавиатуры/геймпада, меню, паузой/фокусом и последовательностью финалов. Ожидается PROFILE_TESTS_OK и SHELL_TESTS_OK. Теперь в CI 11 проверок.
 - Прежний capture_pack.gd расширен --shell=home|pause|help|settings|result|playing, сцену меню не дублировать. Без --shell остаётся прежний захват main.tscn.
 - Прежний sprite_assets.py build-pack сериализует путь shell_style как ui.shell_style. SHA256 версии после расширения: 3896262f21f88ee1d377da5ce564822ced79d425f871d1c59144908254f618df. Внешняя утилита остаётся одна, все 122 PNG сохранены.
+
+## Технический выпуск AI-13
+- tools/release.py — единое средство validate-tag/check/build/web/site/publish; использует проверенный Godot в GODOT или PATH. Стандартная библиотека Python, кроме CLI GitHub/Godot/JDK/Android SDK.
+- tools/test_release.py — проверки формата тегов, ancestry, состава Web ZIP и запрета выхода из каталога. Запуск python -m unittest discover -s tools -p test_release.py.
+- .github/actions/setup-godot/action.yml — прежняя проверенная установка Godot и SHA512, вынесенная из workflow, с Windows/Android шаблонами по флагу native. Не создавать вторую процедуру установки.
+- Ключ Android вне репозиториев: C:/Users/madma/.codex/secrets/balcony-barrage. Содержимое не читать в общие логи, не копировать в экспорт/артефакты. Секреты настроены через stdin GitHub CLI.
+- Использован ранее скачанный C:/Users/madma/AppData/Local/Temp/balcony-godot-export/Godot_v4.7.2-stable_export_templates.tpz после SHA512, повторно не скачивался. JDK с проверенной SHA256 — G:/Git/Gemini/tmp/balcony-release/jdk. Шаблоны Windows/Android установлены в штатный каталог Godot. Локальный SDK Android не устанавливался: сборку/подпись проверяет Linux CI.
