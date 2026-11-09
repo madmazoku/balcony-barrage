@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="AssetPack" load_steps=128 format=3]
+[gd_resource type="Resource" script_class="AssetPack" load_steps=129 format=3]
 
 [ext_resource type="Script" path="res://scripts/config/asset_pack.gd" id="1"]
 [ext_resource type="Texture2D" path="res://assets/packs/rescue_rangers/characters/boss.png" id="2"]
@@ -127,6 +127,7 @@
 [ext_resource type="Resource" path="res://assets/packs/rescue_rangers/boss_actions.tres" id="boss_actions"]
 [ext_resource type="Resource" path="res://assets/packs/rescue_rangers/motion.tres" id="motion"]
 [ext_resource type="Resource" path="res://assets/packs/rescue_rangers/ambient.tres" id="ambient"]
+[ext_resource type="Resource" path="res://assets/packs/rescue_rangers/shell_style.tres" id="shell_style"]
 
 [resource]
 script = ExtResource("1")
@@ -151,6 +152,7 @@ run_frames = Dictionary[String, Array]({"player_right": [ExtResource("13"), ExtR
 boss_actions = ExtResource("boss_actions")
 boss_action_frames = Dictionary[String, Texture2D]({"reach": ExtResource("62"), "release": ExtResource("63"), "hold": ExtResource("64"), "air": ExtResource("65"), "land": ExtResource("66")})
 ambient = ExtResource("ambient")
+ui = Dictionary[String, Resource]({"shell_style": ExtResource("shell_style")})
 enemy_action_frames = Dictionary[String, Array]({"thrower_windup": [ExtResource("49"), ExtResource("50"), ExtResource("51")], "thrower_release": [ExtResource("52"), ExtResource("53"), ExtResource("54")], "normal_capture": [ExtResource("55"), ExtResource("56"), ExtResource("57")], "tank_capture": [ExtResource("58"), ExtResource("59"), ExtResource("60")], "thrower_capture": [ExtResource("52"), ExtResource("53"), ExtResource("54")]})
 enemy_frame_bounds = Dictionary[String, Rect2]({"normal": Rect2(0.1083984375, 0.107421875, 0.681640625, 0.8076171875), "tank": Rect2(0.05078125, 0.0673828125, 0.8798828125, 0.8955078125), "thrower": Rect2(0.169921875, 0.048828125, 0.64453125, 0.9140625), "boss": Rect2(0.083984375, 0.0517578125, 0.666015625, 0.912109375)})
 feedback = ExtResource("feedback")

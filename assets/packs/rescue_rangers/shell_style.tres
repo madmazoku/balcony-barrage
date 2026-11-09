@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ShellStyle" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/config/shell_style.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+title = "BALCONY BARRAGE"
+subtitle = "Удержи двор. Опустоши мешок. Обрушь балкон."
+panel = Color(0.141, 0.102, 0.086, 1)
+border = Color(0.616, 0.471, 0.29, 1)
+accent = Color(0.918, 0.765, 0.49, 1)
+text = Color(1, 0.949, 0.871, 1)
+muted = Color(0.804, 0.733, 0.631, 1)
+button = Color(0.267, 0.2, 0.149, 1)
+dim = Color(0.025, 0.018, 0.012, 0.68)
+panel_width = 680.0
+heading_size = 38
+body_size = 22
+button_height = 54.0

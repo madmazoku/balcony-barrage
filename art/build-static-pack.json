@@ -1223,5 +1223,6 @@
       }
     },
     "notes": "Original generated foliage isolated by alpha masks. Only masked wall restoration uses locked FLUX.2 edits. Center, windows and cornice unchanged. Split right vine above/below cornice, pin mesh ends; no drawn artwork."
-  }
+  },
+  "shell_style": "assets/packs/rescue_rangers/shell_style.tres"
 }
