@@ -140,17 +140,29 @@ def export_content(flavor):
             else: os.environ['GODOT_PROJECT_PATH'] = previous
 
 
+def audit_apk_content(archive, ids):
+    # Godot 4.7 APKs store individual assets with sparse-PCK metadata, not a .pck file.
+    with zipfile.ZipFile(archive) as z:
+        names = z.namelist()
+        if 'assets/assets.sparsepck' not in names:
+            raise ValueError('Expected Godot 4.7 Android sparse-PCK metadata.')
+        catalog = json.loads(z.read('assets/config/pack_catalog.json'))
+        prefix = 'assets/assets/packs/'
+        found = {name[len(prefix):].split('/', 1)[0] for name in names if name.startswith(prefix)}
+        listed = [entry['id'] for entry in catalog['packs']]
+        if found != set(ids) or sorted(listed) != sorted(ids) or catalog['default_pack'] not in ids:
+            raise ValueError('Android assets/catalog do not match the selected content profile.')
+    print('EXPORTED_CONTENT_OK APK ' + ','.join(sorted(found)))
+
+
 def audit_content(archive, ids):
-    # Web PCK, embedded Windows PCK, or the PCK inside an Android APK.
+    if archive.suffix == '.apk':
+        audit_apk_content(archive, ids)
+        return
+    # Web PCK or embedded Windows PCK, mounted in an empty project.
     with tempfile.TemporaryDirectory(prefix='balcony-audit-') as temp:
         root = Path(temp)
         resource_pack = archive.resolve()
-        if archive.suffix == '.apk':
-            with zipfile.ZipFile(archive) as z:
-                pcks = [n for n in z.namelist() if n.endswith('.pck')]
-                if len(pcks) != 1: raise ValueError('Expected one Android resource pack.')
-                resource_pack = root / 'game.pck'
-                resource_pack.write_bytes(z.read(pcks[0]))
         (root / 'project.godot').write_text('config_version=5\n')
         shutil.copyfile('tools/audit_export.gd', root / 'audit.gd')
         result = subprocess.run([os.environ.get('GODOT', 'godot'), '--headless', '--path', str(root),

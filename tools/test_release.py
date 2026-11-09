@@ -130,6 +130,28 @@ class ReleaseTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 with prepared_project(root, 'release'): pass
 
+    def apk_fixture(self, path, ids):
+        with zipfile.ZipFile(path, 'w') as z:
+            z.writestr('assets/assets.sparsepck', b'Godot metadata fixture')
+            z.writestr('assets/config/pack_catalog.json', json.dumps({'default_pack': ids[0],
+                'packs': [{'id': id} for id in ids]}))
+            for id in ids: z.writestr(f'assets/assets/packs/{id}/pack.tres', b'own assets')
+
+    def test_android_sparse_assets_audit(self):
+        with tempfile.TemporaryDirectory() as temp:
+            path = Path(temp) / 'game.apk'
+            self.apk_fixture(path, ['forest_glade'])
+            release.audit_apk_content(path, ['forest_glade'])
+            with self.assertRaises(ValueError): release.audit_apk_content(path, ['rescue_rangers'])
+
+    def test_android_rejects_extra_debug_assets(self):
+        with tempfile.TemporaryDirectory() as temp:
+            path = Path(temp) / 'game.apk'
+            self.apk_fixture(path, ['forest_glade'])
+            with zipfile.ZipFile(path, 'a') as z:
+                z.writestr('assets/assets/packs/rescue_rangers/hidden.png', b'excluded art')
+            with self.assertRaises(ValueError): release.audit_apk_content(path, ['forest_glade'])
+
     def test_unaccepted_tag_commit_fails(self):
         with patch.dict(release.os.environ, RELEASE_TAG='1.2.3'), patch.object(release, 'run', side_effect=RuntimeError('not accepted')) as run:
             with patch('sys.argv', ['release.py', 'validate-tag']), self.assertRaises(RuntimeError):
