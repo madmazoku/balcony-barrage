@@ -1,0 +1,38 @@
+[gd_resource type="Resource" script_class="FeedbackConfig" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/config/feedback_config.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+enabled = true
+shot_seconds = 0.16
+shot_tilt_degrees = 3.0
+shot_squash = 0.055
+pop_frame_seconds = 0.055
+pop_size_multiplier = 1.2
+armor_flight_seconds = 1.4
+armor_launch_velocity = Vector2(180.0, -360.0)
+armor_gravity = 1100.0
+armor_spin_radians = 8.0
+armor_size_multiplier = 1.4
+enemy_actions_enabled = true
+release_seconds = 0.18
+capture_seconds = 0.28
+armor_transfer_seconds = 0.16
+windup_tilt_degrees = 7.0
+capture_tilt_degrees = 10.0
+capture_reach_fraction = 0.5
+carry_offset = Vector2(15.0, 0.0)
+carry_size = Vector2(15.0, 16.0)
+defeat_enabled = true
+defeat_transfer_seconds = 0.22
+defeat_min_seconds = 0.35
+defeat_max_seconds = 6.0
+defeat_offscreen_margin = 120.0
+defeat_launch_velocity = Vector2(560.0, -480.0)
+defeat_gravity = 1100.0
+defeat_spin_radians = 5.0
+defeat_carry_offset = Vector2(-18.0, -8.0)
+defeat_carry_angle_degrees = 90.0
+defeat_weapon_drop_seconds = 1.5
+defeat_weapon_launch_velocity = Vector2(140.0, -220.0)

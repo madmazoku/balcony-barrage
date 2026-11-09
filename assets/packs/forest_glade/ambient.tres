@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="AmbientConfig" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/config/ambient_config.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+enabled = true
+source_size = Vector2(1024, 1024)
+segments = 16
+layer_ids = PackedStringArray("ivy_left", "ivy_right_top", "ivy_right_lower")
+layer_rects = Dictionary[String, Rect2]({"ivy_left": Rect2(0.02734375, 0.0693359375, 0.0634765625, 0.626953125), "ivy_right_top": Rect2(0.912109375, 0.0, 0.052734375, 0.1845703125), "ivy_right_lower": Rect2(0.908203125, 0.224609375, 0.056640625, 0.5009765625)})
+periods = Dictionary[String, float]({"ivy_left": 6.0, "ivy_right_top": 4.0, "ivy_right_lower": 6.0})
+amplitudes = Dictionary[String, Vector2]({"ivy_left": Vector2(2.5, 0.4), "ivy_right_top": Vector2(1.6, 0.3), "ivy_right_lower": Vector2(2.8, 0.6)})
+turns = Dictionary[String, float]({"ivy_left": 1.1, "ivy_right_top": 0.85, "ivy_right_lower": 1.0})
+phases = Dictionary[String, float]({"ivy_left": 0.0, "ivy_right_top": 0.25, "ivy_right_lower": 0.5})

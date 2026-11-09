@@ -107,18 +107,22 @@ func _run() -> void:
 	check(app.mode == "home", "Escape must return from help.")
 	app.queue_free()
 	await process_frame
-	var presentation := load("res://config/presentation.tres") as PresentationConfig
-	var original: AssetPack = presentation.active_pack
-	for pack_path in ["res://assets/packs/prototype/pack.tres", "res://assets/packs/prototype_alt/pack.tres"]:
-		presentation.active_pack = load(pack_path)
+	var catalog_file := "user://qa-catalog-%d.json" % OS.get_process_id()
+	for id in ["prototype", "prototype_alt"]:
+		var pack_path: String = "res://assets/packs/" + id + "/pack.tres"
+		var file := FileAccess.open(catalog_file, FileAccess.WRITE)
+		file.store_string(JSON.stringify({"schema": 1, "default_pack": id, "packs": [{"id": id, "path": pack_path,
+			"preview": pack_path, "name": id, "description": "QA"}]}))
+		file.close()
 		var other := load("res://scenes/app.tscn").instantiate() as GameShell
 		other.profile_path = path
+		other.catalog_path = catalog_file
 		root.add_child(other)
-		check(other.mode == "home" and other.style == presentation.active_pack.ui["shell_style"],
+		check(other.mode == "home" and other.style == (load(pack_path) as AssetPack).ui["shell_style"],
 			"Switching packs must select its own complete menu style.")
 		other.queue_free()
 		await process_frame
-	presentation.active_pack = original
+	DirAccess.remove_absolute(ProjectSettings.globalize_path(catalog_file))
 	DirAccess.remove_absolute(ProjectSettings.globalize_path(path))
 	if FileAccess.file_exists(path + ".tmp"):
 		DirAccess.remove_absolute(ProjectSettings.globalize_path(path + ".tmp"))

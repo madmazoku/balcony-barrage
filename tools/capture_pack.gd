@@ -20,10 +20,23 @@ func _capture() -> void:
 		shell = load("res://scenes/app.tscn").instantiate()
 		shell.profile_path = "user://qa-capture-unused.cfg"
 		root.add_child(shell)
+		if options.has("pack"):
+			if not shell.select_pack(options.pack):
+				push_error("Unknown or incomplete capture pack: " + str(options.pack))
+				quit(1)
+				return
+			shell._apply_selected_pack()
 		shell.set_process(false)
 		game = shell.game
 	else:
 		game = load("res://scenes/main.tscn").instantiate()
+		if options.has("pack"):
+			game.pack_override = PackCatalog.new().load_pack(options.pack)
+			if game.pack_override == null:
+				push_error("Unknown or incomplete capture pack: " + str(options.pack))
+				game.free()
+				quit(1)
+				return
 		root.add_child(game)
 	await process_frame
 	game.set_physics_process(false)

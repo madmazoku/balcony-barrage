@@ -43,17 +43,17 @@ jobs:
           "$ANDROID_HOME/platform-tools/adb" start-server
       - name: Check and export candidate builds
         if: github.event_name == 'pull_request'
-        run: python tools/release.py build --native
+        run: python tools/release.py build --native --content debug
       - name: Check and export accepted preview
         if: github.ref == 'refs/heads/master'
-        run: python tools/release.py build
+        run: python tools/release.py build --content debug
       - name: Check and export signed tag builds
         if: startsWith(github.ref, 'refs/tags/')
         env:
           ANDROID_KEYSTORE_BASE64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
           ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
           ANDROID_KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
-        run: python tools/release.py build --native
+        run: python tools/release.py build --native --content release
       - name: Remove temporary signing material
         if: always()
         shell: bash
@@ -111,7 +111,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           python tools/release.py check
-          python tools/release.py web
+          python tools/release.py web --content debug
           python tools/release.py site
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v4
