@@ -10,9 +10,10 @@ import release
 
 class ReleaseTests(unittest.TestCase):
     def test_tag_format(self):
-        for tag in ['0.13.0-preview', '1.2.3', '2.0.0-beta.1']:
-            self.assertIsNotNone(release.version(tag))
-        for tag in ['v1.2.3', '1.2', '01.2.3', '1.2.3-', '1.2.3/evil', '1.2.3-../evil', '1.2.3-x_y', '1.2.3-01']:
+        for tag in ['0.13.0-preview', '1.2.3', '2.0.0-Alpha_01--test', '1.2.3-01', '1.2.3-_', '1.2.3--', '1.2.3-' + 'a' * 81]:
+            with self.subTest(tag=tag):
+                self.assertIsNotNone(release.version(tag))
+        for tag in ['v1.2.3', '1.2', '01.2.3', '1.2.3-', '1.2.3/evil', '1.2.3-../evil', '1.2.3-beta.1', '1.2.3-x y', '1.2.3-x+y', '1.2.3-кириллица', '1.2.3-x\\y', '1.2.3-x\n', '1.2.٣', '65536.0.0']:
             with self.subTest(tag=tag), self.assertRaises(ValueError):
                 release.version(tag)
 
@@ -50,8 +51,9 @@ class ReleaseTests(unittest.TestCase):
             try:
                 Path('project.godot').write_text('config/version="0.13.0"\n')
                 Path('export_presets.cfg').write_text('version/name="0.13.0"\nversion/code=1\napplication/file_version="0.13.0.0"\napplication/product_version="0.13.0.0"\n')
-                release.stamp('0.13.0-preview', 42)
-                self.assertIn('0.13.0-preview', Path('project.godot').read_text())
+                release.stamp('0.13.0-Alpha_01--test', 42)
+                self.assertIn('0.13.0-Alpha_01--test', Path('project.godot').read_text())
+                self.assertIn('version/name="0.13.0-Alpha_01--test"', Path('export_presets.cfg').read_text())
                 self.assertIn('version/code=42', Path('export_presets.cfg').read_text())
                 self.assertIn('application/file_version="0.13.0.0"', Path('export_presets.cfg').read_text())
             finally:
