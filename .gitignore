@@ -13,3 +13,9 @@ exports/
 *.safetensors
 *.ckpt
 art/drafts/
+
+*.p12
+*.idsig
+
+__pycache__/
+*.py[cod]
