@@ -14,8 +14,17 @@ func _capture() -> void:
 		push_error("Pass -- --capture=<absolute PNG path>.")
 		quit(1)
 		return
-	var game: Node = load("res://scenes/main.tscn").instantiate()
-	root.add_child(game)
+	var shell: GameShell
+	var game: Node
+	if options.has("shell"):
+		shell = load("res://scenes/app.tscn").instantiate()
+		shell.profile_path = "user://qa-capture-unused.cfg"
+		root.add_child(shell)
+		shell.set_process(false)
+		game = shell.game
+	else:
+		game = load("res://scenes/main.tscn").instantiate()
+		root.add_child(game)
 	await process_frame
 	game.set_physics_process(false)
 	var model: RoundModel = game.get("model")
@@ -131,6 +140,12 @@ func _capture() -> void:
 	if feedback != null:
 		feedback.advance(float(options.get("feedback-time", "0")))
 	game.call("_update_hud")
+	if shell != null:
+		if options.shell == "playing":
+			shell.start_round()
+			shell.game.set_physics_process(false)
+		else:
+			shell._show(options.shell)
 	var count: int = int(options.get("frames", "1"))
 	for index in count:
 		if index > 0 and feedback != null:

@@ -45,6 +45,10 @@ func validation_errors() -> Array[String]:
 			"balcony", "bolt", "nut", "armor", "furniture", "text"]:
 		if not colors.has(key):
 			errors.append("Missing presentation color: " + key)
+	if not ui.get("shell_style") is ShellStyle:
+		errors.append("Pack requires its own shell UI style.")
+	else:
+		errors.append_array((ui["shell_style"] as ShellStyle).validation_errors())
 	if readiness == "prototype":
 		return errors
 	if readiness != "static":

@@ -81,3 +81,10 @@ capture_pack.gd: --feedback=windup|capture, --simulate=true, --role=normal|tank|
 - scripts/config/ambient_config.gd и scripts/game/round_ambient.gd — опциональная конфигурация пакета и чистое визуальное состояние. Не добавлять к ним изменения модели/RNG.
 - tools/test_ambient.gd — девятая проверка: маски/полнота пакета, движение и неподвижные концы, границы амплитуды, шов цикла, пауза/сброс/исход, static/prototype и одинаковый полный бой. Запуск прежним Godot --headless --script res://tools/test_ambient.gd; ожидается AMBIENT_TESTS_OK.
 - Прежний capture_pack.gd расширен --feedback=ambient --scenario=boss --frames=120 --step=0.1 --capture=<absolute PNG>. Без simulate=true движется только фон, серия содержит цикл 12 секунд. GIF собран Pillow из настоящих кадров игры; не отдельный генератор изображений. Для полного боя оставить обычный запуск.
+
+## Принятая фаза 6, группа 1 (AI-12, 0.12.0)
+- scenes/app.tscn, scripts/game/game_shell.gd — обычная точка входа и меню с существующим раундом. scenes/main.tscn по-прежнему используется в прежних проверках и для F6 QA.
+- GameProfile (scripts/game/game_profile.gd) — ConfigFile в user://profile.cfg, безопасная запись через .tmp, предпочтения и рекорд побед по ключу GameplayConfig. Тесты используют отдельные qa-profile/qa-shell файлы и удаляют только собственные файлы, не трогая реальный профиль.
+- tools/test_profile.gd и test_shell.gd — сохранение/повторная загрузка, неверные данные, изоляция рекордов и реальная сцена с событиями клавиатуры/геймпада, меню, паузой/фокусом и последовательностью финалов. Ожидается PROFILE_TESTS_OK и SHELL_TESTS_OK. Теперь в CI 11 проверок.
+- Прежний capture_pack.gd расширен --shell=home|pause|help|settings|result|playing, сцену меню не дублировать. Без --shell остаётся прежний захват main.tscn.
+- Прежний sprite_assets.py build-pack сериализует путь shell_style как ui.shell_style. SHA256 версии после расширения: 3896262f21f88ee1d377da5ce564822ced79d425f871d1c59144908254f618df. Внешняя утилита остаётся одна, все 122 PNG сохранены.

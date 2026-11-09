@@ -1,5 +1,7 @@
 extends Node2D
 
+var managed_session: bool = false
+var hud_layer: CanvasLayer
 var settings: GameplayConfig = preload("res://config/gameplay.tres")
 var presentation: PresentationConfig = preload("res://config/presentation.tres")
 var pack: AssetPack
@@ -51,26 +53,29 @@ func _ready() -> void:
 	controls.gameplay = settings
 	controls.player_x = model.player.x
 	controls.shot_requested.connect(_shoot)
-	controls.pause_requested.connect(_toggle_pause)
-	controls.restart_requested.connect(_restart)
+	if not managed_session:
+		controls.pause_requested.connect(_toggle_pause)
+		controls.restart_requested.connect(_restart)
 	add_child(controls)
 	_create_controls()
 	queue_redraw()
 
 func _create_controls() -> void:
 	var layer := CanvasLayer.new()
+	hud_layer = layer
 	add_child(layer)
 	var panel := VBoxContainer.new()
 	panel.position = Vector2(22, 12)
 	panel.modulate = pack.colors["text"]
 	layer.add_child(panel)
 	var title := Label.new()
-	title.text = "BALCONY BARRAGE"
+	title.text = (pack.ui["shell_style"] as ShellStyle).title
 	title.add_theme_font_size_override("font_size", 24)
 	panel.add_child(title)
 	var toolbar := HBoxContainer.new()
 	toolbar.add_theme_constant_override("separation", 14)
 	panel.add_child(toolbar)
+	toolbar.visible = not managed_session
 	scenario_picker = OptionButton.new()
 	for label in ["Полный раунд", "Две цели на линии", "Последний шарик у земли", "Захват + гайка", "Пустой мешок / босс", "Три типа вместе", "Поражение от захвата", "Поражение от гайки", "Поражение от мебели"]:
 		scenario_picker.add_item(label)
@@ -468,6 +473,8 @@ func _draw() -> void:
 	_draw_result()
 
 func _draw_result() -> void:
+	if managed_session:
+		return
 	if model.result == "lose" and feedback != null and not feedback.result_ready():
 		return
 	if model.result != "":
@@ -501,7 +508,8 @@ func _draw_static() -> void:
 	draw_texture_rect(pack.environment["ground"] as Texture2D,
 		Rect2(0, settings.ground_y, settings.arena_size.x, settings.arena_size.y - settings.ground_y), false)
 	# Backdrop behind actors so a jumping boss stays visible; controls remain on CanvasLayer.
-	draw_rect(Rect2(0, 0, settings.arena_size.x, 112), pack.colors["hud_panel"])
+	if hud_layer.visible:
+		draw_rect(Rect2(0, 0, settings.arena_size.x, 78 if managed_session else 112), pack.colors["hud_panel"])
 	# Five authored visual states interpolate across configurable boss health.
 	var stage: int = mini(5, int(ceil(float(model.broken_stages) / settings.balcony_stages * 5)))
 	draw_texture_rect(pack.environment["balcony_" + str(stage)] as Texture2D,
