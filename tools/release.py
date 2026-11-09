@@ -16,17 +16,15 @@ TESTS = ('validate_foundation test_round test_controls test_asset_pack test_feed
          'test_motion test_defeat test_boss_actions test_ambient test_profile test_shell').split()
 REPO = 'madmazoku/balcony-barrage'
 SITE = 'https://madmazoku.github.io/balcony-barrage'
-TAG = re.compile(r'(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-([A-Za-z0-9]+(?:[.-][A-Za-z0-9]+)*))?\Z')
+TAG = re.compile(r'(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)(?:-([A-Za-z0-9_-]+))?\Z')
 
 
 def version(tag):
     match = TAG.fullmatch(tag)
-    if not match or len(tag) > 80:
-        raise ValueError('Expected x.y.z or x.y.z-short-desc, without leading zeroes or path separators.')
+    if not match:
+        raise ValueError('Expected x.y.z or x.y.z-[A-Za-z0-9_-]+; version numbers cannot have leading zeroes.')
     if any(int(n) > 65535 for n in match.groups()[:3]):
         raise ValueError('Version components exceed Windows limits.')
-    if match[4] and any(s.isdecimal() and len(s) > 1 and s[0] == '0' for s in match[4].split('.')):
-        raise ValueError('Numeric prerelease identifiers cannot have leading zeroes.')
     return match
 
 
