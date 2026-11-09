@@ -40,6 +40,7 @@ jobs:
         run: |
           set -euo pipefail
           "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "platform-tools" "build-tools;36.0.0" "platforms;android-36"
+          "$ANDROID_HOME/platform-tools/adb" start-server
       - name: Check and export candidate builds
         if: github.event_name == 'pull_request'
         run: python tools/release.py build --native
