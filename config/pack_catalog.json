@@ -20,8 +20,8 @@
     },
     {
       "id": "forest_glade",
-      "name": "Лесная полянка — зайка",
-      "description": "Новая зайка, рогатка и броня. Враги и окружение пока остаются заглушками.",
+      "name": "Лесная полянка — зайка и ёжик",
+      "description": "Зайка и ёжики. Остальные враги, подвесы и окружение пока заглушки.",
       "path": "res://assets/packs/forest_glade/pack.tres",
       "preview": "res://assets/packs/forest_glade/characters/player/right.png",
       "release_ready": false,

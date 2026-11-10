@@ -86,6 +86,13 @@ func _run() -> void:
 		"Disabling feedback must preserve the combat shot.")
 	feedback.settings.enabled = saved_enabled
 	_test_enemy_actions(game)
+	var forest: Node = load("res://scenes/main.tscn").instantiate()
+	forest.pack_override = load("res://assets/packs/forest_glade/pack.tres")
+	root.add_child(forest)
+	forest.set_physics_process(false)
+	forest.scenario_picker.select(4)
+	_test_enemy_actions(forest)
+	forest.queue_free()
 	game.queue_free()
 	await process_frame
 	if failures.is_empty():

@@ -64,6 +64,14 @@ func _capture() -> void:
 	var effect: String = options.get("feedback", "shot")
 	game.set("player_pose", pose)
 	match effect:
+		"enemy":
+			model.minions.clear()
+			var role: String = options.get("role", "normal")
+			var height: float = float(options.get("height", "200"))
+			model.spawn(role, Vector2(model.config.arena_size.x / 2, model.config.ground_y - model.body_size(role).y / 2 - height))
+			model.minions[0].state = options.get("state", "air")
+			model.minions[0].variant = int(options.get("color", "0"))
+			model.player.x = 80
 		"ambient":
 			model.minions.clear()
 			model.furniture_enabled = false

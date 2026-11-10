@@ -1,0 +1,402 @@
+{
+  "schema": 1,
+  "pack_id": "forest_glade",
+  "role": "normal",
+  "output": "assets/packs/forest_glade",
+  "frame_size": [
+    512,
+    512
+  ],
+  "sources": {
+    "body": {
+      "engine": "flux2",
+      "model": "flux-2-klein-4b.safetensors",
+      "steps": 4,
+      "guidance": 1,
+      "sampler": "euler",
+      "seed": 182001,
+      "image_path": "art/sources/forest_glade/hedgehog/body.png",
+      "spec_path": "art/sources/forest_glade/hedgehog/body-spec.json",
+      "run_prefix": "20261110-153932-cbbc9a",
+      "sha256": "f2b6523bd34518e584b861f944904c8c08b43ff90400c1ecb2ce3ecfb79d783a",
+      "spec_sha256": "0ae3aa3ec5d9e469a5df130176e27b603fd3e4a71dea90e0e75e4ad38758aa0c"
+    },
+    "capture": {
+      "engine": "flux2",
+      "model": "flux-2-klein-4b.safetensors",
+      "steps": 4,
+      "guidance": 1,
+      "sampler": "euler",
+      "seed": 182002,
+      "image_path": "art/sources/forest_glade/hedgehog/capture.png",
+      "spec_path": "art/sources/forest_glade/hedgehog/capture-spec.json",
+      "run_prefix": "20261110-154100-ee3cc0",
+      "sha256": "9749c2722bfc3abda98049f2ccb4d304623d37c796c56f0a50ffe6c7a6698a42",
+      "spec_sha256": "24501a366e49b981db9460527376189222236c9e32dec6cb5a7e4c8b70f176c1"
+    }
+  },
+  "reference": {
+    "image_path": "art/sources/forest_glade/concepts/hedgehog-corrected.png",
+    "sha256": "fb093e37655b3fc2b05ac9a8637c84e9faa18273df9d3e96d6dc0fbb2ab8c03d"
+  },
+  "capture_mask": "art/sources/forest_glade/hedgehog/capture-mask.png",
+  "capture_arms": {
+    "source": "body",
+    "polygon": [
+      [
+        493,
+        608
+      ],
+      [
+        527,
+        609
+      ],
+      [
+        556,
+        646
+      ],
+      [
+        614,
+        680
+      ],
+      [
+        680,
+        717
+      ],
+      [
+        709,
+        744
+      ],
+      [
+        723,
+        776
+      ],
+      [
+        706,
+        797
+      ],
+      [
+        673,
+        800
+      ],
+      [
+        634,
+        783
+      ],
+      [
+        577,
+        751
+      ],
+      [
+        536,
+        718
+      ],
+      [
+        508,
+        682
+      ],
+      [
+        492,
+        644
+      ]
+    ],
+    "pivot": [
+      515,
+      635
+    ],
+    "anchor": [
+      515,
+      635
+    ],
+    "scale": 1,
+    "angle": -25
+  },
+  "palettes": {
+    "base": [
+      1,
+      1,
+      1
+    ],
+    "warm": [
+      1.08,
+      0.9,
+      0.78
+    ],
+    "dark": [
+      0.76,
+      0.84,
+      0.93
+    ]
+  },
+  "gait": {
+    "stride": {
+      "limbs": [
+        {
+          "polygon": [
+            [
+              330,
+              825
+            ],
+            [
+              427,
+              800
+            ],
+            [
+              472,
+              832
+            ],
+            [
+              487,
+              873
+            ],
+            [
+              513,
+              905
+            ],
+            [
+              511,
+              948
+            ],
+            [
+              426,
+              961
+            ],
+            [
+              348,
+              938
+            ],
+            [
+              320,
+              891
+            ]
+          ],
+          "pivot": [
+            392,
+            846
+          ],
+          "angle": -18,
+          "offset": [
+            18,
+            -12
+          ],
+          "erase_polygon": [
+            [
+              350,
+              880
+            ],
+            [
+              395,
+              880
+            ],
+            [
+              439,
+              884
+            ],
+            [
+              472,
+              891
+            ],
+            [
+              506,
+              911
+            ],
+            [
+              514,
+              948
+            ],
+            [
+              427,
+              965
+            ],
+            [
+              343,
+              941
+            ],
+            [
+              329,
+              905
+            ]
+          ]
+        }
+      ],
+      "preserve_upper_source_rows": 780
+    },
+    "opposite": {
+      "limbs": [
+        {
+          "polygon": [
+            [
+              553,
+              788
+            ],
+            [
+              642,
+              787
+            ],
+            [
+              709,
+              812
+            ],
+            [
+              734,
+              848
+            ],
+            [
+              717,
+              880
+            ],
+            [
+              631,
+              879
+            ],
+            [
+              565,
+              861
+            ],
+            [
+              537,
+              830
+            ]
+          ],
+          "pivot": [
+            596,
+            818
+          ],
+          "angle": -22,
+          "offset": [
+            15,
+            -20
+          ],
+          "erase_polygon": [
+            [
+              559,
+              820
+            ],
+            [
+              611,
+              813
+            ],
+            [
+              677,
+              816
+            ],
+            [
+              719,
+              828
+            ],
+            [
+              736,
+              862
+            ],
+            [
+              710,
+              887
+            ],
+            [
+              620,
+              886
+            ],
+            [
+              556,
+              866
+            ],
+            [
+              540,
+              840
+            ]
+          ]
+        }
+      ],
+      "preserve_upper_source_rows": 780
+    }
+  },
+  "review_status": "accepted_hedgehog_2026-11-10",
+  "operations": [
+    "All visible pixels generated with accepted forest model/common settings; no drawn limbs or vector overlays.",
+    "Capture rotates only the original generated near forearm around its original shoulder, with its original hand size. Original far forearm stays untouched. A localized generated torso fill replaces only the old near-arm area. No arms drawn or scaled.",
+    "Running alternates whole lower paws behind original haunch; upper body preserved, no combat changes.",
+    "Three RGB palette variants; neutral cropped, action/gait share one 512 canvas and reference bounds."
+  ],
+  "capture_preview_path": "art/sources/forest_glade/hedgehog/capture-composite.png",
+  "capture_feedback": {
+    "quote": "в capture лапки выглядят увеличенными и идущими из живота а не плечей. выглядит так себе",
+    "resolution": "Use the original neutral forearm/hand at original scale, rotate it upward around the original shoulder. Preserve the original far arm; reject oversized replacement arms and body-seam repairs."
+  },
+  "capture_fill_polygon": [
+    [
+      493,
+      608
+    ],
+    [
+      527,
+      609
+    ],
+    [
+      556,
+      646
+    ],
+    [
+      614,
+      680
+    ],
+    [
+      680,
+      717
+    ],
+    [
+      709,
+      744
+    ],
+    [
+      723,
+      776
+    ],
+    [
+      706,
+      797
+    ],
+    [
+      673,
+      800
+    ],
+    [
+      634,
+      783
+    ],
+    [
+      577,
+      751
+    ],
+    [
+      536,
+      718
+    ],
+    [
+      508,
+      682
+    ],
+    [
+      492,
+      644
+    ]
+  ],
+  "rejected_trials": [
+    {
+      "run_prefix": "20261110-154257-10778e",
+      "reason": "Different body/head registration; enlarged detached arm extraction rejected by owner."
+    },
+    {
+      "run_prefix": "20261110-154805-654092",
+      "reason": "Shoulder repaired but forearms remained oversized/too low; not used."
+    },
+    {
+      "run_prefix": "20261110-155340-6f0c4b",
+      "reason": "Masked repair removed forearm roots; not used."
+    }
+  ],
+  "acceptance": {
+    "date": "2026-11-10",
+    "quote": "принимается",
+    "scope": "Hedgehog: three palettes, descent/ground poses, running, armor theft and rabbit defeat carry; includes corrected capture with original-size forearms attached at their original shoulders."
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "engine": "flux2",
+  "model": "flux-2-klein-4b.safetensors",
+  "width": 1024,
+  "height": 1024,
+  "fit": "crop",
+  "steps": 4,
+  "guidance": 1,
+  "sampler": "euler",
+  "seed": 182002,
+  "image_path": "G:\\Git\\Gemini\\media_mcp\\images\\20261110-153932-cbbc9a-final.png",
+  "mask_path": "G:\\Git\\Gemini\\tmp\\balcony-packs\\hedgehog-capture-mask.png",
+  "denoise": 0.9,
+  "prompt": "Edit ONLY the two forearms of this exact hedgehog into a forward REACHING pose for grabbing an object to the RIGHT. Exactly TWO forearms and TWO hands total: the nearer forearm reaches almost horizontally from its original shoulder toward the right, its little brown paw open at chest height; the farther forearm also reaches right, slightly above the nearer one. Both forepaws are empty and open, ready to grab. The original two downward forearm positions are replaced by these same two extended arms. Keep its friendly face, black nose, dark chestnut spines, cream belly, two hind legs and both hind feet absolutely unchanged, with identical position and scale. A single slightly upright cute forest hedgehog, picture-book gouache with soft brown outlines, same anatomy and colors as reference. Background remains flat green, no extra objects."
+}
