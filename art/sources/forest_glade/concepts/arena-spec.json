@@ -1,0 +1,11 @@
+{
+  "engine": "flux2",
+  "model": "flux-2-klein-4b.safetensors",
+  "width": 1280,
+  "height": 800,
+  "steps": 4,
+  "guidance": 1,
+  "sampler": "euler",
+  "seed": 161301,
+  "prompt": "An original empty woodland clearing background concept for a side-view 2D arcade game, wide horizontal composition. Warm hand-painted children's picture-book gouache, soft matte paper texture, restrained dark-brown contours and simple readable layers, matching cuddly woodland animal illustrations. Two large old oak trunks stand at the far left and far right edges. A thick continuous gently arched bough connects the trees across the upper third of the picture, forming a broad level walkable branch with a few thin support twigs and hanging vines beneath it. Moss on the branch edges, warm brown bark. Below the branch the central two-thirds of the image remain spacious and open, with distant pale sage forest trees fading softly into a warm misty clearing. At the lower fifth of the image a continuous horizontal warm earth path provides a clear running lane from left to right. A narrow sparkling shallow brook with small round gray pebbles runs just behind that foreground path, framed by low moss and tiny flowers at the far edges. Golden morning light, moss greens, warm oat and chestnut browns, muted background colors, stronger definition on the foreground path and overhead branch. Unlettered unoccupied game environment study, clean open space for descending enemies and projectiles, all decorative foliage concentrated around the outer frame."
+}

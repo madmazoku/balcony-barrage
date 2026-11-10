@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="AssetPack" load_steps=129 format=3]
+[gd_resource type="Resource" script_class="AssetPack" load_steps=130 format=3]
 
 [ext_resource type="Script" path="res://scripts/config/asset_pack.gd" id="1"]
 [ext_resource type="Texture2D" path="res://assets/packs/forest_glade/characters/boss.png" id="2"]
@@ -129,9 +129,13 @@
 [ext_resource type="Resource" path="res://assets/packs/forest_glade/ambient.tres" id="ambient"]
 [ext_resource type="Resource" path="res://assets/packs/forest_glade/shell_style.tres" id="shell_style"]
 
+[ext_resource type="Resource" path="res://assets/packs/forest_glade/projectile_visual.tres" id="projectile_visual"]
+
 [resource]
 script = ExtResource("1")
 pack_id = &"forest_glade"
+projectile_visual = ExtResource("projectile_visual")
+projectile_draw_sizes = Dictionary[String, Vector2]({"bolt": Vector2(12, 12)})
 readiness = "static"
 show_names = false
 audio_mode = "silent"

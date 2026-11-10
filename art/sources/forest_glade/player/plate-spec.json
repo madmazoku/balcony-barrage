@@ -1,0 +1,11 @@
+{
+  "engine": "flux2",
+  "model": "flux-2-klein-4b.safetensors",
+  "width": 1024,
+  "height": 1024,
+  "steps": 4,
+  "guidance": 1,
+  "sampler": "euler",
+  "seed": 162004,
+  "prompt": "One single small curved TREE BARK BREASTPLATE for a cute woodland rabbit, isolated equipment sprite on a perfectly uniform vivid chroma-key green background. A simple broad shield-like brown bark plate, slightly curved around a small round belly, with a shallow concave neckline and a smoothly rounded lower edge. It is a single rigid protective wooden plate with thick dark-brown border and a few clear vertical engraved wood-grain lines. Two short blue cord ties attach at the upper corners. Warm chestnut wood, matte picture-book gouache, soft brown outlines, simple three-tone shading, handmade woodland equipment, front three-quarter view facing slightly right. Whole object centered with generous green margins, unlettered 2D game sprite."
+}

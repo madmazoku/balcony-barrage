@@ -1,0 +1,11 @@
+{
+  "engine": "flux2",
+  "model": "flux-2-klein-4b.safetensors",
+  "width": 1024,
+  "height": 1024,
+  "steps": 4,
+  "guidance": 1,
+  "sampler": "euler",
+  "seed": 162003,
+  "prompt": "One single classic wooden SLINGSHOT, isolated object sprite on a perfectly uniform vivid chroma-key green background. A compact natural forked twig forms a clear upright capital Y: one short thick lower handle branches into exactly two short upper prongs, separated by a wide open notch. Two flexible red rubber strips are tied to the upper prong tips and meet a small dark brown leather pouch in the middle of the notch. The leather pouch sits slightly below the tips, creating a relaxed shallow V in the rubber. Clearly recognizable small handheld children's slingshot. Smooth warm chestnut wood with a little bark and simple grain, dark brown outline, matte hand-painted picture-book gouache and three simple shades. Front three-quarter view, fully visible centered object with generous green margins. Unlettered 2D game equipment sprite."
+}

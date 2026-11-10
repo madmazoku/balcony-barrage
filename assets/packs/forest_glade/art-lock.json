@@ -1,7 +1,35 @@
 {
   "schema_version": 1,
   "scope": "forest_glade",
-  "status": "concept_not_selected",
-  "image": null,
-  "notes": "Inverted development placeholders only. Approve original forest concepts and a per-pack model/style lock before production. Never copy the source pack's acceptance."
+  "status": "accepted_static_player_series",
+  "image": {
+    "engine": "flux2",
+    "model": "flux-2-klein-4b.safetensors",
+    "steps": 4,
+    "guidance": 1,
+    "sampler": "euler",
+    "loras": [],
+    "approved": true,
+    "license": "Apache-2.0",
+    "model_card": "https://huggingface.co/black-forest-labs/FLUX.2-klein-4B"
+  },
+  "notes": "Common model/settings accepted with the playable static player. Continue the entire original forest series with this model and settings; no mixing with earlier 9B/Base trials.",
+  "approved": true,
+  "concept_manifest": "art/sources/forest_glade/concepts/recipe.json",
+  "rules": [
+    "All original runtime sprites in the forest pack must use this accepted model/common settings.",
+    "25 original static player/gear PNGs accepted; their duplicate neutral walk slots are static staging only. Remaining 97 PNGs are explicit unaccepted inverted placeholders.",
+    "Do not use rejected candidates, mix models into final sprites, or copy the rescue_rangers acceptance.",
+    "No LoRA for the current Klein candidate; any future model/style change after approval requires a new full series."
+  ],
+  "runtime_series_locked": true,
+  "runtime_recipe": "art/build-forest-player.json",
+  "owner_direction": {
+    "date": "2026-11-10",
+    "quote": "в игре всё ещё инвертированные спрайты для пака полянки",
+    "scope": "Proceed with first in-game player block per latest steering; not a blanket F2 or final asset acceptance."
+  },
+  "approved_at": "2026-11-10",
+  "acceptance_quote": "принимается, дальше",
+  "acceptance_scope": "Current static player/equipment/projectile effects and common model/style; minions, arena and animation still require their own acceptance."
 }

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ProjectileVisualConfig" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/config/projectile_visual_config.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+trail_length = 44.0
+trail_samples = 12
+tail_scale = 0.2
+trail_opacity = 0.65
+trail_tint = Color(3.0, 2.6, 1.8, 1)
+glint_period = 0.42
+glint_strength = 1.3
+glint_power = 6.0
+glint_tint = Color(1, 0.95, 0.8, 1)

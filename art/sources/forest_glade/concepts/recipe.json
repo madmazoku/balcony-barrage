@@ -1,0 +1,168 @@
+{
+  "schema": 1,
+  "status": "concept_review_pending",
+  "date": "2026-11-10",
+  "runtime_replacements": false,
+  "common_candidate": {
+    "engine": "flux2",
+    "model": "flux-2-klein-4b.safetensors",
+    "steps": 4,
+    "guidance": 1,
+    "sampler": "euler",
+    "loras": [],
+    "approved": false,
+    "license": "Apache-2.0",
+    "model_card": "https://huggingface.co/black-forest-labs/FLUX.2-klein-4B"
+  },
+  "user_feedback": {
+    "style": "в целом стиль получился отличный",
+    "revision": "у ёжика 3 руки",
+    "scope": "Overall style liked; anatomy correction/full F2 acceptance still pending."
+  },
+  "runs": {
+    "cast": "20261110-105815-96b623",
+    "hedgehog_correction": "20261110-112109-08eb19",
+    "arena": "20261110-112513-2e96a9"
+  },
+  "hedgehog_recipe": {
+    "source": "cast-source.png",
+    "crop": [
+      0,
+      430,
+      420,
+      832
+    ],
+    "mask_rect_in_crop": [
+      294,
+      244,
+      364,
+      294
+    ],
+    "paper_donor_rect_in_crop": [
+      340,
+      300,
+      410,
+      350
+    ],
+    "initialization": "Same generated paper pixels placed into the masked hole before diffusion; no drawn object overlays.",
+    "generation": "hedgehog-edit-spec.json",
+    "denoise": 0.75,
+    "composition": "Resize generated crop to 420x402 via existing paste-edit; apply-edit with the stored mask restores every other source pixel; paste corrected crop back at its original position.",
+    "tool": "G:/Git/Gemini/scripts/sprite_assets.py",
+    "pixel_delta_bbox_in_sheet": [
+      294,
+      674,
+      364,
+      724
+    ],
+    "all_other_characters_pixel_identical": true,
+    "visual_check": "Two front paws and two hind feet visible; extra lower front paw removed."
+  },
+  "concept_limits": [
+    "Not registered runtime sprites or aligned armor/weapon layers.",
+    "Slingshots/armor-free rabbit details on the ensemble sheet remain illustrative and need dedicated F3 assets.",
+    "Final branch platform must be a separate destructible layer, with a continuous level walking deck.",
+    "Final running lane is a separate horizontal foreground strip; brook stays behind it.",
+    "Leaf parachutes, color variants and all animations are later F4-F6 groups."
+  ],
+  "discarded_trials_not_runtime": [
+    {
+      "run": "20261109-205435-c93481",
+      "model": "flux-2-klein-9b-fp8.safetensors",
+      "reason": "Initial visual study; weapon geometry needed work; production license choice not approved."
+    },
+    {
+      "run": "20261109-205820-7a32dd",
+      "reason": "Localized weapon correction failed."
+    },
+    {
+      "run": "20261110-110207-5d07bc",
+      "model": "flux-2-klein-base-4b.safetensors",
+      "reason": "This trial failed anatomy/brief; not an approved production setting."
+    },
+    {
+      "run": "20261110-110446-da96b4",
+      "reason": "Solo rabbit trial added unrequested headgear; not used."
+    },
+    {
+      "run": "20261110-110920-4c5c78",
+      "reason": "Hedgehog correction did not remove extra paw."
+    },
+    {
+      "run": "20261110-111246-ed8fb9",
+      "reason": "Hedgehog correction did not remove extra paw."
+    },
+    {
+      "run": "20261110-111735-a914d5",
+      "model": "flux-2-klein-9b-fp8.safetensors",
+      "reason": "Added cloth-like shape; rejected, no pixels used in final correction."
+    }
+  ],
+  "files": {
+    "cast-source.png": {
+      "sha256": "4722e8e0811fd92245cf29bcf3b7c87184d60878639223b0f79380816bf5bd87",
+      "size": [
+        1248,
+        832
+      ]
+    },
+    "cast-corrected.png": {
+      "sha256": "df7d61c55c36144b62fc724379645dffc623cddb6471dbc640ca8970a11b1553",
+      "size": [
+        1248,
+        832
+      ]
+    },
+    "cast-spec.json": {
+      "sha256": "9577f6533fe5528feb875408e5b8fbf9a9d646bed78f1c5f095420e9dd1347cf"
+    },
+    "hedgehog-source.png": {
+      "sha256": "259e83377e318319e3f48aafe698160105923ea7082238b7ad78d3c1383804ee",
+      "size": [
+        420,
+        402
+      ]
+    },
+    "hedgehog-mask.png": {
+      "sha256": "0c1246264bec0fbedcd85a20323768f7ac185ec3cb942fc695f5de865ccd3a53",
+      "size": [
+        420,
+        402
+      ]
+    },
+    "hedgehog-inpaint-input.png": {
+      "sha256": "3849e0201c1e3d6c66f513d3f4d6251786764e3b9f98c3728648fb20592ed605",
+      "size": [
+        420,
+        402
+      ]
+    },
+    "hedgehog-generated.png": {
+      "sha256": "8e9b1ea13b63ed5ad61254e3b8b002cfee1101846c2ed64779c5493207859237",
+      "size": [
+        1040,
+        1008
+      ]
+    },
+    "hedgehog-corrected.png": {
+      "sha256": "fb093e37655b3fc2b05ac9a8637c84e9faa18273df9d3e96d6dc0fbb2ab8c03d",
+      "size": [
+        420,
+        402
+      ]
+    },
+    "hedgehog-edit-spec.json": {
+      "sha256": "167d2bfd6c9f80d650c6edaff69c6059d7a7ff356d5a590fe445658b6f8d5b5e"
+    },
+    "arena.png": {
+      "sha256": "3c0df5fd2804c577f1596d39c72e411a7c8c662aeefaf0bf4d95677c5e341320",
+      "size": [
+        1280,
+        800
+      ]
+    },
+    "arena-spec.json": {
+      "sha256": "eebf11a2a52d5c9f59ffe8ac686ed54d528f64f4acd73668e5b1281d9514e0da"
+    }
+  }
+}

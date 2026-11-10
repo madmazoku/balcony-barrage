@@ -1,0 +1,11 @@
+{
+  "engine": "flux2",
+  "model": "flux-2-klein-4b.safetensors",
+  "width": 1024,
+  "height": 1024,
+  "steps": 4,
+  "guidance": 1,
+  "sampler": "euler",
+  "seed": 162001,
+  "prompt": "Single original cute oatmeal rabbit character sprite, full body including both ear tips and both feet, isolated on a perfectly uniform vivid chroma-key green background. Warm hand-painted picture-book gouache, soft brown outlines, matte texture, simple three-tone shading, expressive black oval eyes and round natural rabbit muzzle. The rabbit stands upright on its hind paws in a side-three-quarter view facing RIGHT. Its body consists entirely of natural soft oatmeal fur, a cream belly, furry bare shoulders, a bare furry head with two long ears and a small fluffy tail. One ear tip bends gently. Short sturdy hind legs and broad natural rabbit feet. Both short forearms reach a little forward from the body at waist height, with the empty forepaws close together in front of its belly, ready to hold a small object. Clearly exactly two front arms and two hind feet. Friendly determined expression, rounded head and compact body, ample green margins all around the silhouette. Neutral unequipped animal body for a layered 2D game sprite. Consistent warm oat and cream fur, pink inner ears, dark brown linework, unlettered character art."
+}

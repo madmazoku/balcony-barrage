@@ -1,0 +1,11 @@
+{
+  "engine": "flux2",
+  "model": "flux-2-klein-4b.safetensors",
+  "width": 1024,
+  "height": 1024,
+  "steps": 4,
+  "guidance": 1,
+  "sampler": "euler",
+  "seed": 162007,
+  "prompt": "One single small rounded gray river pebble, isolated object sprite on a perfectly uniform vivid chroma-key green background. A simple smooth oval stone with a muted slate-gray body, soft pale gray highlight at upper left and darker gray underside, thin dark warm-gray outline. Matte hand-painted picture-book gouache, three simple readable tones, slightly irregular natural rounded silhouette. Whole centered pebble with generous green margins, unlettered tiny 2D game projectile icon."
+}
