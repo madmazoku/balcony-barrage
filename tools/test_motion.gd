@@ -113,6 +113,7 @@ func _run() -> void:
 		and model.bolts == other_model.bolts and model.armor == other_model.armor and model.kills == other_model.kills and model.result == other_model.result,
 		"Running enabled or disabled must preserve the complete seeded combat outcome.")
 	_check_forest_motion()
+	_check_hedgehog_motion()
 	game.queue_free()
 	other.queue_free()
 	await process_frame
@@ -153,4 +154,33 @@ func _check_forest_motion() -> void:
 		game._physics_process(0.02)
 		check(not game.motion.player_moving and game._player_frame() == forest.characters["player_" + pose],
 			"Stopping must restore the matching accepted neutral aiming pose.")
+	game.queue_free()
+
+
+func _check_hedgehog_motion() -> void:
+	var forest: AssetPack = load("res://assets/packs/forest_glade/pack.tres")
+	var game: Node = make_game(forest)
+	for variant in 3:
+		var frames: Array = forest.run_frames["normal_" + str(variant)]
+		var neutral: Image = (frames[0] as Texture2D).get_image()
+		for frame in frames:
+			check((frame as Texture2D).get_image().get_region(Rect2i(0, 0, 512, 380)).get_data()
+				== neutral.get_region(Rect2i(0, 0, 512, 380)).get_data(), "Hedgehog face and spines must remain identical during its gait.")
+		check((frames[1] as Texture2D).get_image().get_data() != (frames[3] as Texture2D).get_image().get_data(),
+			"The hedgehog must alternate paws instead of duplicating a step.")
+		for side in [-1.0, 1.0]:
+			game._restart()
+			game.model.player.x = 1100 if side > 0 else 180
+			game.model.spawn("normal", Vector2(600, game.settings.ground_y - game.settings.normal_size.y / 2))
+			var enemy: Dictionary = game.model.minions[0]
+			enemy.variant = variant
+			enemy.state = "ground"
+			game.motion.reset(game.model)
+			var seen: Dictionary = {}
+			for frame in 32:
+				game._physics_process(0.025)
+				var pose: Dictionary = game._enemy_visual_pose(enemy)
+				check(pose.flip == (side < 0), "The running hedgehog must face the player on both sides.")
+				seen[pose.run_texture.get_instance_id()] = true
+			check(seen.size() == 3, "Every hedgehog palette must visit neutral and both actual steps.")
 	game.queue_free()

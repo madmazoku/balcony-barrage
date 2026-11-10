@@ -1,0 +1,613 @@
+{
+  "tool": "sprite_assets.py update-minion",
+  "manifest": {
+    "schema": 1,
+    "pack_id": "forest_glade",
+    "role": "normal",
+    "output": "assets/packs/forest_glade",
+    "frame_size": [
+      512,
+      512
+    ],
+    "sources": {
+      "body": {
+        "engine": "flux2",
+        "model": "flux-2-klein-4b.safetensors",
+        "steps": 4,
+        "guidance": 1,
+        "sampler": "euler",
+        "seed": 182001,
+        "image_path": "art/sources/forest_glade/hedgehog/body.png",
+        "spec_path": "art/sources/forest_glade/hedgehog/body-spec.json",
+        "run_prefix": "20261110-153932-cbbc9a",
+        "sha256": "f2b6523bd34518e584b861f944904c8c08b43ff90400c1ecb2ce3ecfb79d783a",
+        "spec_sha256": "0ae3aa3ec5d9e469a5df130176e27b603fd3e4a71dea90e0e75e4ad38758aa0c"
+      },
+      "capture": {
+        "engine": "flux2",
+        "model": "flux-2-klein-4b.safetensors",
+        "steps": 4,
+        "guidance": 1,
+        "sampler": "euler",
+        "seed": 182002,
+        "image_path": "art/sources/forest_glade/hedgehog/capture.png",
+        "spec_path": "art/sources/forest_glade/hedgehog/capture-spec.json",
+        "run_prefix": "20261110-154100-ee3cc0",
+        "sha256": "9749c2722bfc3abda98049f2ccb4d304623d37c796c56f0a50ffe6c7a6698a42",
+        "spec_sha256": "24501a366e49b981db9460527376189222236c9e32dec6cb5a7e4c8b70f176c1"
+      }
+    },
+    "reference": {
+      "image_path": "art/sources/forest_glade/concepts/hedgehog-corrected.png",
+      "sha256": "fb093e37655b3fc2b05ac9a8637c84e9faa18273df9d3e96d6dc0fbb2ab8c03d"
+    },
+    "capture_mask": "art/sources/forest_glade/hedgehog/capture-mask.png",
+    "capture_arms": {
+      "source": "body",
+      "polygon": [
+        [
+          493,
+          608
+        ],
+        [
+          527,
+          609
+        ],
+        [
+          556,
+          646
+        ],
+        [
+          614,
+          680
+        ],
+        [
+          680,
+          717
+        ],
+        [
+          709,
+          744
+        ],
+        [
+          723,
+          776
+        ],
+        [
+          706,
+          797
+        ],
+        [
+          673,
+          800
+        ],
+        [
+          634,
+          783
+        ],
+        [
+          577,
+          751
+        ],
+        [
+          536,
+          718
+        ],
+        [
+          508,
+          682
+        ],
+        [
+          492,
+          644
+        ]
+      ],
+      "pivot": [
+        515,
+        635
+      ],
+      "anchor": [
+        515,
+        635
+      ],
+      "scale": 1,
+      "angle": -25
+    },
+    "palettes": {
+      "base": [
+        1,
+        1,
+        1
+      ],
+      "warm": [
+        1.08,
+        0.9,
+        0.78
+      ],
+      "dark": [
+        0.76,
+        0.84,
+        0.93
+      ]
+    },
+    "gait": {
+      "stride": {
+        "limbs": [
+          {
+            "polygon": [
+              [
+                330,
+                825
+              ],
+              [
+                427,
+                800
+              ],
+              [
+                472,
+                832
+              ],
+              [
+                487,
+                873
+              ],
+              [
+                513,
+                905
+              ],
+              [
+                511,
+                948
+              ],
+              [
+                426,
+                961
+              ],
+              [
+                348,
+                938
+              ],
+              [
+                320,
+                891
+              ]
+            ],
+            "pivot": [
+              392,
+              846
+            ],
+            "angle": -18,
+            "offset": [
+              18,
+              -12
+            ],
+            "erase_polygon": [
+              [
+                350,
+                880
+              ],
+              [
+                395,
+                880
+              ],
+              [
+                439,
+                884
+              ],
+              [
+                472,
+                891
+              ],
+              [
+                506,
+                911
+              ],
+              [
+                514,
+                948
+              ],
+              [
+                427,
+                965
+              ],
+              [
+                343,
+                941
+              ],
+              [
+                329,
+                905
+              ]
+            ]
+          }
+        ],
+        "preserve_upper_source_rows": 780
+      },
+      "opposite": {
+        "limbs": [
+          {
+            "polygon": [
+              [
+                553,
+                788
+              ],
+              [
+                642,
+                787
+              ],
+              [
+                709,
+                812
+              ],
+              [
+                734,
+                848
+              ],
+              [
+                717,
+                880
+              ],
+              [
+                631,
+                879
+              ],
+              [
+                565,
+                861
+              ],
+              [
+                537,
+                830
+              ]
+            ],
+            "pivot": [
+              596,
+              818
+            ],
+            "angle": -22,
+            "offset": [
+              15,
+              -20
+            ],
+            "erase_polygon": [
+              [
+                559,
+                820
+              ],
+              [
+                611,
+                813
+              ],
+              [
+                677,
+                816
+              ],
+              [
+                719,
+                828
+              ],
+              [
+                736,
+                862
+              ],
+              [
+                710,
+                887
+              ],
+              [
+                620,
+                886
+              ],
+              [
+                556,
+                866
+              ],
+              [
+                540,
+                840
+              ]
+            ]
+          }
+        ],
+        "preserve_upper_source_rows": 780
+      }
+    },
+    "review_status": "accepted_hedgehog_2026-11-10",
+    "operations": [
+      "All visible pixels generated with accepted forest model/common settings; no drawn limbs or vector overlays.",
+      "Capture rotates only the original generated near forearm around its original shoulder, with its original hand size. Original far forearm stays untouched. A localized generated torso fill replaces only the old near-arm area. No arms drawn or scaled.",
+      "Running alternates whole lower paws behind original haunch; upper body preserved, no combat changes.",
+      "Three RGB palette variants; neutral cropped, action/gait share one 512 canvas and reference bounds."
+    ],
+    "capture_preview_path": "art/sources/forest_glade/hedgehog/capture-composite.png",
+    "capture_feedback": {
+      "quote": "в capture лапки выглядят увеличенными и идущими из живота а не плечей. выглядит так себе",
+      "resolution": "Use the original neutral forearm/hand at original scale, rotate it upward around the original shoulder. Preserve the original far arm; reject oversized replacement arms and body-seam repairs."
+    },
+    "capture_fill_polygon": [
+      [
+        493,
+        608
+      ],
+      [
+        527,
+        609
+      ],
+      [
+        556,
+        646
+      ],
+      [
+        614,
+        680
+      ],
+      [
+        680,
+        717
+      ],
+      [
+        709,
+        744
+      ],
+      [
+        723,
+        776
+      ],
+      [
+        706,
+        797
+      ],
+      [
+        673,
+        800
+      ],
+      [
+        634,
+        783
+      ],
+      [
+        577,
+        751
+      ],
+      [
+        536,
+        718
+      ],
+      [
+        508,
+        682
+      ],
+      [
+        492,
+        644
+      ]
+    ],
+    "rejected_trials": [
+      {
+        "run_prefix": "20261110-154257-10778e",
+        "reason": "Different body/head registration; enlarged detached arm extraction rejected by owner."
+      },
+      {
+        "run_prefix": "20261110-154805-654092",
+        "reason": "Shoulder repaired but forearms remained oversized/too low; not used."
+      },
+      {
+        "run_prefix": "20261110-155340-6f0c4b",
+        "reason": "Masked repair removed forearm roots; not used."
+      }
+    ],
+    "acceptance": {
+      "date": "2026-11-10",
+      "quote": "принимается",
+      "scope": "Hedgehog: three palettes, descent/ground poses, running, armor theft and rabbit defeat carry; includes corrected capture with original-size forearms attached at their original shoulders."
+    }
+  },
+  "prepared": {
+    "characters/normal.png": {
+      "sha256": "83b2428caec526d2aa71dd809c63feaee4ef80146faa451a8834b778c826adaf",
+      "size": [
+        757,
+        797
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        757,
+        797
+      ]
+    },
+    "characters/run/normal/neutral/base.png": {
+      "sha256": "9670773fc8aef0c7780254a58708339046369d4f6415726b150eddd9f09f4368",
+      "size": [
+        512,
+        512
+      ],
+      "alpha_bounds": [
+        64,
+        67,
+        448,
+        471
+      ]
+    },
+    "characters/actions/normal_capture/base.png": {
+      "sha256": "560cb907a36e878bc0503a8159cc1f4fb658cc2750d104d221ae6e9e63cfe6e5",
+      "size": [
+        512,
+        512
+      ],
+      "alpha_bounds": [
+        64,
+        67,
+        448,
+        471
+      ]
+    },
+    "characters/run/normal/stride/base.png": {
+      "sha256": "7da46599d24257f57033b461fd0d88ee125cf5de3e429aa7e65b1f13725ac7ff",
+      "size": [
+        512,
+        512
+      ],
+      "alpha_bounds": [
+        64,
+        67,
+        448,
+        456
+      ]
+    },
+    "characters/run/normal/opposite/base.png": {
+      "sha256": "459b072717f6c9663f223784d44fba2ac5cc24b6c9b6da97dadd3f031304bd5a",
+      "size": [
+        512,
+        512
+      ],
+      "alpha_bounds": [
+        64,
+        67,
+        448,
+        471
+      ]
+    },
+    "characters/normal_warm.png": {
+      "sha256": "f8e923bf487158bfa15a42edcf0bdbdaa001e17c6687ede0c7da1a861d3c4950",
+      "size": [
+        757,
+        797
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        757,
+        797
+      ]
+    },
+    "characters/run/normal/neutral/warm.png": {
+      "sha256": "7194e3a541d1333a6d9ae6121a012508acd0ff38513f04b72c5e17e03ea7f4c5",
+      "size": [
+        512,
+        512
+      ],
+      "alpha_bounds": [
+        64,
+        67,
+        448,
+        471
+      ]
+    },
+    "characters/actions/normal_capture/warm.png": {
+      "sha256": "2e2081e3f5ae83cbbf3b876d84ba8f86102078461fd64fdcc6b4a0aca48e0281",
+      "size": [
+        512,
+        512
+      ],
+      "alpha_bounds": [
+        64,
+        67,
+        448,
+        471
+      ]
+    },
+    "characters/run/normal/stride/warm.png": {
+      "sha256": "883526a577572b3d0e5a921c2462096b34213acef6f021ed8ddc88fae906e903",
+      "size": [
+        512,
+        512
+      ],
+      "alpha_bounds": [
+        64,
+        67,
+        448,
+        456
+      ]
+    },
+    "characters/run/normal/opposite/warm.png": {
+      "sha256": "34daa033162e652fb88d5890dc69b2484d0f73c462d2ac6893e22fa2b4d37bad",
+      "size": [
+        512,
+        512
+      ],
+      "alpha_bounds": [
+        64,
+        67,
+        448,
+        471
+      ]
+    },
+    "characters/normal_dark.png": {
+      "sha256": "963cb078b05ee38e68053c6b7a69ebfb647bba78d3a52eee2a1530a9f41f312f",
+      "size": [
+        757,
+        797
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        757,
+        797
+      ]
+    },
+    "characters/run/normal/neutral/dark.png": {
+      "sha256": "6d551d23719d042e6978a2aefae1822a732fedfa7e3f5168b807b520d2e1ced7",
+      "size": [
+        512,
+        512
+      ],
+      "alpha_bounds": [
+        64,
+        67,
+        448,
+        471
+      ]
+    },
+    "characters/actions/normal_capture/dark.png": {
+      "sha256": "a63be8a6990e89dd3c42de705e61cf3683e10eb7f3cfe7388711c03158cd64ad",
+      "size": [
+        512,
+        512
+      ],
+      "alpha_bounds": [
+        64,
+        67,
+        448,
+        471
+      ]
+    },
+    "characters/run/normal/stride/dark.png": {
+      "sha256": "a394dece535744651acaa87b6ea902e76c4660e11e9c4ce52a4e00b5d1d164ac",
+      "size": [
+        512,
+        512
+      ],
+      "alpha_bounds": [
+        64,
+        67,
+        448,
+        456
+      ]
+    },
+    "characters/run/normal/opposite/dark.png": {
+      "sha256": "5eabce567c38f313f2ab76827cdedf272dfec5ae49905124ab360b7e77a22227",
+      "size": [
+        512,
+        512
+      ],
+      "alpha_bounds": [
+        64,
+        67,
+        448,
+        471
+      ]
+    }
+  },
+  "reference_bounds": [
+    0.1298828125,
+    0.1357421875,
+    0.7392578125,
+    0.7783203125
+  ],
+  "acceptance": {
+    "date": "2026-11-10",
+    "quote": "принимается",
+    "scope": "Hedgehog: three palettes, descent/ground poses, running, armor theft and rabbit defeat carry; includes corrected capture with original-size forearms attached at their original shoulders."
+  }
+}

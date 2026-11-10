@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "scope": "forest_glade",
-  "status": "accepted_player_with_run",
+  "status": "accepted_player_and_hedgehog",
   "image": {
     "engine": "flux2",
     "model": "flux-2-klein-4b.safetensors",
@@ -18,7 +18,7 @@
   "concept_manifest": "art/sources/forest_glade/concepts/recipe.json",
   "rules": [
     "All original runtime sprites in the forest pack must use this accepted model/common settings.",
-    "26 original player/gear PNGs including the complete running cycle are accepted. Remaining 97 runtime PNGs are explicit unaccepted inverted placeholders.",
+    "41 original player/hedgehog PNGs accepted. Remaining 82 runtime PNGs are explicit unaccepted inverted placeholders.",
     "Do not use rejected candidates, mix models into final sprites, or copy the rescue_rangers acceptance.",
     "No LoRA for the current Klein candidate; any future model/style change after approval requires a new full series."
   ],
@@ -36,5 +36,14 @@
     "date": "2026-11-10",
     "quote": "принимается",
     "scope": "Rabbit locomotion in both horizontal directions and while aiming up, shown in 0.17.0-dev."
+  },
+  "accepted_blocks": {
+    "hedgehog": {
+      "date": "2026-11-10",
+      "quote": "принимается",
+      "scope": "Hedgehog: three palettes, descent/ground poses, running, armor theft and rabbit defeat carry; includes corrected capture with original-size forearms attached at their original shoulders.",
+      "recipe": "art/build-forest-hedgehog.json",
+      "png_count": 15
+    }
   }
 }

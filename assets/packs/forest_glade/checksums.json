@@ -1,15 +1,15 @@
 [
   {
     "path": "assets/packs/forest_glade/characters/actions/normal_capture/base.png",
-    "sha256": "0e961a7fcc9cfb045fe9be28472fe0122861022b8853918b2c3c425facbd921b"
+    "sha256": "560cb907a36e878bc0503a8159cc1f4fb658cc2750d104d221ae6e9e63cfe6e5"
   },
   {
     "path": "assets/packs/forest_glade/characters/actions/normal_capture/dark.png",
-    "sha256": "34e31ce6af51f5bc9067467c004da00f12085917693f44a51da143052f67a67a"
+    "sha256": "a63be8a6990e89dd3c42de705e61cf3683e10eb7f3cfe7388711c03158cd64ad"
   },
   {
     "path": "assets/packs/forest_glade/characters/actions/normal_capture/warm.png",
-    "sha256": "5c99ead53f2f30d708addf7fb2e90e6e929abbc12ff1e5f01b37b709e3b0cddc"
+    "sha256": "2e2081e3f5ae83cbbf3b876d84ba8f86102078461fd64fdcc6b4a0aca48e0281"
   },
   {
     "path": "assets/packs/forest_glade/characters/actions/tank_capture/base.png",
@@ -77,15 +77,15 @@
   },
   {
     "path": "assets/packs/forest_glade/characters/normal.png",
-    "sha256": "0e6d5c790bc94b300f1309517160a0f1967a7c0c4bf59096a7e12a96de490672"
+    "sha256": "83b2428caec526d2aa71dd809c63feaee4ef80146faa451a8834b778c826adaf"
   },
   {
     "path": "assets/packs/forest_glade/characters/normal_dark.png",
-    "sha256": "830f7456c8152818b4d7d6cf6f3256aaab4054e3ab9809421182c34411be2f9f"
+    "sha256": "963cb078b05ee38e68053c6b7a69ebfb647bba78d3a52eee2a1530a9f41f312f"
   },
   {
     "path": "assets/packs/forest_glade/characters/normal_warm.png",
-    "sha256": "88c51fa00ebd1fab2174895f02c79a929940767a5d2cf1922d4f75dbfc4d752f"
+    "sha256": "f8e923bf487158bfa15a42edcf0bdbdaa001e17c6687ede0c7da1a861d3c4950"
   },
   {
     "path": "assets/packs/forest_glade/characters/player/armor_0_left.png",
@@ -169,39 +169,39 @@
   },
   {
     "path": "assets/packs/forest_glade/characters/run/normal/neutral/base.png",
-    "sha256": "2477f7cdec12de84ca55ee543efcaf2834fd324018c7708598dea9729e1f06c5"
+    "sha256": "9670773fc8aef0c7780254a58708339046369d4f6415726b150eddd9f09f4368"
   },
   {
     "path": "assets/packs/forest_glade/characters/run/normal/neutral/dark.png",
-    "sha256": "30ea5cebec74151e8f11f39f33059dd18f46c76210eab0663e5124cd04fd8f49"
+    "sha256": "6d551d23719d042e6978a2aefae1822a732fedfa7e3f5168b807b520d2e1ced7"
   },
   {
     "path": "assets/packs/forest_glade/characters/run/normal/neutral/warm.png",
-    "sha256": "a0ac7089b4c1b94143b98bace4dc874875ac27211ed6e633991223f4a8971b94"
+    "sha256": "7194e3a541d1333a6d9ae6121a012508acd0ff38513f04b72c5e17e03ea7f4c5"
   },
   {
     "path": "assets/packs/forest_glade/characters/run/normal/opposite/base.png",
-    "sha256": "9b086942206b5145321f9790d87bafd058d5ee69be8ce0213d86d0b4ae895899"
+    "sha256": "459b072717f6c9663f223784d44fba2ac5cc24b6c9b6da97dadd3f031304bd5a"
   },
   {
     "path": "assets/packs/forest_glade/characters/run/normal/opposite/dark.png",
-    "sha256": "7e0dbdefee76b9a09e4a42bd62528c56cacf044c845027a3a4879900b2ad530c"
+    "sha256": "5eabce567c38f313f2ab76827cdedf272dfec5ae49905124ab360b7e77a22227"
   },
   {
     "path": "assets/packs/forest_glade/characters/run/normal/opposite/warm.png",
-    "sha256": "5a32f1c4e31b49a8470a4a74bc33c53d1b55320e672d5781deb92e98fe82727b"
+    "sha256": "34daa033162e652fb88d5890dc69b2484d0f73c462d2ac6893e22fa2b4d37bad"
   },
   {
     "path": "assets/packs/forest_glade/characters/run/normal/stride/base.png",
-    "sha256": "1d131056690114e9c6ecae04d0e48bb9b6ab62c79ef6edf39d186c621f4b1add"
+    "sha256": "7da46599d24257f57033b461fd0d88ee125cf5de3e429aa7e65b1f13725ac7ff"
   },
   {
     "path": "assets/packs/forest_glade/characters/run/normal/stride/dark.png",
-    "sha256": "a4db313b2e563512845332451b3cfee82dc876de5f4fd6d26dd9daf2272076bc"
+    "sha256": "a394dece535744651acaa87b6ea902e76c4660e11e9c4ce52a4e00b5d1d164ac"
   },
   {
     "path": "assets/packs/forest_glade/characters/run/normal/stride/warm.png",
-    "sha256": "8d7e8dcdec7d316bf7de0e0503e3f728aa21f91b560c7156e51cca27d6a910e3"
+    "sha256": "883526a577572b3d0e5a921c2462096b34213acef6f021ed8ddc88fae906e903"
   },
   {
     "path": "assets/packs/forest_glade/characters/run/player/left_a.png",

@@ -1,0 +1,14 @@
+{
+  "engine": "flux2",
+  "model": "flux-2-klein-4b.safetensors",
+  "width": 1024,
+  "height": 1024,
+  "fit": "crop",
+  "steps": 4,
+  "guidance": 1,
+  "sampler": "euler",
+  "seed": 182001,
+  "image_path": "G:\\Git\\balcony-barrage\\art\\sources\\forest_glade\\concepts\\hedgehog-corrected.png",
+  "denoise": 0.85,
+  "prompt": "Single original cute hedgehog character sprite, full body, isolated on a perfectly uniform vivid chroma-key GREEN background. Keep the reference hedgehog design: a compact pear-shaped body, a big swept-back fan of soft dark chestnut spines, cream round muzzle and cream belly, small round ears, tiny dark oval eyes, black button nose, pink cheeks. Slightly upright on two short hind legs, natural broad little brown hind paws, facing RIGHT in a three-quarter side view. Exactly TWO forearms: the nearer forearm rests at belly height while the farther forearm reaches gently forward to the right. Exactly two hind legs with both feet fully visible and separated. A harmless mischievous forest creature, no clothing or accessories. Warm hand-painted picture-book gouache matching the original illustration, matte texture, simple soft brown outlines, clear readable silhouette, friendly determined face. Full silhouette including all spines, both hind feet and both forepaws fully inside the canvas with generous green margins. Flat green background, no scenery, no floor, no cast shadow, unlettered character art."
+}
