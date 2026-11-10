@@ -14,8 +14,9 @@ func axis(game: Node, value: float) -> void:
 	event.axis_value = value
 	(game.get("controls") as PlayerControls)._input(event)
 
-func make_game() -> Node:
+func make_game(override: AssetPack = null) -> Node:
 	var game: Node = load("res://scenes/main.tscn").instantiate()
+	game.pack_override = override
 	root.add_child(game)
 	game.set_physics_process(false)
 	(game.get("scenario_picker") as OptionButton).select(4)
@@ -111,9 +112,45 @@ func _run() -> void:
 	check(model.player == other_model.player and model.minions == other_model.minions and model.hazards == other_model.hazards
 		and model.bolts == other_model.bolts and model.armor == other_model.armor and model.kills == other_model.kills and model.result == other_model.result,
 		"Running enabled or disabled must preserve the complete seeded combat outcome.")
+	_check_forest_motion()
 	game.queue_free()
 	other.queue_free()
 	await process_frame
 	if failures.is_empty():
 		print("MOTION_TESTS_OK")
 	quit(0 if failures.is_empty() else 1)
+
+
+func _check_forest_motion() -> void:
+	var forest: AssetPack = load("res://assets/packs/forest_glade/pack.tres")
+	check(forest.validation_errors().is_empty(), "The forest running pack must fulfill the full contract.")
+	var game: Node = make_game(forest)
+	for pose in ["right", "left", "up"]:
+		var frames: Array = forest.run_frames["player_" + pose]
+		check(frames.size() == 4, "Every aiming pose needs both alternating steps.")
+		var neutral: Image = (forest.characters["player_" + pose] as Texture2D).get_image()
+		var upper := Rect2i(0, 0, neutral.get_width(), 700)
+		for frame in frames:
+			check((frame as Texture2D).get_image().get_region(upper).get_data() == neutral.get_region(upper).get_data(),
+				"Rabbit upper-body pixels changed in frame: " + str((frame as Texture2D).resource_path))
+		check((frames[1] as Texture2D).get_image().get_data() != (frames[3] as Texture2D).get_image().get_data(),
+			"Opposite steps cannot reuse the same neutral or lifted paw.")
+		game._restart()
+		axis(game, -1.0 if pose == "left" else 1.0)
+		var seen: Dictionary = {}
+		for index in 60:
+			game._physics_process(0.02)
+			if pose == "up" and game.model.cooldown <= 0:
+				game._shoot(Vector2.UP)
+			seen[game._player_frame().get_instance_id()] = true
+		check(seen.size() == 3, "Actual movement/aiming must visit neutral and both steps.")
+		var before: Texture2D = game._player_frame()
+		var phase: float = game.motion.player_distance
+		game._toggle_pause()
+		game._physics_process(0.2)
+		check(game._player_frame() == before and game.motion.player_distance == phase, "Pause must freeze the rabbit gait.")
+		game._toggle_pause()
+		game._physics_process(0.02)
+		check(not game.motion.player_moving and game._player_frame() == forest.characters["player_" + pose],
+			"Stopping must restore the matching accepted neutral aiming pose.")
+	game.queue_free()

@@ -205,23 +205,27 @@
   },
   {
     "path": "assets/packs/forest_glade/characters/run/player/left_a.png",
-    "sha256": "1a8b1de8de7b7d31f2fc67fd957831a67dfebb1449cef6018fc8db1f60d74a02"
+    "sha256": "9e51355623d37d431bb516f4f8f50b30d35bc5e84a004e3cbc80288629c4ddcb"
   },
   {
     "path": "assets/packs/forest_glade/characters/run/player/left_b.png",
-    "sha256": "1a8b1de8de7b7d31f2fc67fd957831a67dfebb1449cef6018fc8db1f60d74a02"
+    "sha256": "bf50a0a8e6efb427f8cd6826a0a03f992433d98bae9f5e2f807410bbd6c27301"
   },
   {
     "path": "assets/packs/forest_glade/characters/run/player/right_a.png",
-    "sha256": "26b58d2e32598dd2d5172d3ab03cdd37b05e50c0d3843134122cb2f6ff79a171"
+    "sha256": "1ab7b704e5e7e6594f2b3508f31187cf1bafc513853093be5ead77edac90e69e"
   },
   {
     "path": "assets/packs/forest_glade/characters/run/player/right_b.png",
-    "sha256": "26b58d2e32598dd2d5172d3ab03cdd37b05e50c0d3843134122cb2f6ff79a171"
+    "sha256": "3197822e7de7e5b9daca641a61cdf05cf6d467d7d86b844653c5b807a14bc17f"
   },
   {
     "path": "assets/packs/forest_glade/characters/run/player/up_a.png",
-    "sha256": "34415ac448d0a966d382c1b82ad0276595f7cfd321dbbf720a1d982360d35f29"
+    "sha256": "f3a1fe569d10b28b9e72041ba6e06668f2ea30f495780a2efeedb956396c0e10"
+  },
+  {
+    "path": "assets/packs/forest_glade/characters/run/player/up_b.png",
+    "sha256": "36bc82053175bb58dda2253fb2b827d961de463de7d9bc3cd267cb7513bf24bb"
   },
   {
     "path": "assets/packs/forest_glade/characters/run/tank/opposite/base.png",

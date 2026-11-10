@@ -113,3 +113,8 @@ capture_pack.gd: --feedback=windup|capture, --simulate=true, --role=normal|tank|
 
 ## След камешка F3
 scripts/config/projectile_visual_config.gd — опциональные параметры пакета; scripts/game/projectile_trail.gd — чисто визуальное состояние по живым снарядам. Объект не пишет в RoundModel/Dictionary снаряда. Рендер использует существующий PNG камешка, alpha/масштаб/тонирование; новые спрайты/генератор не нужны. tools/test_projectile_trail.gd включён в release.py check (13-я игровая проверка): три направления/начало следа, кулдаун, реальные попадания, пауза, сброс, отключение и одинаковый бой. QA прежним capture_pack.gd --pack=forest_glade --feedback=shot --simulate=true --pose=right|left|up --frames=50 --step=0.02. PNG/журналы/GIF — G:/Git/Gemini/tmp/balcony-packs/trail-*. Монтаж — прежний FFmpeg.
+
+
+## Бег лесной зайки
+Существующая sprite_assets.py update-player расширена опциональным locomotion: whole-limb polygon/pivot/angle/offset и отдельный erase_polygon; шаги располагаются за исходными корпусом/бёдрами, верх фиксирован. new_slots явным списком разрешает новый up_b, остальные неизвестные пути запрещены. Принятость неизменных SHA сохраняется, изменённые кадры снова требуют приёмки; migration/checksums обновляются целиком. PNG заменяются атомарно с коротким повтором при чтении редактором. SHA256 утилиты: 920148de564ac24ff56eaa32b11b6a3b47019d46e9645415262568b96a401ace.
+Прежний test_motion.gd расширен на лесную сцену: три направления, обе фазы, точный верх после импорта, реальные кадры на движении, пауза/остановка. Всего по-прежнему 13 игровых + 13 Python-проверок. Новый up_b импортировать с mipmaps/generate=true как соседние кадры; иначе данные текстур/сглаживание различаются. QA и монтаж — прежние capture_pack.gd/FFmpeg.
