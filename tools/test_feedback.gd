@@ -92,6 +92,7 @@ func _run() -> void:
 	forest.set_physics_process(false)
 	forest.scenario_picker.select(4)
 	_test_enemy_actions(forest)
+	_test_squirrel_poses(forest)
 	forest.queue_free()
 	game.queue_free()
 	await process_frame
@@ -175,3 +176,34 @@ func _test_enemy_actions(game: Node) -> void:
 	model._update_minions(0.001)
 	check(model.result == "lose" and captures.size() == old_count and feedback.effects.filter(func(effect: Dictionary) -> bool: return effect.kind in ["armor", "steal"]).is_empty(),
 		"An unarmored capture must not create a transfer or invented item.")
+
+
+func _test_squirrel_poses(game: Node) -> void:
+	var pack: AssetPack = game.pack
+	for variant in 3:
+		var release: Texture2D = pack.enemy_action_frames["thrower_release"][variant]
+		check(release == pack.enemy_action_frames["thrower_capture"][variant], "Squirrel capture must explicitly reuse its empty-handed release pose.")
+		check(release.get_image().get_data() == (pack.run_frames["thrower_" + str(variant)][0] as Texture2D).get_image().get_data(),
+			"After throwing, the squirrel must return to its original empty paws.")
+		check((pack.enemy_action_frames["thrower_windup"][variant] as Texture2D).get_image().get_data() != release.get_image().get_data(),
+			"The held walnut must visibly distinguish preparation from release.")
+		var bag: Color = release.get_image().get_pixel(182, 350)
+		check(bag.a > 0.95 and bag.g > bag.b, "The olive satchel must survive chroma-key removal in every palette.")
+		for side in [-1.0, 1.0]:
+			game._restart()
+			game.model.player.x = 100 if side < 0 else 1100
+			game.model.spawn("thrower", Vector2(640, 300))
+			var enemy: Dictionary = game.model.minions[0]
+			enemy.variant = variant
+			enemy.windup = game.settings.nut_windup_seconds
+			var pose: Dictionary = game._enemy_visual_pose(enemy)
+			check(pose.action == "thrower_windup" and pose.flip == (side < 0), "Walnut preparation must face the target on both sides.")
+			game._toggle_pause()
+			game._physics_process(0.2)
+			check(enemy.windup == game.settings.nut_windup_seconds and game.model.hazards.is_empty(), "Pause must freeze preparation without releasing a walnut.")
+			game._toggle_pause()
+			game.model._update_minions(game.settings.nut_windup_seconds + 0.001)
+			check(game.model.hazards.size() == 1 and game._enemy_visual_pose(enemy).action == "thrower_release", "One actual throw must switch from held walnut to empty release pose.")
+			var velocity: Vector2 = game.model.hazards[0].velocity
+			check(absf(rad_to_deg(atan2(velocity.x, velocity.y))) <= game.settings.nut_max_angle_degrees + 0.001,
+				"The original bounded downward attack angle must be preserved.")

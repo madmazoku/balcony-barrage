@@ -71,8 +71,8 @@
     {
       "path": "characters/actions/tank_capture/base.png",
       "category": "characters",
-      "placeholder": true,
-      "accepted": false,
+      "placeholder": false,
+      "accepted": true,
       "source": "res://assets/packs/rescue_rangers/characters/actions/tank_capture/base.png",
       "source_sha256": "7e442d3f2232389b6e02b0c59a595513fa2c69e55b3da588ea0560f012618ff0",
       "placeholder_sha256": "f56a59d24d2f4774960607388bf582ae0141c93c79e324dc437dd690ece03bf5",
@@ -80,13 +80,19 @@
         512,
         512
       ],
-      "transform": "invert RGB; preserve alpha"
+      "transform": "generated minion pixels; alpha, registered poses, whole-paw gait and palette variants",
+      "placeholder_transform": "invert RGB; preserve alpha",
+      "sha256": "759c1297820638b43ea90f160798078f9d5b9bbd8e15a890d596eb364472aa6b",
+      "stage": "accepted_forest_tank",
+      "replacement_recipe": "art/build-forest-boar.json",
+      "accepted_at": "2026-11-10",
+      "acceptance_quote": "новый вариант лучше, принимается"
     },
     {
       "path": "characters/actions/tank_capture/dark.png",
       "category": "characters",
-      "placeholder": true,
-      "accepted": false,
+      "placeholder": false,
+      "accepted": true,
       "source": "res://assets/packs/rescue_rangers/characters/actions/tank_capture/dark.png",
       "source_sha256": "d1316ce2f9d992a91fcd0fe081b258750fa8c2a61482e9f637abb047493e1a86",
       "placeholder_sha256": "d4144969cfce1257a998e4de5efc506fcc3d89b4312985379581acf3b77f086b",
@@ -94,13 +100,19 @@
         512,
         512
       ],
-      "transform": "invert RGB; preserve alpha"
+      "transform": "generated minion pixels; alpha, registered poses, whole-paw gait and palette variants",
+      "placeholder_transform": "invert RGB; preserve alpha",
+      "sha256": "c838945602d419ea74ffd1402a91d250dbbafdaf8e8f519cddbc181eed75e1b2",
+      "stage": "accepted_forest_tank",
+      "replacement_recipe": "art/build-forest-boar.json",
+      "accepted_at": "2026-11-10",
+      "acceptance_quote": "новый вариант лучше, принимается"
     },
     {
       "path": "characters/actions/tank_capture/warm.png",
       "category": "characters",
-      "placeholder": true,
-      "accepted": false,
+      "placeholder": false,
+      "accepted": true,
       "source": "res://assets/packs/rescue_rangers/characters/actions/tank_capture/warm.png",
       "source_sha256": "7c5d833f24f2c3120e4a3dd6b7740fb97921f906c01677ec8defb96b96723d7c",
       "placeholder_sha256": "cd36723fe119da7c8f9a4502f861211b72063aeaee12367722321c72ea982f5d",
@@ -108,13 +120,19 @@
         512,
         512
       ],
-      "transform": "invert RGB; preserve alpha"
+      "transform": "generated minion pixels; alpha, registered poses, whole-paw gait and palette variants",
+      "placeholder_transform": "invert RGB; preserve alpha",
+      "sha256": "6b086eb65521cc587cbb15ccd260805be21fe07d554f72a1613820e7508a38aa",
+      "stage": "accepted_forest_tank",
+      "replacement_recipe": "art/build-forest-boar.json",
+      "accepted_at": "2026-11-10",
+      "acceptance_quote": "новый вариант лучше, принимается"
     },
     {
       "path": "characters/actions/thrower_release/base.png",
       "category": "characters",
-      "placeholder": true,
-      "accepted": false,
+      "placeholder": false,
+      "accepted": true,
       "source": "res://assets/packs/rescue_rangers/characters/actions/thrower_release/base.png",
       "source_sha256": "d8adaab69552826911c532368189d4b6723f256938d678e1308d19fab9bbfb9a",
       "placeholder_sha256": "49b5176b79fc7e62f43119264b09679efe1949966330ed8bbfaeed161637ca86",
@@ -122,13 +140,19 @@
         512,
         512
       ],
-      "transform": "invert RGB; preserve alpha"
+      "transform": "generated minion pixels; alpha, registered poses, whole-paw gait and palette variants",
+      "placeholder_transform": "invert RGB; preserve alpha",
+      "sha256": "9883ad964c866fd8d626ec2bd98f42da3c2cafb163b5f937dba5d331659739ff",
+      "stage": "accepted_forest_thrower",
+      "replacement_recipe": "art/build-forest-squirrel.json",
+      "accepted_at": "2026-11-10",
+      "acceptance_quote": "Да, белка тоже принята"
     },
     {
       "path": "characters/actions/thrower_release/dark.png",
       "category": "characters",
-      "placeholder": true,
-      "accepted": false,
+      "placeholder": false,
+      "accepted": true,
       "source": "res://assets/packs/rescue_rangers/characters/actions/thrower_release/dark.png",
       "source_sha256": "cb4cb003f56afa0f283c865d4eda850186ec4d7d23e7452674a8348bbe713287",
       "placeholder_sha256": "5d69e254a7b7236edfac4c4cc27a08d22027f7d6e3712f138db4d863351a4363",
@@ -136,13 +160,19 @@
         512,
         512
       ],
-      "transform": "invert RGB; preserve alpha"
+      "transform": "generated minion pixels; alpha, registered poses, whole-paw gait and palette variants",
+      "placeholder_transform": "invert RGB; preserve alpha",
+      "sha256": "5c62377aa2f1faea522f6005b5b3a3468ba80651ae72c1edc26e0f88e9bc01e0",
+      "stage": "accepted_forest_thrower",
+      "replacement_recipe": "art/build-forest-squirrel.json",
+      "accepted_at": "2026-11-10",
+      "acceptance_quote": "Да, белка тоже принята"
     },
     {
       "path": "characters/actions/thrower_release/warm.png",
       "category": "characters",
-      "placeholder": true,
-      "accepted": false,
+      "placeholder": false,
+      "accepted": true,
       "source": "res://assets/packs/rescue_rangers/characters/actions/thrower_release/warm.png",
       "source_sha256": "4fbbee50423100eb716264e1fe2c4b3bd605338b9b7ecb1715eebfb39e841643",
       "placeholder_sha256": "4c4c2c1e5d9d6e39ed699502ba4d9e0d4a9d1a4a29934f017c6aef80ee588333",
@@ -150,13 +180,19 @@
         512,
         512
       ],
-      "transform": "invert RGB; preserve alpha"
+      "transform": "generated minion pixels; alpha, registered poses, whole-paw gait and palette variants",
+      "placeholder_transform": "invert RGB; preserve alpha",
+      "sha256": "6236e9f7e926dada95cfdbded72c12ea645a9493130f21b120f6366b305ba431",
+      "stage": "accepted_forest_thrower",
+      "replacement_recipe": "art/build-forest-squirrel.json",
+      "accepted_at": "2026-11-10",
+      "acceptance_quote": "Да, белка тоже принята"
     },
     {
       "path": "characters/actions/thrower_windup/base.png",
       "category": "characters",
-      "placeholder": true,
-      "accepted": false,
+      "placeholder": false,
+      "accepted": true,
       "source": "res://assets/packs/rescue_rangers/characters/actions/thrower_windup/base.png",
       "source_sha256": "f98a98743d4b7af1d298dd845f1d1191adf9e2bedf8f93d00e86da0486a9ad73",
       "placeholder_sha256": "94eb7e05d6aa90ce27f811e54508cc21a5e65fab6341016421fffcc5b338bb34",
@@ -164,13 +200,19 @@
         512,
         512
       ],
-      "transform": "invert RGB; preserve alpha"
+      "transform": "generated minion pixels; alpha, registered poses, whole-paw gait and palette variants",
+      "placeholder_transform": "invert RGB; preserve alpha",
+      "sha256": "e614d31fa0c9f87aa3a77c29f068ad41f09deb60182a4fecfac0f0005a11ddf8",
+      "stage": "accepted_forest_thrower",
+      "replacement_recipe": "art/build-forest-squirrel.json",
+      "accepted_at": "2026-11-10",
+      "acceptance_quote": "Да, белка тоже принята"
     },
     {
       "path": "characters/actions/thrower_windup/dark.png",
       "category": "characters",
-      "placeholder": true,
-      "accepted": false,
+      "placeholder": false,
+      "accepted": true,
       "source": "res://assets/packs/rescue_rangers/characters/actions/thrower_windup/dark.png",
       "source_sha256": "667eadb4c963be8c4ef7098178b8353a5e1d5ad2bc4bb3d9d8dc603914256747",
       "placeholder_sha256": "e83bf9dd5c1f2c6ddd848c8549c6899b79e49b2d9a0fa7494fa152fc0b1cb100",
@@ -178,13 +220,19 @@
         512,
         512
       ],
-      "transform": "invert RGB; preserve alpha"
+      "transform": "generated minion pixels; alpha, registered poses, whole-paw gait and palette variants",
+      "placeholder_transform": "invert RGB; preserve alpha",
+      "sha256": "8b3268e6111111c7723cf45fcef9451ced76694a242aeed20533425271010f95",
+      "stage": "accepted_forest_thrower",
+      "replacement_recipe": "art/build-forest-squirrel.json",
+      "accepted_at": "2026-11-10",
+      "acceptance_quote": "Да, белка тоже принята"
     },
     {
       "path": "characters/actions/thrower_windup/warm.png",
       "category": "characters",
-      "placeholder": true,
-      "accepted": false,
+      "placeholder": false,
+      "accepted": true,
       "source": "res://assets/packs/rescue_rangers/characters/actions/thrower_windup/warm.png",
       "source_sha256": "bb40c20cce1ab13f3dc4c5a4986f5407a31c8afbc3002c4f63f556ccf6931113",
       "placeholder_sha256": "61df97813dedfd734f626381ed8895e7a0fce230d7f485dd56d3384ae9cfdb46",
@@ -192,7 +240,13 @@
         512,
         512
       ],
-      "transform": "invert RGB; preserve alpha"
+      "transform": "generated minion pixels; alpha, registered poses, whole-paw gait and palette variants",
+      "placeholder_transform": "invert RGB; preserve alpha",
+      "sha256": "cd1d0cf5bdc4e4bfbbb5070cf15035650ecd1a9ede849266a80d5310cc63c199",
+      "stage": "accepted_forest_thrower",
+      "replacement_recipe": "art/build-forest-squirrel.json",
+      "accepted_at": "2026-11-10",
+      "acceptance_quote": "Да, белка тоже принята"
     },
     {
       "path": "characters/boss.png",
@@ -1016,8 +1070,8 @@
     {
       "path": "characters/run/tank/opposite/base.png",
       "category": "characters",
-      "placeholder": true,
-      "accepted": false,
+      "placeholder": false,
+      "accepted": true,
       "source": "res://assets/packs/rescue_rangers/characters/run/tank/opposite/base.png",
       "source_sha256": "d4f029a93cdefb52181aba39c0fb3b4d28f5c0bc2a2408595926d48f148825bd",
       "placeholder_sha256": "1f5e51d616781cf3a9bad69c40b27f9b7c83c01fe2bc5f2975f8756378032ee4",
@@ -1025,13 +1079,19 @@
         512,
         512
       ],
-      "transform": "invert RGB; preserve alpha"
+      "transform": "generated minion pixels; alpha, registered poses, whole-paw gait and palette variants",
+      "placeholder_transform": "invert RGB; preserve alpha",
+      "sha256": "2aeeccc2e66805d87663718d908f09cc8f3a9f373d20043ff35b644739a64bac",
+      "stage": "accepted_forest_tank",
+      "replacement_recipe": "art/build-forest-boar.json",
+      "accepted_at": "2026-11-10",
+      "acceptance_quote": "новый вариант лучше, принимается"
     },
     {
       "path": "characters/run/tank/opposite/dark.png",
       "category": "characters",
-      "placeholder": true,
-      "accepted": false,
+      "placeholder": false,
+      "accepted": true,
       "source": "res://assets/packs/rescue_rangers/characters/run/tank/opposite/dark.png",
       "source_sha256": "d91ffe0b2fb3b9a2b23587fed625eece200ed532c13973f9925d0482cd5fb0ec",
       "placeholder_sha256": "defcc9b8fc8a2546457c57521e70543fc0338b683e617a31d71eff89f8113cfd",
@@ -1039,13 +1099,19 @@
         512,
         512
       ],
-      "transform": "invert RGB; preserve alpha"
+      "transform": "generated minion pixels; alpha, registered poses, whole-paw gait and palette variants",
+      "placeholder_transform": "invert RGB; preserve alpha",
+      "sha256": "7e3e97994b3d40452ef13074b1a817730739647f4f44b0428b2ee6642952564c",
+      "stage": "accepted_forest_tank",
+      "replacement_recipe": "art/build-forest-boar.json",
+      "accepted_at": "2026-11-10",
+      "acceptance_quote": "новый вариант лучше, принимается"
     },
     {
       "path": "characters/run/tank/opposite/warm.png",
       "category": "characters",
-      "placeholder": true,
-      "accepted": false,
+      "placeholder": false,
+      "accepted": true,
       "source": "res://assets/packs/rescue_rangers/characters/run/tank/opposite/warm.png",
       "source_sha256": "5b58339cd66c6d62ed7cd7079edf0527469e7f7883cbb622a469f5711586f873",
       "placeholder_sha256": "7a428cf652383c28f1b0a2d15daaf784cf8e9b9ca70203a625e2a72a06a0f09d",
@@ -1053,13 +1119,19 @@
         512,
         512
       ],
-      "transform": "invert RGB; preserve alpha"
+      "transform": "generated minion pixels; alpha, registered poses, whole-paw gait and palette variants",
+      "placeholder_transform": "invert RGB; preserve alpha",
+      "sha256": "2ea4f6ad9bd8517f42d77cc6b694d77383459f5b006978903d4ca2080d8b126b",
+      "stage": "accepted_forest_tank",
+      "replacement_recipe": "art/build-forest-boar.json",
+      "accepted_at": "2026-11-10",
+      "acceptance_quote": "новый вариант лучше, принимается"
     },
     {
       "path": "characters/run/tank/stride/base.png",
       "category": "characters",
-      "placeholder": true,
-      "accepted": false,
+      "placeholder": false,
+      "accepted": true,
       "source": "res://assets/packs/rescue_rangers/characters/run/tank/stride/base.png",
       "source_sha256": "629d21943f87db23aa6af02517870f5d0897d44b76c572fb45f2503401f5348a",
       "placeholder_sha256": "a292a925ef1623ac0495260f2e18e80970ba7dddf1da266fe2913591eedc0414",
@@ -1067,13 +1139,19 @@
         512,
         512
       ],
-      "transform": "invert RGB; preserve alpha"
+      "transform": "generated minion pixels; alpha, registered poses, whole-paw gait and palette variants",
+      "placeholder_transform": "invert RGB; preserve alpha",
+      "sha256": "1e75049de6c4b047566ca731d9e398b8b2be6b1ceab92b904c9a6af40ef186be",
+      "stage": "accepted_forest_tank",
+      "replacement_recipe": "art/build-forest-boar.json",
+      "accepted_at": "2026-11-10",
+      "acceptance_quote": "новый вариант лучше, принимается"
     },
     {
       "path": "characters/run/tank/stride/dark.png",
       "category": "characters",
-      "placeholder": true,
-      "accepted": false,
+      "placeholder": false,
+      "accepted": true,
       "source": "res://assets/packs/rescue_rangers/characters/run/tank/stride/dark.png",
       "source_sha256": "46080600b67baa9cbb47ad30a91174045559928604c77db4742ebe89afb70345",
       "placeholder_sha256": "4859f4429e8fee3fbfc2679540c95ea3279f4e8fafc3bef8060cdb563325d893",
@@ -1081,13 +1159,19 @@
         512,
         512
       ],
-      "transform": "invert RGB; preserve alpha"
+      "transform": "generated minion pixels; alpha, registered poses, whole-paw gait and palette variants",
+      "placeholder_transform": "invert RGB; preserve alpha",
+      "sha256": "8a3975c32c9eb2002eb0c36bb35dac6adfadf65a03c182d11d2be8b706c30523",
+      "stage": "accepted_forest_tank",
+      "replacement_recipe": "art/build-forest-boar.json",
+      "accepted_at": "2026-11-10",
+      "acceptance_quote": "новый вариант лучше, принимается"
     },
     {
       "path": "characters/run/tank/stride/warm.png",
       "category": "characters",
-      "placeholder": true,
-      "accepted": false,
+      "placeholder": false,
+      "accepted": true,
       "source": "res://assets/packs/rescue_rangers/characters/run/tank/stride/warm.png",
       "source_sha256": "8ef45c863c8eb77847a4f3c5ef4b5f6b0810a86b3df1c9ec56b2ba7ff9ad49e0",
       "placeholder_sha256": "8d0d78c5929d18e0260f91445f618e506102d64a364a50c7b8c97f288037d2ec",
@@ -1095,13 +1179,19 @@
         512,
         512
       ],
-      "transform": "invert RGB; preserve alpha"
+      "transform": "generated minion pixels; alpha, registered poses, whole-paw gait and palette variants",
+      "placeholder_transform": "invert RGB; preserve alpha",
+      "sha256": "81d9fe63462057b14bf94b182230f8d2e4b4bd42c014520a77e7d93590f6d9e3",
+      "stage": "accepted_forest_tank",
+      "replacement_recipe": "art/build-forest-boar.json",
+      "accepted_at": "2026-11-10",
+      "acceptance_quote": "новый вариант лучше, принимается"
     },
     {
       "path": "characters/run/thrower/neutral/base.png",
       "category": "characters",
-      "placeholder": true,
-      "accepted": false,
+      "placeholder": false,
+      "accepted": true,
       "source": "res://assets/packs/rescue_rangers/characters/run/thrower/neutral/base.png",
       "source_sha256": "0e5f9ae2565bc3f0fc85ff60014496e0377728c5172f36daf7925a975742321e",
       "placeholder_sha256": "64c57531290dcfb6c9c2309d6f68757e76f31f5e4f48cdb6e10ccb68d916fbf1",
@@ -1109,13 +1199,19 @@
         512,
         512
       ],
-      "transform": "invert RGB; preserve alpha"
+      "transform": "generated minion pixels; alpha, registered poses, whole-paw gait and palette variants",
+      "placeholder_transform": "invert RGB; preserve alpha",
+      "sha256": "9883ad964c866fd8d626ec2bd98f42da3c2cafb163b5f937dba5d331659739ff",
+      "stage": "accepted_forest_thrower",
+      "replacement_recipe": "art/build-forest-squirrel.json",
+      "accepted_at": "2026-11-10",
+      "acceptance_quote": "Да, белка тоже принята"
     },
     {
       "path": "characters/run/thrower/neutral/dark.png",
       "category": "characters",
-      "placeholder": true,
-      "accepted": false,
+      "placeholder": false,
+      "accepted": true,
       "source": "res://assets/packs/rescue_rangers/characters/run/thrower/neutral/dark.png",
       "source_sha256": "14646ad8ede58e9fd8a83819bfc008d1b8271ac0296b98b83d6faab61a13e7c8",
       "placeholder_sha256": "8c53ccadf2631684acc8ee9c515b06da434b68c7dd3f12ec71959602996b0d3b",
@@ -1123,13 +1219,19 @@
         512,
         512
       ],
-      "transform": "invert RGB; preserve alpha"
+      "transform": "generated minion pixels; alpha, registered poses, whole-paw gait and palette variants",
+      "placeholder_transform": "invert RGB; preserve alpha",
+      "sha256": "5c62377aa2f1faea522f6005b5b3a3468ba80651ae72c1edc26e0f88e9bc01e0",
+      "stage": "accepted_forest_thrower",
+      "replacement_recipe": "art/build-forest-squirrel.json",
+      "accepted_at": "2026-11-10",
+      "acceptance_quote": "Да, белка тоже принята"
     },
     {
       "path": "characters/run/thrower/neutral/warm.png",
       "category": "characters",
-      "placeholder": true,
-      "accepted": false,
+      "placeholder": false,
+      "accepted": true,
       "source": "res://assets/packs/rescue_rangers/characters/run/thrower/neutral/warm.png",
       "source_sha256": "a056a6b8c79873ec8bc14b7a3b15da9a1779808aca986caf2fb406daac95f48a",
       "placeholder_sha256": "e0cfcc56ba0cbfb74403e9e4053df045b89442c95bdc09e5d0eb76909b472379",
@@ -1137,13 +1239,19 @@
         512,
         512
       ],
-      "transform": "invert RGB; preserve alpha"
+      "transform": "generated minion pixels; alpha, registered poses, whole-paw gait and palette variants",
+      "placeholder_transform": "invert RGB; preserve alpha",
+      "sha256": "6236e9f7e926dada95cfdbded72c12ea645a9493130f21b120f6366b305ba431",
+      "stage": "accepted_forest_thrower",
+      "replacement_recipe": "art/build-forest-squirrel.json",
+      "accepted_at": "2026-11-10",
+      "acceptance_quote": "Да, белка тоже принята"
     },
     {
       "path": "characters/run/thrower/opposite/base.png",
       "category": "characters",
-      "placeholder": true,
-      "accepted": false,
+      "placeholder": false,
+      "accepted": true,
       "source": "res://assets/packs/rescue_rangers/characters/run/thrower/opposite/base.png",
       "source_sha256": "f44a3835783b8163170519a6ec9a46e06af924c049a843e196f1a9071ee87975",
       "placeholder_sha256": "af870be27f2c756f0044efd323d30cf644eefc03f548f4813393fc68eb775e80",
@@ -1151,13 +1259,19 @@
         512,
         512
       ],
-      "transform": "invert RGB; preserve alpha"
+      "transform": "generated minion pixels; alpha, registered poses, whole-paw gait and palette variants",
+      "placeholder_transform": "invert RGB; preserve alpha",
+      "sha256": "b53eb1d7cad2ae3bca8e4b6d21bfaf690580724a5e158c4361e9afd67f94ba7d",
+      "stage": "accepted_forest_thrower",
+      "replacement_recipe": "art/build-forest-squirrel.json",
+      "accepted_at": "2026-11-10",
+      "acceptance_quote": "Да, белка тоже принята"
     },
     {
       "path": "characters/run/thrower/opposite/dark.png",
       "category": "characters",
-      "placeholder": true,
-      "accepted": false,
+      "placeholder": false,
+      "accepted": true,
       "source": "res://assets/packs/rescue_rangers/characters/run/thrower/opposite/dark.png",
       "source_sha256": "e51b317f9d5aa1af20912c0bdff7fbd4c65166c826832783ae7a928e87deee23",
       "placeholder_sha256": "8252699e1b84929ee9f6a3db5c333549c0c1fa70b3b7de8561b205afb6be52ff",
@@ -1165,13 +1279,19 @@
         512,
         512
       ],
-      "transform": "invert RGB; preserve alpha"
+      "transform": "generated minion pixels; alpha, registered poses, whole-paw gait and palette variants",
+      "placeholder_transform": "invert RGB; preserve alpha",
+      "sha256": "5a9f16c633270e641933b93ba8611e3976554c5a5d8381b682bb7d777a174a1b",
+      "stage": "accepted_forest_thrower",
+      "replacement_recipe": "art/build-forest-squirrel.json",
+      "accepted_at": "2026-11-10",
+      "acceptance_quote": "Да, белка тоже принята"
     },
     {
       "path": "characters/run/thrower/opposite/warm.png",
       "category": "characters",
-      "placeholder": true,
-      "accepted": false,
+      "placeholder": false,
+      "accepted": true,
       "source": "res://assets/packs/rescue_rangers/characters/run/thrower/opposite/warm.png",
       "source_sha256": "f4a5e404713393728ef88ebe612b84f16728b74b6576e0c80ed8831395e66594",
       "placeholder_sha256": "936fc69535a1d4afed07aa0ffa3940d8d80e7a1e6c4fe2be5466d573a3bb3bc8",
@@ -1179,13 +1299,19 @@
         512,
         512
       ],
-      "transform": "invert RGB; preserve alpha"
+      "transform": "generated minion pixels; alpha, registered poses, whole-paw gait and palette variants",
+      "placeholder_transform": "invert RGB; preserve alpha",
+      "sha256": "d36942c4b1ce10dc943f88738a4ba63f81c76883c2ea2b6b725c4f3a59d3f96c",
+      "stage": "accepted_forest_thrower",
+      "replacement_recipe": "art/build-forest-squirrel.json",
+      "accepted_at": "2026-11-10",
+      "acceptance_quote": "Да, белка тоже принята"
     },
     {
       "path": "characters/run/thrower/stride/base.png",
       "category": "characters",
-      "placeholder": true,
-      "accepted": false,
+      "placeholder": false,
+      "accepted": true,
       "source": "res://assets/packs/rescue_rangers/characters/run/thrower/stride/base.png",
       "source_sha256": "49f403b91e51db3a15d3b1ca6eece3bd840ac65ecc06bdcb3ef5757494d201b4",
       "placeholder_sha256": "f5e131d7ed36d5a7737026dfa772c729718a19bdb6e9bbe434030d353bb60fd6",
@@ -1193,13 +1319,19 @@
         512,
         512
       ],
-      "transform": "invert RGB; preserve alpha"
+      "transform": "generated minion pixels; alpha, registered poses, whole-paw gait and palette variants",
+      "placeholder_transform": "invert RGB; preserve alpha",
+      "sha256": "5500d97a73fa7ed1b33c541ce862b61e2a291b60ebb36955b97a03762176c848",
+      "stage": "accepted_forest_thrower",
+      "replacement_recipe": "art/build-forest-squirrel.json",
+      "accepted_at": "2026-11-10",
+      "acceptance_quote": "Да, белка тоже принята"
     },
     {
       "path": "characters/run/thrower/stride/dark.png",
       "category": "characters",
-      "placeholder": true,
-      "accepted": false,
+      "placeholder": false,
+      "accepted": true,
       "source": "res://assets/packs/rescue_rangers/characters/run/thrower/stride/dark.png",
       "source_sha256": "9ea43333fd1eb436115176704dd96917f0f32c585f6672d07217c45cd0c466c1",
       "placeholder_sha256": "3b2e76721c6754626d54a1ff3eb5585596e2dbae0e27fb47defb352ad8155349",
@@ -1207,13 +1339,19 @@
         512,
         512
       ],
-      "transform": "invert RGB; preserve alpha"
+      "transform": "generated minion pixels; alpha, registered poses, whole-paw gait and palette variants",
+      "placeholder_transform": "invert RGB; preserve alpha",
+      "sha256": "4c931a5ee6bc4dbec6c2de29a5f8588a7cc464d4344447464f597a6a27b43ef9",
+      "stage": "accepted_forest_thrower",
+      "replacement_recipe": "art/build-forest-squirrel.json",
+      "accepted_at": "2026-11-10",
+      "acceptance_quote": "Да, белка тоже принята"
     },
     {
       "path": "characters/run/thrower/stride/warm.png",
       "category": "characters",
-      "placeholder": true,
-      "accepted": false,
+      "placeholder": false,
+      "accepted": true,
       "source": "res://assets/packs/rescue_rangers/characters/run/thrower/stride/warm.png",
       "source_sha256": "6409c205457aa1d5f254b2d8ecc69b9662f1c5d334416c355a9b99f00a013999",
       "placeholder_sha256": "17a6aa9050bca38258e1ff960c6941a28e262c87dac4eebe9eb71aacb375eaeb",
@@ -1221,91 +1359,133 @@
         512,
         512
       ],
-      "transform": "invert RGB; preserve alpha"
+      "transform": "generated minion pixels; alpha, registered poses, whole-paw gait and palette variants",
+      "placeholder_transform": "invert RGB; preserve alpha",
+      "sha256": "aad76c1e0ce69790650cb259c9c111c81931a045c0e0781bee62897f9933e6e9",
+      "stage": "accepted_forest_thrower",
+      "replacement_recipe": "art/build-forest-squirrel.json",
+      "accepted_at": "2026-11-10",
+      "acceptance_quote": "Да, белка тоже принята"
     },
     {
       "path": "characters/tank.png",
       "category": "characters",
-      "placeholder": true,
-      "accepted": false,
+      "placeholder": false,
+      "accepted": true,
       "source": "res://assets/packs/rescue_rangers/characters/tank.png",
       "source_sha256": "0642ddcdc74007c8afd1274e8dadaba52873bb1080478c76bff9792d1a93d38a",
       "placeholder_sha256": "646652bc936e1d50c73303266c9522ccdd5cdea6975fb641623c1d5c713e5bc0",
       "size": [
-        901,
-        917
+        724,
+        642
       ],
-      "transform": "invert RGB; preserve alpha"
+      "transform": "generated minion pixels; alpha, registered poses, whole-paw gait and palette variants",
+      "placeholder_transform": "invert RGB; preserve alpha",
+      "sha256": "7bc33e6b39f588996409e49f9f8ebbded7b920d0117e5a8ebf468cc1b0896a1d",
+      "stage": "accepted_forest_tank",
+      "replacement_recipe": "art/build-forest-boar.json",
+      "accepted_at": "2026-11-10",
+      "acceptance_quote": "новый вариант лучше, принимается"
     },
     {
       "path": "characters/tank_dark.png",
       "category": "characters",
-      "placeholder": true,
-      "accepted": false,
+      "placeholder": false,
+      "accepted": true,
       "source": "res://assets/packs/rescue_rangers/characters/tank_dark.png",
       "source_sha256": "a38c0ac36bbf12af683ed02c639ca923db984df4634131b954f227434326fe68",
       "placeholder_sha256": "8273499e9f3e0cd634f469d986562ad1d556fd469cfe47fbdd94b9b8d0d8056e",
       "size": [
-        901,
-        917
+        724,
+        642
       ],
-      "transform": "invert RGB; preserve alpha"
+      "transform": "generated minion pixels; alpha, registered poses, whole-paw gait and palette variants",
+      "placeholder_transform": "invert RGB; preserve alpha",
+      "sha256": "ddde9f7718c63ba6da1309336b683846d05495b529b5c9645532a331568bac63",
+      "stage": "accepted_forest_tank",
+      "replacement_recipe": "art/build-forest-boar.json",
+      "accepted_at": "2026-11-10",
+      "acceptance_quote": "новый вариант лучше, принимается"
     },
     {
       "path": "characters/tank_warm.png",
       "category": "characters",
-      "placeholder": true,
-      "accepted": false,
+      "placeholder": false,
+      "accepted": true,
       "source": "res://assets/packs/rescue_rangers/characters/tank_warm.png",
       "source_sha256": "611f52b03632521a74468b4e427c4537075620b7d53e86ba20141e56c9f5f1f6",
       "placeholder_sha256": "c7caefa437d3b7c9ac2edf44921d3d42acd0f64dd53f03b277f923881bb8f4c4",
       "size": [
-        901,
-        917
+        724,
+        642
       ],
-      "transform": "invert RGB; preserve alpha"
+      "transform": "generated minion pixels; alpha, registered poses, whole-paw gait and palette variants",
+      "placeholder_transform": "invert RGB; preserve alpha",
+      "sha256": "4f812d343f25c4a51a31edbbf969928203a2e5747cd21f1f2f77278cb7282985",
+      "stage": "accepted_forest_tank",
+      "replacement_recipe": "art/build-forest-boar.json",
+      "accepted_at": "2026-11-10",
+      "acceptance_quote": "новый вариант лучше, принимается"
     },
     {
       "path": "characters/thrower.png",
       "category": "characters",
-      "placeholder": true,
-      "accepted": false,
+      "placeholder": false,
+      "accepted": true,
       "source": "res://assets/packs/rescue_rangers/characters/thrower.png",
       "source_sha256": "8e0555bd98d5cfa0a81edeb1888b67e064c80e92de4b59f00397df568ace133b",
       "placeholder_sha256": "600cac700238b6b72feca0d9123b3749776d66ce28b8e2f314ff960218822c8f",
       "size": [
-        660,
-        936
+        710,
+        856
       ],
-      "transform": "invert RGB; preserve alpha"
+      "transform": "generated minion pixels; alpha, registered poses, whole-paw gait and palette variants",
+      "placeholder_transform": "invert RGB; preserve alpha",
+      "sha256": "a73aa822349cbb2be3e406f550d5bd4945b309e15ab3b0db7c05b6f3c5dcbfa1",
+      "stage": "accepted_forest_thrower",
+      "replacement_recipe": "art/build-forest-squirrel.json",
+      "accepted_at": "2026-11-10",
+      "acceptance_quote": "Да, белка тоже принята"
     },
     {
       "path": "characters/thrower_dark.png",
       "category": "characters",
-      "placeholder": true,
-      "accepted": false,
+      "placeholder": false,
+      "accepted": true,
       "source": "res://assets/packs/rescue_rangers/characters/thrower_dark.png",
       "source_sha256": "cade5715dbce6d8b04f6bfac9588387c5996f25abde63a093e2c28d2d05941e6",
       "placeholder_sha256": "6c713eee520b86d674965094b2c36261f40e6018679f2d22d99b2ca17c3a9634",
       "size": [
-        660,
-        936
+        710,
+        856
       ],
-      "transform": "invert RGB; preserve alpha"
+      "transform": "generated minion pixels; alpha, registered poses, whole-paw gait and palette variants",
+      "placeholder_transform": "invert RGB; preserve alpha",
+      "sha256": "6269b8fd9be60e84affdb7b62d0517e11a36eb9652b976532bf50c88289decaa",
+      "stage": "accepted_forest_thrower",
+      "replacement_recipe": "art/build-forest-squirrel.json",
+      "accepted_at": "2026-11-10",
+      "acceptance_quote": "Да, белка тоже принята"
     },
     {
       "path": "characters/thrower_warm.png",
       "category": "characters",
-      "placeholder": true,
-      "accepted": false,
+      "placeholder": false,
+      "accepted": true,
       "source": "res://assets/packs/rescue_rangers/characters/thrower_warm.png",
       "source_sha256": "6de0b9bb8b014cdb4a08abefb7b37ead2327ad4dc4b6c89b180b91451edd093a",
       "placeholder_sha256": "85b41ff687c5428912c27d13aa84b631191a5bf001e07d9f3385c38f2cf15610",
       "size": [
-        660,
-        936
+        710,
+        856
       ],
-      "transform": "invert RGB; preserve alpha"
+      "transform": "generated minion pixels; alpha, registered poses, whole-paw gait and palette variants",
+      "placeholder_transform": "invert RGB; preserve alpha",
+      "sha256": "3402f77d7b402d622cef27fcff29aff03ae25a074fe16d2d0cf401d69b6b86f6",
+      "stage": "accepted_forest_thrower",
+      "replacement_recipe": "art/build-forest-squirrel.json",
+      "accepted_at": "2026-11-10",
+      "acceptance_quote": "Да, белка тоже принята"
     },
     {
       "path": "effects/armor_0.png",
@@ -1772,16 +1952,22 @@
     {
       "path": "effects/nut.png",
       "category": "effects",
-      "placeholder": true,
-      "accepted": false,
+      "placeholder": false,
+      "accepted": true,
       "source": "res://assets/packs/rescue_rangers/effects/nut.png",
       "source_sha256": "4043b31e4e0f76cd3bd64707de17ed750a50861ba6b62b4878967416713b6da2",
       "placeholder_sha256": "86c278b2e4794c498ed11dbefc50b3badecd88253652a4086c243c8e668c171a",
       "size": [
-        355,
-        372
+        470,
+        605
       ],
-      "transform": "invert RGB; preserve alpha"
+      "transform": "generated minion pixels; alpha, registered poses, whole-paw gait and palette variants",
+      "placeholder_transform": "invert RGB; preserve alpha",
+      "sha256": "d404508d095f8ac6457613faae3e31be81aaa8451b7c76fb1f9139d6065d090a",
+      "stage": "accepted_forest_thrower",
+      "replacement_recipe": "art/build-forest-squirrel.json",
+      "accepted_at": "2026-11-10",
+      "acceptance_quote": "Да, белка тоже принята"
     },
     {
       "path": "effects/rope.png",

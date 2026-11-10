@@ -1,0 +1,15 @@
+{
+  "engine": "flux2",
+  "model": "flux-2-klein-4b.safetensors",
+  "width": 1024,
+  "height": 1024,
+  "fit": "crop",
+  "steps": 4,
+  "guidance": 1,
+  "sampler": "euler",
+  "seed": 192004,
+  "image_path": "G:\\Git\\Gemini\\media_mcp\\images\\20261110-161932-ab2321-final.png",
+  "mask_path": "G:\\Git\\Gemini\\tmp\\balcony-packs\\squirrel-armless-mask.png",
+  "denoise": 0.95,
+  "prompt": "A clean ARMLESS torso underlayer of this same squirrel. Erase BOTH front arms, BOTH forearms, and BOTH front paws completely. No front limbs or hands in the edited area. Show only a slim smooth cream-furred chest and belly with its moss-green shoulder strap running diagonally across it. Where the old hands extended to the RIGHT beyond the torso, leave empty flat green background. This is an armless body layer for a layered animated sprite; exactly two hind legs remain at the bottom, head and tail remain unchanged. Preserve the original foxlike squirrel face, ears, ONE bushy tail, nut satchel, both hind legs and feet in exactly the same positions. Warm picture-book gouache, continuous clean torso silhouette, flat bright green backdrop."
+}

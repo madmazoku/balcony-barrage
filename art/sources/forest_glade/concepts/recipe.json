@@ -164,5 +164,8 @@
     "arena-spec.json": {
       "sha256": "eebf11a2a52d5c9f59ffe8ac686ed54d528f64f4acd73668e5b1281d9514e0da"
     }
+  },
+  "known_defects": {
+    "cast-corrected.png": "Squirrel has two tails. Historical concept only, never a runtime sprite or anatomy reference. Use current single-tail squirrel/body.png recipe."
   }
 }

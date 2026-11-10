@@ -100,3 +100,12 @@ Release экспорт требует ID в profiles.release, status=ready/relea
 
 
 AssetPack.projectile_visual — опциональный ProjectileVisualConfig активного пака; отсутствие сохраняет прежний рендер. trail_length/samples/tail_scale/opacity/tint и glint_period/strength/power/tint задают только вид снаряда. enabled=false выключает эффект. Периоды/числа конечные, сэмплы 2..32; настройки проверяются до запуска. Trail использует исходный PNG effects.bolt, отдельные рисованные объекты не добавлены.
+
+
+## Пропорции персонажа отдельно от коллизии
+AssetPack.preserve_actor_aspect — опциональный PackedStringArray ролей normal/tank/thrower/boss. actor_draw_size(role, collision_size) сохраняет collision_size.y и выводит ширину по characters[role] (нейтральный tight PNG), а не по текущей расширенной позе. Одинаково применяется в _sprite_body и _draw_registered, включая бег/действия/носителя при поражении. Без флага старый вид неизменен. Валидация требует допустимую роль и собственную непустую текстуру. Столкновения/точки спавна/баланс всё ещё принадлежат GameplayConfig/RoundModel. Включено для лесной белки и кабанчика.
+
+
+Кабанчик F4: 12 PNG роли tank заменены собственными ресурсами; tank_capture явно одновременно neutral/capture, в run_frames нейтральная фаза ссылается на тот же полный холст. Тесные tank/base/warm/dark используются статично через character_variants. preserve_actor_aspect теперь для tank/thrower; хитбоксы не меняются. См. art/build-forest-boar.json. 31 PNG миньонов пока accepted=false.
+
+Белка и усиленный кабанчик приняты владельцем2026-11-10; все31 PNG accepted=true (всего72 принятых/51 заглушка). Принятые рецепты/пиксели фиксированы; старые pending-записи выше исторические. Следующий блок — подвесы/листья.

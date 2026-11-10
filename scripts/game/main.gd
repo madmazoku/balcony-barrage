@@ -295,7 +295,8 @@ func _draw_enemy(enemy: Dictionary) -> void:
 
 func _draw_registered(texture: Texture2D, position: Vector2, size: Vector2, role: String, flip: bool, angle: float = 0.0, stretch: Vector2 = Vector2.ONE, legs: Texture2D = null, split: float = 1.0) -> void:
 	var reference: Rect2 = pack.enemy_frame_bounds[role]
-	var scale_factor: Vector2 = size / (texture.get_size() * reference.size)
+	var draw_size: Vector2 = pack.actor_draw_size(role, size)
+	var scale_factor: Vector2 = draw_size / (texture.get_size() * reference.size)
 	var frame := Rect2(-reference.get_center() * texture.get_size() * scale_factor, texture.get_size() * scale_factor)
 	draw_set_transform(position, angle, (Vector2(-1, 1) if flip else Vector2.ONE) * stretch)
 	if legs == null:
@@ -503,7 +504,7 @@ func _sprite_body(position: Vector2, size: Vector2, role: String, variant: int =
 	if pack.character_variants.has(role):
 		var options: Array = pack.character_variants[role]
 		texture = options[variant % options.size()] as Texture2D
-	_texture_center(texture, position, size, flip)
+	_texture_center(texture, position, pack.actor_draw_size(role, size), flip)
 	if pack.show_names:
 		_text(position - size / 2 - Vector2(0, 7), pack.display_names[role], 15)
 

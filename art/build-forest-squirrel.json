@@ -1,0 +1,742 @@
+{
+  "schema": 1,
+  "pack_id": "forest_glade",
+  "role": "thrower",
+  "output": "assets/packs/forest_glade",
+  "frame_size": [
+    512,
+    512
+  ],
+  "key_hue_range": [
+    72,
+    112
+  ],
+  "sources": {
+    "body": {
+      "engine": "flux2",
+      "model": "flux-2-klein-4b.safetensors",
+      "steps": 4,
+      "guidance": 1,
+      "sampler": "euler",
+      "seed": 192001,
+      "image_path": "art/sources/forest_glade/squirrel/body.png",
+      "spec_path": "art/sources/forest_glade/squirrel/body-spec.json",
+      "run_prefix": "20261110-161932-ab2321",
+      "sha256": "7e09f7ee6bf5ef9ce42443708562bccd55ce7acdde87670360f095d3787baee9",
+      "spec_sha256": "f9b4a690f5d7252492e500e0990233dc7907e6c9ad64308ff499b71231fce776"
+    },
+    "arm_fill": {
+      "engine": "flux2",
+      "model": "flux-2-klein-4b.safetensors",
+      "steps": 4,
+      "guidance": 1,
+      "sampler": "euler",
+      "seed": 192004,
+      "image_path": "art/sources/forest_glade/squirrel/arm_fill.png",
+      "spec_path": "art/sources/forest_glade/squirrel/arm_fill-spec.json",
+      "run_prefix": "20261110-162727-65a1b3",
+      "sha256": "b6251234c24aa5d15477b18cc2a6fee322073587e0da58c2976733bb35af82ca",
+      "spec_sha256": "c0c691122b119f3da366e32ee9c91e96825d3394a7c7ee4b6e72d4be5c5e31bc"
+    },
+    "walnut": {
+      "engine": "flux2",
+      "model": "flux-2-klein-4b.safetensors",
+      "steps": 4,
+      "guidance": 1,
+      "sampler": "euler",
+      "seed": 192003,
+      "image_path": "art/sources/forest_glade/squirrel/walnut.png",
+      "spec_path": "art/sources/forest_glade/squirrel/walnut-spec.json",
+      "run_prefix": "20261110-162534-b6d28c",
+      "sha256": "cbdea90371cf07efc249f1ce221a19c109f7fd9566fc98a55430a97f21dd7365",
+      "spec_sha256": "32ad0637a156a0004329b1f3b75df304e8bf569293f9291344c05e7d423872c4"
+    }
+  },
+  "poses": {
+    "windup": {
+      "fill_source": "arm_fill",
+      "fill_clear_rects": [
+        [
+          680,
+          470,
+          910,
+          700
+        ]
+      ],
+      "clear_polygons": [
+        [
+          [
+            704,
+            505
+          ],
+          [
+            737,
+            521
+          ],
+          [
+            772,
+            547
+          ],
+          [
+            811,
+            584
+          ],
+          [
+            836,
+            615
+          ],
+          [
+            836,
+            642
+          ],
+          [
+            821,
+            662
+          ],
+          [
+            797,
+            660
+          ],
+          [
+            780,
+            642
+          ],
+          [
+            765,
+            616
+          ],
+          [
+            746,
+            610
+          ],
+          [
+            722,
+            609
+          ],
+          [
+            706,
+            584
+          ],
+          [
+            693,
+            550
+          ]
+        ]
+      ],
+      "clear_exclude_polygons": [
+        [
+          [
+            482,
+            510
+          ],
+          [
+            509,
+            495
+          ],
+          [
+            537,
+            510
+          ],
+          [
+            555,
+            535
+          ],
+          [
+            571,
+            558
+          ],
+          [
+            630,
+            565
+          ],
+          [
+            687,
+            568
+          ],
+          [
+            720,
+            585
+          ],
+          [
+            741,
+            610
+          ],
+          [
+            735,
+            635
+          ],
+          [
+            718,
+            649
+          ],
+          [
+            697,
+            646
+          ],
+          [
+            678,
+            629
+          ],
+          [
+            623,
+            637
+          ],
+          [
+            564,
+            632
+          ],
+          [
+            522,
+            625
+          ],
+          [
+            494,
+            606
+          ],
+          [
+            480,
+            576
+          ],
+          [
+            476,
+            539
+          ]
+        ]
+      ],
+      "arms": [
+        {
+          "source": "body",
+          "polygon": [
+            [
+              704,
+              505
+            ],
+            [
+              737,
+              521
+            ],
+            [
+              772,
+              547
+            ],
+            [
+              811,
+              584
+            ],
+            [
+              836,
+              615
+            ],
+            [
+              836,
+              642
+            ],
+            [
+              821,
+              662
+            ],
+            [
+              797,
+              660
+            ],
+            [
+              780,
+              642
+            ],
+            [
+              765,
+              616
+            ],
+            [
+              746,
+              610
+            ],
+            [
+              722,
+              609
+            ],
+            [
+              706,
+              584
+            ],
+            [
+              693,
+              550
+            ]
+          ],
+          "exclude_polygons": [
+            [
+              [
+                482,
+                510
+              ],
+              [
+                509,
+                495
+              ],
+              [
+                537,
+                510
+              ],
+              [
+                555,
+                535
+              ],
+              [
+                571,
+                558
+              ],
+              [
+                630,
+                565
+              ],
+              [
+                687,
+                568
+              ],
+              [
+                720,
+                585
+              ],
+              [
+                741,
+                610
+              ],
+              [
+                735,
+                635
+              ],
+              [
+                718,
+                649
+              ],
+              [
+                697,
+                646
+              ],
+              [
+                678,
+                629
+              ],
+              [
+                623,
+                637
+              ],
+              [
+                564,
+                632
+              ],
+              [
+                522,
+                625
+              ],
+              [
+                494,
+                606
+              ],
+              [
+                480,
+                576
+              ],
+              [
+                476,
+                539
+              ]
+            ]
+          ],
+          "pivot": [
+            714,
+            548
+          ],
+          "angle": -50
+        }
+      ],
+      "props": [
+        {
+          "source": "walnut",
+          "size": [
+            140,
+            150
+          ],
+          "center": [
+            840,
+            465
+          ],
+          "angle": -15
+        }
+      ],
+      "head_polygon": [
+        [
+          460,
+          70
+        ],
+        [
+          815,
+          70
+        ],
+        [
+          815,
+          455
+        ],
+        [
+          610,
+          455
+        ],
+        [
+          465,
+          435
+        ]
+      ],
+      "overlay_polygons": [
+        [
+          [
+            482,
+            510
+          ],
+          [
+            509,
+            495
+          ],
+          [
+            537,
+            510
+          ],
+          [
+            555,
+            535
+          ],
+          [
+            571,
+            558
+          ],
+          [
+            630,
+            565
+          ],
+          [
+            687,
+            568
+          ],
+          [
+            720,
+            585
+          ],
+          [
+            741,
+            610
+          ],
+          [
+            735,
+            635
+          ],
+          [
+            718,
+            649
+          ],
+          [
+            697,
+            646
+          ],
+          [
+            678,
+            629
+          ],
+          [
+            623,
+            637
+          ],
+          [
+            564,
+            632
+          ],
+          [
+            522,
+            625
+          ],
+          [
+            494,
+            606
+          ],
+          [
+            480,
+            576
+          ],
+          [
+            476,
+            539
+          ]
+        ]
+      ],
+      "clear_expand": 3
+    },
+    "release": {
+      "neutral": true
+    }
+  },
+  "action_states": {
+    "windup": "thrower_windup",
+    "release": "thrower_release"
+  },
+  "capture_alias": "thrower_release",
+  "effects": {
+    "nut": "walnut"
+  },
+  "palettes": {
+    "base": [
+      1,
+      1,
+      1
+    ],
+    "warm": [
+      1.04,
+      0.91,
+      0.78
+    ],
+    "dark": [
+      0.7,
+      0.78,
+      0.94
+    ]
+  },
+  "gait": {
+    "stride": {
+      "limbs": [
+        {
+          "polygon": [
+            [
+              395,
+              827
+            ],
+            [
+              506,
+              815
+            ],
+            [
+              543,
+              846
+            ],
+            [
+              543,
+              879
+            ],
+            [
+              577,
+              910
+            ],
+            [
+              575,
+              945
+            ],
+            [
+              534,
+              961
+            ],
+            [
+              454,
+              954
+            ],
+            [
+              401,
+              921
+            ],
+            [
+              390,
+              877
+            ]
+          ],
+          "pivot": [
+            453,
+            850
+          ],
+          "angle": -16,
+          "offset": [
+            20,
+            -24
+          ],
+          "erase_polygon": [
+            [
+              410,
+              876
+            ],
+            [
+              452,
+              885
+            ],
+            [
+              493,
+              886
+            ],
+            [
+              532,
+              902
+            ],
+            [
+              569,
+              928
+            ],
+            [
+              571,
+              952
+            ],
+            [
+              523,
+              970
+            ],
+            [
+              453,
+              963
+            ],
+            [
+              402,
+              930
+            ],
+            [
+              392,
+              899
+            ]
+          ]
+        }
+      ],
+      "preserve_upper_source_rows": 800
+    },
+    "opposite": {
+      "limbs": [
+        {
+          "polygon": [
+            [
+              576,
+              805
+            ],
+            [
+              650,
+              811
+            ],
+            [
+              689,
+              829
+            ],
+            [
+              758,
+              845
+            ],
+            [
+              788,
+              870
+            ],
+            [
+              780,
+              899
+            ],
+            [
+              708,
+              915
+            ],
+            [
+              635,
+              906
+            ],
+            [
+              576,
+              885
+            ],
+            [
+              557,
+              850
+            ]
+          ],
+          "pivot": [
+            618,
+            838
+          ],
+          "angle": -20,
+          "offset": [
+            18,
+            -24
+          ],
+          "erase_polygon": [
+            [
+              579,
+              834
+            ],
+            [
+              630,
+              834
+            ],
+            [
+              688,
+              839
+            ],
+            [
+              751,
+              845
+            ],
+            [
+              790,
+              869
+            ],
+            [
+              790,
+              905
+            ],
+            [
+              713,
+              921
+            ],
+            [
+              634,
+              913
+            ],
+            [
+              576,
+              893
+            ],
+            [
+              560,
+              863
+            ]
+          ]
+        }
+      ],
+      "preserve_upper_source_rows": 800
+    }
+  },
+  "review_status": "accepted",
+  "operations": [
+    "All visible pixels generated with accepted forest model/common settings; no drawn/vector limbs or nuts.",
+    "The original far forearm lifts beside the muzzle from its original shoulder at original size; foreground forearm/body/strap restored unchanged. Release/capture explicitly return to the original empty-handed pose. No full-body pose regeneration.",
+    "The generated torso underlayer is used only to clear the former far-arm area; the invented tuft outside its body is excluded by alpha.",
+    "Held nut is the separate generated walnut texture, present only in windup. Release/capture hands empty; explicit capture alias uses release pose.",
+    "Narrow HSV key range preserves olive-green satchel/strap while removing brighter chroma green; no change to default cutout for accepted packs.",
+    "Whole generated hind paws alternate; head/upper body/bag registration preserved. No collision, speed, damage, angle or cooldown changes."
+  ],
+  "rejected_trials": [
+    {
+      "run_prefix": "20261110-162314-1d0117",
+      "reason": "Near arm was lowered instead of removed."
+    },
+    {
+      "run_prefix": "20261110-163238-76d3dc",
+      "reason": "Generated overhead windup added a third arm; never used."
+    }
+  ],
+  "presentation": {
+    "preserve_actor_aspect": [
+      "thrower"
+    ],
+    "height": "unchanged mechanical body height",
+    "width": "neutral PNG aspect ratio; shared by all registered poses and defeat carrier",
+    "reason": "Owner reported horizontal squeezing; never resize the collider to correct art.",
+    "owner_feedback": {
+      "date": "2026-11-10",
+      "quote": "так лучше",
+      "scope": "Corrected native aspect explicitly accepted with the complete squirrel block."
+    }
+  },
+  "acceptance": {
+    "date": "2026-11-10",
+    "quote": "Да, белка тоже принята",
+    "recipe": "art/build-forest-squirrel.json",
+    "scope": "Three palettes, single tail, natural aspect, walnut windup/release, running, armor theft and rabbit carry.",
+    "png_count": 19
+  }
+}

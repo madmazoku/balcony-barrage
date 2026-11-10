@@ -26,6 +26,8 @@ extends Resource
 ## Full action canvases use normalized bounds of their matching neutral role.
 @export var enemy_action_frames: Dictionary[String, Array]
 @export var enemy_frame_bounds: Dictionary[String, Rect2]
+## Keep the neutral sprite aspect at the mechanical body height; collision geometry is unchanged.
+@export var preserve_actor_aspect: PackedStringArray
 @export var boss_actions: BossActionConfig
 @export var boss_action_frames: Dictionary[String, Texture2D]
 @export var ambient: AmbientConfig
@@ -36,6 +38,14 @@ extends Resource
 @export var balcony_draw_height: float
 @export var show_names: bool = true
 @export_enum("silent", "supplied") var audio_mode: String = "silent"
+
+func actor_draw_size(role: String, collision_size: Vector2) -> Vector2:
+	if role not in preserve_actor_aspect:
+		return collision_size
+	var texture := characters.get(role) as Texture2D
+	if texture == null or texture.get_height() <= 0:
+		return collision_size
+	return Vector2(collision_size.y * texture.get_width() / texture.get_height(), collision_size.y)
 
 func validation_errors() -> Array[String]:
 	var errors: Array[String] = []
@@ -58,6 +68,10 @@ func validation_errors() -> Array[String]:
 			errors.append("Invalid projectile draw size: " + key)
 	if projectile_visual != null:
 		errors.append_array(projectile_visual.validation_errors())
+	for role in preserve_actor_aspect:
+		var texture := characters.get(role) as Texture2D
+		if role not in ["normal", "tank", "thrower", "boss"] or texture == null or texture.get_width() <= 0 or texture.get_height() <= 0:
+			errors.append("Invalid aspect-preserved actor: " + role)
 	if readiness == "prototype":
 		return errors
 	if readiness != "static":

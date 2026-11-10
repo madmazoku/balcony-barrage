@@ -1,0 +1,709 @@
+{
+  "tool": "sprite_assets.py update-minion",
+  "manifest": {
+    "schema": 1,
+    "pack_id": "forest_glade",
+    "role": "tank",
+    "output": "assets/packs/forest_glade",
+    "frame_size": [
+      512,
+      512
+    ],
+    "sources": {
+      "body": {
+        "engine": "flux2",
+        "model": "flux-2-klein-4b.safetensors",
+        "steps": 4,
+        "guidance": 1,
+        "sampler": "euler",
+        "seed": 193103,
+        "image_path": "art/sources/forest_glade/boar/body.png",
+        "spec_path": "art/sources/forest_glade/boar/body-spec.json",
+        "run_prefix": "20261110-180905-c8ce1d",
+        "sha256": "decf29a29103e5440c196735a155c5dbc74b8760c9f3fce3ca503f3b2da09b4d",
+        "spec_sha256": "47a376a11d0e45943edba0730dc4d6fe0ee96f8a0294598b57a2522d193f231f",
+        "source_size": [
+          1280,
+          768
+        ]
+      }
+    },
+    "poses": {
+      "capture": {
+        "neutral": true
+      }
+    },
+    "action_states": {
+      "neutral": "tank_capture",
+      "capture": "tank_capture"
+    },
+    "palettes": {
+      "base": [
+        1,
+        1,
+        1
+      ],
+      "warm": [
+        1.04,
+        0.9,
+        0.78
+      ],
+      "dark": [
+        0.69,
+        0.77,
+        0.92
+      ]
+    },
+    "gait": {
+      "stride": {
+        "limbs": [
+          {
+            "polygon": [
+              [
+                355,
+                547
+              ],
+              [
+                451,
+                543
+              ],
+              [
+                479,
+                572
+              ],
+              [
+                468,
+                607
+              ],
+              [
+                474,
+                637
+              ],
+              [
+                507,
+                665
+              ],
+              [
+                526,
+                694
+              ],
+              [
+                516,
+                722
+              ],
+              [
+                451,
+                731
+              ],
+              [
+                381,
+                714
+              ],
+              [
+                353,
+                689
+              ],
+              [
+                345,
+                635
+              ],
+              [
+                343,
+                588
+              ]
+            ],
+            "erase_polygon": [
+              [
+                348,
+                614
+              ],
+              [
+                387,
+                620
+              ],
+              [
+                452,
+                614
+              ],
+              [
+                475,
+                634
+              ],
+              [
+                510,
+                664
+              ],
+              [
+                531,
+                698
+              ],
+              [
+                522,
+                729
+              ],
+              [
+                447,
+                738
+              ],
+              [
+                377,
+                721
+              ],
+              [
+                348,
+                694
+              ],
+              [
+                341,
+                651
+              ]
+            ],
+            "pivot": [
+              411,
+              580
+            ],
+            "angle": -24,
+            "offset": [
+              37,
+              -16
+            ]
+          },
+          {
+            "polygon": [
+              [
+                686,
+                504
+              ],
+              [
+                771,
+                497
+              ],
+              [
+                823,
+                533
+              ],
+              [
+                830,
+                581
+              ],
+              [
+                817,
+                610
+              ],
+              [
+                858,
+                629
+              ],
+              [
+                918,
+                654
+              ],
+              [
+                938,
+                700
+              ],
+              [
+                875,
+                711
+              ],
+              [
+                782,
+                701
+              ],
+              [
+                733,
+                686
+              ],
+              [
+                708,
+                642
+              ],
+              [
+                690,
+                584
+              ]
+            ],
+            "erase_polygon": [
+              [
+                704,
+                601
+              ],
+              [
+                811,
+                594
+              ],
+              [
+                843,
+                619
+              ],
+              [
+                933,
+                646
+              ],
+              [
+                941,
+                717
+              ],
+              [
+                699,
+                717
+              ],
+              [
+                690,
+                650
+              ]
+            ],
+            "pivot": [
+              757,
+              584
+            ],
+            "angle": 20,
+            "offset": [
+              -32,
+              0
+            ]
+          }
+        ],
+        "preserve_upper_source_rows": 540
+      },
+      "opposite": {
+        "limbs": [
+          {
+            "polygon": [
+              [
+                355,
+                547
+              ],
+              [
+                451,
+                543
+              ],
+              [
+                479,
+                572
+              ],
+              [
+                468,
+                607
+              ],
+              [
+                474,
+                637
+              ],
+              [
+                507,
+                665
+              ],
+              [
+                526,
+                694
+              ],
+              [
+                516,
+                722
+              ],
+              [
+                451,
+                731
+              ],
+              [
+                381,
+                714
+              ],
+              [
+                353,
+                689
+              ],
+              [
+                345,
+                635
+              ],
+              [
+                343,
+                588
+              ]
+            ],
+            "erase_polygon": [
+              [
+                348,
+                614
+              ],
+              [
+                387,
+                620
+              ],
+              [
+                452,
+                614
+              ],
+              [
+                475,
+                634
+              ],
+              [
+                510,
+                664
+              ],
+              [
+                531,
+                698
+              ],
+              [
+                522,
+                729
+              ],
+              [
+                447,
+                738
+              ],
+              [
+                377,
+                721
+              ],
+              [
+                348,
+                694
+              ],
+              [
+                341,
+                651
+              ]
+            ],
+            "pivot": [
+              411,
+              580
+            ],
+            "angle": 20,
+            "offset": [
+              -32,
+              -4
+            ]
+          },
+          {
+            "polygon": [
+              [
+                686,
+                504
+              ],
+              [
+                771,
+                497
+              ],
+              [
+                823,
+                533
+              ],
+              [
+                830,
+                581
+              ],
+              [
+                817,
+                610
+              ],
+              [
+                858,
+                629
+              ],
+              [
+                918,
+                654
+              ],
+              [
+                938,
+                700
+              ],
+              [
+                875,
+                711
+              ],
+              [
+                782,
+                701
+              ],
+              [
+                733,
+                686
+              ],
+              [
+                708,
+                642
+              ],
+              [
+                690,
+                584
+              ]
+            ],
+            "erase_polygon": [
+              [
+                704,
+                601
+              ],
+              [
+                811,
+                594
+              ],
+              [
+                843,
+                619
+              ],
+              [
+                933,
+                646
+              ],
+              [
+                941,
+                717
+              ],
+              [
+                699,
+                717
+              ],
+              [
+                690,
+                650
+              ]
+            ],
+            "pivot": [
+              757,
+              584
+            ],
+            "angle": -25,
+            "offset": [
+              42,
+              -19
+            ]
+          }
+        ],
+        "preserve_upper_source_rows": 540
+      }
+    },
+    "presentation": {
+      "preserve_actor_aspect": [
+        "tank"
+      ],
+      "height": 58,
+      "width": "neutral PNG native aspect at unchanged gameplay height; all registered poses"
+    },
+    "operations": [
+      "All visible pixels generated with accepted forest FLUX.2 Klein 4B/euler/4/guidance1, no LoRA. Landscape framing for a low broad silhouette; model and sampling unchanged.",
+      "Stocky shoulders, strong thighs, small belly, bristle ridge, two arms/two legs/one tail. Direct generated body supersedes the rejected round body and its masked tail repair.",
+      "Both whole generated hind legs move in opposed directions in each step, then swap; the old single-hoof twitch is rejected. Fixed upper body through source row540; common frame/reference registration.",
+      "Capture keeps the explicit neutral/capture alias. Three palettes. No manually drawn limbs or overlays.",
+      "Colliders, speed, HP/four balloons, cooldown, damage and carrying timings unchanged."
+    ],
+    "rejected_trials": [
+      {
+        "run_prefix": "20261110-174620-e6f569",
+        "reason": "Extra middle hind leg."
+      },
+      {
+        "run_prefix": "20261110-174710-eb2d37",
+        "reason": "Masked removal did not remove the extra hind leg."
+      },
+      {
+        "run_prefix": "20261110-174815-02b439",
+        "reason": "Four limbs but too tall/narrow for the tank silhouette."
+      },
+      {
+        "run_prefix": "20261110-174954-e321c6",
+        "reason": "Owner rejected round body and weak single-hoof gait."
+      },
+      {
+        "run_prefix": "20261110-180723-43c5c0",
+        "reason": "Extra legs and extra tail; never used."
+      },
+      {
+        "run_prefix": "20261110-180813-e651b9",
+        "reason": "Correct limb count but still tall/narrow for a powerful low tank."
+      }
+    ],
+    "review_status": "accepted",
+    "provenance": {
+      "body.png": {
+        "run_prefix": "20261110-180905-c8ce1d",
+        "seed": 193103,
+        "sha256": "decf29a29103e5440c196735a155c5dbc74b8760c9f3fce3ca503f3b2da09b4d",
+        "spec_sha256": "47a376a11d0e45943edba0730dc4d6fe0ee96f8a0294598b57a2522d193f231f",
+        "composition": "Direct generation; alpha key, whole generated leg transforms, palette only."
+      }
+    },
+    "owner_revision": {
+      "date": "2026-11-10",
+      "quote": "шаги не особо заметны и он какой-то больше круглый чем мощный",
+      "response": "Strong low body and opposed two-leg stride accepted explicitly by the owner."
+    },
+    "acceptance": {
+      "date": "2026-11-10",
+      "quote": "новый вариант лучше, принимается",
+      "recipe": "art/build-forest-boar.json",
+      "scope": "Revised strong low body, three palettes, opposed two-leg gait, descent/four balloons, armor theft and rabbit carry. Round body and weak old gait rejected.",
+      "png_count": 12
+    },
+    "superseded_body_note": "Historical round-body trial and tail repair rejected; prefixes remain in rejected_trials, media excluded from Git/runtime."
+  },
+  "prepared": {
+    "characters/tank.png": {
+      "sha256": "7bc33e6b39f588996409e49f9f8ebbded7b920d0117e5a8ebf468cc1b0896a1d",
+      "size": [
+        724,
+        642
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        724,
+        642
+      ]
+    },
+    "characters/actions/tank_capture/base.png": {
+      "sha256": "759c1297820638b43ea90f160798078f9d5b9bbd8e15a890d596eb364472aa6b",
+      "size": [
+        512,
+        512
+      ],
+      "alpha_bounds": [
+        111,
+        49,
+        406,
+        482
+      ]
+    },
+    "characters/run/tank/stride/base.png": {
+      "sha256": "1e75049de6c4b047566ca731d9e398b8b2be6b1ceab92b904c9a6af40ef186be",
+      "size": [
+        512,
+        512
+      ],
+      "alpha_bounds": [
+        111,
+        49,
+        406,
+        486
+      ]
+    },
+    "characters/run/tank/opposite/base.png": {
+      "sha256": "2aeeccc2e66805d87663718d908f09cc8f3a9f373d20043ff35b644739a64bac",
+      "size": [
+        512,
+        512
+      ],
+      "alpha_bounds": [
+        111,
+        49,
+        406,
+        491
+      ]
+    },
+    "characters/tank_warm.png": {
+      "sha256": "4f812d343f25c4a51a31edbbf969928203a2e5747cd21f1f2f77278cb7282985",
+      "size": [
+        724,
+        642
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        724,
+        642
+      ]
+    },
+    "characters/actions/tank_capture/warm.png": {
+      "sha256": "6b086eb65521cc587cbb15ccd260805be21fe07d554f72a1613820e7508a38aa",
+      "size": [
+        512,
+        512
+      ],
+      "alpha_bounds": [
+        111,
+        49,
+        406,
+        482
+      ]
+    },
+    "characters/run/tank/stride/warm.png": {
+      "sha256": "81d9fe63462057b14bf94b182230f8d2e4b4bd42c014520a77e7d93590f6d9e3",
+      "size": [
+        512,
+        512
+      ],
+      "alpha_bounds": [
+        111,
+        49,
+        406,
+        486
+      ]
+    },
+    "characters/run/tank/opposite/warm.png": {
+      "sha256": "2ea4f6ad9bd8517f42d77cc6b694d77383459f5b006978903d4ca2080d8b126b",
+      "size": [
+        512,
+        512
+      ],
+      "alpha_bounds": [
+        111,
+        49,
+        406,
+        491
+      ]
+    },
+    "characters/tank_dark.png": {
+      "sha256": "ddde9f7718c63ba6da1309336b683846d05495b529b5c9645532a331568bac63",
+      "size": [
+        724,
+        642
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        724,
+        642
+      ]
+    },
+    "characters/actions/tank_capture/dark.png": {
+      "sha256": "c838945602d419ea74ffd1402a91d250dbbafdaf8e8f519cddbc181eed75e1b2",
+      "size": [
+        512,
+        512
+      ],
+      "alpha_bounds": [
+        111,
+        49,
+        406,
+        482
+      ]
+    },
+    "characters/run/tank/stride/dark.png": {
+      "sha256": "8a3975c32c9eb2002eb0c36bb35dac6adfadf65a03c182d11d2be8b706c30523",
+      "size": [
+        512,
+        512
+      ],
+      "alpha_bounds": [
+        111,
+        49,
+        406,
+        486
+      ]
+    },
+    "characters/run/tank/opposite/dark.png": {
+      "sha256": "7e3e97994b3d40452ef13074b1a817730739647f4f44b0428b2ee6642952564c",
+      "size": [
+        512,
+        512
+      ],
+      "alpha_bounds": [
+        111,
+        49,
+        406,
+        491
+      ]
+    }
+  },
+  "reference_bounds": [
+    0.221875,
+    0.10026041666666667,
+    0.565625,
+    0.8359375
+  ]
+}

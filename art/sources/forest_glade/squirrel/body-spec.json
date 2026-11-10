@@ -1,0 +1,11 @@
+{
+  "engine": "flux2",
+  "model": "flux-2-klein-4b.safetensors",
+  "width": 1024,
+  "height": 1024,
+  "steps": 4,
+  "guidance": 1,
+  "sampler": "euler",
+  "seed": 192001,
+  "prompt": "Single original cute RED SQUIRREL character sprite, full body including both feet and the entire ONE bushy tail, isolated on a uniform vivid chroma-key GREEN background. Warm hand-painted picture-book gouache, matte texture, soft dark brown outlines, simple clear shading, same cozy forest storybook look. Slim upright pear-shaped torso, a round foxlike squirrel muzzle with a small black nose, expressive black oval eyes and pink cheeks, pointed tufted ears. Rust-red and warm ginger fur with a cream muzzle and cream belly, natural little brown paws, no shoes. The squirrel faces RIGHT in a three-quarter SIDE view, standing on exactly TWO hind legs with two separated hind feet. Exactly TWO short forearms: the nearer empty forepaw extends gently forward at waist height, the farther empty forepaw rests near the chest. Both hands empty. A small moss-green canvas nut satchel with an open top sits at the rear hip, a few brown nuts visible inside, a thin shoulder strap. A SINGLE large fluffy S-curved tail rises vertically behind its back on the LEFT and curls inward at the top; one tail only, compact readable silhouette, tail stays behind the torso. Light mischievous determined expression. Full body, generous green margins, feet on one baseline, all ear and tail tips inside the canvas. Plain flat green backdrop, no scenery, no text, no floor or cast shadow."
+}
