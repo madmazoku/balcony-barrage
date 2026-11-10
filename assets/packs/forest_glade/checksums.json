@@ -13,39 +13,39 @@
   },
   {
     "path": "assets/packs/forest_glade/characters/actions/tank_capture/base.png",
-    "sha256": "f56a59d24d2f4774960607388bf582ae0141c93c79e324dc437dd690ece03bf5"
+    "sha256": "759c1297820638b43ea90f160798078f9d5b9bbd8e15a890d596eb364472aa6b"
   },
   {
     "path": "assets/packs/forest_glade/characters/actions/tank_capture/dark.png",
-    "sha256": "d4144969cfce1257a998e4de5efc506fcc3d89b4312985379581acf3b77f086b"
+    "sha256": "c838945602d419ea74ffd1402a91d250dbbafdaf8e8f519cddbc181eed75e1b2"
   },
   {
     "path": "assets/packs/forest_glade/characters/actions/tank_capture/warm.png",
-    "sha256": "cd36723fe119da7c8f9a4502f861211b72063aeaee12367722321c72ea982f5d"
+    "sha256": "6b086eb65521cc587cbb15ccd260805be21fe07d554f72a1613820e7508a38aa"
   },
   {
     "path": "assets/packs/forest_glade/characters/actions/thrower_release/base.png",
-    "sha256": "49b5176b79fc7e62f43119264b09679efe1949966330ed8bbfaeed161637ca86"
+    "sha256": "9883ad964c866fd8d626ec2bd98f42da3c2cafb163b5f937dba5d331659739ff"
   },
   {
     "path": "assets/packs/forest_glade/characters/actions/thrower_release/dark.png",
-    "sha256": "5d69e254a7b7236edfac4c4cc27a08d22027f7d6e3712f138db4d863351a4363"
+    "sha256": "5c62377aa2f1faea522f6005b5b3a3468ba80651ae72c1edc26e0f88e9bc01e0"
   },
   {
     "path": "assets/packs/forest_glade/characters/actions/thrower_release/warm.png",
-    "sha256": "4c4c2c1e5d9d6e39ed699502ba4d9e0d4a9d1a4a29934f017c6aef80ee588333"
+    "sha256": "6236e9f7e926dada95cfdbded72c12ea645a9493130f21b120f6366b305ba431"
   },
   {
     "path": "assets/packs/forest_glade/characters/actions/thrower_windup/base.png",
-    "sha256": "94eb7e05d6aa90ce27f811e54508cc21a5e65fab6341016421fffcc5b338bb34"
+    "sha256": "e614d31fa0c9f87aa3a77c29f068ad41f09deb60182a4fecfac0f0005a11ddf8"
   },
   {
     "path": "assets/packs/forest_glade/characters/actions/thrower_windup/dark.png",
-    "sha256": "e83bf9dd5c1f2c6ddd848c8549c6899b79e49b2d9a0fa7494fa152fc0b1cb100"
+    "sha256": "8b3268e6111111c7723cf45fcef9451ced76694a242aeed20533425271010f95"
   },
   {
     "path": "assets/packs/forest_glade/characters/actions/thrower_windup/warm.png",
-    "sha256": "61df97813dedfd734f626381ed8895e7a0fce230d7f485dd56d3384ae9cfdb46"
+    "sha256": "cd1d0cf5bdc4e4bfbbb5070cf15035650ecd1a9ede849266a80d5310cc63c199"
   },
   {
     "path": "assets/packs/forest_glade/characters/boss.png",
@@ -229,87 +229,87 @@
   },
   {
     "path": "assets/packs/forest_glade/characters/run/tank/opposite/base.png",
-    "sha256": "1f5e51d616781cf3a9bad69c40b27f9b7c83c01fe2bc5f2975f8756378032ee4"
+    "sha256": "2aeeccc2e66805d87663718d908f09cc8f3a9f373d20043ff35b644739a64bac"
   },
   {
     "path": "assets/packs/forest_glade/characters/run/tank/opposite/dark.png",
-    "sha256": "defcc9b8fc8a2546457c57521e70543fc0338b683e617a31d71eff89f8113cfd"
+    "sha256": "7e3e97994b3d40452ef13074b1a817730739647f4f44b0428b2ee6642952564c"
   },
   {
     "path": "assets/packs/forest_glade/characters/run/tank/opposite/warm.png",
-    "sha256": "7a428cf652383c28f1b0a2d15daaf784cf8e9b9ca70203a625e2a72a06a0f09d"
+    "sha256": "2ea4f6ad9bd8517f42d77cc6b694d77383459f5b006978903d4ca2080d8b126b"
   },
   {
     "path": "assets/packs/forest_glade/characters/run/tank/stride/base.png",
-    "sha256": "a292a925ef1623ac0495260f2e18e80970ba7dddf1da266fe2913591eedc0414"
+    "sha256": "1e75049de6c4b047566ca731d9e398b8b2be6b1ceab92b904c9a6af40ef186be"
   },
   {
     "path": "assets/packs/forest_glade/characters/run/tank/stride/dark.png",
-    "sha256": "4859f4429e8fee3fbfc2679540c95ea3279f4e8fafc3bef8060cdb563325d893"
+    "sha256": "8a3975c32c9eb2002eb0c36bb35dac6adfadf65a03c182d11d2be8b706c30523"
   },
   {
     "path": "assets/packs/forest_glade/characters/run/tank/stride/warm.png",
-    "sha256": "8d0d78c5929d18e0260f91445f618e506102d64a364a50c7b8c97f288037d2ec"
+    "sha256": "81d9fe63462057b14bf94b182230f8d2e4b4bd42c014520a77e7d93590f6d9e3"
   },
   {
     "path": "assets/packs/forest_glade/characters/run/thrower/neutral/base.png",
-    "sha256": "64c57531290dcfb6c9c2309d6f68757e76f31f5e4f48cdb6e10ccb68d916fbf1"
+    "sha256": "9883ad964c866fd8d626ec2bd98f42da3c2cafb163b5f937dba5d331659739ff"
   },
   {
     "path": "assets/packs/forest_glade/characters/run/thrower/neutral/dark.png",
-    "sha256": "8c53ccadf2631684acc8ee9c515b06da434b68c7dd3f12ec71959602996b0d3b"
+    "sha256": "5c62377aa2f1faea522f6005b5b3a3468ba80651ae72c1edc26e0f88e9bc01e0"
   },
   {
     "path": "assets/packs/forest_glade/characters/run/thrower/neutral/warm.png",
-    "sha256": "e0cfcc56ba0cbfb74403e9e4053df045b89442c95bdc09e5d0eb76909b472379"
+    "sha256": "6236e9f7e926dada95cfdbded72c12ea645a9493130f21b120f6366b305ba431"
   },
   {
     "path": "assets/packs/forest_glade/characters/run/thrower/opposite/base.png",
-    "sha256": "af870be27f2c756f0044efd323d30cf644eefc03f548f4813393fc68eb775e80"
+    "sha256": "b53eb1d7cad2ae3bca8e4b6d21bfaf690580724a5e158c4361e9afd67f94ba7d"
   },
   {
     "path": "assets/packs/forest_glade/characters/run/thrower/opposite/dark.png",
-    "sha256": "8252699e1b84929ee9f6a3db5c333549c0c1fa70b3b7de8561b205afb6be52ff"
+    "sha256": "5a9f16c633270e641933b93ba8611e3976554c5a5d8381b682bb7d777a174a1b"
   },
   {
     "path": "assets/packs/forest_glade/characters/run/thrower/opposite/warm.png",
-    "sha256": "936fc69535a1d4afed07aa0ffa3940d8d80e7a1e6c4fe2be5466d573a3bb3bc8"
+    "sha256": "d36942c4b1ce10dc943f88738a4ba63f81c76883c2ea2b6b725c4f3a59d3f96c"
   },
   {
     "path": "assets/packs/forest_glade/characters/run/thrower/stride/base.png",
-    "sha256": "f5e131d7ed36d5a7737026dfa772c729718a19bdb6e9bbe434030d353bb60fd6"
+    "sha256": "5500d97a73fa7ed1b33c541ce862b61e2a291b60ebb36955b97a03762176c848"
   },
   {
     "path": "assets/packs/forest_glade/characters/run/thrower/stride/dark.png",
-    "sha256": "3b2e76721c6754626d54a1ff3eb5585596e2dbae0e27fb47defb352ad8155349"
+    "sha256": "4c931a5ee6bc4dbec6c2de29a5f8588a7cc464d4344447464f597a6a27b43ef9"
   },
   {
     "path": "assets/packs/forest_glade/characters/run/thrower/stride/warm.png",
-    "sha256": "17a6aa9050bca38258e1ff960c6941a28e262c87dac4eebe9eb71aacb375eaeb"
+    "sha256": "aad76c1e0ce69790650cb259c9c111c81931a045c0e0781bee62897f9933e6e9"
   },
   {
     "path": "assets/packs/forest_glade/characters/tank.png",
-    "sha256": "646652bc936e1d50c73303266c9522ccdd5cdea6975fb641623c1d5c713e5bc0"
+    "sha256": "7bc33e6b39f588996409e49f9f8ebbded7b920d0117e5a8ebf468cc1b0896a1d"
   },
   {
     "path": "assets/packs/forest_glade/characters/tank_dark.png",
-    "sha256": "8273499e9f3e0cd634f469d986562ad1d556fd469cfe47fbdd94b9b8d0d8056e"
+    "sha256": "ddde9f7718c63ba6da1309336b683846d05495b529b5c9645532a331568bac63"
   },
   {
     "path": "assets/packs/forest_glade/characters/tank_warm.png",
-    "sha256": "c7caefa437d3b7c9ac2edf44921d3d42acd0f64dd53f03b277f923881bb8f4c4"
+    "sha256": "4f812d343f25c4a51a31edbbf969928203a2e5747cd21f1f2f77278cb7282985"
   },
   {
     "path": "assets/packs/forest_glade/characters/thrower.png",
-    "sha256": "600cac700238b6b72feca0d9123b3749776d66ce28b8e2f314ff960218822c8f"
+    "sha256": "a73aa822349cbb2be3e406f550d5bd4945b309e15ab3b0db7c05b6f3c5dcbfa1"
   },
   {
     "path": "assets/packs/forest_glade/characters/thrower_dark.png",
-    "sha256": "6c713eee520b86d674965094b2c36261f40e6018679f2d22d99b2ca17c3a9634"
+    "sha256": "6269b8fd9be60e84affdb7b62d0517e11a36eb9652b976532bf50c88289decaa"
   },
   {
     "path": "assets/packs/forest_glade/characters/thrower_warm.png",
-    "sha256": "85b41ff687c5428912c27d13aa84b631191a5bf001e07d9f3385c38f2cf15610"
+    "sha256": "3402f77d7b402d622cef27fcff29aff03ae25a074fe16d2d0cf401d69b6b86f6"
   },
   {
     "path": "assets/packs/forest_glade/effects/armor_0.png",
@@ -429,7 +429,7 @@
   },
   {
     "path": "assets/packs/forest_glade/effects/nut.png",
-    "sha256": "86c278b2e4794c498ed11dbefc50b3badecd88253652a4086c243c8e668c171a"
+    "sha256": "d404508d095f8ac6457613faae3e31be81aaa8451b7c76fb1f9139d6065d090a"
   },
   {
     "path": "assets/packs/forest_glade/effects/rope.png",

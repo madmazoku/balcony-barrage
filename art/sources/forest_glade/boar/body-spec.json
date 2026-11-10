@@ -1,0 +1,11 @@
+{
+  "engine": "flux2",
+  "model": "flux-2-klein-4b.safetensors",
+  "width": 1280,
+  "height": 768,
+  "steps": 4,
+  "guidance": 1,
+  "sampler": "euler",
+  "seed": 193103,
+  "prompt": "One cute POWERFUL stocky young wild boar bruiser game sprite, full body, three-quarter SIDE VIEW facing RIGHT. Low wide crouched biped stance, strong planted legs clearly visible beneath the body. The character's silhouette is WIDER THAN TALL. Broad massive squared shoulders, thick neck, broad chest, small tucked-in waist and compact hips, TWO thick muscular arms ending in dark cloven hooves held in front of the chest, TWO sturdy short legs and large dark cloven feet planted far apart, exactly four limbs total. Warm tawny brown fur, three pale cream juvenile stripes along the broad shoulder/back, short dark bristles along the sloping back, small cream chest patch, long pink snout, tiny ivory tusk, small pointed ears, one tiny curly tail, friendly determined black eyes. Cute slightly anthropomorphic forest animal, bare fur, athletic strong shape rather than an inflated belly. Warm hand painted gouache and colored pencil children's book style with simple soft shading and bold clean warm brown outlines. Entire single character fits comfortably inside this LANDSCAPE frame with generous margin, full body fully visible. Flat vivid bright green chroma background, no floor, no cast shadow, no words or objects."
+}

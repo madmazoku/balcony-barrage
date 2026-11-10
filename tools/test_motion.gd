@@ -113,7 +113,9 @@ func _run() -> void:
 		and model.bolts == other_model.bolts and model.armor == other_model.armor and model.kills == other_model.kills and model.result == other_model.result,
 		"Running enabled or disabled must preserve the complete seeded combat outcome.")
 	_check_forest_motion()
-	_check_hedgehog_motion()
+	_check_forest_enemy_motion("normal", 380)
+	_check_forest_enemy_motion("thrower", 390)
+	_check_forest_enemy_motion("tank", 350)
 	game.queue_free()
 	other.queue_free()
 	await process_frame
@@ -157,21 +159,21 @@ func _check_forest_motion() -> void:
 	game.queue_free()
 
 
-func _check_hedgehog_motion() -> void:
+func _check_forest_enemy_motion(role: String, upper_rows: int) -> void:
 	var forest: AssetPack = load("res://assets/packs/forest_glade/pack.tres")
 	var game: Node = make_game(forest)
 	for variant in 3:
-		var frames: Array = forest.run_frames["normal_" + str(variant)]
+		var frames: Array = forest.run_frames[role + "_" + str(variant)]
 		var neutral: Image = (frames[0] as Texture2D).get_image()
 		for frame in frames:
-			check((frame as Texture2D).get_image().get_region(Rect2i(0, 0, 512, 380)).get_data()
-				== neutral.get_region(Rect2i(0, 0, 512, 380)).get_data(), "Hedgehog face and spines must remain identical during its gait.")
+			check((frame as Texture2D).get_image().get_region(Rect2i(0, 0, 512, upper_rows)).get_data()
+				== neutral.get_region(Rect2i(0, 0, 512, upper_rows)).get_data(), "The minion head and upper body must remain identical during its gait.")
 		check((frames[1] as Texture2D).get_image().get_data() != (frames[3] as Texture2D).get_image().get_data(),
-			"The hedgehog must alternate paws instead of duplicating a step.")
+			"Every minion must alternate paws instead of duplicating a step.")
 		for side in [-1.0, 1.0]:
 			game._restart()
 			game.model.player.x = 1100 if side > 0 else 180
-			game.model.spawn("normal", Vector2(600, game.settings.ground_y - game.settings.normal_size.y / 2))
+			game.model.spawn(role, Vector2(600, game.settings.ground_y - game.model.body_size(role).y / 2))
 			var enemy: Dictionary = game.model.minions[0]
 			enemy.variant = variant
 			enemy.state = "ground"
@@ -180,7 +182,7 @@ func _check_hedgehog_motion() -> void:
 			for frame in 32:
 				game._physics_process(0.025)
 				var pose: Dictionary = game._enemy_visual_pose(enemy)
-				check(pose.flip == (side < 0), "The running hedgehog must face the player on both sides.")
+				check(pose.flip == (side < 0), "The running minion must face the player on both sides.")
 				seen[pose.run_texture.get_instance_id()] = true
-			check(seen.size() == 3, "Every hedgehog palette must visit neutral and both actual steps.")
+			check(seen.size() == 3, "Every minion palette must visit neutral and both actual steps.")
 	game.queue_free()

@@ -20,8 +20,8 @@
     },
     {
       "id": "forest_glade",
-      "name": "Лесная полянка — зайка и ёжик",
-      "description": "Зайка и ёжики. Остальные враги, подвесы и окружение пока заглушки.",
+      "name": "Лесная полянка",
+      "description": "Зайка, ежи, белки-метатели и кабанчики. Подвесы, босс и окружение пока заглушки.",
       "path": "res://assets/packs/forest_glade/pack.tres",
       "preview": "res://assets/packs/forest_glade/characters/player/right.png",
       "release_ready": false,

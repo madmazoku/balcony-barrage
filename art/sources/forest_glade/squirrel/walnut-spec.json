@@ -1,0 +1,11 @@
+{
+  "engine": "flux2",
+  "model": "flux-2-klein-4b.safetensors",
+  "width": 1024,
+  "height": 1024,
+  "steps": 4,
+  "guidance": 1,
+  "sampler": "euler",
+  "seed": 192003,
+  "prompt": "A single round golden-brown WALNUT in its shell, isolated in the center of a perfectly flat vivid chroma-key GREEN background. One whole walnut only, clear simple oval silhouette, warm ochre and caramel shell with a central seam and a few broad dark brown wavy grooves, soft dark brown outline, a small cream highlight on the upper left. Cozy hand-painted picture-book gouache, matte paper-like surface, simple three-tone shading, readable chunky 2D cartoon game projectile. Large walnut filling the central half of the square with generous empty green margins. Entire nut visible, no hands, no leaves, no characters, no text, no floor, no cast shadow, plain flat green backdrop."
+}
