@@ -27,6 +27,23 @@ func _run() -> void:
 	var invalid_aspect: AssetPack = art.duplicate()
 	invalid_aspect.preserve_actor_aspect = PackedStringArray(["missing"])
 	check(not invalid_aspect.validation_errors().is_empty(), "Unknown aspect-preserved roles must fail before play.")
+	var suspension_override: AssetPack = art.duplicate()
+	check(art.suspension_draw_size(13).is_equal_approx(Vector2(26, 33.8)), "Default suspensions retain the original pack dimensions.")
+	suspension_override.balloon_draw_size = Vector2(32, 32)
+	check(suspension_override.validation_errors().is_empty(), "A pack can define its own suspension proportions.")
+	for invalid_size in [Vector2(-1, 32), Vector2(0, 32), Vector2(NAN, 32), Vector2(32, INF)]:
+		suspension_override.balloon_draw_size = invalid_size
+		check(not suspension_override.validation_errors().is_empty(), "Invalid suspension dimensions must fail before play.")
+	suspension_override.balloon_draw_size = Vector2.ZERO
+	suspension_override.suspension_orientation = "missing"
+	check(not suspension_override.validation_errors().is_empty(), "Unknown suspension modes must fail before play.")
+	suspension_override.suspension_orientation = "along_tether"
+	suspension_override.balloon_rope_anchor = Vector2(0.5, 0.5)
+	check(not suspension_override.validation_errors().is_empty(), "Tether alignment needs an off-center attachment.")
+	var upright: Dictionary = art.suspension_pose(Vector2(100, 100), Vector2(180, 160), 13)
+	check(upright.angle == 0 and upright.size.is_equal_approx(Vector2(26, 33.8)), "Existing balloon packs must stay upright at their old size.")
+	check(upright.anchor.is_equal_approx(Vector2(100, 100) + (art.balloon_rope_anchor - Vector2(0.5, 0.5)) * upright.size),
+		"Existing balloon anchors must remain at their old positions.")
 	var incomplete: AssetPack = art.duplicate()
 	incomplete.ui = art.ui.duplicate()
 	incomplete.ui.erase("shell_style")

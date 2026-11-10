@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "scope": "forest_glade",
-  "status": "accepted_player_and_minions",
+  "status": "accepted_player_minions_and_suspensions",
   "image": {
     "engine": "flux2",
     "model": "flux-2-klein-4b.safetensors",
@@ -18,7 +18,7 @@
   "concept_manifest": "art/sources/forest_glade/concepts/recipe.json",
   "rules": [
     "All original runtime sprites in the forest pack must use this accepted model/common settings.",
-    "72 original player/minion/effect PNGs accepted; remaining 51 runtime PNGs are explicit inverted placeholders.",
+    "93 original player/minion/suspension/effect PNGs accepted; remaining30 runtime PNGs are explicit inverted placeholders.",
     "Do not use rejected candidates, mix models into final sprites, or copy the rescue_rangers acceptance.",
     "No LoRA for the current Klein candidate; any future model/style change after approval requires a new full series."
   ],
@@ -58,6 +58,13 @@
       "recipe": "art/build-forest-boar.json",
       "scope": "Revised strong low body, three palettes, opposed two-leg gait, descent/four balloons, armor theft and rabbit carry. Round body and weak old gait rejected.",
       "png_count": 12
+    },
+    "leaf_suspensions": {
+      "date": "2026-11-10",
+      "quote": "принимается",
+      "recipe": "art/build-forest-leaves.json",
+      "png_count": 21,
+      "scope": "Four leaf colors, generated petiole cords, one/two/four suspensions, along-tether tilt and matching tear angle. Original balloon pack remains upright; combat and character dimensions unchanged."
     }
   },
   "pending_blocks": {}

@@ -27,9 +27,9 @@ func recoil_weight() -> float:
 		return 0.0
 	return sin(PI * (1.0 - shot_remaining / settings.shot_seconds))
 
-func pop(position: Vector2, variant: int, frame_count: int) -> void:
+func pop(position: Vector2, variant: int, frame_count: int, angle: float = 0.0) -> void:
 	if settings.enabled:
-		effects.append({"kind": "pop", "pos": position, "variant": variant,
+		effects.append({"kind": "pop", "pos": position, "variant": variant, "angle": angle,
 			"age": 0.0, "lifetime": settings.pop_frame_seconds * frame_count})
 
 func armor(position: Vector2, size: Vector2, part: int) -> void:

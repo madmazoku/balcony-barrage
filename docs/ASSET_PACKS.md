@@ -109,3 +109,11 @@ AssetPack.preserve_actor_aspect — опциональный PackedStringArray �
 Кабанчик F4: 12 PNG роли tank заменены собственными ресурсами; tank_capture явно одновременно neutral/capture, в run_frames нейтральная фаза ссылается на тот же полный холст. Тесные tank/base/warm/dark используются статично через character_variants. preserve_actor_aspect теперь для tank/thrower; хитбоксы не меняются. См. art/build-forest-boar.json. 31 PNG миньонов пока accepted=false.
 
 Белка и усиленный кабанчик приняты владельцем2026-11-10; все31 PNG accepted=true (всего72 принятых/51 заглушка). Принятые рецепты/пиксели фиксированы; старые pending-записи выше исторические. Следующий блок — подвесы/листья.
+
+
+## Листья/подвесы F4
+balloon_* — стабильные роли подвесов; лесной пак заменяет4 статичных цвета,16 pop-кадров и rope собственными листьями/разрывом/кордом. Общие128×128 и alpha сохраняют anchor на непрозрачном нижнем конце черешка. Опциональный balloon_draw_size=Vector2.ZERO сохраняет старые пропорции; лесной32×32. Метод suspension_draw_size(radius) используется всеми статичными подвесами. Параметр не меняет хитбоксы/расстояния в модели. Четыре фазы — комплементарные части исходного сгенерированного листа; HSV-палитра и прозрачность общие. Время в feedback.tres. Рецепт/подготовка — art/build-forest-leaves.json и suspension-preparation.json.21 PNG пока accepted=false.
+
+Опциональный suspension_orientation: upright (default) / along_tether. Общая suspension_pose возвращает size/angle/anchor и не меняет центр/коллизии. Угол направляет offset от центра к anchor вдоль connection; повернутый anchor используется тем же renderer для корда. along_tether требует off-center anchor. Сигнал balloon_popped добавляет source:Dictionary только как контекст владельца для снимка угла в RoundFeedback; модель по-прежнему не знает графику. Другие паки остаются upright.
+
+Листья/корд/разрыв и along_tether явно приняты владельцем2026-11-10 (0.20.0): все21 PNG accepted=true. Всего93 принятых/30 заглушек; F4 завершена. Исторические pending-отметки выше больше не актуальны. Режим upright остальных паков сохранён.

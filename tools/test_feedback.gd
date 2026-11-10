@@ -17,7 +17,7 @@ func _run() -> void:
 	var model := RoundModel.new(settings)
 	var pops: Array = []
 	var pieces: Array = []
-	model.balloon_popped.connect(func(position: Vector2, color: int) -> void: pops.append([position, color]))
+	model.balloon_popped.connect(func(position: Vector2, color: int, _source: Dictionary) -> void: pops.append([position, color]))
 	model.armor_removed.connect(func(part: int, stolen: bool) -> void: pieces.append([part, stolen]))
 	model.restart("boss")
 	model.spawn("normal", model.player - Vector2(0, 130))
@@ -93,6 +93,7 @@ func _run() -> void:
 	forest.scenario_picker.select(4)
 	_test_enemy_actions(forest)
 	_test_squirrel_poses(forest)
+	_test_leaf_suspensions(forest)
 	forest.queue_free()
 	game.queue_free()
 	await process_frame
@@ -207,3 +208,70 @@ func _test_squirrel_poses(game: Node) -> void:
 			var velocity: Vector2 = game.model.hazards[0].velocity
 			check(absf(rad_to_deg(atan2(velocity.x, velocity.y))) <= game.settings.nut_max_angle_degrees + 0.001,
 				"The original bounded downward attack angle must be preserved.")
+
+
+func _test_leaf_suspensions(game: Node) -> void:
+	var pack: AssetPack = game.pack
+	check(pack.suspension_draw_size(game.settings.balloon_radius) == Vector2(32, 32), "Leaf proportions belong to the pack, not collision geometry.")
+	var leaf_alpha: PackedByteArray
+	for color in 4:
+		var image: Image = pack.balloon_sprites[color].get_image()
+		var alpha_image := Image.create(image.get_width(), image.get_height(), false, Image.FORMAT_L8)
+		for y in image.get_height():
+			for x in image.get_width():
+				alpha_image.set_pixel(x, y, Color(image.get_pixel(x, y).a, 0, 0))
+		if color == 0:
+			leaf_alpha = alpha_image.get_data()
+		else:
+			check(alpha_image.get_data() == leaf_alpha, "Every leaf color must share the exact silhouette and petiole.")
+		var anchor := Vector2i(pack.balloon_rope_anchor * Vector2(image.get_size()))
+		check(anchor.y > image.get_height() * 0.9 and image.get_pixelv(anchor).a > 0.9,
+			"Ropes must meet an opaque bottom petiole, not the center or transparent padding.")
+		var frames: Array = pack.balloon_pop_frames[str(color)]
+		check(frames.size() == 4, "Each leaf color needs a complete tear sequence.")
+		for index in 4:
+			var frame: Image = frames[index].get_image()
+			check(frame.get_size() == Vector2i(128, 128) and not frame.is_invisible(), "Torn leaves must stay on their common nonempty canvas.")
+			if index > 0:
+				check(frame.get_data() != (frames[index - 1] as Texture2D).get_image().get_data(), "Leaf halves must visibly move between phases.")
+	var events: Array = []
+	game.model.balloon_popped.connect(func(position: Vector2, variant: int, _source: Dictionary) -> void: events.append([position, variant]))
+	for role in ["normal", "thrower", "tank"]:
+		for color in 4:
+			game._restart()
+			game.model.minions.clear()
+			game.model.spawn(role, Vector2(450, 300))
+			var enemy: Dictionary = game.model.minions[0]
+			enemy.variant = color
+			var connection: Vector2 = enemy.pos - Vector2(0, game.model.body_size(role).y / 2)
+			for center in game.model.balloon_positions(enemy):
+				var pose: Dictionary = pack.suspension_pose(center, connection, game.settings.balloon_radius)
+				var stem: Vector2 = pose.anchor - center
+				var cord: Vector2 = connection - pose.anchor
+				check(absf(stem.cross(cord)) < 0.001 and stem.dot(cord) > 0,
+					"Every leaf petiole and its cord must be collinear and point toward the owner.")
+				check(absf(pose.angle) < PI / 2, "Leaves must fan outward without turning upside down.")
+			var hp: int = enemy.hp
+			var kills: int = game.model.kills
+			for remaining in range(hp, 0, -1):
+				var target: Vector2 = game.model.balloon_positions(enemy).back()
+				var expected_angle: float = pack.suspension_pose(target, connection, game.settings.balloon_radius).angle
+				var before: int = events.size()
+				game.model.bolts.append({"pos": target + Vector2(0, 15), "velocity": Vector2.UP * game.settings.bolt_speed})
+				game.model._update_bolts(0.05)
+				check(enemy.hp == remaining - 1 and events.size() == before + 1 and events.back()[0] == target,
+					"A real hit must remove exactly one leaf and emit one tear at its previous position.")
+				var effect: Dictionary = game.feedback.effects.back()
+				check(is_equal_approx(effect.angle, expected_angle), "A torn leaf must inherit its pre-hit tilt instead of snapping upright.")
+				check(effect.kind == "pop" and effect.variant == (color + remaining - 1) % 4,
+					"Torn fragments must use the removed leaf color.")
+				if remaining == hp:
+					game._toggle_pause()
+					game._physics_process(0.2)
+					check(effect.age == 0 and is_equal_approx(effect.angle, expected_angle), "Pause must freeze a leaf tear and its tilt.")
+					game._toggle_pause()
+			check(enemy.state == "fall" and game.model.kills == kills + 1, "Removing the last leaf must count one defeated minion.")
+			game.feedback.advance(1.0)
+			check(game.feedback.effects.is_empty(), "Expired leaf fragments must be removed.")
+	game._restart()
+	check(game.feedback.effects.is_empty(), "Restart must not leave leaf fragments from the previous round.")

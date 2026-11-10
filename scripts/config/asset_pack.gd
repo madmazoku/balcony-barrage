@@ -16,6 +16,9 @@ extends Resource
 @export_group("Static pack")
 @export var character_variants: Dictionary[String, Array]
 @export var balloon_sprites: Array[Texture2D]
+## Optional presentation dimensions; zero preserves the original balloon proportions.
+@export var balloon_draw_size: Vector2 = Vector2.ZERO
+@export_enum("upright", "along_tether") var suspension_orientation: String = "upright"
 ## Presentation size only; projectile collision and speed stay in GameplayConfig.
 @export var projectile_draw_sizes: Dictionary[String, Vector2]
 @export var projectile_visual: ProjectileVisualConfig
@@ -38,6 +41,18 @@ extends Resource
 @export var balcony_draw_height: float
 @export var show_names: bool = true
 @export_enum("silent", "supplied") var audio_mode: String = "silent"
+
+func suspension_draw_size(radius: float) -> Vector2:
+	return balloon_draw_size if balloon_draw_size != Vector2.ZERO else Vector2(radius * 2, radius * 2.6)
+
+func suspension_pose(position: Vector2, connection: Vector2, radius: float) -> Dictionary:
+	var size: Vector2 = suspension_draw_size(radius)
+	var local_anchor: Vector2 = (balloon_rope_anchor - Vector2(0.5, 0.5)) * size
+	var toward: Vector2 = connection - position
+	var angle: float = 0.0
+	if suspension_orientation == "along_tether" and not local_anchor.is_zero_approx() and not toward.is_zero_approx():
+		angle = local_anchor.angle_to(toward)
+	return {"size": size, "angle": angle, "anchor": position + local_anchor.rotated(angle)}
 
 func actor_draw_size(role: String, collision_size: Vector2) -> Vector2:
 	if role not in preserve_actor_aspect:
@@ -68,6 +83,12 @@ func validation_errors() -> Array[String]:
 			errors.append("Invalid projectile draw size: " + key)
 	if projectile_visual != null:
 		errors.append_array(projectile_visual.validation_errors())
+	if balloon_draw_size != Vector2.ZERO and (not balloon_draw_size.is_finite() or balloon_draw_size.x <= 0 or balloon_draw_size.y <= 0):
+		errors.append("Invalid suspension draw size.")
+	if suspension_orientation not in ["upright", "along_tether"]:
+		errors.append("Invalid suspension orientation.")
+	if suspension_orientation == "along_tether" and balloon_rope_anchor.is_equal_approx(Vector2(0.5, 0.5)):
+		errors.append("Tether-oriented suspensions require an off-center anchor.")
 	for role in preserve_actor_aspect:
 		var texture := characters.get(role) as Texture2D
 		if role not in ["normal", "tank", "thrower", "boss"] or texture == null or texture.get_width() <= 0 or texture.get_height() <= 0:
@@ -106,7 +127,7 @@ func validation_errors() -> Array[String]:
 			var area: Rect2 = ambient.layer_rects.get(id, Rect2())
 			if layer != null and not layer.get_size().is_equal_approx(area.size * ambient.source_size):
 				errors.append("Misaligned ambient layer: " + id)
-	if balloon_rope_anchor.x <= 0 or balloon_rope_anchor.x >= 1 or balloon_rope_anchor.y <= 0 or balloon_rope_anchor.y > 1:
+	if not balloon_rope_anchor.is_finite() or balloon_rope_anchor.x <= 0 or balloon_rope_anchor.x >= 1 or balloon_rope_anchor.y <= 0 or balloon_rope_anchor.y > 1:
 		errors.append("Balloon rope anchor must lie inside the normalized texture frame.")
 	if balloon_sprites.size() != balloon_palette.size():
 		errors.append("Balloon textures and palette must have matching counts.")
