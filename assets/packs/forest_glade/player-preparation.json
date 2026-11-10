@@ -458,7 +458,6 @@
     },
     "notes": [
       "All visible pixels come from locked FLUX.2 Klein 4B generation; alpha/crop/registration/mirroring and whole-limb affine rigging only.",
-      "Static first player block: registered run slots intentionally reuse its own neutral body, never the inverted old actor.",
       "Chest armor uses a separate occlusion matte to preserve visible forepaws; detached props retain complete generated plates.",
       "Visibility revision: side slingshot 1.4x, up slingshot 1.15x, fixed grip pivots; stone draw size 12x12 in pack.tres. No combat changes."
     ],
@@ -467,13 +466,452 @@
       "shared foot registration; horizontal mirror for left",
       "up: whole generated forearms rotated around fixed shoulder pivots; no painted pixels",
       "separate generated wood and slingshot layers; arm occlusion masks",
-      "static neutral copies in every old player locomotion slot until animation acceptance"
+      "Alternating whole lower-leg/paw transforms from the accepted generated neutral source; registered upper 700 rows copied exactly."
     ],
-    "review_status": "accepted_static_player_2026-11-10",
+    "review_status": "accepted_player_with_run_2026-11-10",
     "acceptance": {
       "quote": "принимается, дальше",
       "date": "2026-11-10",
       "scope": "Static player/gear/projectile visibility; actual walk animation is the next separately reviewed block."
+    },
+    "locomotion": {
+      "entries": {
+        "right_a": {
+          "pose": "right",
+          "source": "body_right",
+          "preserve_upper_rows": 700,
+          "limbs": [
+            {
+              "polygon": [
+                [
+                  305,
+                  775
+                ],
+                [
+                  480,
+                  775
+                ],
+                [
+                  514,
+                  818
+                ],
+                [
+                  506,
+                  860
+                ],
+                [
+                  542,
+                  909
+                ],
+                [
+                  553,
+                  960
+                ],
+                [
+                  523,
+                  990
+                ],
+                [
+                  438,
+                  1002
+                ],
+                [
+                  359,
+                  973
+                ],
+                [
+                  322,
+                  920
+                ],
+                [
+                  311,
+                  861
+                ]
+              ],
+              "pivot": [
+                420,
+                805
+              ],
+              "angle": -16,
+              "offset": [
+                20,
+                -28
+              ],
+              "erase_polygon": [
+                [
+                  344,
+                  882
+                ],
+                [
+                  376,
+                  885
+                ],
+                [
+                  420,
+                  886
+                ],
+                [
+                  460,
+                  876
+                ],
+                [
+                  493,
+                  850
+                ],
+                [
+                  511,
+                  895
+                ],
+                [
+                  540,
+                  925
+                ],
+                [
+                  550,
+                  980
+                ],
+                [
+                  511,
+                  1000
+                ],
+                [
+                  424,
+                  1000
+                ],
+                [
+                  352,
+                  969
+                ],
+                [
+                  325,
+                  928
+                ]
+              ]
+            }
+          ]
+        },
+        "right_b": {
+          "pose": "right",
+          "source": "body_right",
+          "preserve_upper_rows": 700,
+          "limbs": [
+            {
+              "polygon": [
+                [
+                  522,
+                  810
+                ],
+                [
+                  687,
+                  810
+                ],
+                [
+                  729,
+                  850
+                ],
+                [
+                  748,
+                  909
+                ],
+                [
+                  717,
+                  945
+                ],
+                [
+                  643,
+                  945
+                ],
+                [
+                  570,
+                  920
+                ],
+                [
+                  511,
+                  890
+                ]
+              ],
+              "pivot": [
+                595,
+                835
+              ],
+              "angle": -22,
+              "offset": [
+                20,
+                -42
+              ],
+              "erase_polygon": [
+                [
+                  521,
+                  853
+                ],
+                [
+                  567,
+                  849
+                ],
+                [
+                  611,
+                  834
+                ],
+                [
+                  652,
+                  814
+                ],
+                [
+                  710,
+                  854
+                ],
+                [
+                  747,
+                  906
+                ],
+                [
+                  718,
+                  947
+                ],
+                [
+                  645,
+                  950
+                ],
+                [
+                  570,
+                  924
+                ],
+                [
+                  513,
+                  896
+                ]
+              ]
+            }
+          ]
+        },
+        "up_a": {
+          "pose": "up",
+          "source": "body_up",
+          "preserve_upper_rows": 700,
+          "limbs": [
+            {
+              "polygon": [
+                [
+                  292,
+                  782
+                ],
+                [
+                  487,
+                  782
+                ],
+                [
+                  509,
+                  847
+                ],
+                [
+                  475,
+                  912
+                ],
+                [
+                  479,
+                  972
+                ],
+                [
+                  353,
+                  982
+                ],
+                [
+                  291,
+                  954
+                ],
+                [
+                  293,
+                  886
+                ]
+              ],
+              "pivot": [
+                397,
+                805
+              ],
+              "angle": 9,
+              "offset": [
+                0,
+                -45
+              ],
+              "erase_polygon": [
+                [
+                  337,
+                  850
+                ],
+                [
+                  440,
+                  850
+                ],
+                [
+                  487,
+                  875
+                ],
+                [
+                  493,
+                  951
+                ],
+                [
+                  445,
+                  978
+                ],
+                [
+                  343,
+                  979
+                ],
+                [
+                  291,
+                  954
+                ],
+                [
+                  289,
+                  911
+                ],
+                [
+                  314,
+                  875
+                ]
+              ]
+            }
+          ]
+        },
+        "up_b": {
+          "pose": "up",
+          "source": "body_up",
+          "preserve_upper_rows": 700,
+          "limbs": [
+            {
+              "polygon": [
+                [
+                  732,
+                  782
+                ],
+                [
+                  537,
+                  782
+                ],
+                [
+                  515,
+                  847
+                ],
+                [
+                  549,
+                  912
+                ],
+                [
+                  545,
+                  972
+                ],
+                [
+                  671,
+                  982
+                ],
+                [
+                  733,
+                  954
+                ],
+                [
+                  731,
+                  886
+                ]
+              ],
+              "pivot": [
+                627,
+                805
+              ],
+              "angle": -9,
+              "offset": [
+                0,
+                -45
+              ],
+              "erase_polygon": [
+                [
+                  687,
+                  850
+                ],
+                [
+                  584,
+                  850
+                ],
+                [
+                  537,
+                  875
+                ],
+                [
+                  531,
+                  951
+                ],
+                [
+                  579,
+                  978
+                ],
+                [
+                  681,
+                  979
+                ],
+                [
+                  733,
+                  954
+                ],
+                [
+                  735,
+                  911
+                ],
+                [
+                  710,
+                  875
+                ]
+              ]
+            }
+          ]
+        }
+      },
+      "new_slots": [
+        "characters/run/player/up_b"
+      ],
+      "sequences": {
+        "right": [
+          "idle",
+          "right_a",
+          "idle",
+          "right_b"
+        ],
+        "left": [
+          "idle",
+          "left_a",
+          "idle",
+          "left_b"
+        ],
+        "up": [
+          "idle",
+          "up_a",
+          "idle",
+          "up_b"
+        ]
+      },
+      "method": "Alternating whole generated lower legs placed behind the unchanged body/haunch; only old paw silhouettes removed. Exact accepted upper 700 rows restored.",
+      "rejected_trials": [
+        {
+          "run_prefix": "20261110-145527-ce42e4",
+          "reason": "Raised far leg; did not alternate near/far as requested."
+        },
+        {
+          "run_prefix": "20261110-145622-f1cb52",
+          "reason": "Extended same far leg; unsuitable as opposite half-cycle."
+        },
+        {
+          "run_prefix": "20261110-145724-baced5",
+          "reason": "Both feet on the ground; insufficient alternating lift."
+        },
+        {
+          "run_prefix": "20261110-145847-a893d1",
+          "reason": "Extra third hind paw; never used in runtime."
+        }
+      ],
+      "acceptance": {
+        "date": "2026-11-10",
+        "quote": "принимается",
+        "scope": "Rabbit locomotion in both horizontal directions and while aiming up, shown in 0.17.0-dev."
+      }
     }
   },
   "prepared": {
@@ -733,9 +1171,22 @@
         176,
         252,
         537,
-        874
+        847
       ],
-      "sha256": "26b58d2e32598dd2d5172d3ab03cdd37b05e50c0d3843134122cb2f6ff79a171"
+      "sha256": "1ab7b704e5e7e6594f2b3508f31187cf1bafc513853093be5ead77edac90e69e"
+    },
+    "characters/run/player/left_a.png": {
+      "size": [
+        768,
+        896
+      ],
+      "alpha_bounds": [
+        231,
+        252,
+        592,
+        847
+      ],
+      "sha256": "9e51355623d37d431bb516f4f8f50b30d35bc5e84a004e3cbc80288629c4ddcb"
     },
     "characters/run/player/right_b.png": {
       "size": [
@@ -748,20 +1199,7 @@
         537,
         874
       ],
-      "sha256": "26b58d2e32598dd2d5172d3ab03cdd37b05e50c0d3843134122cb2f6ff79a171"
-    },
-    "characters/run/player/left_a.png": {
-      "size": [
-        768,
-        896
-      ],
-      "alpha_bounds": [
-        231,
-        252,
-        592,
-        874
-      ],
-      "sha256": "1a8b1de8de7b7d31f2fc67fd957831a67dfebb1449cef6018fc8db1f60d74a02"
+      "sha256": "3197822e7de7e5b9daca641a61cdf05cf6d467d7d86b844653c5b807a14bc17f"
     },
     "characters/run/player/left_b.png": {
       "size": [
@@ -774,9 +1212,22 @@
         592,
         874
       ],
-      "sha256": "1a8b1de8de7b7d31f2fc67fd957831a67dfebb1449cef6018fc8db1f60d74a02"
+      "sha256": "bf50a0a8e6efb427f8cd6826a0a03f992433d98bae9f5e2f807410bbd6c27301"
     },
     "characters/run/player/up_a.png": {
+      "size": [
+        768,
+        896
+      ],
+      "alpha_bounds": [
+        237,
+        293,
+        531,
+        874
+      ],
+      "sha256": "f3a1fe569d10b28b9e72041ba6e06668f2ea30f495780a2efeedb956396c0e10"
+    },
+    "characters/run/player/up_b.png": {
       "size": [
         768,
         896
@@ -785,9 +1236,9 @@
         249,
         293,
         531,
-        874
+        873
       ],
-      "sha256": "34415ac448d0a966d382c1b82ad0276595f7cfd321dbbf720a1d982360d35f29"
+      "sha256": "36bc82053175bb58dda2253fb2b827d961de463de7d9bc3cd267cb7513bf24bb"
     },
     "effects/bolt.png": {
       "size": [
@@ -803,10 +1254,10 @@
       "sha256": "3867520bdedace2a4e0e1cf8ca2ce7eb5d63568060edb111046f6a31a571fe17"
     }
   },
-  "static_walk_preview": true,
-  "acceptance": {
-    "quote": "принимается, дальше",
+  "static_walk_preview": false,
+  "locomotion_acceptance": {
     "date": "2026-11-10",
-    "scope": "Static player/gear/projectile visibility; actual walk animation is the next separately reviewed block."
+    "quote": "принимается",
+    "scope": "Rabbit locomotion in both horizontal directions and while aiming up, shown in 0.17.0-dev."
   }
 }

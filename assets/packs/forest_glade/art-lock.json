@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "scope": "forest_glade",
-  "status": "accepted_static_player_series",
+  "status": "accepted_player_with_run",
   "image": {
     "engine": "flux2",
     "model": "flux-2-klein-4b.safetensors",
@@ -18,7 +18,7 @@
   "concept_manifest": "art/sources/forest_glade/concepts/recipe.json",
   "rules": [
     "All original runtime sprites in the forest pack must use this accepted model/common settings.",
-    "25 original static player/gear PNGs accepted; their duplicate neutral walk slots are static staging only. Remaining 97 PNGs are explicit unaccepted inverted placeholders.",
+    "26 original player/gear PNGs including the complete running cycle are accepted. Remaining 97 runtime PNGs are explicit unaccepted inverted placeholders.",
     "Do not use rejected candidates, mix models into final sprites, or copy the rescue_rangers acceptance.",
     "No LoRA for the current Klein candidate; any future model/style change after approval requires a new full series."
   ],
@@ -31,5 +31,10 @@
   },
   "approved_at": "2026-11-10",
   "acceptance_quote": "принимается, дальше",
-  "acceptance_scope": "Current static player/equipment/projectile effects and common model/style; minions, arena and animation still require their own acceptance."
+  "acceptance_scope": "Current static player/equipment/projectile effects and common model/style; minions, arena and animation still require their own acceptance.",
+  "locomotion_acceptance": {
+    "date": "2026-11-10",
+    "quote": "принимается",
+    "scope": "Rabbit locomotion in both horizontal directions and while aiming up, shown in 0.17.0-dev."
+  }
 }
