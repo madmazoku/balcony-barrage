@@ -104,3 +104,12 @@ capture_pack.gd: --feedback=windup|capture, --simulate=true, --role=normal|tank|
 - tools/audit_export.gd — автономный аудит готового PCK из пустого временного проекта; вызывается release.py для Web/EXE. Для Android функция audit_apk_content в release.py напрямую проверяет ZIP assets и манифест. Не запускать его из полного рабочего проекта: его ресурсы могут скрыть отсутствие файлов в артефакте.
 - tools/test_pack_selection.gd — двенадцатая игровая проверка: реальные меню/превью/сохранение, отложенная смена в паузе, целостность новой сцены, одинаковый бой и отсутствующий сохранённый ID. tools/test_release.py расширен до 13 тестов отбором/изоляцией/запретом заглушек и ограниченных паков.
 - Прежний capture_pack.gd расширен --pack=forest_glade|rescue_rangers (с --shell или без). Захват не является генерацией или визуальной приёмкой. Предпросмотры/логи текущего этапа: G:/Git/Gemini/tmp/balcony-packs.
+
+
+## Подготовка первого лесного игрока
+Переиспользовать G:/Git/Gemini/scripts/sprite_assets.py update-player --manifest art/build-forest-player.json из корня игры. Обновляет только зарегистрированные слоты игрока, их migration/checksums и player-preparation.json, не пересобирает остальные 97 заглушек. Воспроизводимая схема/исходники находятся в art. Общая модель проверяется по лесному lock. Изменения привязок — в манифесте, не в боевом коде. SHA256 утилиты: 6ad5782fddad2f82285350feec2adaf772791cc04b9a1a34cd84900796abdc4e.
+Для QA использовать прежний capture_pack.gd --pack=forest_glade --pose=right|left|up --armor=0..3; --feedback=armor|capture|defeat и --cause=capture|nut|furniture проверяют настоящие события. Локальные изображения/журналы: G:/Git/Gemini/tmp/balcony-packs/forest-player-*. Полноценный цикл бега этого блока пока не подготовлен.
+
+
+## След камешка F3
+scripts/config/projectile_visual_config.gd — опциональные параметры пакета; scripts/game/projectile_trail.gd — чисто визуальное состояние по живым снарядам. Объект не пишет в RoundModel/Dictionary снаряда. Рендер использует существующий PNG камешка, alpha/масштаб/тонирование; новые спрайты/генератор не нужны. tools/test_projectile_trail.gd включён в release.py check (13-я игровая проверка): три направления/начало следа, кулдаун, реальные попадания, пауза, сброс, отключение и одинаковый бой. QA прежним capture_pack.gd --pack=forest_glade --feedback=shot --simulate=true --pose=right|left|up --frames=50 --step=0.02. PNG/журналы/GIF — G:/Git/Gemini/tmp/balcony-packs/trail-*. Монтаж — прежний FFmpeg.

@@ -20,6 +20,7 @@ var feedback: RoundFeedback
 var motion: RoundMotion
 var ambient: RoundAmbient
 var boss_actions: BossActions
+var projectile_trail: ProjectileTrail
 
 func _ready() -> void:
 	texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
@@ -35,6 +36,8 @@ func _ready() -> void:
 		set_physics_process(false)
 		return
 	model = RoundModel.new(settings)
+	if pack.projectile_visual != null:
+		projectile_trail = ProjectileTrail.new(pack.projectile_visual)
 	if pack.ambient != null:
 		ambient = RoundAmbient.new(pack.ambient, settings.arena_size)
 	if pack.locomotion != null:
@@ -120,6 +123,8 @@ func _create_controls() -> void:
 func _restart() -> void:
 	var enabled: bool = furniture_check.button_pressed
 	model.restart(scenario_ids[scenario_picker.selected])
+	if projectile_trail != null:
+		projectile_trail.clear()
 	model.furniture_enabled = enabled
 	if motion != null:
 		motion.reset(model)
@@ -138,6 +143,8 @@ func _restart() -> void:
 
 func _shoot(direction: Vector2) -> void:
 	if not paused and model.shoot(direction):
+		if projectile_trail != null:
+			projectile_trail.track(model.bolts.back())
 		player_pose = "up" if direction.y < 0 else ("left" if direction.x < 0 else "right")
 		if feedback != null:
 			feedback.shoot(direction)
@@ -382,6 +389,8 @@ func _physics_process(delta: float) -> void:
 		if boss_actions != null:
 			boss_actions.advance(delta)
 		model.tick(delta, movement)
+		if projectile_trail != null:
+			projectile_trail.advance(model.bolts, delta if model.result.is_empty() and not model.boss_falling else 0.0)
 		if motion != null:
 			motion.advance(model)
 		if model.cooldown <= 0 and not is_zero_approx(movement):
@@ -547,9 +556,12 @@ func _draw_static() -> void:
 				_texture_center(pack.effects["armor_" + str(enemy.stolen_part)] as Texture2D, carried.pos, carried.size)
 	for bolt in model.bolts:
 		draw_set_transform(bolt.pos, bolt.velocity.angle())
-		draw_texture_rect(pack.effects["bolt"] as Texture2D,
-			Rect2(-Vector2(settings.bolt_size.y, settings.bolt_size.x) / 2,
-				Vector2(settings.bolt_size.y, settings.bolt_size.x)), false)
+		var draw_size: Vector2 = pack.projectile_draw_sizes.get("bolt", Vector2(settings.bolt_size.y, settings.bolt_size.x))
+		var visual: Dictionary = projectile_trail.pose(bolt, draw_size) if projectile_trail != null else {"trail": [], "head_tint": Color.WHITE}
+		for sample in visual.trail:
+			var position := Vector2(-float(sample.offset), 0)
+			draw_texture_rect(pack.effects["bolt"] as Texture2D, Rect2(position - sample.size / 2, sample.size), false, sample.tint)
+		draw_texture_rect(pack.effects["bolt"] as Texture2D, Rect2(-draw_size / 2, draw_size), false, visual.head_tint)
 		draw_set_transform(Vector2.ZERO)
 	for hazard in model.hazards:
 		var size: Vector2 = Vector2(settings.furniture_hit_width, settings.furniture_height) if hazard.furniture else settings.nut_size

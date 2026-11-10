@@ -1,0 +1,476 @@
+{
+  "schema": 1,
+  "pack_id": "forest_glade",
+  "output": "assets/packs/forest_glade",
+  "frame_size": [
+    768,
+    896
+  ],
+  "anchor": [
+    384,
+    872
+  ],
+  "sources": {
+    "body_right": {
+      "image_path": "art/sources/forest_glade/player/body_right.png",
+      "run_prefix": "20261110-114526-32a62f",
+      "engine": "flux2",
+      "model": "flux-2-klein-4b.safetensors",
+      "steps": 4,
+      "guidance": 1,
+      "sampler": "euler",
+      "spec_path": "art/sources/forest_glade/player/body_right-spec.json",
+      "sha256": "328a75de412ef1faa9cfc2c0a57a95ecc4fb96cf8ce452406c6d7af5064752a7",
+      "spec_sha256": "1a53e27707bd8651390f02e0c39ffb1a8e8e936248b8003192422a4884a9d5f0"
+    },
+    "body_up": {
+      "image_path": "art/sources/forest_glade/player/body_up.png",
+      "run_prefix": "20261110-120442-5ec30f",
+      "engine": "flux2",
+      "model": "flux-2-klein-4b.safetensors",
+      "steps": 4,
+      "guidance": 1,
+      "sampler": "euler",
+      "spec_path": "art/sources/forest_glade/player/body_up-spec.json",
+      "sha256": "b6f66348a6f8f5173cae6d482467b8827bdbeec0ade8b405596031e166df55c6",
+      "spec_sha256": "6a282c6abd8d77c1ece0c3c7c1774ec7dd5af6258c43f7d7a83051558a433417"
+    },
+    "weapon": {
+      "image_path": "art/sources/forest_glade/player/weapon.png",
+      "run_prefix": "20261110-115247-554a95",
+      "engine": "flux2",
+      "model": "flux-2-klein-4b.safetensors",
+      "steps": 4,
+      "guidance": 1,
+      "sampler": "euler",
+      "spec_path": "art/sources/forest_glade/player/weapon-spec.json",
+      "sha256": "1dcb8ad4485c75ad76520e9acc0a0604cb0162df5af4451135088eebd5cd00d9",
+      "spec_sha256": "5cff39e1cdfcdb8c392802d2f805926c6d52665eb8951cba75dcf1c4a72a22b3"
+    },
+    "plate": {
+      "image_path": "art/sources/forest_glade/player/plate.png",
+      "run_prefix": "20261110-115254-aa9b2a",
+      "engine": "flux2",
+      "model": "flux-2-klein-4b.safetensors",
+      "steps": 4,
+      "guidance": 1,
+      "sampler": "euler",
+      "spec_path": "art/sources/forest_glade/player/plate-spec.json",
+      "sha256": "478ab509c40320cb0a2c8c34f228570cd3d9fe5d411ed5eb745be2954c94aaa0",
+      "spec_sha256": "ea6281007e82aed018ccb569367bbbb12c1b92c1d0b8d598ec03dba5f427885a"
+    },
+    "cap": {
+      "image_path": "art/sources/forest_glade/player/cap.png",
+      "run_prefix": "20261110-115815-016ec4",
+      "engine": "flux2",
+      "model": "flux-2-klein-4b.safetensors",
+      "steps": 4,
+      "guidance": 1,
+      "sampler": "euler",
+      "spec_path": "art/sources/forest_glade/player/cap-spec.json",
+      "sha256": "57a6949b66894fc0cd52551defe148b95a6ebd7acd2ab472531420d942204945",
+      "spec_sha256": "06f520f31f9c45e9d6f892e80c4a1a4c87ff28ab8e7e33b1081255fcd7dc4792"
+    },
+    "pebble": {
+      "image_path": "art/sources/forest_glade/player/pebble.png",
+      "run_prefix": "20261110-115835-59a9cd",
+      "engine": "flux2",
+      "model": "flux-2-klein-4b.safetensors",
+      "steps": 4,
+      "guidance": 1,
+      "sampler": "euler",
+      "spec_path": "art/sources/forest_glade/player/pebble-spec.json",
+      "sha256": "7f4090b7b17295624859c179267ed939e1ceacbedd35ff83badfa8c0e6b8d7ee",
+      "spec_sha256": "a3f6c8dc4ac43deaa8099ff270f56a40386f96b134c57b354a4b12daae67163e"
+    }
+  },
+  "poses": {
+    "right": {
+      "body": "body_right",
+      "pivot": [
+        530,
+        977
+      ],
+      "scale": 0.6652360515021459,
+      "arm_occlusion": [
+        [
+          [
+            434,
+            534
+          ],
+          [
+            472,
+            554
+          ],
+          [
+            531,
+            565
+          ],
+          [
+            594,
+            579
+          ],
+          [
+            626,
+            594
+          ],
+          [
+            646,
+            615
+          ],
+          [
+            652,
+            644
+          ],
+          [
+            634,
+            669
+          ],
+          [
+            598,
+            676
+          ],
+          [
+            541,
+            672
+          ],
+          [
+            488,
+            662
+          ],
+          [
+            455,
+            643
+          ],
+          [
+            438,
+            608
+          ],
+          [
+            430,
+            571
+          ]
+        ],
+        [
+          [
+            663,
+            529
+          ],
+          [
+            694,
+            539
+          ],
+          [
+            714,
+            567
+          ],
+          [
+            728,
+            604
+          ],
+          [
+            721,
+            642
+          ],
+          [
+            699,
+            659
+          ],
+          [
+            675,
+            650
+          ],
+          [
+            655,
+            631
+          ],
+          [
+            650,
+            602
+          ],
+          [
+            656,
+            570
+          ]
+        ]
+      ],
+      "armor": [
+        {
+          "source": "plate",
+          "center": [
+            542,
+            653
+          ],
+          "size": [
+            282,
+            309
+          ],
+          "angle": -2,
+          "occlude_arms": true
+        },
+        {
+          "source": "cap",
+          "center": [
+            428,
+            532
+          ],
+          "size": [
+            178,
+            108
+          ],
+          "angle": -16
+        },
+        {
+          "source": "cap",
+          "center": [
+            689,
+            546
+          ],
+          "size": [
+            112,
+            81
+          ],
+          "angle": 18,
+          "mirror": true
+        }
+      ],
+      "weapon": {
+        "grip": [
+          662,
+          633
+        ],
+        "size": [
+          196,
+          301
+        ],
+        "pivot": [
+          0.5,
+          0.84
+        ],
+        "angle": 90
+      }
+    },
+    "up": {
+      "body": "body_up",
+      "pivot": [
+        512,
+        949
+      ],
+      "scale": 0.6652360515021459,
+      "limbs": [
+        {
+          "polygon": [
+            [
+              235,
+              300
+            ],
+            [
+              324,
+              300
+            ],
+            [
+              359,
+              331
+            ],
+            [
+              357,
+              392
+            ],
+            [
+              384,
+              427
+            ],
+            [
+              414,
+              459
+            ],
+            [
+              441,
+              492
+            ],
+            [
+              446,
+              552
+            ],
+            [
+              412,
+              578
+            ],
+            [
+              368,
+              568
+            ],
+            [
+              318,
+              541
+            ],
+            [
+              281,
+              511
+            ],
+            [
+              260,
+              465
+            ],
+            [
+              241,
+              411
+            ],
+            [
+              231,
+              355
+            ]
+          ],
+          "pivot": [
+            407,
+            539
+          ],
+          "angle": 60
+        },
+        {
+          "polygon": [
+            [
+              699,
+              300
+            ],
+            [
+              789,
+              300
+            ],
+            [
+              793,
+              355
+            ],
+            [
+              783,
+              411
+            ],
+            [
+              764,
+              465
+            ],
+            [
+              743,
+              511
+            ],
+            [
+              706,
+              541
+            ],
+            [
+              656,
+              568
+            ],
+            [
+              612,
+              578
+            ],
+            [
+              578,
+              552
+            ],
+            [
+              583,
+              492
+            ],
+            [
+              610,
+              459
+            ],
+            [
+              640,
+              427
+            ],
+            [
+              667,
+              392
+            ],
+            [
+              665,
+              331
+            ]
+          ],
+          "pivot": [
+            618,
+            537
+          ],
+          "angle": -60
+        }
+      ],
+      "armor": [
+        {
+          "source": "plate",
+          "center": [
+            512,
+            676
+          ],
+          "size": [
+            289,
+            318
+          ],
+          "angle": 0,
+          "occlude_arms": true
+        },
+        {
+          "source": "cap",
+          "center": [
+            373,
+            533
+          ],
+          "size": [
+            164,
+            105
+          ],
+          "angle": -15
+        },
+        {
+          "source": "cap",
+          "center": [
+            652,
+            533
+          ],
+          "size": [
+            164,
+            105
+          ],
+          "angle": 15,
+          "mirror": true
+        }
+      ],
+      "weapon": {
+        "grip": [
+          512,
+          357
+        ],
+        "size": [
+          200,
+          345
+        ],
+        "pivot": [
+          0.5,
+          0.84
+        ],
+        "angle": 0
+      }
+    }
+  },
+  "notes": [
+    "All visible pixels come from locked FLUX.2 Klein 4B generation; alpha/crop/registration/mirroring and whole-limb affine rigging only.",
+    "Static first player block: registered run slots intentionally reuse its own neutral body, never the inverted old actor.",
+    "Chest armor uses a separate occlusion matte to preserve visible forepaws; detached props retain complete generated plates.",
+    "Visibility revision: side slingshot 1.4x, up slingshot 1.15x, fixed grip pivots; stone draw size 12x12 in pack.tres. No combat changes."
+  ],
+  "operations": [
+    "green-key alpha extraction; retain largest connected object",
+    "shared foot registration; horizontal mirror for left",
+    "up: whole generated forearms rotated around fixed shoulder pivots; no painted pixels",
+    "separate generated wood and slingshot layers; arm occlusion masks",
+    "static neutral copies in every old player locomotion slot until animation acceptance"
+  ],
+  "review_status": "accepted_static_player_2026-11-10",
+  "acceptance": {
+    "quote": "принимается, дальше",
+    "date": "2026-11-10",
+    "scope": "Static player/gear/projectile visibility; actual walk animation is the next separately reviewed block."
+  }
+}

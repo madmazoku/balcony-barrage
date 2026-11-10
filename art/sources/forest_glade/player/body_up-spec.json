@@ -1,0 +1,11 @@
+{
+  "engine": "flux2",
+  "model": "flux-2-klein-4b.safetensors",
+  "width": 1024,
+  "height": 1024,
+  "steps": 4,
+  "guidance": 1,
+  "sampler": "euler",
+  "seed": 162008,
+  "prompt": "A single original cute oatmeal rabbit, complete full-body 2D game sprite, isolated on a perfectly uniform vivid chroma-key green background. Warm hand-painted picture-book gouache, soft brown outlines, matte texture and simple three-tone shading. FRONT VIEW, body centered and facing the viewer, head tilted UPWARD with its eyes looking overhead. The rabbit has exactly two furry forearms raised symmetrically beside its head. Both empty forepaws meet close together directly above its forehead at the CENTER of the image, with a small gap between their gently curled fingers. Natural bare oatmeal fur covers its head, shoulders, torso and limbs; a soft cream belly, pink inner ears, two long rabbit ears, short sturdy hind legs and two broad rabbit feet on the same ground line. A compact rounded friendly woodland animal with expressive black oval eyes, a small round muzzle and a tiny round fluffy tail. Plenty of clear green space around all ear tips, raised paws and feet. Clean neutral unequipped animal anatomy, unlettered original character art, consistent warm oat, cream and brown palette."
+}

@@ -1,0 +1,11 @@
+{
+  "engine": "flux2",
+  "model": "flux-2-klein-4b.safetensors",
+  "width": 1024,
+  "height": 1024,
+  "steps": 4,
+  "guidance": 1,
+  "sampler": "euler",
+  "seed": 162006,
+  "prompt": "One single small rounded TREE BARK SHOULDER CAP, isolated equipment sprite on a perfectly uniform vivid chroma-key green background. A short curved half-shell of brown wood shaped to protect a cute rabbit shoulder, a compact semicircular armor plate with a rounded outer edge and a gently concave inner edge. One simple blue cord tie at the upper corner. Thick warm dark-brown border, a few clear engraved wood-grain lines, matte hand-painted picture-book gouache, soft brown outline and three clear wood shades. Whole wooden object centered with generous green margins, three-quarter view, unlettered 2D woodland game equipment."
+}

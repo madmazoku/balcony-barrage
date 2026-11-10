@@ -15,7 +15,7 @@ import tempfile
 import zipfile
 
 TESTS = ('validate_foundation test_round test_controls test_asset_pack test_feedback '
-         'test_motion test_defeat test_boss_actions test_ambient test_profile test_shell test_pack_selection').split()
+         'test_motion test_defeat test_boss_actions test_ambient test_profile test_shell test_pack_selection test_projectile_trail').split()
 REPO = 'madmazoku/balcony-barrage'
 SITE = 'https://madmazoku.github.io/balcony-barrage'
 TAG = re.compile(r'(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)(?:-([A-Za-z0-9_-]+))?\Z')

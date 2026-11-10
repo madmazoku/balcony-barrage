@@ -1,0 +1,11 @@
+{
+  "engine": "flux2",
+  "model": "flux-2-klein-4b.safetensors",
+  "width": 1248,
+  "height": 832,
+  "steps": 4,
+  "guidance": 1,
+  "sampler": "euler",
+  "seed": 161001,
+  "prompt": "An original woodland arcade game character design sheet on warm ivory paper. Six separate full-body studies in a spacious three-column two-row grid, with all feet and tails inside generous margins. Warm hand-painted picture-book gouache, matte pigment, soft brown outlines, simple three-tone shading, rounded cuddly silhouettes, expressive black oval eyes and natural animal paws. Gently anthropomorphic animals with short animal proportions and very little equipment. Top left: a small pale oatmeal rabbit with one bent ear tip, wearing three distinct plates of brown tree bark, one chest plate and two rounded shoulder plates, tied with turquoise cord. In a relaxed pose one forepaw grips the single lower handle of a SMALL Y-shaped twig slingshot held upright beside its hip. The slingshot has two short upper prongs with a turquoise elastic band and a tiny brown leather pouch suspended BETWEEN their tips. The other paw holds one gray pebble separately. Top middle: the identical oatmeal rabbit, same bent ear and same simple Y-shaped slingshot at its side, without the bark armor, showing its soft cream belly. Top right: a larger mischievous russet-apricot fox with a rounded muzzle, dark ears, a huge fluffy dark-tipped tail, a plain canvas shoulder satchel and a pine cone in one forepaw. Bottom left: a squat round beige hedgehog with chocolate spines and tiny grasping forepaws. Bottom middle: a slender chestnut squirrel with an enormous curled tail, holding a hazelnut and wearing a small cloth nut sack at its waist. Bottom right: a very broad adorable young wild boar with cinnamon fur, a few pale stripes along its back from head to tail, round snout, short sturdy legs and small dark hooves. Cohesive warm oat, terracotta, chestnut and moss colors with restrained turquoise accents. Clearly different silhouettes, flat side-three-quarter views, unlettered concept art."
+}

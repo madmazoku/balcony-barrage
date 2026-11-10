@@ -20,8 +20,8 @@
     },
     {
       "id": "forest_glade",
-      "name": "Лесная полянка — в разработке",
-      "description": "Пока инвертированные заглушки. Лесные персонажи появятся после приёмки концептов.",
+      "name": "Лесная полянка — зайка",
+      "description": "Новая зайка, рогатка и броня. Враги и окружение пока остаются заглушками.",
       "path": "res://assets/packs/forest_glade/pack.tres",
       "preview": "res://assets/packs/forest_glade/characters/player/right.png",
       "release_ready": false,

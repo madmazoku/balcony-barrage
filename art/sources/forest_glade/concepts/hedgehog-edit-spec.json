@@ -1,0 +1,12 @@
+{
+  "engine": "flux2",
+  "model": "flux-2-klein-4b.safetensors",
+  "image_path": "G:\\Git\\Gemini\\tmp\\balcony-packs\\hedgehog-inpaint-input.png",
+  "mask_path": "G:\\Git\\Gemini\\tmp\\balcony-packs\\hedgehog-arm-mask-v3.png",
+  "denoise": 0.75,
+  "steps": 4,
+  "guidance": 1,
+  "sampler": "euler",
+  "seed": 161205,
+  "prompt": "Seamlessly repair the tiny rectangular inpainting hole beside the hedgehog's chest. Finish a continuous gently rounded beige belly edge immediately below the existing raised foreleg, with a fine dark-brown contour. The space to the right of that curved belly edge stays empty warm ivory paper. The hedgehog already has its two complete correct forelegs, one raised and one across the belly. Keep those unchanged. Match the existing flat gouache colors and paper texture; retain the same face, spines, body, feet and silhouette."
+}

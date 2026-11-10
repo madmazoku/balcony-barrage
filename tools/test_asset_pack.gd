@@ -17,6 +17,13 @@ func _run() -> void:
 	var prototype := load("res://assets/packs/prototype/pack.tres") as AssetPack
 	check(art.validation_errors().is_empty(), "Static pack must be complete.")
 	check(prototype.validation_errors().is_empty(), "Original prototype must remain loadable.")
+	var draw_override: AssetPack = art.duplicate()
+	draw_override.projectile_draw_sizes = {"bolt": Vector2(7, 7)}
+	check(draw_override.validation_errors().is_empty(), "Projectile appearance may use pack-specific dimensions.")
+	draw_override.projectile_draw_sizes["bolt"] = Vector2(0, 7)
+	check(not draw_override.validation_errors().is_empty(), "Zero projectile draw size must fail validation.")
+	draw_override.projectile_draw_sizes["bolt"] = Vector2(INF, 7)
+	check(not draw_override.validation_errors().is_empty(), "Nonfinite projectile draw size must fail validation.")
 	var incomplete: AssetPack = art.duplicate()
 	incomplete.ui = art.ui.duplicate()
 	incomplete.ui.erase("shell_style")

@@ -16,6 +16,9 @@ extends Resource
 @export_group("Static pack")
 @export var character_variants: Dictionary[String, Array]
 @export var balloon_sprites: Array[Texture2D]
+## Presentation size only; projectile collision and speed stay in GameplayConfig.
+@export var projectile_draw_sizes: Dictionary[String, Vector2]
+@export var projectile_visual: ProjectileVisualConfig
 ## Normalized position of the bottom knot in a balloon texture.
 @export var balloon_rope_anchor: Vector2
 @export var feedback: FeedbackConfig
@@ -49,6 +52,12 @@ func validation_errors() -> Array[String]:
 		errors.append("Pack requires its own shell UI style.")
 	else:
 		errors.append_array((ui["shell_style"] as ShellStyle).validation_errors())
+	for key in projectile_draw_sizes:
+		var size: Vector2 = projectile_draw_sizes[key]
+		if not size.is_finite() or size.x <= 0 or size.y <= 0:
+			errors.append("Invalid projectile draw size: " + key)
+	if projectile_visual != null:
+		errors.append_array(projectile_visual.validation_errors())
 	if readiness == "prototype":
 		return errors
 	if readiness != "static":
