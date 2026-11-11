@@ -2214,16 +2214,16 @@
       "source_sha256": "6305774b795c6033d8118d2055792e16f088488d48da2e1b0ff75000cc5a4e39",
       "placeholder_sha256": "74a275bfff1466eb27395a88a4a8964026e694dacdaf22d4d3eeb51cf1244da7",
       "size": [
-        450,
-        561
+        443,
+        534
       ],
-      "transform": "generated boss and props; alpha key, registration and full generated limb transforms",
+      "transform": "generated pencil-style cloth sack with alpha key",
       "placeholder_transform": "invert RGB; preserve alpha",
-      "sha256": "d68fb7700c9361e77fce7802bfd5e237cb2189d978d279a1a77891a8b273aa39",
+      "sha256": "6d8f47d54dd29702327b401918a16f4f822ace3b3f56b616453a7c56ac7d66d9",
       "stage": "accepted_forest_boss",
       "replacement_recipe": "art/build-forest-fox.json",
       "accepted_at": "2026-11-11",
-      "acceptance_quote": "принимается"
+      "acceptance_quote": "да, так пожалуй рисовка лисика и мешка получше будет"
     },
     {
       "path": "effects/sack_open.png",
@@ -2234,16 +2234,16 @@
       "source_sha256": "9374bc469ce62b467f0f01398220a5b9be57557b5ae108b5f01e3b02c9218aeb",
       "placeholder_sha256": "eb4e4fbf5dd205cae86eabc6066f1c37908819653542278866bd35dd48cfd8a7",
       "size": [
-        436,
-        556
+        445,
+        561
       ],
-      "transform": "generated boss and props; alpha key, registration and full generated limb transforms",
+      "transform": "generated pencil-style cloth sack with alpha key",
       "placeholder_transform": "invert RGB; preserve alpha",
-      "sha256": "38ef8a88cb93d90f68725807edda1dd6c39815ead55360ea3e070e37f5a6f2ec",
+      "sha256": "7e7fbe211e51d046c721925fe62842789007a3b66a1821261e198b964c8fcb66",
       "stage": "accepted_forest_boss",
       "replacement_recipe": "art/build-forest-fox.json",
       "accepted_at": "2026-11-11",
-      "acceptance_quote": "принимается"
+      "acceptance_quote": "да, так пожалуй рисовка лисика и мешка получше будет"
     },
     {
       "path": "environment/ambient_background.png",

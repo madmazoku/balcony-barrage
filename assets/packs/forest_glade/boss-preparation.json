@@ -37,12 +37,16 @@
         "steps": 4,
         "guidance": 1,
         "sampler": "euler",
-        "seed": 212003,
-        "run_prefix": "20261111-113516-683cd9",
-        "image_path": "art/sources/forest_glade/fox/sacks.png",
-        "spec_path": "art/sources/forest_glade/fox/sacks-spec.json",
-        "sha256": "920b3db3d5cc6b695879f24d53ff5ec73ebef111fadf22302e69d33ec25b8cfa",
-        "spec_sha256": "5eb95d2657625f319e81a11dc5b5a608e9aa30f50e5aab7f4e368039c9f2a18b"
+        "seed": 222001,
+        "run_prefix": "20261111-120454-097d2d",
+        "image_path": "art/sources/forest_glade/fox/sacks-soft.png",
+        "spec_path": "art/sources/forest_glade/fox/sacks-soft-spec.json",
+        "sha256": "9affdd4a795e9519a871389a68e02f847cb62f6b46bdc31c851dd1df03f17d49",
+        "spec_sha256": "5886788a02c2906f8148258149f7a266b22db70b5bca94d5998d20ea89f84125",
+        "reference": {
+          "image_path": "art/sources/forest_glade/fox/sacks.png",
+          "sha256": "920b3db3d5cc6b695879f24d53ff5ec73ebef111fadf22302e69d33ec25b8cfa"
+        }
       },
       "cones": {
         "engine": "flux2",
@@ -744,7 +748,22 @@
       "png_count": 18,
       "scope": "Fox boss, eight running phases, five action poses, seated defeat, closed and open sacks, and the pinecone bundle."
     },
-    "spec_checksum_format": "UTF-8 with LF line endings"
+    "spec_checksum_format": "UTF-8 with LF line endings",
+    "sack_revision": {
+      "date": "2026-11-11",
+      "scope": [
+        "effects/sack.png",
+        "effects/sack_open.png"
+      ],
+      "reason": "Match the fox drawing with soft pencil shading and simplified cloth folds.",
+      "acceptance": {
+        "date": "2026-11-11",
+        "quote": "да, так пожалуй рисовка лисика и мешка получше будет",
+        "recipe": "art/build-forest-fox.json",
+        "png_count": 2,
+        "scope": "Revised closed and open sacks matched to the fox drawing."
+      }
+    }
   },
   "prepared": {
     "characters/boss.png": {
@@ -943,29 +962,29 @@
       ]
     },
     "effects/sack.png": {
-      "sha256": "d68fb7700c9361e77fce7802bfd5e237cb2189d978d279a1a77891a8b273aa39",
+      "sha256": "6d8f47d54dd29702327b401918a16f4f822ace3b3f56b616453a7c56ac7d66d9",
       "size": [
-        450,
-        561
+        443,
+        534
       ],
       "alpha_bounds": [
         0,
         0,
-        450,
-        561
+        443,
+        534
       ]
     },
     "effects/sack_open.png": {
-      "sha256": "38ef8a88cb93d90f68725807edda1dd6c39815ead55360ea3e070e37f5a6f2ec",
+      "sha256": "7e7fbe211e51d046c721925fe62842789007a3b66a1821261e198b964c8fcb66",
       "size": [
-        436,
-        556
+        445,
+        561
       ],
       "alpha_bounds": [
         0,
         0,
-        436,
-        556
+        445,
+        561
       ]
     },
     "effects/furniture.png": {

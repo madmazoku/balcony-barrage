@@ -1,0 +1,14 @@
+{
+  "engine": "flux2",
+  "model": "flux-2-klein-4b.safetensors",
+  "width": 1280,
+  "height": 768,
+  "steps": 4,
+  "guidance": 1,
+  "sampler": "euler",
+  "seed": 222001,
+  "image_path": "G:\\Git\\balcony-barrage\\art\\sources\\forest_glade\\fox\\sacks.png",
+  "fit": "crop",
+  "denoise": 0.8,
+  "prompt": "Redraw these same two isolated upright sacks as very simple friendly hand-drawn cartoon props in a children's colored-pencil storybook. Keep the same positions, size and shape in the two separate halves of the sheet. The LEFT sack has a tightly gathered mouth secured with a cord. The RIGHT sack is the same soft cloth sack with its mouth spread open, one soft rolled tan fabric lip and a clear dark hollow. Use a flat light golden-tan fill like a simple illustrated fox's leather satchel, a confident smooth thin charcoal-brown pencil outline, one broad muted ochre shadow on the side, and only two or three short curves indicating folds. The large fabric areas are soft and mostly plain with very sparse gentle pencil grain. A charming economical 2D silhouette readable at small game sprite size. Both props fully visible, with clear space between them, isolated against the same uniform vivid green chroma backdrop, without cast shadows or floor. Two separate game sprites."
+}
