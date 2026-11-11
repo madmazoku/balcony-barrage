@@ -1,0 +1,991 @@
+{
+  "tool": "sprite_assets.py update-boss",
+  "manifest": {
+    "schema": 1,
+    "pack_id": "forest_glade",
+    "output": "assets/packs/forest_glade",
+    "sources": {
+      "body": {
+        "engine": "flux2",
+        "model": "flux-2-klein-4b.safetensors",
+        "steps": 4,
+        "guidance": 1,
+        "sampler": "euler",
+        "seed": 212001,
+        "run_prefix": "20261111-113158-ce6a8a",
+        "image_path": "art/sources/forest_glade/fox/body.png",
+        "spec_path": "art/sources/forest_glade/fox/body-spec.json",
+        "sha256": "d1952b865a1dd7a749bd8185b73eda216cbf54edaa63b73000f127dd2e9d97e0",
+        "spec_sha256": "1479d9cefa7b5af88a3adae16c6d80ed01ce2df3f690af07b8bcaad7c363e837"
+      },
+      "defeated": {
+        "engine": "flux2",
+        "model": "flux-2-klein-4b.safetensors",
+        "steps": 4,
+        "guidance": 1,
+        "sampler": "euler",
+        "seed": 212002,
+        "run_prefix": "20261111-113338-6a1380",
+        "image_path": "art/sources/forest_glade/fox/defeated.png",
+        "spec_path": "art/sources/forest_glade/fox/defeated-spec.json",
+        "sha256": "a760ea04c99f8d6fb74b333150807454464eede24e63c759ae5cb18be0bcc740",
+        "spec_sha256": "65119bacdff0ab4df85ff2e641a864d2b6442c101d94541ad0b12c03fcd3d2fd"
+      },
+      "sacks": {
+        "engine": "flux2",
+        "model": "flux-2-klein-4b.safetensors",
+        "steps": 4,
+        "guidance": 1,
+        "sampler": "euler",
+        "seed": 212003,
+        "run_prefix": "20261111-113516-683cd9",
+        "image_path": "art/sources/forest_glade/fox/sacks.png",
+        "spec_path": "art/sources/forest_glade/fox/sacks-spec.json",
+        "sha256": "920b3db3d5cc6b695879f24d53ff5ec73ebef111fadf22302e69d33ec25b8cfa",
+        "spec_sha256": "5eb95d2657625f319e81a11dc5b5a608e9aa30f50e5aab7f4e368039c9f2a18b"
+      },
+      "cones": {
+        "engine": "flux2",
+        "model": "flux-2-klein-4b.safetensors",
+        "steps": 4,
+        "guidance": 1,
+        "sampler": "euler",
+        "seed": 212004,
+        "run_prefix": "20261111-113631-5ed683",
+        "image_path": "art/sources/forest_glade/fox/cones.png",
+        "spec_path": "art/sources/forest_glade/fox/cones-spec.json",
+        "sha256": "61e17b5c9e3830dba86e22d8afb9285f4c3442f0e02f925427ffb93ca9f34264",
+        "spec_sha256": "f4376f22d32e2e47c7df40a716cb1681760084d9d2e9e2e5cca391642b0dae4d"
+      }
+    },
+    "frame_size": [
+      512,
+      512
+    ],
+    "registration_scale": 0.8,
+    "mirror": true,
+    "defeated_canvas": [
+      600,
+      516
+    ],
+    "defeated_height_fraction": 0.78,
+    "concept_reference": {
+      "path": "art/sources/forest_glade/concepts/cast-corrected.png",
+      "crop": [
+        857,
+        20,
+        1230,
+        410
+      ],
+      "sha256": "df7d61c55c36144b62fc724379645dffc623cddb6471dbc640ca8970a11b1553"
+    },
+    "limbs": {
+      "far_leg": {
+        "pivot": [
+          357,
+          806
+        ],
+        "polygon": [
+          [
+            296,
+            745
+          ],
+          [
+            333,
+            739
+          ],
+          [
+            368,
+            757
+          ],
+          [
+            403,
+            776
+          ],
+          [
+            408,
+            811
+          ],
+          [
+            422,
+            843
+          ],
+          [
+            435,
+            874
+          ],
+          [
+            437,
+            904
+          ],
+          [
+            418,
+            932
+          ],
+          [
+            241,
+            961
+          ],
+          [
+            180,
+            952
+          ],
+          [
+            185,
+            905
+          ],
+          [
+            233,
+            877
+          ],
+          [
+            326,
+            876
+          ],
+          [
+            326,
+            852
+          ],
+          [
+            301,
+            806
+          ],
+          [
+            293,
+            775
+          ]
+        ],
+        "erase_polygon": [
+          [
+            307,
+            801
+          ],
+          [
+            340,
+            799
+          ],
+          [
+            376,
+            803
+          ],
+          [
+            409,
+            800
+          ],
+          [
+            409,
+            818
+          ],
+          [
+            422,
+            843
+          ],
+          [
+            435,
+            874
+          ],
+          [
+            437,
+            904
+          ],
+          [
+            418,
+            932
+          ],
+          [
+            241,
+            961
+          ],
+          [
+            180,
+            952
+          ],
+          [
+            185,
+            905
+          ],
+          [
+            233,
+            877
+          ],
+          [
+            326,
+            876
+          ],
+          [
+            326,
+            852
+          ],
+          [
+            301,
+            806
+          ]
+        ]
+      },
+      "near_leg": {
+        "pivot": [
+          501,
+          811
+        ],
+        "polygon": [
+          [
+            436,
+            763
+          ],
+          [
+            468,
+            753
+          ],
+          [
+            508,
+            781
+          ],
+          [
+            549,
+            787
+          ],
+          [
+            560,
+            824
+          ],
+          [
+            578,
+            873
+          ],
+          [
+            590,
+            914
+          ],
+          [
+            576,
+            971
+          ],
+          [
+            553,
+            1014
+          ],
+          [
+            431,
+            1021
+          ],
+          [
+            424,
+            967
+          ],
+          [
+            444,
+            935
+          ],
+          [
+            485,
+            929
+          ],
+          [
+            506,
+            896
+          ],
+          [
+            477,
+            852
+          ],
+          [
+            448,
+            827
+          ],
+          [
+            436,
+            795
+          ]
+        ],
+        "erase_polygon": [
+          [
+            447,
+            818
+          ],
+          [
+            467,
+            812
+          ],
+          [
+            494,
+            817
+          ],
+          [
+            527,
+            816
+          ],
+          [
+            555,
+            815
+          ],
+          [
+            560,
+            824
+          ],
+          [
+            578,
+            873
+          ],
+          [
+            590,
+            914
+          ],
+          [
+            576,
+            971
+          ],
+          [
+            553,
+            1014
+          ],
+          [
+            431,
+            1021
+          ],
+          [
+            424,
+            967
+          ],
+          [
+            444,
+            935
+          ],
+          [
+            485,
+            929
+          ],
+          [
+            506,
+            896
+          ],
+          [
+            477,
+            852
+          ],
+          [
+            448,
+            827
+          ]
+        ]
+      },
+      "far_arm": {
+        "pivot": [
+          245,
+          526
+        ],
+        "polygon": [
+          [
+            223,
+            503
+          ],
+          [
+            252,
+            503
+          ],
+          [
+            279,
+            524
+          ],
+          [
+            280,
+            561
+          ],
+          [
+            253,
+            583
+          ],
+          [
+            201,
+            608
+          ],
+          [
+            197,
+            646
+          ],
+          [
+            169,
+            688
+          ],
+          [
+            126,
+            697
+          ],
+          [
+            89,
+            683
+          ],
+          [
+            82,
+            635
+          ],
+          [
+            105,
+            595
+          ],
+          [
+            137,
+            572
+          ],
+          [
+            163,
+            545
+          ],
+          [
+            196,
+            526
+          ]
+        ],
+        "erase_polygon": [
+          [
+            219,
+            540
+          ],
+          [
+            240,
+            548
+          ],
+          [
+            252,
+            574
+          ],
+          [
+            204,
+            607
+          ],
+          [
+            198,
+            649
+          ],
+          [
+            170,
+            688
+          ],
+          [
+            126,
+            697
+          ],
+          [
+            89,
+            683
+          ],
+          [
+            82,
+            635
+          ],
+          [
+            105,
+            595
+          ],
+          [
+            137,
+            572
+          ],
+          [
+            163,
+            545
+          ],
+          [
+            196,
+            533
+          ]
+        ]
+      }
+    },
+    "gait": {
+      "contact_a": {
+        "far_leg": {
+          "angle": 20,
+          "offset": [
+            0,
+            0
+          ]
+        },
+        "near_leg": {
+          "angle": -18,
+          "offset": [
+            0,
+            0
+          ]
+        }
+      },
+      "recoil_a": {
+        "far_leg": {
+          "angle": 8,
+          "offset": [
+            0,
+            0
+          ]
+        },
+        "near_leg": {
+          "angle": -12,
+          "offset": [
+            0,
+            0
+          ]
+        }
+      },
+      "pass_a": {
+        "far_leg": {
+          "angle": -6,
+          "offset": [
+            0,
+            0
+          ]
+        },
+        "near_leg": {
+          "angle": 0,
+          "offset": [
+            0,
+            0
+          ]
+        }
+      },
+      "lift_a": {
+        "far_leg": {
+          "angle": -18,
+          "offset": [
+            0,
+            0
+          ]
+        },
+        "near_leg": {
+          "angle": 12,
+          "offset": [
+            0,
+            0
+          ]
+        }
+      },
+      "contact_b": {
+        "far_leg": {
+          "angle": -20,
+          "offset": [
+            0,
+            0
+          ]
+        },
+        "near_leg": {
+          "angle": 18,
+          "offset": [
+            0,
+            0
+          ]
+        }
+      },
+      "recoil_b": {
+        "far_leg": {
+          "angle": -11,
+          "offset": [
+            0,
+            0
+          ]
+        },
+        "near_leg": {
+          "angle": 11,
+          "offset": [
+            0,
+            0
+          ]
+        }
+      },
+      "pass_b": {
+        "far_leg": {
+          "angle": 4,
+          "offset": [
+            0,
+            0
+          ]
+        },
+        "near_leg": {
+          "angle": 0,
+          "offset": [
+            0,
+            0
+          ]
+        }
+      },
+      "lift_b": {
+        "far_leg": {
+          "angle": 16,
+          "offset": [
+            0,
+            0
+          ]
+        },
+        "near_leg": {
+          "angle": -11,
+          "offset": [
+            0,
+            0
+          ]
+        }
+      }
+    },
+    "actions": {
+      "reach": {
+        "far_arm": {
+          "angle": -16,
+          "offset": [
+            1,
+            2
+          ]
+        }
+      },
+      "release": {
+        "far_arm": {
+          "angle": 42,
+          "offset": [
+            -6,
+            -4
+          ]
+        }
+      },
+      "hold": {
+        "far_arm": {
+          "angle": 100,
+          "offset": [
+            -8,
+            -8
+          ]
+        }
+      },
+      "air": {
+        "far_leg": {
+          "angle": 10,
+          "offset": [
+            0,
+            -12
+          ]
+        },
+        "near_leg": {
+          "angle": 20,
+          "offset": [
+            0,
+            -15
+          ]
+        },
+        "far_arm": {
+          "angle": 52,
+          "offset": [
+            -7,
+            -2
+          ]
+        }
+      },
+      "land": {
+        "far_leg": {
+          "angle": -15,
+          "offset": [
+            0,
+            0
+          ]
+        },
+        "near_leg": {
+          "angle": 13,
+          "offset": [
+            0,
+            0
+          ]
+        }
+      }
+    },
+    "props": {
+      "sack": {
+        "source": "sacks",
+        "crop": [
+          0,
+          0,
+          640,
+          768
+        ]
+      },
+      "sack_open": {
+        "source": "sacks",
+        "crop": [
+          640,
+          0,
+          1280,
+          768
+        ]
+      },
+      "furniture": {
+        "source": "cones"
+      }
+    },
+    "visual_settings": {
+      "sack_offset": [
+        0.36,
+        0.25
+      ],
+      "furniture_hold_offset": [
+        0.32,
+        -0.37
+      ],
+      "furniture_lift_offset": [
+        0.35,
+        0.08
+      ],
+      "walking_split_fraction": 0.69375
+    },
+    "review_status": "accepted",
+    "operations": [
+      "All character and prop pixels originate in the accepted-model generated source images.",
+      "Mirror the left-facing source to the existing right-facing registration. Native boss aspect; common center and ground line.",
+      "Eight running phases and five action frames use complete generated limb pixels, feathered masks and transforms. No drawn limbs or props.",
+      "Keep closed/open sacks and the pinecone bundle as separate textures. Existing boss timings, damage and collision rules are unchanged.",
+      "Fit the separate seated defeat art within the existing draw box at the same foot baseline.",
+      "Extraction includes each full limb. Smaller erase masks keep the original elbow and hip overlaps at their joints.",
+      "Gait turns both lower legs around fixed joints in opposite phases, with zero translation at the running joints."
+    ],
+    "acceptance": {
+      "date": "2026-11-11",
+      "quote": "принимается",
+      "recipe": "art/build-forest-fox.json",
+      "png_count": 18,
+      "scope": "Fox boss, eight running phases, five action poses, seated defeat, closed and open sacks, and the pinecone bundle."
+    },
+    "spec_checksum_format": "UTF-8 with LF line endings"
+  },
+  "prepared": {
+    "characters/boss.png": {
+      "sha256": "fcb8a7fffc4f4198b75e8e2e5d28fdeda16b6c7090a6735ec9ea956630a78083",
+      "size": [
+        698,
+        791
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        698,
+        791
+      ]
+    },
+    "characters/boss_defeated.png": {
+      "sha256": "15589a9e7cd5b8d1fa47fe36d088b5c9b8dbb028a0eb073e124241e6c257a142",
+      "size": [
+        600,
+        516
+      ],
+      "alpha_bounds": [
+        106,
+        114,
+        494,
+        516
+      ]
+    },
+    "characters/boss_actions/reach.png": {
+      "sha256": "e9ef46472ad8982d8a4ea039b79b8c405f3f33bfe187418d3c14e815854d8111",
+      "size": [
+        512,
+        512
+      ],
+      "alpha_bounds": [
+        72,
+        56,
+        424,
+        456
+      ]
+    },
+    "characters/boss_actions/release.png": {
+      "sha256": "140250f22c7f9902063de2f4bf7c02635ec3a874c89d4fe75544a3220179415e",
+      "size": [
+        512,
+        512
+      ],
+      "alpha_bounds": [
+        72,
+        56,
+        450,
+        456
+      ]
+    },
+    "characters/boss_actions/hold.png": {
+      "sha256": "33d3fa6679e053a3eee6f7f9be1a26e12d5dd0d09b0df59582b1a8e87029d563",
+      "size": [
+        512,
+        512
+      ],
+      "alpha_bounds": [
+        72,
+        56,
+        424,
+        456
+      ]
+    },
+    "characters/boss_actions/air.png": {
+      "sha256": "d882d835b61788592c8156fc68b1be1f76d725a223cd9da409d2649ad4d6e8da",
+      "size": [
+        512,
+        512
+      ],
+      "alpha_bounds": [
+        72,
+        56,
+        451,
+        447
+      ]
+    },
+    "characters/boss_actions/land.png": {
+      "sha256": "e77fdb30cc035552bd2e44ba616de1a6585ba242381296d060d12e77677a1426",
+      "size": [
+        512,
+        512
+      ],
+      "alpha_bounds": [
+        72,
+        56,
+        426,
+        454
+      ]
+    },
+    "characters/run/boss/contact_a/base.png": {
+      "sha256": "726a0f0708122d7771d396dec2a664ce685e4abdeae1a9321669505e3e9db83a",
+      "size": [
+        512,
+        512
+      ],
+      "alpha_bounds": [
+        72,
+        56,
+        426,
+        457
+      ]
+    },
+    "characters/run/boss/recoil_a/base.png": {
+      "sha256": "205dd0ff14d1e669815ad402f911fcb53018679e571a3a07377801468b2edd38",
+      "size": [
+        512,
+        512
+      ],
+      "alpha_bounds": [
+        72,
+        56,
+        426,
+        457
+      ]
+    },
+    "characters/run/boss/pass_a/base.png": {
+      "sha256": "af733afebe70a6234b2c52de7fa92fdd82a05fb1be32d5f998f38697b9136c05",
+      "size": [
+        512,
+        512
+      ],
+      "alpha_bounds": [
+        72,
+        56,
+        426,
+        456
+      ]
+    },
+    "characters/run/boss/lift_a/base.png": {
+      "sha256": "fe15131bf01e1d155def11b6fa98f567ffeb946860d7cf748d4bcd8ef010f261",
+      "size": [
+        512,
+        512
+      ],
+      "alpha_bounds": [
+        72,
+        56,
+        426,
+        455
+      ]
+    },
+    "characters/run/boss/contact_b/base.png": {
+      "sha256": "063383dfb3435f64d94ca31609a9d478f5e99be0c0dc638981f928b1afc89dce",
+      "size": [
+        512,
+        512
+      ],
+      "alpha_bounds": [
+        72,
+        56,
+        426,
+        454
+      ]
+    },
+    "characters/run/boss/recoil_b/base.png": {
+      "sha256": "7c77d8ce429e75c4d8587d669359be613c99f047a091c0fba19ea8d8dab15347",
+      "size": [
+        512,
+        512
+      ],
+      "alpha_bounds": [
+        72,
+        56,
+        426,
+        455
+      ]
+    },
+    "characters/run/boss/pass_b/base.png": {
+      "sha256": "9af70bc0fa3d7cc40340179de73bc3895b33f30c85581a4633d100d3d1bc4f40",
+      "size": [
+        512,
+        512
+      ],
+      "alpha_bounds": [
+        72,
+        56,
+        426,
+        456
+      ]
+    },
+    "characters/run/boss/lift_b/base.png": {
+      "sha256": "7ad58e3c9d64093a8af7135d3b015dd913cd638956fba4dc193cabf93ec4222f",
+      "size": [
+        512,
+        512
+      ],
+      "alpha_bounds": [
+        72,
+        56,
+        426,
+        457
+      ]
+    },
+    "effects/sack.png": {
+      "sha256": "d68fb7700c9361e77fce7802bfd5e237cb2189d978d279a1a77891a8b273aa39",
+      "size": [
+        450,
+        561
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        450,
+        561
+      ]
+    },
+    "effects/sack_open.png": {
+      "sha256": "38ef8a88cb93d90f68725807edda1dd6c39815ead55360ea3e070e37f5a6f2ec",
+      "size": [
+        436,
+        556
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        436,
+        556
+      ]
+    },
+    "effects/furniture.png": {
+      "sha256": "30b7f9861b6c0fbb1c4514c038bc0305c490ecb16d3d253d23ee4b8ae0919a91",
+      "size": [
+        669,
+        548
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        669,
+        548
+      ]
+    }
+  },
+  "reference_bounds": [
+    0.14453125,
+    0.11328125,
+    0.681640625,
+    0.7724609375
+  ]
+}

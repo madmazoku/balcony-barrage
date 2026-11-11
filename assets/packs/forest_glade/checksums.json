@@ -49,31 +49,31 @@
   },
   {
     "path": "assets/packs/forest_glade/characters/boss.png",
-    "sha256": "c9d822491c93725c1df2842a169206369bf0e50ca295839f1fc26e03cb7a800f"
+    "sha256": "fcb8a7fffc4f4198b75e8e2e5d28fdeda16b6c7090a6735ec9ea956630a78083"
   },
   {
     "path": "assets/packs/forest_glade/characters/boss_actions/air.png",
-    "sha256": "710ce516d51a8389b21f11c4af61ca8c4683ef437eb3f421df06df6bd40fb8e9"
+    "sha256": "d882d835b61788592c8156fc68b1be1f76d725a223cd9da409d2649ad4d6e8da"
   },
   {
     "path": "assets/packs/forest_glade/characters/boss_actions/hold.png",
-    "sha256": "df3b1d3f3b387a9a25d820e6851cbc39ea7c28a01910cf57b5b96e3c6c3e8586"
+    "sha256": "33d3fa6679e053a3eee6f7f9be1a26e12d5dd0d09b0df59582b1a8e87029d563"
   },
   {
     "path": "assets/packs/forest_glade/characters/boss_actions/land.png",
-    "sha256": "fe9aed0c5a520af02d7ab14f54644eefcafa23729ddac265737d915c732a5ad8"
+    "sha256": "e77fdb30cc035552bd2e44ba616de1a6585ba242381296d060d12e77677a1426"
   },
   {
     "path": "assets/packs/forest_glade/characters/boss_actions/reach.png",
-    "sha256": "80d4f99b1e9b5ad29431ee835bd9a384ded41a1dd5716ee159e8d5ff30788a63"
+    "sha256": "e9ef46472ad8982d8a4ea039b79b8c405f3f33bfe187418d3c14e815854d8111"
   },
   {
     "path": "assets/packs/forest_glade/characters/boss_actions/release.png",
-    "sha256": "40d9f4b362a39098aa4634d08d0ce1952c5d940bfcc1732bf11df7e5c511213f"
+    "sha256": "140250f22c7f9902063de2f4bf7c02635ec3a874c89d4fe75544a3220179415e"
   },
   {
     "path": "assets/packs/forest_glade/characters/boss_defeated.png",
-    "sha256": "35bdc4c43bb6f932049b0da8cc985ffeeb3a63652ee68c7a33c1ac2942314172"
+    "sha256": "15589a9e7cd5b8d1fa47fe36d088b5c9b8dbb028a0eb073e124241e6c257a142"
   },
   {
     "path": "assets/packs/forest_glade/characters/normal.png",
@@ -137,35 +137,35 @@
   },
   {
     "path": "assets/packs/forest_glade/characters/run/boss/contact_a/base.png",
-    "sha256": "cbd6461040566711ad4e25911b9ef573e69a85072e65c89df8611a2563fed058"
+    "sha256": "726a0f0708122d7771d396dec2a664ce685e4abdeae1a9321669505e3e9db83a"
   },
   {
     "path": "assets/packs/forest_glade/characters/run/boss/contact_b/base.png",
-    "sha256": "c3a649c0e016b642979835422b4b252ae8b6ced9dc630da260549600d683d90b"
+    "sha256": "063383dfb3435f64d94ca31609a9d478f5e99be0c0dc638981f928b1afc89dce"
   },
   {
     "path": "assets/packs/forest_glade/characters/run/boss/lift_a/base.png",
-    "sha256": "29e74d3b8a8806ab11b4b808adefef5ed243991a9e55175146d29713ffcf44e0"
+    "sha256": "fe15131bf01e1d155def11b6fa98f567ffeb946860d7cf748d4bcd8ef010f261"
   },
   {
     "path": "assets/packs/forest_glade/characters/run/boss/lift_b/base.png",
-    "sha256": "76bcf56dbdc311aa665375ba6444c79a3a8a860dd7953929501342e3079fab94"
+    "sha256": "7ad58e3c9d64093a8af7135d3b015dd913cd638956fba4dc193cabf93ec4222f"
   },
   {
     "path": "assets/packs/forest_glade/characters/run/boss/pass_a/base.png",
-    "sha256": "e2543f830fe06c21040eeeac08d7f3485e1da76ce5694ae7d2bede50cee580f0"
+    "sha256": "af733afebe70a6234b2c52de7fa92fdd82a05fb1be32d5f998f38697b9136c05"
   },
   {
     "path": "assets/packs/forest_glade/characters/run/boss/pass_b/base.png",
-    "sha256": "dee15f982079f65c2c99ed28ee7193feecfb4d55c65cdd43addf482c3b747665"
+    "sha256": "9af70bc0fa3d7cc40340179de73bc3895b33f30c85581a4633d100d3d1bc4f40"
   },
   {
     "path": "assets/packs/forest_glade/characters/run/boss/recoil_a/base.png",
-    "sha256": "05093ae8e29bdd2c2130756cf90ac81dbaf716fdf4b54dee49cb815662201fbd"
+    "sha256": "205dd0ff14d1e669815ad402f911fcb53018679e571a3a07377801468b2edd38"
   },
   {
     "path": "assets/packs/forest_glade/characters/run/boss/recoil_b/base.png",
-    "sha256": "ba4ea2efebb644b045206c161c4d59e3e0e4f1d5eadd2e53014a0b46cdfa1185"
+    "sha256": "7c77d8ce429e75c4d8587d669359be613c99f047a091c0fba19ea8d8dab15347"
   },
   {
     "path": "assets/packs/forest_glade/characters/run/normal/neutral/base.png",
@@ -425,7 +425,7 @@
   },
   {
     "path": "assets/packs/forest_glade/effects/furniture.png",
-    "sha256": "9edd4e0a2fb9f8011fae8e79a56e7f40160f5bc3dfa3036b64b190843e54092e"
+    "sha256": "30b7f9861b6c0fbb1c4514c038bc0305c490ecb16d3d253d23ee4b8ae0919a91"
   },
   {
     "path": "assets/packs/forest_glade/effects/nut.png",
@@ -437,11 +437,11 @@
   },
   {
     "path": "assets/packs/forest_glade/effects/sack.png",
-    "sha256": "74a275bfff1466eb27395a88a4a8964026e694dacdaf22d4d3eeb51cf1244da7"
+    "sha256": "d68fb7700c9361e77fce7802bfd5e237cb2189d978d279a1a77891a8b273aa39"
   },
   {
     "path": "assets/packs/forest_glade/effects/sack_open.png",
-    "sha256": "eb4e4fbf5dd205cae86eabc6066f1c37908819653542278866bd35dd48cfd8a7"
+    "sha256": "38ef8a88cb93d90f68725807edda1dd6c39815ead55360ea3e070e37f5a6f2ec"
   },
   {
     "path": "assets/packs/forest_glade/environment/ambient_background.png",

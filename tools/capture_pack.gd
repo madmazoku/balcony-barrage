@@ -155,6 +155,8 @@ func _capture() -> void:
 			model.minions[0].variant = int(options.get("color", "0"))
 		_:
 			game.call("_shoot", direction)
+	if options.has("player-x"):
+		model.player.x = float(options["player-x"])
 	if effect.begins_with("boss_"):
 		model.boss_direction = float(options.get("side", "1"))
 	var feedback: RoundFeedback = game.get("feedback")
@@ -171,6 +173,9 @@ func _capture() -> void:
 	for index in count:
 		if index > 0 and feedback != null:
 			if options.get("simulate", "false") == "true":
+				# Window focus may change while automated capture is stepping the scene.
+				if game.get("paused"):
+					game.call("_toggle_pause")
 				game.call("_physics_process", float(options.get("step", "0.04")))
 				if effect == "run" and options.get("role", "player") == "player" and pose == "up":
 					game.call("_shoot", Vector2.UP)

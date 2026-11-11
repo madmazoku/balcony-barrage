@@ -136,7 +136,7 @@
 [resource]
 script = ExtResource("1")
 pack_id = &"forest_glade"
-preserve_actor_aspect = PackedStringArray("thrower", "tank")
+preserve_actor_aspect = PackedStringArray("thrower", "tank", "boss")
 projectile_visual = ExtResource("projectile_visual")
 projectile_draw_sizes = Dictionary[String, Vector2]({"bolt": Vector2(12, 12)})
 readiness = "static"
@@ -163,6 +163,6 @@ boss_action_frames = Dictionary[String, Texture2D]({"reach": ExtResource("62"), 
 ambient = ExtResource("ambient")
 ui = Dictionary[String, Resource]({"shell_style": ExtResource("shell_style")})
 enemy_action_frames = Dictionary[String, Array]({"thrower_windup": [ExtResource("49"), ExtResource("50"), ExtResource("51")], "thrower_release": [ExtResource("52"), ExtResource("53"), ExtResource("54")], "normal_capture": [ExtResource("55"), ExtResource("56"), ExtResource("57")], "tank_capture": [ExtResource("58"), ExtResource("59"), ExtResource("60")], "thrower_capture": [ExtResource("52"), ExtResource("53"), ExtResource("54")]})
-enemy_frame_bounds = Dictionary[String, Rect2]({"normal": Rect2(0.1298828125, 0.1357421875, 0.7392578125, 0.7783203125), "tank": Rect2(0.221875, 0.10026041666666667, 0.565625, 0.8359375), "thrower": Rect2(0.115234375, 0.087890625, 0.693359375, 0.8359375), "boss": Rect2(0.083984375, 0.0517578125, 0.666015625, 0.912109375)})
+enemy_frame_bounds = Dictionary[String, Rect2]({"normal": Rect2(0.1298828125, 0.1357421875, 0.7392578125, 0.7783203125), "tank": Rect2(0.221875, 0.10026041666666667, 0.565625, 0.8359375), "thrower": Rect2(0.115234375, 0.087890625, 0.693359375, 0.8359375), "boss": Rect2(0.14453125, 0.11328125, 0.681640625, 0.7724609375)})
 feedback = ExtResource("feedback")
 balloon_pop_frames = Dictionary[String, Array]({"0": [ExtResource("104"), ExtResource("105"), ExtResource("106"), ExtResource("107")], "1": [ExtResource("108"), ExtResource("109"), ExtResource("110"), ExtResource("111")], "2": [ExtResource("112"), ExtResource("113"), ExtResource("114"), ExtResource("115")], "3": [ExtResource("116"), ExtResource("117"), ExtResource("118"), ExtResource("119")]})

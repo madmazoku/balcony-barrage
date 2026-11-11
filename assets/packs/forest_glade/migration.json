@@ -251,22 +251,28 @@
     {
       "path": "characters/boss.png",
       "category": "characters",
-      "placeholder": true,
-      "accepted": false,
+      "placeholder": false,
+      "accepted": true,
       "source": "res://assets/packs/rescue_rangers/characters/boss.png",
       "source_sha256": "2c7a23bd544ef73b2a1b3d3edf7e318f44bdf42b1314d70cb73898a1728de72a",
       "placeholder_sha256": "c9d822491c93725c1df2842a169206369bf0e50ca295839f1fc26e03cb7a800f",
       "size": [
-        682,
-        934
+        698,
+        791
       ],
-      "transform": "invert RGB; preserve alpha"
+      "transform": "generated boss and props; alpha key, registration and full generated limb transforms",
+      "placeholder_transform": "invert RGB; preserve alpha",
+      "sha256": "fcb8a7fffc4f4198b75e8e2e5d28fdeda16b6c7090a6735ec9ea956630a78083",
+      "stage": "accepted_forest_boss",
+      "replacement_recipe": "art/build-forest-fox.json",
+      "accepted_at": "2026-11-11",
+      "acceptance_quote": "принимается"
     },
     {
       "path": "characters/boss_actions/air.png",
       "category": "characters",
-      "placeholder": true,
-      "accepted": false,
+      "placeholder": false,
+      "accepted": true,
       "source": "res://assets/packs/rescue_rangers/characters/boss_actions/air.png",
       "source_sha256": "091eb522137aa517cd4383cdb1dafb6bbd32b32cad15959920d86acef9dff5f9",
       "placeholder_sha256": "710ce516d51a8389b21f11c4af61ca8c4683ef437eb3f421df06df6bd40fb8e9",
@@ -274,13 +280,19 @@
         512,
         512
       ],
-      "transform": "invert RGB; preserve alpha"
+      "transform": "generated boss and props; alpha key, registration and full generated limb transforms",
+      "placeholder_transform": "invert RGB; preserve alpha",
+      "sha256": "d882d835b61788592c8156fc68b1be1f76d725a223cd9da409d2649ad4d6e8da",
+      "stage": "accepted_forest_boss",
+      "replacement_recipe": "art/build-forest-fox.json",
+      "accepted_at": "2026-11-11",
+      "acceptance_quote": "принимается"
     },
     {
       "path": "characters/boss_actions/hold.png",
       "category": "characters",
-      "placeholder": true,
-      "accepted": false,
+      "placeholder": false,
+      "accepted": true,
       "source": "res://assets/packs/rescue_rangers/characters/boss_actions/hold.png",
       "source_sha256": "69fed4e620635756bc700b1fcd03a38a0847e70bb1511b203b1cdc3cc41679bd",
       "placeholder_sha256": "df3b1d3f3b387a9a25d820e6851cbc39ea7c28a01910cf57b5b96e3c6c3e8586",
@@ -288,13 +300,19 @@
         512,
         512
       ],
-      "transform": "invert RGB; preserve alpha"
+      "transform": "generated boss and props; alpha key, registration and full generated limb transforms",
+      "placeholder_transform": "invert RGB; preserve alpha",
+      "sha256": "33d3fa6679e053a3eee6f7f9be1a26e12d5dd0d09b0df59582b1a8e87029d563",
+      "stage": "accepted_forest_boss",
+      "replacement_recipe": "art/build-forest-fox.json",
+      "accepted_at": "2026-11-11",
+      "acceptance_quote": "принимается"
     },
     {
       "path": "characters/boss_actions/land.png",
       "category": "characters",
-      "placeholder": true,
-      "accepted": false,
+      "placeholder": false,
+      "accepted": true,
       "source": "res://assets/packs/rescue_rangers/characters/boss_actions/land.png",
       "source_sha256": "243693f7ca3dc31c536329b1402f48dbf7bec80cce93d3d2165017f7d93894e6",
       "placeholder_sha256": "fe9aed0c5a520af02d7ab14f54644eefcafa23729ddac265737d915c732a5ad8",
@@ -302,13 +320,19 @@
         512,
         512
       ],
-      "transform": "invert RGB; preserve alpha"
+      "transform": "generated boss and props; alpha key, registration and full generated limb transforms",
+      "placeholder_transform": "invert RGB; preserve alpha",
+      "sha256": "e77fdb30cc035552bd2e44ba616de1a6585ba242381296d060d12e77677a1426",
+      "stage": "accepted_forest_boss",
+      "replacement_recipe": "art/build-forest-fox.json",
+      "accepted_at": "2026-11-11",
+      "acceptance_quote": "принимается"
     },
     {
       "path": "characters/boss_actions/reach.png",
       "category": "characters",
-      "placeholder": true,
-      "accepted": false,
+      "placeholder": false,
+      "accepted": true,
       "source": "res://assets/packs/rescue_rangers/characters/boss_actions/reach.png",
       "source_sha256": "af68c7067a29636f98305e0d35c0da056f2f331a442410f4fd403391d32f2c6f",
       "placeholder_sha256": "80d4f99b1e9b5ad29431ee835bd9a384ded41a1dd5716ee159e8d5ff30788a63",
@@ -316,13 +340,19 @@
         512,
         512
       ],
-      "transform": "invert RGB; preserve alpha"
+      "transform": "generated boss and props; alpha key, registration and full generated limb transforms",
+      "placeholder_transform": "invert RGB; preserve alpha",
+      "sha256": "e9ef46472ad8982d8a4ea039b79b8c405f3f33bfe187418d3c14e815854d8111",
+      "stage": "accepted_forest_boss",
+      "replacement_recipe": "art/build-forest-fox.json",
+      "accepted_at": "2026-11-11",
+      "acceptance_quote": "принимается"
     },
     {
       "path": "characters/boss_actions/release.png",
       "category": "characters",
-      "placeholder": true,
-      "accepted": false,
+      "placeholder": false,
+      "accepted": true,
       "source": "res://assets/packs/rescue_rangers/characters/boss_actions/release.png",
       "source_sha256": "d8059403d8115754090787b18e14042dc2e8b21f39eb9ba5c1b5d8a08466b43d",
       "placeholder_sha256": "40d9f4b362a39098aa4634d08d0ce1952c5d940bfcc1732bf11df7e5c511213f",
@@ -330,21 +360,33 @@
         512,
         512
       ],
-      "transform": "invert RGB; preserve alpha"
+      "transform": "generated boss and props; alpha key, registration and full generated limb transforms",
+      "placeholder_transform": "invert RGB; preserve alpha",
+      "sha256": "140250f22c7f9902063de2f4bf7c02635ec3a874c89d4fe75544a3220179415e",
+      "stage": "accepted_forest_boss",
+      "replacement_recipe": "art/build-forest-fox.json",
+      "accepted_at": "2026-11-11",
+      "acceptance_quote": "принимается"
     },
     {
       "path": "characters/boss_defeated.png",
       "category": "characters",
-      "placeholder": true,
-      "accepted": false,
+      "placeholder": false,
+      "accepted": true,
       "source": "res://assets/packs/rescue_rangers/characters/boss_defeated.png",
       "source_sha256": "c66d3d7b04277ddeab059e95d3d8588dd0375a5017615f2be48de8f9e3f630ef",
       "placeholder_sha256": "35bdc4c43bb6f932049b0da8cc985ffeeb3a63652ee68c7a33c1ac2942314172",
       "size": [
-        847,
-        839
+        600,
+        516
       ],
-      "transform": "invert RGB; preserve alpha"
+      "transform": "generated boss and props; alpha key, registration and full generated limb transforms",
+      "placeholder_transform": "invert RGB; preserve alpha",
+      "sha256": "15589a9e7cd5b8d1fa47fe36d088b5c9b8dbb028a0eb073e124241e6c257a142",
+      "stage": "accepted_forest_boss",
+      "replacement_recipe": "art/build-forest-fox.json",
+      "accepted_at": "2026-11-11",
+      "acceptance_quote": "принимается"
     },
     {
       "path": "characters/normal.png",
@@ -664,8 +706,8 @@
     {
       "path": "characters/run/boss/contact_a/base.png",
       "category": "characters",
-      "placeholder": true,
-      "accepted": false,
+      "placeholder": false,
+      "accepted": true,
       "source": "res://assets/packs/rescue_rangers/characters/run/boss/contact_a/base.png",
       "source_sha256": "074ec2caccb4a383e0b6379ea4319bb55f121abe8967690d667cb422de308264",
       "placeholder_sha256": "cbd6461040566711ad4e25911b9ef573e69a85072e65c89df8611a2563fed058",
@@ -673,13 +715,19 @@
         512,
         512
       ],
-      "transform": "invert RGB; preserve alpha"
+      "transform": "generated boss and props; alpha key, registration and full generated limb transforms",
+      "placeholder_transform": "invert RGB; preserve alpha",
+      "sha256": "726a0f0708122d7771d396dec2a664ce685e4abdeae1a9321669505e3e9db83a",
+      "stage": "accepted_forest_boss",
+      "replacement_recipe": "art/build-forest-fox.json",
+      "accepted_at": "2026-11-11",
+      "acceptance_quote": "принимается"
     },
     {
       "path": "characters/run/boss/contact_b/base.png",
       "category": "characters",
-      "placeholder": true,
-      "accepted": false,
+      "placeholder": false,
+      "accepted": true,
       "source": "res://assets/packs/rescue_rangers/characters/run/boss/contact_b/base.png",
       "source_sha256": "b13770fd47471305be0a79d67faeb2810132414dca5ffdedbb105b93fd762e0b",
       "placeholder_sha256": "c3a649c0e016b642979835422b4b252ae8b6ced9dc630da260549600d683d90b",
@@ -687,13 +735,19 @@
         512,
         512
       ],
-      "transform": "invert RGB; preserve alpha"
+      "transform": "generated boss and props; alpha key, registration and full generated limb transforms",
+      "placeholder_transform": "invert RGB; preserve alpha",
+      "sha256": "063383dfb3435f64d94ca31609a9d478f5e99be0c0dc638981f928b1afc89dce",
+      "stage": "accepted_forest_boss",
+      "replacement_recipe": "art/build-forest-fox.json",
+      "accepted_at": "2026-11-11",
+      "acceptance_quote": "принимается"
     },
     {
       "path": "characters/run/boss/lift_a/base.png",
       "category": "characters",
-      "placeholder": true,
-      "accepted": false,
+      "placeholder": false,
+      "accepted": true,
       "source": "res://assets/packs/rescue_rangers/characters/run/boss/lift_a/base.png",
       "source_sha256": "4ae604f0145d892b8c03a6743475e8d754e4001befcc64a573d81c6d41540a5e",
       "placeholder_sha256": "29e74d3b8a8806ab11b4b808adefef5ed243991a9e55175146d29713ffcf44e0",
@@ -701,13 +755,19 @@
         512,
         512
       ],
-      "transform": "invert RGB; preserve alpha"
+      "transform": "generated boss and props; alpha key, registration and full generated limb transforms",
+      "placeholder_transform": "invert RGB; preserve alpha",
+      "sha256": "fe15131bf01e1d155def11b6fa98f567ffeb946860d7cf748d4bcd8ef010f261",
+      "stage": "accepted_forest_boss",
+      "replacement_recipe": "art/build-forest-fox.json",
+      "accepted_at": "2026-11-11",
+      "acceptance_quote": "принимается"
     },
     {
       "path": "characters/run/boss/lift_b/base.png",
       "category": "characters",
-      "placeholder": true,
-      "accepted": false,
+      "placeholder": false,
+      "accepted": true,
       "source": "res://assets/packs/rescue_rangers/characters/run/boss/lift_b/base.png",
       "source_sha256": "ea51c11d08e44345399302304dfbc8cee5354da54ed7f00e5a4eb42ff3cd4c39",
       "placeholder_sha256": "76bcf56dbdc311aa665375ba6444c79a3a8a860dd7953929501342e3079fab94",
@@ -715,13 +775,19 @@
         512,
         512
       ],
-      "transform": "invert RGB; preserve alpha"
+      "transform": "generated boss and props; alpha key, registration and full generated limb transforms",
+      "placeholder_transform": "invert RGB; preserve alpha",
+      "sha256": "7ad58e3c9d64093a8af7135d3b015dd913cd638956fba4dc193cabf93ec4222f",
+      "stage": "accepted_forest_boss",
+      "replacement_recipe": "art/build-forest-fox.json",
+      "accepted_at": "2026-11-11",
+      "acceptance_quote": "принимается"
     },
     {
       "path": "characters/run/boss/pass_a/base.png",
       "category": "characters",
-      "placeholder": true,
-      "accepted": false,
+      "placeholder": false,
+      "accepted": true,
       "source": "res://assets/packs/rescue_rangers/characters/run/boss/pass_a/base.png",
       "source_sha256": "ce5576da9b65cc602c333c236a6588bebf93949a44255ab6e53d6ed51b7b7e6d",
       "placeholder_sha256": "e2543f830fe06c21040eeeac08d7f3485e1da76ce5694ae7d2bede50cee580f0",
@@ -729,13 +795,19 @@
         512,
         512
       ],
-      "transform": "invert RGB; preserve alpha"
+      "transform": "generated boss and props; alpha key, registration and full generated limb transforms",
+      "placeholder_transform": "invert RGB; preserve alpha",
+      "sha256": "af733afebe70a6234b2c52de7fa92fdd82a05fb1be32d5f998f38697b9136c05",
+      "stage": "accepted_forest_boss",
+      "replacement_recipe": "art/build-forest-fox.json",
+      "accepted_at": "2026-11-11",
+      "acceptance_quote": "принимается"
     },
     {
       "path": "characters/run/boss/pass_b/base.png",
       "category": "characters",
-      "placeholder": true,
-      "accepted": false,
+      "placeholder": false,
+      "accepted": true,
       "source": "res://assets/packs/rescue_rangers/characters/run/boss/pass_b/base.png",
       "source_sha256": "a72024b4076902f63a748096e6dc0447935bcd34b9e17f3d0ae5665807e580bf",
       "placeholder_sha256": "dee15f982079f65c2c99ed28ee7193feecfb4d55c65cdd43addf482c3b747665",
@@ -743,13 +815,19 @@
         512,
         512
       ],
-      "transform": "invert RGB; preserve alpha"
+      "transform": "generated boss and props; alpha key, registration and full generated limb transforms",
+      "placeholder_transform": "invert RGB; preserve alpha",
+      "sha256": "9af70bc0fa3d7cc40340179de73bc3895b33f30c85581a4633d100d3d1bc4f40",
+      "stage": "accepted_forest_boss",
+      "replacement_recipe": "art/build-forest-fox.json",
+      "accepted_at": "2026-11-11",
+      "acceptance_quote": "принимается"
     },
     {
       "path": "characters/run/boss/recoil_a/base.png",
       "category": "characters",
-      "placeholder": true,
-      "accepted": false,
+      "placeholder": false,
+      "accepted": true,
       "source": "res://assets/packs/rescue_rangers/characters/run/boss/recoil_a/base.png",
       "source_sha256": "f87ad1c8bd2a200d9074a4819658152e07f8e699d9ada07b0a2eacdf4063a644",
       "placeholder_sha256": "05093ae8e29bdd2c2130756cf90ac81dbaf716fdf4b54dee49cb815662201fbd",
@@ -757,13 +835,19 @@
         512,
         512
       ],
-      "transform": "invert RGB; preserve alpha"
+      "transform": "generated boss and props; alpha key, registration and full generated limb transforms",
+      "placeholder_transform": "invert RGB; preserve alpha",
+      "sha256": "205dd0ff14d1e669815ad402f911fcb53018679e571a3a07377801468b2edd38",
+      "stage": "accepted_forest_boss",
+      "replacement_recipe": "art/build-forest-fox.json",
+      "accepted_at": "2026-11-11",
+      "acceptance_quote": "принимается"
     },
     {
       "path": "characters/run/boss/recoil_b/base.png",
       "category": "characters",
-      "placeholder": true,
-      "accepted": false,
+      "placeholder": false,
+      "accepted": true,
       "source": "res://assets/packs/rescue_rangers/characters/run/boss/recoil_b/base.png",
       "source_sha256": "024b53be8f2d2ee7c304a7172497cbdd57306790de879ace7d947205b6c5861c",
       "placeholder_sha256": "ba4ea2efebb644b045206c161c4d59e3e0e4f1d5eadd2e53014a0b46cdfa1185",
@@ -771,7 +855,13 @@
         512,
         512
       ],
-      "transform": "invert RGB; preserve alpha"
+      "transform": "generated boss and props; alpha key, registration and full generated limb transforms",
+      "placeholder_transform": "invert RGB; preserve alpha",
+      "sha256": "7c77d8ce429e75c4d8587d669359be613c99f047a091c0fba19ea8d8dab15347",
+      "stage": "accepted_forest_boss",
+      "replacement_recipe": "art/build-forest-fox.json",
+      "accepted_at": "2026-11-11",
+      "acceptance_quote": "принимается"
     },
     {
       "path": "characters/run/normal/neutral/base.png",
@@ -2058,16 +2148,22 @@
     {
       "path": "effects/furniture.png",
       "category": "effects",
-      "placeholder": true,
-      "accepted": false,
+      "placeholder": false,
+      "accepted": true,
       "source": "res://assets/packs/rescue_rangers/effects/furniture.png",
       "source_sha256": "b4924b5b8e252c6f510813ef1faa77733e75b29712a26ac38b8b3a464cc3a13d",
       "placeholder_sha256": "9edd4e0a2fb9f8011fae8e79a56e7f40160f5bc3dfa3036b64b190843e54092e",
       "size": [
-        346,
-        355
+        669,
+        548
       ],
-      "transform": "invert RGB; preserve alpha"
+      "transform": "generated boss and props; alpha key, registration and full generated limb transforms",
+      "placeholder_transform": "invert RGB; preserve alpha",
+      "sha256": "30b7f9861b6c0fbb1c4514c038bc0305c490ecb16d3d253d23ee4b8ae0919a91",
+      "stage": "accepted_forest_boss",
+      "replacement_recipe": "art/build-forest-fox.json",
+      "accepted_at": "2026-11-11",
+      "acceptance_quote": "принимается"
     },
     {
       "path": "effects/nut.png",
@@ -2112,30 +2208,42 @@
     {
       "path": "effects/sack.png",
       "category": "effects",
-      "placeholder": true,
-      "accepted": false,
+      "placeholder": false,
+      "accepted": true,
       "source": "res://assets/packs/rescue_rangers/effects/sack.png",
       "source_sha256": "6305774b795c6033d8118d2055792e16f088488d48da2e1b0ff75000cc5a4e39",
       "placeholder_sha256": "74a275bfff1466eb27395a88a4a8964026e694dacdaf22d4d3eeb51cf1244da7",
       "size": [
-        294,
-        398
+        450,
+        561
       ],
-      "transform": "invert RGB; preserve alpha"
+      "transform": "generated boss and props; alpha key, registration and full generated limb transforms",
+      "placeholder_transform": "invert RGB; preserve alpha",
+      "sha256": "d68fb7700c9361e77fce7802bfd5e237cb2189d978d279a1a77891a8b273aa39",
+      "stage": "accepted_forest_boss",
+      "replacement_recipe": "art/build-forest-fox.json",
+      "accepted_at": "2026-11-11",
+      "acceptance_quote": "принимается"
     },
     {
       "path": "effects/sack_open.png",
       "category": "effects",
-      "placeholder": true,
-      "accepted": false,
+      "placeholder": false,
+      "accepted": true,
       "source": "res://assets/packs/rescue_rangers/effects/sack_open.png",
       "source_sha256": "9374bc469ce62b467f0f01398220a5b9be57557b5ae108b5f01e3b02c9218aeb",
       "placeholder_sha256": "eb4e4fbf5dd205cae86eabc6066f1c37908819653542278866bd35dd48cfd8a7",
       "size": [
-        651,
-        806
+        436,
+        556
       ],
-      "transform": "invert RGB; preserve alpha"
+      "transform": "generated boss and props; alpha key, registration and full generated limb transforms",
+      "placeholder_transform": "invert RGB; preserve alpha",
+      "sha256": "38ef8a88cb93d90f68725807edda1dd6c39815ead55360ea3e070e37f5a6f2ec",
+      "stage": "accepted_forest_boss",
+      "replacement_recipe": "art/build-forest-fox.json",
+      "accepted_at": "2026-11-11",
+      "acceptance_quote": "принимается"
     },
     {
       "path": "environment/ambient_background.png",

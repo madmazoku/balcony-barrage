@@ -1,0 +1,11 @@
+{
+  "engine": "flux2",
+  "model": "flux-2-klein-4b.safetensors",
+  "width": 1280,
+  "height": 768,
+  "steps": 4,
+  "guidance": 1,
+  "sampler": "euler",
+  "seed": 212003,
+  "prompt": "Two separate reusable 2D game prop sprites side by side with a wide empty green gap, a woodland fox's brown burlap supply sack in two states. LEFT: one plump tall rounded coarse tan cloth sack, mouth gathered and tightly tied with a short natural brown cord. RIGHT: the same sack, same size and shape and canvas color, mouth open with a clear rolled rim and dark empty interior. Full objects fully contained in their separate halves, facing viewer at a gentle three-quarter angle, upright on equal baseline. Warm hand-painted gouache and colored pencil children's book illustration, thick dark brown clean outlines, bold readable fabric folds and two softly shaded warm tan values. Solid flat vivid green chroma key background, no ground, no shadows, no contents, no characters, no text, no other objects. Exactly two sacks with generous outer margins and a generous gap."
+}

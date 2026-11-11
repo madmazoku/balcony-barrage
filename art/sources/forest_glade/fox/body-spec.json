@@ -1,0 +1,14 @@
+{
+  "engine": "flux2",
+  "model": "flux-2-klein-4b.safetensors",
+  "width": 1024,
+  "height": 1024,
+  "steps": 4,
+  "guidance": 1,
+  "sampler": "euler",
+  "seed": 212001,
+  "image_path": "G:\\Git\\Gemini\\tmp\\balcony-packs\\fox-concept.png",
+  "fit": "crop",
+  "denoise": 0.86,
+  "prompt": "An original single red fox antagonist sprite for a hand-painted woodland arcade game, full body, upright biped in three-quarter side view facing RIGHT. Follow the reference fox's warm rust-orange fur, ivory cheek ruff and chest, tall pointed black-tipped ears, black stockings and paws, one large bushy tail with a charcoal tip, and small tan leather crossbody pouch. Lean alert fox, pointed muzzle, bright knowing black eyes and a sly confident half smile. Two forearms bent forward naturally, two empty black paws clearly separated and ready to grab, no held props. Two long sturdy hind legs and two fully visible planted paws, one slightly ahead of the other, same ground level, distinct gap between legs. One tail arcs behind the fox toward the LEFT, fully contained within the frame. Warm gouache and colored pencil children's book illustration, expressive ink outlines, soft textured shading matching the reference. Whole body centered with generous margins. Flat vivid green chroma-key background, no shadows, no scenery, no labels, one character."
+}

@@ -1,0 +1,11 @@
+{
+  "engine": "flux2",
+  "model": "flux-2-klein-4b.safetensors",
+  "width": 1024,
+  "height": 1024,
+  "steps": 4,
+  "guidance": 1,
+  "sampler": "euler",
+  "seed": 212004,
+  "prompt": "Single isolated chunky bundle of three brown pinecones tied together with a pale coarse cord, a large falling projectile for a cozy woodland 2D arcade game. Distinct chunky overlapping pinecone scales, tapered ends, clearly recognizable as cones at small size. Compact horizontal arrangement approximately twice as wide as tall, connected together as one silhouette, warm chestnut tones with ochre highlights and deep brown ink outlines. Front three-quarter view. Light neutral rope crosses the center of the bundle once, with a small knot visible. Warm hand-painted gouache and colored pencil children's book illustration, bold shapes, few clear highlights. Full object centered within frame with generous margin, flat vivid green chroma-key background. No ground, no shadows, no labels, no leaves, no extra objects."
+}

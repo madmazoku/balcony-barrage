@@ -1,0 +1,14 @@
+{
+  "engine": "flux2",
+  "model": "flux-2-klein-4b.safetensors",
+  "width": 1024,
+  "height": 1024,
+  "steps": 4,
+  "guidance": 1,
+  "sampler": "euler",
+  "seed": 212002,
+  "image_path": "G:\\Git\\Gemini\\media_mcp\\images\\20261111-113158-ce6a8a-final.png",
+  "fit": "crop",
+  "denoise": 0.82,
+  "prompt": "The same single storybook red fox antagonist, defeated and sitting exhausted on the ground, full body facing LEFT. Preserve the character identity and drawing style from the reference: long pointed rust-orange muzzle, tall charcoal pointed ears, ivory cheek ruff and chest, dark paws, tan leather crossbody pouch, one bushy orange tail with a charcoal band and pale tip. The fox slumps down onto its haunches, two black hind paws visible forward on the same baseline, two forepaws hanging loosely beside its chest, bushy tail resting along the ground to the RIGHT. Half-lidded tired eyes, annoyed frown, softly lowered ears, a few small fur scuffs. Gentle humorous defeat in a children's arcade game. Single full silhouette centered within the frame with generous margin. Flat vivid green chroma-key backdrop, no scenery, no cast shadow, no props, no text. Warm gouache, visible colored pencil texture, warm ink outlines."
+}
