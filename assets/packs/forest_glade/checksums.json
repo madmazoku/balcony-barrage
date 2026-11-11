@@ -437,11 +437,11 @@
   },
   {
     "path": "assets/packs/forest_glade/effects/sack.png",
-    "sha256": "d68fb7700c9361e77fce7802bfd5e237cb2189d978d279a1a77891a8b273aa39"
+    "sha256": "6d8f47d54dd29702327b401918a16f4f822ace3b3f56b616453a7c56ac7d66d9"
   },
   {
     "path": "assets/packs/forest_glade/effects/sack_open.png",
-    "sha256": "38ef8a88cb93d90f68725807edda1dd6c39815ead55360ea3e070e37f5a6f2ec"
+    "sha256": "7e7fbe211e51d046c721925fe62842789007a3b66a1821261e198b964c8fcb66"
   },
   {
     "path": "assets/packs/forest_glade/environment/ambient_background.png",

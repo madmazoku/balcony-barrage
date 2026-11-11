@@ -72,6 +72,13 @@
       "recipe": "art/build-forest-fox.json",
       "png_count": 18,
       "scope": "Fox boss, eight running phases, five action poses, seated defeat, closed and open sacks, and the pinecone bundle."
+    },
+    "fox_sacks": {
+      "date": "2026-11-11",
+      "quote": "да, так пожалуй рисовка лисика и мешка получше будет",
+      "recipe": "art/build-forest-fox.json",
+      "png_count": 2,
+      "scope": "Revised closed and open sacks matched to the fox drawing."
     }
   },
   "pending_blocks": {}
