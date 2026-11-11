@@ -1,0 +1,223 @@
+{
+  "schema": 1,
+  "pack_id": "forest_glade",
+  "output": "assets/packs/forest_glade",
+  "source": {
+    "engine": "flux2",
+    "model": "flux-2-klein-4b.safetensors",
+    "steps": 4,
+    "guidance": 1,
+    "sampler": "euler",
+    "seed": 202001,
+    "run_prefix": "20261110-183612-fa8b16",
+    "image_path": "art/sources/forest_glade/leaves/leaf.png",
+    "spec_path": "art/sources/forest_glade/leaves/leaf-spec.json",
+    "sha256": "82b8cca5967c00f79ff01807c8774ee6182a778178dbe16afd32cad04308907c",
+    "spec_sha256": "607764136b33c542179b44b5b57d4988a75fa54d434d3470dc05931c050d7dd0"
+  },
+  "frame_size": [
+    128,
+    128
+  ],
+  "content_size": [
+    120,
+    120
+  ],
+  "draw_size": [
+    32,
+    32
+  ],
+  "palettes": [
+    {
+      "name": "green",
+      "hue": 67,
+      "color": [
+        0.58,
+        0.77,
+        0.27,
+        1
+      ]
+    },
+    {
+      "name": "gold",
+      "hue": 34,
+      "color": [
+        0.95,
+        0.77,
+        0.28,
+        1
+      ]
+    },
+    {
+      "name": "orange",
+      "hue": 18,
+      "color": [
+        0.92,
+        0.46,
+        0.2,
+        1
+      ]
+    },
+    {
+      "name": "red",
+      "hue": 2,
+      "color": [
+        0.8,
+        0.29,
+        0.25,
+        1
+      ]
+    }
+  ],
+  "cord_crop": [
+    509,
+    750,
+    523,
+    835
+  ],
+  "cord_size": [
+    12,
+    128
+  ],
+  "tear_split": [
+    [
+      0,
+      0
+    ],
+    [
+      66,
+      0
+    ],
+    [
+      61,
+      23
+    ],
+    [
+      68,
+      39
+    ],
+    [
+      61,
+      56
+    ],
+    [
+      67,
+      72
+    ],
+    [
+      61,
+      88
+    ],
+    [
+      66,
+      105
+    ],
+    [
+      63,
+      128
+    ],
+    [
+      0,
+      128
+    ]
+  ],
+  "tear_frames": [
+    {
+      "scale": 0.84,
+      "opacity": 1,
+      "parts": [
+        {
+          "offset": [
+            -2,
+            0
+          ],
+          "angle": -3
+        },
+        {
+          "offset": [
+            2,
+            0
+          ],
+          "angle": 3
+        }
+      ]
+    },
+    {
+      "scale": 0.84,
+      "opacity": 0.94,
+      "parts": [
+        {
+          "offset": [
+            -7,
+            2
+          ],
+          "angle": -15
+        },
+        {
+          "offset": [
+            7,
+            3
+          ],
+          "angle": 17
+        }
+      ]
+    },
+    {
+      "scale": 0.81,
+      "opacity": 0.75,
+      "parts": [
+        {
+          "offset": [
+            -14,
+            7
+          ],
+          "angle": -32
+        },
+        {
+          "offset": [
+            15,
+            9
+          ],
+          "angle": 34
+        }
+      ]
+    },
+    {
+      "scale": 0.76,
+      "opacity": 0.4,
+      "parts": [
+        {
+          "offset": [
+            -23,
+            15
+          ],
+          "angle": -49
+        },
+        {
+          "offset": [
+            24,
+            18
+          ],
+          "angle": 52
+        }
+      ]
+    }
+  ],
+  "frame_seconds": 0.075,
+  "review_status": "accepted",
+  "operations": [
+    "All visible leaf/cord pixels originate in the generated accepted-model leaf; no drawn leaves, lines or object overlays.",
+    "Four HSV color variants share the same alpha and petiole registration. Cord is a cropped generated petiole.",
+    "Two complementary jagged alpha masks cut the original leaf into halves. Four frames rotate/translate/fade those whole generated fragments on one fixed canvas.",
+    "Stem anchor detected from opaque bottom rows; presentation size belongs to the pack. No collision, HP, palette selection, movement or character-size changes.",
+    "Pack-owned along_tether mode rotates each sprite around its unchanged center; rotated petiole anchor remains collinear with the cord. Tear inherits the pre-hit angle. Other packs default upright."
+  ],
+  "orientation": "along_tether",
+  "acceptance": {
+    "date": "2026-11-10",
+    "quote": "принимается",
+    "recipe": "art/build-forest-leaves.json",
+    "png_count": 21,
+    "scope": "Four leaf colors, generated petiole cords, one/two/four suspensions, along-tether tilt and matching tear angle. Original balloon pack remains upright; combat and character dimensions unchanged."
+  }
+}

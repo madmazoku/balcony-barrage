@@ -1,0 +1,11 @@
+{
+  "engine": "flux2",
+  "model": "flux-2-klein-4b.safetensors",
+  "width": 1024,
+  "height": 1024,
+  "steps": 4,
+  "guidance": 1,
+  "sampler": "euler",
+  "seed": 202001,
+  "prompt": "A single broad fan-shaped autumn maple leaf for a cozy woodland 2D arcade game sprite, centered and fully visible. Front view, five broad softly pointed lobes, a clear recognizable maple leaf silhouette much wider than an ordinary oval leaf. Warm light golden yellow ochre leaf blade, clean dark warm brown outline, thick branching brown veins radiating from the base, gently cupped like a tiny natural parachute. The central top point faces straight UP. One short straight slender brown petiole points vertically DOWN from the bottom center, perfectly centered beneath the leaf. A small leaf alone with no strings, hands or other objects. Warm hand painted gouache and colored pencil storybook style matching cute forest animals, simple softly shaded shapes, excellent readability at tiny sprite size, few large veins and clean silhouette. Uniform flat vivid green chroma background, no ground, no cast shadow, no text. Generous clear green margin on every side."
+}

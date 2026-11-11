@@ -109,9 +109,9 @@ func _capture() -> void:
 				model._update_hazards(0.05)
 		"pop":
 			model.minions.clear()
-			model.spawn("thrower", Vector2(model.config.arena_size.x / 2, model.config.ground_y - 210))
+			model.spawn(options.get("role", "thrower"), Vector2(model.config.arena_size.x / 2, model.config.ground_y - 210))
 			model.minions[0].variant = int(options.get("color", "0"))
-			var balloon: Vector2 = model.balloon_positions(model.minions[0])[0]
+			var balloon: Vector2 = model.balloon_positions(model.minions[0]).back()
 			model.bolts.append({"pos": balloon + Vector2(0, 15), "velocity": Vector2.UP * model.config.bolt_speed})
 			model._update_bolts(0.05)
 			game.set("player_pose", pose)
@@ -193,6 +193,8 @@ func _capture() -> void:
 			var ratio: Vector2 = Vector2(image.get_size()) / model.config.arena_size
 			var left: int = clampi(int(position.x * ratio.x) - 90, 0, image.get_width() - 180)
 			var top: int = int(position.y * ratio.y) - 65 if role == "boss" else int((model.config.ground_y - 50) * ratio.y) - 75
+			if effect == "enemy" and options.get("state", "air") == "air":
+				top = int(position.y * ratio.y) - 95
 			image = image.get_region(Rect2i(left, top, 180, 130))
 		var error: Error = image.save_png(path)
 		if error != OK:

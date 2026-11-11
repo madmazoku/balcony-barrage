@@ -149,9 +149,11 @@ func _shoot(direction: Vector2) -> void:
 		if feedback != null:
 			feedback.shoot(direction)
 
-func _on_balloon_popped(position: Vector2, color_variant: int) -> void:
+func _on_balloon_popped(position: Vector2, color_variant: int, source: Dictionary) -> void:
 	var index: int = color_variant % pack.balloon_sprites.size()
-	feedback.pop(position, index, pack.balloon_pop_frames[str(index)].size())
+	var connection: Vector2 = source.pos - Vector2(0, model.body_size(source.role).y / 2)
+	var angle: float = pack.suspension_pose(position, connection, settings.balloon_radius).angle
+	feedback.pop(position, index, pack.balloon_pop_frames[str(index)].size(), angle)
 
 func _player_visual_transform() -> Transform2D:
 	var foot := Vector2(model.player.x, model.player.y + settings.player_size.y / 2)
@@ -317,7 +319,7 @@ func _draw_feedback() -> void:
 			var frames: Array = pack.balloon_pop_frames[str(effect.variant)]
 			var index: int = mini(frames.size() - 1, int(effect.age / feedback.settings.pop_frame_seconds))
 			var size: float = settings.balloon_radius * 2.6 * feedback.settings.pop_size_multiplier
-			_texture_center(frames[index] as Texture2D, effect.pos, Vector2.ONE * size)
+			_texture_center(frames[index] as Texture2D, effect.pos, Vector2.ONE * size, false, effect.angle)
 		elif effect.kind == "armor":
 			draw_set_transform(effect.pos, effect.angle)
 			draw_texture_rect(pack.effects["armor_" + str(effect.part)] as Texture2D, Rect2(-effect.size / 2, effect.size), false)
@@ -494,8 +496,8 @@ func _draw_result() -> void:
 		_text(Vector2(340, 437), "Сбито %d  /  %.1f сек  /  %.1f в минуту" % [model.kills, model.elapsed, model.rate()], 22)
 		_text(Vector2(340, 485), "R — попробовать снова", 22)
 
-func _texture_center(texture: Texture2D, position: Vector2, size: Vector2, flip: bool = false) -> void:
-	draw_set_transform(position, 0, Vector2(-1, 1) if flip else Vector2.ONE)
+func _texture_center(texture: Texture2D, position: Vector2, size: Vector2, flip: bool = false, angle: float = 0.0) -> void:
+	draw_set_transform(position, angle, Vector2(-1, 1) if flip else Vector2.ONE)
 	draw_texture_rect(texture, Rect2(-size / 2, size), false)
 	draw_set_transform(Vector2.ZERO)
 
@@ -537,15 +539,15 @@ func _draw_static() -> void:
 			var positions: Array[Vector2] = model.balloon_positions(enemy)
 			for index in positions.size():
 				var balloon: Vector2 = positions[index]
-				var balloon_size := Vector2(settings.balloon_radius * 2, settings.balloon_radius * 2.6)
-				var knot: Vector2 = balloon + (pack.balloon_rope_anchor - Vector2(0.5, 0.5)) * balloon_size
 				var connection: Vector2 = enemy.pos - Vector2(0, model.body_size(enemy.role).y / 2)
+				var attachment: Dictionary = pack.suspension_pose(balloon, connection, settings.balloon_radius)
+				var knot: Vector2 = attachment.anchor
 				var rope: Vector2 = connection - knot
 				draw_set_transform(knot, rope.angle() - PI / 2)
 				draw_texture_rect(pack.effects["rope"] as Texture2D, Rect2(-.75, 0, 1.5, rope.length()), false)
 				draw_set_transform(Vector2.ZERO)
 				var color_index: int = (int(enemy.variant) + index) % pack.balloon_sprites.size()
-				_texture_center(pack.balloon_sprites[color_index], balloon, balloon_size)
+				_texture_center(pack.balloon_sprites[color_index], balloon, attachment.size, false, attachment.angle)
 		_draw_enemy(enemy)
 		if enemy.windup > 0 and not _enemy_actions_active():
 			_texture_center(pack.effects["nut"] as Texture2D,

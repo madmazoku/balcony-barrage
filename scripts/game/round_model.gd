@@ -1,7 +1,7 @@
 class_name RoundModel
 extends RefCounted
 ## Fixed-step simulation. Rendering and input do not own combat rules.
-signal balloon_popped(position: Vector2, color_variant: int)
+signal balloon_popped(position: Vector2, color_variant: int, source: Dictionary)
 signal armor_removed(part: int, stolen: bool)
 signal thrower_released(enemy: Dictionary)
 signal armor_stolen(part: int, thief: Dictionary)
@@ -309,7 +309,7 @@ func _update_bolts(delta: float) -> void:
 					if target.hp == 0:
 						target.state = "fall"
 						kills += 1
-					balloon_popped.emit(popped_position, popped_variant)
+					balloon_popped.emit(popped_position, popped_variant, target)
 		else:
 			bolt.pos = finish
 			if not Rect2(-config.bolt_size, config.arena_size + config.bolt_size * 2).has_point(finish):
