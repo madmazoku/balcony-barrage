@@ -150,3 +150,12 @@ capture_pack.gd --pack=forest_glade --role=boss --simulate=true поддержи
 ## Еловые лапы F5
 Из корня игры: `python G:/Git/Gemini/scripts/sprite_assets.py update-spruce --manifest art/build-forest-spruce.json`. Использует утверждённую модель из forest_glade/art-lock.json, сверяет SHA пяти исходников и specs, сохраняет плавную прозрачность иголок, проверяет порядок потери хвои и постоянную кромку. Готовит шесть кадров, две секции падения и один атлас частиц. SHA256 утилиты 3106a722abc32fa93c859d8464dad3ada5141922642aad7b88204dc8e77e25c5.
 Съёмка: `tools/capture_pack.gd -- --pack=forest_glade --scenario=boss --feedback=boss_damage --pose=up --simulate=true --frames=185 --step=0.045 --capture=<PNG>` проводит пять игровых попаданий и проверяет победу. GIF и логи лежат в G:/Git/Gemini/tmp/balcony-packs/branches/spruce.
+
+
+## Поляна F6
+Из корня игры: `python G:/Git/Gemini/scripts/sprite_assets.py update-environment --manifest art/build-forest-environment.json`. Утилита проверяет исходники и модель, совмещает стволы с площадкой, вырезает дорожку из фона и регистрирует три слоя окружения. SHA256 утилиты da73e679a6f94f9ad553ad5486a63e4e3c8126f351a09a51ac0e058c36d60629.
+Съёмка: `tools/capture_pack.gd -- --pack=forest_glade --scenario=mixed --feedback=shot --pose=up --simulate=true --frames=90 --step=0.055 --capture=<PNG>`. Для сравнения движения слоёв используйте `--scenario=boss --feedback=ambient --frames=3 --step=1.1`.
+
+
+### Проверка пролёта камешка на поляне
+Сняты 38 кадров пролёта с шагом 0.005 с. Исходная альфа 446×510 сохранялась при импорте, но у уменьшенного уровня 6×7 один угол достигал альфы 254. Fix Alpha Border не менял этот эффект. Временная проба без mipmaps и рабочие копии 512×512 и 64×64 дали чистые углы. Финальный рецепт update-player создаёт квадрат 64×64 через альфа-aware Lanczos, mipmaps включены. Проверены шесть mip-уровней после обычного импорта, все четыре угла контрольного кадра совпадают с чистым фоном. Нативные кадры 1152×720 и 576×360 и GIF сравнения лежат в G:/Git/Gemini/tmp/balcony-packs/forest-clearing/pebble-check/mip-study.

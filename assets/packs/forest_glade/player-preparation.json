@@ -912,7 +912,8 @@
         "quote": "принимается",
         "scope": "Rabbit locomotion in both horizontal directions and while aiming up, shown in 0.17.0-dev."
       }
-    }
+    },
+    "pebble_texture_size": 64
   },
   "prepared": {
     "characters/player/right.png": {
@@ -1242,16 +1243,16 @@
     },
     "effects/bolt.png": {
       "size": [
-        446,
-        510
+        64,
+        64
       ],
       "alpha_bounds": [
         0,
         0,
-        446,
-        510
+        64,
+        64
       ],
-      "sha256": "3867520bdedace2a4e0e1cf8ca2ce7eb5d63568060edb111046f6a31a571fe17"
+      "sha256": "aaec9833441b41886038df98debf81b95ea77bc9988e1ca6ce5f8352535080ce"
     }
   },
   "static_walk_preview": false,

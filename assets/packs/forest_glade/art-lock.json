@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "scope": "forest_glade",
-  "status": "accepted_player_minions_suspensions_boss_and_spruce",
+  "status": "accepted_forest_environment_and_sprites",
   "image": {
     "engine": "flux2",
     "model": "flux-2-klein-4b.safetensors",
@@ -18,7 +18,7 @@
   "concept_manifest": "art/sources/forest_glade/concepts/recipe.json",
   "rules": [
     "All original runtime sprites in the forest pack must use this accepted model/common settings.",
-    "120 original forest PNGs accepted; six explicit environment placeholders remain.",
+    "All 126 original forest PNGs accepted. UI, audio and final release checks are still pending.",
     "Do not use rejected candidates, mix models into final sprites, or copy the rescue_rangers acceptance.",
     "No LoRA for the current Klein candidate; any future model/style change after approval requires a new full series."
   ],
@@ -86,6 +86,20 @@
       "recipe": "art/build-forest-spruce.json",
       "png_count": 9,
       "scope": "Spruce platform, cumulative needle loss, collapse sections and debris atlas. Shared renderer; pack-owned artwork and anchors."
+    },
+    "environment": {
+      "date": "2026-11-12",
+      "quote": "принимается",
+      "recipe": "art/build-forest-environment.json",
+      "png_count": 6,
+      "scope": "Clearing, dry lane, two fern layers and stream reflections, including the static composite and animated backdrop."
+    },
+    "pebble_sampling": {
+      "date": "2026-11-12",
+      "quote": "принимается",
+      "recipe": "art/build-forest-player.json",
+      "png_count": 1,
+      "scope": "Same approved pebble illustration prepared as an alpha-aware 64x64 runtime texture with mipmaps."
     }
   },
   "pending_blocks": {}

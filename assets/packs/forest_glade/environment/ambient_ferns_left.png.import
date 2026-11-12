@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://deisfxujb2mbi"
-path="res://.godot/imported/ambient_ivy_right_lower.png-75f7b777a3d28f0c00642033b52e8eaa.ctex"
+uid="uid://bsyd07rcq68a1"
+path="res://.godot/imported/ambient_ferns_left.png-1c048890280ab4806353f046fc6de181.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/packs/forest_glade/environment/ambient_ivy_right_lower.png"
-dest_files=["res://.godot/imported/ambient_ivy_right_lower.png-75f7b777a3d28f0c00642033b52e8eaa.ctex"]
+source_file="res://assets/packs/forest_glade/environment/ambient_ferns_left.png"
+dest_files=["res://.godot/imported/ambient_ferns_left.png-1c048890280ab4806353f046fc6de181.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cd5xfyijfqsk"
-path="res://.godot/imported/ambient_ivy_left.png-eb8b2db3f2d3729f48bd7aad739a99bb.ctex"
+uid="uid://bl5bk2co8vj8j"
+path="res://.godot/imported/ambient_stream_ripples.png-146a0b6d64c38962c7a0999ce4b46822.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/packs/forest_glade/environment/ambient_ivy_left.png"
-dest_files=["res://.godot/imported/ambient_ivy_left.png-eb8b2db3f2d3729f48bd7aad739a99bb.ctex"]
+source_file="res://assets/packs/forest_glade/environment/ambient_stream_ripples.png"
+dest_files=["res://.godot/imported/ambient_stream_ripples.png-146a0b6d64c38962c7a0999ce4b46822.ctex"]
 
 [params]
 
