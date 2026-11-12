@@ -463,7 +463,6 @@ func _draw() -> void:
 	if model.furniture_windup > 0:
 		draw_rect(Rect2(boss_position - Vector2(settings.furniture_hit_width / 2, settings.boss_size.y),
 			Vector2(settings.furniture_hit_width, settings.furniture_height)), pack.colors["furniture"])
-		_text(boss_position + Vector2(65, -10), "БРОСОК!")
 	var player_color: Color = pack.colors["player"]
 	if model.grace > 0:
 		player_color.a = 0.45
@@ -652,8 +651,6 @@ func _draw_boss() -> void:
 		var sack_key: String = "sack_open" if pose.action in ["reach", "release"] else "sack"
 		_texture_center(pack.effects[sack_key] as Texture2D, pose.pos + settings.boss_size * offset,
 			settings.boss_size * size * Vector2(1 + pulse, 1 - pulse), pose.flip)
-	if pose.furniture and not model.boss_falling and model.result == "":
-		if visual == null or not visual.enabled:
-			_texture_center(pack.effects["furniture"] as Texture2D, pose.pos + settings.boss_size * Vector2(.6, -.3),
-				Vector2(settings.furniture_hit_width, settings.furniture_height))
-		_text(pose.pos + Vector2(60, -35), "БРОСОК!")
+	if pose.furniture and not model.boss_falling and model.result == "" and (visual == null or not visual.enabled):
+		_texture_center(pack.effects["furniture"] as Texture2D, pose.pos + settings.boss_size * Vector2(.6, -.3),
+			Vector2(settings.furniture_hit_width, settings.furniture_height))
