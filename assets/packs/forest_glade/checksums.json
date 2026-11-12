@@ -432,6 +432,10 @@
     "sha256": "d404508d095f8ac6457613faae3e31be81aaa8451b7c76fb1f9139d6065d090a"
   },
   {
+    "path": "assets/packs/forest_glade/effects/platform_debris.png",
+    "sha256": "a01822eef482b60aa1da29a46794520a474502cefde40a486f506d125f9a74be"
+  },
+  {
     "path": "assets/packs/forest_glade/effects/rope.png",
     "sha256": "208b2d5a181e57a3da5a483172584f2b7c5cff08724f81437f9fcf531797bf6e"
   },
@@ -465,27 +469,35 @@
   },
   {
     "path": "assets/packs/forest_glade/environment/balcony_0.png",
-    "sha256": "e98c0c766540b55949d13b717f592bbcb49834a4db9710a3497bc2de85f75e60"
+    "sha256": "c7b0b13f64f9348e694d1311b73b34cab4749dd6805e8f3d3ac80f2d9bfb8f77"
   },
   {
     "path": "assets/packs/forest_glade/environment/balcony_1.png",
-    "sha256": "d96876b41542c4674e7527f18a6b4f98c40f70eab31fcf974ba6828fd8d77c12"
+    "sha256": "5592d05f2283df3dcd839b8d1f81376374dd562911b748e5120755b3c849c2e1"
   },
   {
     "path": "assets/packs/forest_glade/environment/balcony_2.png",
-    "sha256": "80161994f5cd84b90bde00015b42001c02af468a86eb540837ff5335ccad739a"
+    "sha256": "24af96b895aa04adf91b0c5a3528877a63c3c42c38f43ba3c59872d458f824c2"
   },
   {
     "path": "assets/packs/forest_glade/environment/balcony_3.png",
-    "sha256": "940af341d894ee61d0d5608b1ab9fa6f44a397cfda2a6c10cb98d4d04dfd5496"
+    "sha256": "d89f9212fb64a3da0546e1178015674a5aff7f1fff7b30ab5ad724571b80b0f7"
   },
   {
     "path": "assets/packs/forest_glade/environment/balcony_4.png",
-    "sha256": "5244f0ec7d37f85c129f0df34aedf0a24655a89bff4a114515e47a8694695b1d"
+    "sha256": "6e29956fe0ed8d5b54a07cd34f02eace12b312c4e9e8e3710013f730591d0a63"
   },
   {
     "path": "assets/packs/forest_glade/environment/balcony_5.png",
-    "sha256": "0989cc428ad2f5400ea25fead19d86edeb74325048ae5c5b6f01d51b8c43a6ea"
+    "sha256": "15ef78fba1d37203249b99cc4f27ddb32aec59cf7a95441a033caa8055c7c2c9"
+  },
+  {
+    "path": "assets/packs/forest_glade/environment/balcony_collapse_left.png",
+    "sha256": "f5d33df9785ed860cbae627faff6d53d10831e9182025f7deb73d953ee132274"
+  },
+  {
+    "path": "assets/packs/forest_glade/environment/balcony_collapse_right.png",
+    "sha256": "389cf40214e310c2c823e34973a215eba1b519642909f6128af85fc8e98a7cef"
   },
   {
     "path": "assets/packs/forest_glade/environment/ground.png",

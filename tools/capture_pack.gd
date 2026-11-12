@@ -86,6 +86,9 @@ func _capture() -> void:
 			model.furniture_enabled = true
 			model.furniture_windup = model.config.furniture_windup_seconds
 			model.player.x = 80
+		"boss_damage":
+			model.minions.clear()
+			model.furniture_enabled = false
 		"boss_jump":
 			model.minions.clear()
 			model.furniture_enabled = false
@@ -183,6 +186,11 @@ func _capture() -> void:
 				feedback.advance(float(options.get("step", "0.04")))
 				if effect == "ambient" and game.get("ambient") != null:
 					(game.get("ambient") as RoundAmbient).advance(float(options.get("step", "0.04")))
+		if effect == "boss_damage" and model.result.is_empty() and not model.boss_falling \
+				and model.jump_remaining <= 0.0 and model.cooldown <= 0.0 and model.bolts.is_empty():
+			var travel_time: float = (model.player.y - model.boss.y) / model.config.bolt_speed
+			model.player.x = model.boss.x + model.boss_direction * model.config.boss_speed * travel_time
+			game.call("_shoot", Vector2.UP)
 		game.queue_redraw()
 		await RenderingServer.frame_post_draw
 		await process_frame
@@ -206,5 +214,9 @@ func _capture() -> void:
 			push_error("Could not save QA capture.")
 			quit(1)
 			return
+	if effect == "boss_damage" and model.result != "win":
+		push_error("Boss damage capture ended before victory. Damage stages: " + str(model.broken_stages))
+		quit(1)
+		return
 	print("CAPTURE_OK ", options.capture, " frames=", count)
 	quit()

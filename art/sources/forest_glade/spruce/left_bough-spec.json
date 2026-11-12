@@ -1,0 +1,11 @@
+{
+  "engine": "flux2",
+  "model": "flux-2-klein-4b.safetensors",
+  "steps": 4,
+  "guidance": 1,
+  "sampler": "euler",
+  "seed": 233102,
+  "width": 1344,
+  "height": 768,
+  "prompt": "An isolated hand-painted game sprite, a single slim short spruce branch growing horizontally from left toward right. Side view. The brown twig at the top is almost perfectly straight, level like a ledge. From this twig only on its underside hang three small separated feathery sprays of soft warm olive-green spruce needles and two tiny warm brown pine cones. The branch points to the right and is almost bare along its upper surface, leaving a large clear uninterrupted area of empty bright magenta above the branch for a small animal to stand. The lowest bit of foliage is a short distance beneath the twig. The branch makes a slim silhouette with approximately six times as much width as height, mostly negative space underneath, soft broken green shapes, minimal detail. The twig and sprays are one compact natural spruce bough. Style of a cozy woodland children's book, soft painterly gouache washes, rounded readable foliage in muted forest greens, very fine soft pencil edges, low contrast hand-painted shading on the thin warm grey-brown wood. It fills the center of the canvas horizontally with ample blank space above and below. Solid vivid flat hot magenta key-color background and solid magenta in the gaps, RGB 255 0 255."
+}

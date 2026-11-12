@@ -1,0 +1,11 @@
+{
+  "engine": "flux2",
+  "model": "flux-2-klein-4b.safetensors",
+  "steps": 4,
+  "guidance": 1,
+  "sampler": "euler",
+  "seed": 233104,
+  "width": 1344,
+  "height": 768,
+  "prompt": "A 2D woodland game platform sprite on flat vivid hot magenta, rendered in warm soft gouache and colored pencil. Imagine a small fox can walk left to right on a long slim spruce bough, shown in exact side view. A horizontal woody twig with a nearly straight top edge, pointed to the right. Below it hang four shallow little flattened triangular fans, made of spruce branchlets with very short closely packed tiny needles on branching sprays. The spruce foliage has the dense softly scalloped silhouette of several small dark forest-green fern-shaped fans. Needle length similar to fir needles, visible as short subtle strokes. One small tawny dangling pine cone among the lower sprays. Top has bare wood and a clean clear pink area directly above, all foliage below. The branch is centered, extending across nearly the full width of the picture. A thin airy shape, with separated sprays and large gaps of solid pink. Soft painterly detail with gentle handmade irregularity, clean read at small game scale, cozy vintage illustrated woodland book. Plain solid saturated magenta behind and between all elements."
+}

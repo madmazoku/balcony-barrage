@@ -1,0 +1,405 @@
+{
+  "tool": "sprite_assets.py update-spruce",
+  "manifest": {
+    "schema": 1,
+    "pack_id": "forest_glade",
+    "output": "assets/packs/forest_glade",
+    "canvas": [
+      1536,
+      132
+    ],
+    "sources": {
+      "left_bough": {
+        "image": "art/sources/forest_glade/spruce/left_bough.png",
+        "spec": "art/sources/forest_glade/spruce/left_bough-spec.json",
+        "run_prefix": "20261111-130808-d2cd9a",
+        "sha256": "d1408b110ec17797c3ab3c09d435e543e329dcaf6f95050c028594b6e43952d5",
+        "spec_sha256": "9c7da522ee30f835d8410265f2e18f175da42d2988a10687c622e8a7e5d0b299"
+      },
+      "right_bough": {
+        "image": "art/sources/forest_glade/spruce/right_bough.png",
+        "spec": "art/sources/forest_glade/spruce/right_bough-spec.json",
+        "run_prefix": "20261111-130913-b277da",
+        "sha256": "dc9b340730b4a8e77ffe7e78fc7101478b7241906f51dbf4fe643c2a02ba59fa",
+        "spec_sha256": "b565b05eb0e411292fff449ff4869b76da4b19309cd7cfc022d7fce8394a2edf"
+      },
+      "bare_twigs": {
+        "image": "art/sources/forest_glade/spruce/bare_twigs.png",
+        "spec": "art/sources/forest_glade/spruce/bare_twigs-spec.json",
+        "run_prefix": "20261111-131216-e88a05",
+        "sha256": "a07a8928500f13718d8e639aa89032f3fdbbc68b4a94d6aa9793b9915a8c7e11",
+        "spec_sha256": "40b00be01cec65073279297092cb18c201bef2a8c222007f39e8ed3d55011212"
+      },
+      "bark_edit": {
+        "image": "art/sources/forest_glade/spruce/bark_edit.png",
+        "spec": "art/sources/forest_glade/spruce/bark_edit-spec.json",
+        "run_prefix": "20261111-131300-1bc980",
+        "sha256": "1f6aece13b71fa2a9c88c114171bf51c447ac4833faa8ba85735939676c11035",
+        "spec_sha256": "894dd6fe79c7e0b8aab75a802a62bd38df0e8911a288b7d4fe3178e36b21ff38"
+      },
+      "needle_debris": {
+        "image": "art/sources/forest_glade/spruce/needle_debris.png",
+        "spec": "art/sources/forest_glade/spruce/needle_debris-spec.json",
+        "run_prefix": "20261111-135317-fe2fe3",
+        "sha256": "bd8b1bdf797e1c383265a2581cde32177f6046528a34e34e2ccef7242ccf0315",
+        "spec_sha256": "19d9bb5892c3c0084efaf23837c69f0891fcbb0167d63b9471a8edcb448f3fed"
+      }
+    },
+    "boughs": [
+      {
+        "source": "right_bough",
+        "crop": [
+          453,
+          253,
+          1109,
+          579
+        ],
+        "size": [
+          809,
+          124
+        ],
+        "position": [
+          727,
+          5
+        ],
+        "mirror": true,
+        "omit": [
+          190,
+          244,
+          253,
+          325
+        ]
+      },
+      {
+        "source": "left_bough",
+        "crop": [
+          145,
+          361,
+          1065,
+          609
+        ],
+        "size": [
+          844,
+          117
+        ],
+        "position": [
+          0,
+          0
+        ]
+      }
+    ],
+    "twigs": [
+      {
+        "crop": [
+          118,
+          369,
+          376,
+          638
+        ],
+        "pivot": [
+          143,
+          0
+        ],
+        "position": [
+          244,
+          16
+        ],
+        "scale": 0.32,
+        "angle": 24
+      },
+      {
+        "crop": [
+          455,
+          372,
+          719,
+          650
+        ],
+        "pivot": [
+          127,
+          0
+        ],
+        "position": [
+          426,
+          16
+        ],
+        "scale": 0.27,
+        "angle": -26
+      },
+      {
+        "crop": [
+          455,
+          372,
+          719,
+          650
+        ],
+        "pivot": [
+          127,
+          0
+        ],
+        "position": [
+          863,
+          17
+        ],
+        "scale": 0.29,
+        "angle": -19
+      },
+      {
+        "crop": [
+          118,
+          369,
+          376,
+          638
+        ],
+        "pivot": [
+          143,
+          0
+        ],
+        "position": [
+          1092,
+          19
+        ],
+        "scale": 0.36,
+        "angle": 13
+      },
+      {
+        "crop": [
+          787,
+          370,
+          1041,
+          620
+        ],
+        "pivot": [
+          125,
+          0
+        ],
+        "position": [
+          1467,
+          20
+        ],
+        "scale": 0.32,
+        "angle": 18,
+        "last_foliage": true
+      }
+    ],
+    "wood_rows": 24,
+    "walkway_rows": 8,
+    "edit_size": [
+      1536,
+      640
+    ],
+    "edit_box": [
+      0,
+      248,
+      1536,
+      380
+    ],
+    "crack_mask": {
+      "path": "art/sources/forest_glade/spruce/crack-mask.png",
+      "sha256": "f3752d656b5acf3c691f91fbfb122d9de982c751aa0218b886c45e2526ddf17a"
+    },
+    "foliage_regions": [
+      [
+        [
+          158,
+          15
+        ],
+        [
+          362,
+          15
+        ],
+        [
+          388,
+          46
+        ],
+        [
+          413,
+          131
+        ],
+        [
+          158,
+          131
+        ]
+      ],
+      [
+        [
+          972,
+          19
+        ],
+        [
+          1317,
+          19
+        ],
+        [
+          1317,
+          131
+        ],
+        [
+          972,
+          131
+        ]
+      ],
+      [
+        [
+          158,
+          15
+        ],
+        [
+          647,
+          15
+        ],
+        [
+          647,
+          131
+        ],
+        [
+          158,
+          131
+        ]
+      ]
+    ],
+    "debris_cells": [
+      [
+        123,
+        334,
+        283,
+        528
+      ],
+      [
+        430,
+        345,
+        613,
+        525
+      ],
+      [
+        747,
+        345,
+        913,
+        526
+      ]
+    ],
+    "collapse_split_column": 799,
+    "draw_height": 84.0,
+    "draw_offset_y": -8.0
+  },
+  "prepared": {
+    "environment/balcony_0.png": {
+      "size": [
+        1536,
+        132
+      ],
+      "sha256": "c7b0b13f64f9348e694d1311b73b34cab4749dd6805e8f3d3ac80f2d9bfb8f77",
+      "alpha_bounds": [
+        0,
+        0,
+        1536,
+        127
+      ]
+    },
+    "environment/balcony_1.png": {
+      "size": [
+        1536,
+        132
+      ],
+      "sha256": "5592d05f2283df3dcd839b8d1f81376374dd562911b748e5120755b3c849c2e1",
+      "alpha_bounds": [
+        0,
+        0,
+        1536,
+        127
+      ]
+    },
+    "environment/balcony_2.png": {
+      "size": [
+        1536,
+        132
+      ],
+      "sha256": "24af96b895aa04adf91b0c5a3528877a63c3c42c38f43ba3c59872d458f824c2",
+      "alpha_bounds": [
+        0,
+        0,
+        1536,
+        127
+      ]
+    },
+    "environment/balcony_3.png": {
+      "size": [
+        1536,
+        132
+      ],
+      "sha256": "d89f9212fb64a3da0546e1178015674a5aff7f1fff7b30ab5ad724571b80b0f7",
+      "alpha_bounds": [
+        0,
+        0,
+        1536,
+        127
+      ]
+    },
+    "environment/balcony_4.png": {
+      "size": [
+        1536,
+        132
+      ],
+      "sha256": "6e29956fe0ed8d5b54a07cd34f02eace12b312c4e9e8e3710013f730591d0a63",
+      "alpha_bounds": [
+        0,
+        0,
+        1536,
+        110
+      ]
+    },
+    "environment/balcony_5.png": {
+      "size": [
+        1536,
+        132
+      ],
+      "sha256": "15ef78fba1d37203249b99cc4f27ddb32aec59cf7a95441a033caa8055c7c2c9",
+      "alpha_bounds": null
+    },
+    "environment/balcony_collapse_left.png": {
+      "size": [
+        799,
+        132
+      ],
+      "sha256": "f5d33df9785ed860cbae627faff6d53d10831e9182025f7deb73d953ee132274",
+      "alpha_bounds": [
+        0,
+        0,
+        799,
+        92
+      ]
+    },
+    "environment/balcony_collapse_right.png": {
+      "size": [
+        737,
+        132
+      ],
+      "sha256": "389cf40214e310c2c823e34973a215eba1b519642909f6128af85fc8e98a7cef",
+      "alpha_bounds": [
+        0,
+        1,
+        737,
+        110
+      ]
+    },
+    "effects/platform_debris.png": {
+      "size": [
+        384,
+        128
+      ],
+      "sha256": "a01822eef482b60aa1da29a46794520a474502cefde40a486f506d125f9a74be",
+      "alpha_bounds": [
+        23,
+        10,
+        368,
+        118
+      ]
+    }
+  },
+  "visible_area": [
+    16666092,
+    15163527,
+    12337215,
+    11060757,
+    6503192
+  ]
+}

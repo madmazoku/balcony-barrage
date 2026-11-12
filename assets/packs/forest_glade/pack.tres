@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="AssetPack" load_steps=131 format=3]
+[gd_resource type="Resource" script_class="AssetPack" load_steps=134 format=3]
 
 [ext_resource type="Script" path="res://scripts/config/asset_pack.gd" id="1"]
 [ext_resource type="Texture2D" path="res://assets/packs/forest_glade/characters/boss.png" id="2"]
@@ -133,6 +133,10 @@
 
 [ext_resource type="Texture2D" path="res://assets/packs/forest_glade/characters/run/player/up_b.png" id="run_up_b"]
 
+[ext_resource type="Texture2D" path="res://assets/packs/forest_glade/environment/balcony_collapse_left.png" id="collapse_left"]
+[ext_resource type="Texture2D" path="res://assets/packs/forest_glade/environment/balcony_collapse_right.png" id="collapse_right"]
+[ext_resource type="Texture2D" path="res://assets/packs/forest_glade/effects/platform_debris.png" id="platform_debris"]
+
 [resource]
 script = ExtResource("1")
 pack_id = &"forest_glade"
@@ -144,7 +148,9 @@ show_names = false
 audio_mode = "silent"
 player_anchor = Vector2(384, 872)
 player_body_height = 495.0
-balcony_draw_height = 125.0
+balcony_draw_height = 84.0
+balcony_draw_offset_y = -8.0
+platform_debris_origins = PackedVector2Array(0.159, 0.37, 0.711, 0.42, 0.277, 0.38, 0.562, 0.40, 0.951, 0.38)
 balloon_draw_size = Vector2(32, 32)
 suspension_orientation = "along_tether"
 balloon_rope_anchor = Vector2(0.48828125, 0.95703125)
@@ -153,8 +159,8 @@ colors = Dictionary[String, Color]({"player": Color(0.7, 0.5, 0.9, 1), "boss": C
 balloon_palette = PackedColorArray(0.58, 0.77, 0.27, 1, 0.95, 0.77, 0.28, 1, 0.92, 0.46, 0.2, 1, 0.8, 0.29, 0.25, 1)
 balloon_sprites = Array[Texture2D]([ExtResource("32"), ExtResource("33"), ExtResource("34"), ExtResource("35")])
 characters = Dictionary[String, Resource]({"boss": ExtResource("2"), "boss_defeated": ExtResource("3"), "normal": ExtResource("4"), "tank": ExtResource("7"), "thrower": ExtResource("10"), "player": ExtResource("13"), "player_right": ExtResource("13"), "armor_0_right": ExtResource("16"), "armor_1_right": ExtResource("20"), "armor_2_right": ExtResource("24"), "player_left": ExtResource("14"), "armor_0_left": ExtResource("17"), "armor_1_left": ExtResource("21"), "armor_2_left": ExtResource("25"), "player_up": ExtResource("15"), "armor_0_up": ExtResource("18"), "armor_1_up": ExtResource("22"), "armor_2_up": ExtResource("26")})
-environment = Dictionary[String, Resource]({"background": ExtResource("41"), "ground": ExtResource("42"), "balcony_0": ExtResource("43"), "balcony_1": ExtResource("44"), "balcony_2": ExtResource("45"), "balcony_3": ExtResource("46"), "balcony_4": ExtResource("47"), "balcony_5": ExtResource("48"), "ambient_background": ExtResource("120"), "ambient_ivy_left": ExtResource("121"), "ambient_ivy_right_top": ExtResource("122"), "ambient_ivy_right_lower": ExtResource("123")})
-effects = Dictionary[String, Resource]({"armor_0": ExtResource("19"), "armor_1": ExtResource("23"), "armor_2": ExtResource("27"), "crossbow_right": ExtResource("28"), "crossbow_left": ExtResource("29"), "crossbow_up": ExtResource("30"), "crossbow": ExtResource("31"), "rope": ExtResource("36"), "nut": ExtResource("37"), "bolt": ExtResource("38"), "sack": ExtResource("39"), "furniture": ExtResource("40"), "sack_open": ExtResource("61")})
+environment = Dictionary[String, Resource]({"balcony_collapse_left": ExtResource("collapse_left"), "balcony_collapse_right": ExtResource("collapse_right"), "background": ExtResource("41"), "ground": ExtResource("42"), "balcony_0": ExtResource("43"), "balcony_1": ExtResource("44"), "balcony_2": ExtResource("45"), "balcony_3": ExtResource("46"), "balcony_4": ExtResource("47"), "balcony_5": ExtResource("48"), "ambient_background": ExtResource("120"), "ambient_ivy_left": ExtResource("121"), "ambient_ivy_right_top": ExtResource("122"), "ambient_ivy_right_lower": ExtResource("123")})
+effects = Dictionary[String, Resource]({"platform_debris": ExtResource("platform_debris"), "armor_0": ExtResource("19"), "armor_1": ExtResource("23"), "armor_2": ExtResource("27"), "crossbow_right": ExtResource("28"), "crossbow_left": ExtResource("29"), "crossbow_up": ExtResource("30"), "crossbow": ExtResource("31"), "rope": ExtResource("36"), "nut": ExtResource("37"), "bolt": ExtResource("38"), "sack": ExtResource("39"), "furniture": ExtResource("40"), "sack_open": ExtResource("61")})
 character_variants = Dictionary[String, Array]({"normal": [ExtResource("4"), ExtResource("5"), ExtResource("6")], "tank": [ExtResource("7"), ExtResource("8"), ExtResource("9")], "thrower": [ExtResource("10"), ExtResource("11"), ExtResource("12")]})
 locomotion = ExtResource("motion")
 run_frames = Dictionary[String, Array]({"player_right": [ExtResource("13"), ExtResource("67"), ExtResource("13"), ExtResource("69")], "player_left": [ExtResource("14"), ExtResource("68"), ExtResource("14"), ExtResource("70")], "player_up": [ExtResource("15"), ExtResource("71"), ExtResource("15"), ExtResource("run_up_b")], "normal_0": [ExtResource("72"), ExtResource("73"), ExtResource("72"), ExtResource("74")], "normal_1": [ExtResource("75"), ExtResource("76"), ExtResource("75"), ExtResource("77")], "normal_2": [ExtResource("78"), ExtResource("79"), ExtResource("78"), ExtResource("80")], "tank_0": [ExtResource("58"), ExtResource("81"), ExtResource("58"), ExtResource("82")], "tank_1": [ExtResource("59"), ExtResource("83"), ExtResource("59"), ExtResource("84")], "tank_2": [ExtResource("60"), ExtResource("85"), ExtResource("60"), ExtResource("86")], "thrower_0": [ExtResource("87"), ExtResource("88"), ExtResource("87"), ExtResource("89")], "thrower_1": [ExtResource("90"), ExtResource("91"), ExtResource("90"), ExtResource("92")], "thrower_2": [ExtResource("93"), ExtResource("94"), ExtResource("93"), ExtResource("95")], "boss_0": [ExtResource("96"), ExtResource("97"), ExtResource("98"), ExtResource("99"), ExtResource("100"), ExtResource("101"), ExtResource("102"), ExtResource("103")]})
