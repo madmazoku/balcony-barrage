@@ -21,7 +21,7 @@
     {
       "id": "forest_glade",
       "name": "Лесная полянка",
-      "description": "Зайка, миньоны на листьях и лиса со связкой шишек. Еловые лапы сбрасывают хвою и обламываются. Окружение пока временное.",
+      "description": "Зайка, миньоны на листьях и лиса со связкой шишек. Еловые лапы над лесной поляной с ручьём.",
       "path": "res://assets/packs/forest_glade/pack.tres",
       "preview": "res://assets/packs/forest_glade/characters/player/right.png",
       "release_ready": false,

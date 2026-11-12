@@ -5,11 +5,11 @@
 [resource]
 script = ExtResource("1")
 enabled = true
-source_size = Vector2(1024, 1024)
+source_size = Vector2(1536, 960)
 segments = 16
-layer_ids = PackedStringArray("ivy_left", "ivy_right_top", "ivy_right_lower")
-layer_rects = Dictionary[String, Rect2]({"ivy_left": Rect2(0.02734375, 0.0693359375, 0.0634765625, 0.626953125), "ivy_right_top": Rect2(0.912109375, 0.0, 0.052734375, 0.1845703125), "ivy_right_lower": Rect2(0.908203125, 0.224609375, 0.056640625, 0.5009765625)})
-periods = Dictionary[String, float]({"ivy_left": 6.0, "ivy_right_top": 4.0, "ivy_right_lower": 6.0})
-amplitudes = Dictionary[String, Vector2]({"ivy_left": Vector2(2.5, 0.4), "ivy_right_top": Vector2(1.6, 0.3), "ivy_right_lower": Vector2(2.8, 0.6)})
-turns = Dictionary[String, float]({"ivy_left": 1.1, "ivy_right_top": 0.85, "ivy_right_lower": 1.0})
-phases = Dictionary[String, float]({"ivy_left": 0.0, "ivy_right_top": 0.25, "ivy_right_lower": 0.5})
+layer_ids = PackedStringArray("ferns_left", "ferns_right", "stream_ripples")
+layer_rects = Dictionary[String, Rect2]({"ferns_left": Rect2(0.033854166666666664, 0.721875, 0.057291666666666664, 0.14270833333333333), "ferns_right": Rect2(0.908203125, 0.7291666666666666, 0.068359375, 0.13541666666666666), "stream_ripples": Rect2(0.22200520833333334, 0.7552083333333334, 0.53125, 0.06354166666666666)})
+periods = Dictionary[String, float]({"ferns_left": 6.0, "ferns_right": 4.0, "stream_ripples": 6.0})
+amplitudes = Dictionary[String, Vector2]({"ferns_left": Vector2(7.0, 0.8), "ferns_right": Vector2(7.5, 0.7), "stream_ripples": Vector2(18.0, 1.35)})
+turns = Dictionary[String, float]({"ferns_left": 0.9, "ferns_right": 1.0, "stream_ripples": 0.7})
+phases = Dictionary[String, float]({"ferns_left": 0.0, "ferns_right": 0.25, "stream_ripples": 0.45})

@@ -120,9 +120,9 @@
 [ext_resource type="Texture2D" path="res://assets/packs/forest_glade/effects/balloon_pop/color_3/frame_2.png" id="118"]
 [ext_resource type="Texture2D" path="res://assets/packs/forest_glade/effects/balloon_pop/color_3/frame_3.png" id="119"]
 [ext_resource type="Texture2D" path="res://assets/packs/forest_glade/environment/ambient_background.png" id="120"]
-[ext_resource type="Texture2D" path="res://assets/packs/forest_glade/environment/ambient_ivy_left.png" id="121"]
-[ext_resource type="Texture2D" path="res://assets/packs/forest_glade/environment/ambient_ivy_right_top.png" id="122"]
-[ext_resource type="Texture2D" path="res://assets/packs/forest_glade/environment/ambient_ivy_right_lower.png" id="123"]
+[ext_resource type="Texture2D" path="res://assets/packs/forest_glade/environment/ambient_ferns_left.png" id="121"]
+[ext_resource type="Texture2D" path="res://assets/packs/forest_glade/environment/ambient_ferns_right.png" id="122"]
+[ext_resource type="Texture2D" path="res://assets/packs/forest_glade/environment/ambient_stream_ripples.png" id="123"]
 [ext_resource type="Resource" path="res://assets/packs/forest_glade/feedback.tres" id="feedback"]
 [ext_resource type="Resource" path="res://assets/packs/forest_glade/boss_actions.tres" id="boss_actions"]
 [ext_resource type="Resource" path="res://assets/packs/forest_glade/motion.tres" id="motion"]
@@ -159,7 +159,7 @@ colors = Dictionary[String, Color]({"player": Color(0.7, 0.5, 0.9, 1), "boss": C
 balloon_palette = PackedColorArray(0.58, 0.77, 0.27, 1, 0.95, 0.77, 0.28, 1, 0.92, 0.46, 0.2, 1, 0.8, 0.29, 0.25, 1)
 balloon_sprites = Array[Texture2D]([ExtResource("32"), ExtResource("33"), ExtResource("34"), ExtResource("35")])
 characters = Dictionary[String, Resource]({"boss": ExtResource("2"), "boss_defeated": ExtResource("3"), "normal": ExtResource("4"), "tank": ExtResource("7"), "thrower": ExtResource("10"), "player": ExtResource("13"), "player_right": ExtResource("13"), "armor_0_right": ExtResource("16"), "armor_1_right": ExtResource("20"), "armor_2_right": ExtResource("24"), "player_left": ExtResource("14"), "armor_0_left": ExtResource("17"), "armor_1_left": ExtResource("21"), "armor_2_left": ExtResource("25"), "player_up": ExtResource("15"), "armor_0_up": ExtResource("18"), "armor_1_up": ExtResource("22"), "armor_2_up": ExtResource("26")})
-environment = Dictionary[String, Resource]({"balcony_collapse_left": ExtResource("collapse_left"), "balcony_collapse_right": ExtResource("collapse_right"), "background": ExtResource("41"), "ground": ExtResource("42"), "balcony_0": ExtResource("43"), "balcony_1": ExtResource("44"), "balcony_2": ExtResource("45"), "balcony_3": ExtResource("46"), "balcony_4": ExtResource("47"), "balcony_5": ExtResource("48"), "ambient_background": ExtResource("120"), "ambient_ivy_left": ExtResource("121"), "ambient_ivy_right_top": ExtResource("122"), "ambient_ivy_right_lower": ExtResource("123")})
+environment = Dictionary[String, Resource]({"balcony_collapse_left": ExtResource("collapse_left"), "balcony_collapse_right": ExtResource("collapse_right"), "background": ExtResource("41"), "ground": ExtResource("42"), "balcony_0": ExtResource("43"), "balcony_1": ExtResource("44"), "balcony_2": ExtResource("45"), "balcony_3": ExtResource("46"), "balcony_4": ExtResource("47"), "balcony_5": ExtResource("48"), "ambient_background": ExtResource("120"), "ambient_ferns_left": ExtResource("121"), "ambient_ferns_right": ExtResource("122"), "ambient_stream_ripples": ExtResource("123")})
 effects = Dictionary[String, Resource]({"platform_debris": ExtResource("platform_debris"), "armor_0": ExtResource("19"), "armor_1": ExtResource("23"), "armor_2": ExtResource("27"), "crossbow_right": ExtResource("28"), "crossbow_left": ExtResource("29"), "crossbow_up": ExtResource("30"), "crossbow": ExtResource("31"), "rope": ExtResource("36"), "nut": ExtResource("37"), "bolt": ExtResource("38"), "sack": ExtResource("39"), "furniture": ExtResource("40"), "sack_open": ExtResource("61")})
 character_variants = Dictionary[String, Array]({"normal": [ExtResource("4"), ExtResource("5"), ExtResource("6")], "tank": [ExtResource("7"), ExtResource("8"), ExtResource("9")], "thrower": [ExtResource("10"), ExtResource("11"), ExtResource("12")]})
 locomotion = ExtResource("motion")

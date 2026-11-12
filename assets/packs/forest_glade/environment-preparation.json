@@ -1,0 +1,200 @@
+{
+  "tool": "sprite_assets.py update-environment",
+  "manifest": {
+    "schema": 1,
+    "pack_id": "forest_glade",
+    "output": "assets/packs/forest_glade",
+    "sources": {
+      "arena": {
+        "image": "art/sources/forest_glade/environment/arena.png",
+        "spec": "art/sources/forest_glade/environment/arena-spec.json",
+        "run_prefix": "20261112-124857-c25d5d",
+        "sha256": "76182d69a74e01ee0415d6aeca25eb9af8189b060965eb7fd9929f657e2cee5d",
+        "spec_sha256": "8ca0238858831450403f3ed7e98c288e74aed1df8773143bd0042e8045c590ca"
+      },
+      "ferns": {
+        "image": "art/sources/forest_glade/environment/ferns.png",
+        "spec": "art/sources/forest_glade/environment/ferns-spec.json",
+        "run_prefix": "20261112-125003-cc53ed",
+        "sha256": "eb95a5eec173fbaaa444d328359d3f4f0a7d8da8220b69ccf88e2f82af36930f",
+        "spec_sha256": "fe63b04c9f09512981c6b583e3046ad31c1486e1686902365a5873699d54df27"
+      },
+      "ripples": {
+        "image": "art/sources/forest_glade/environment/ripples.png",
+        "spec": "art/sources/forest_glade/environment/ripples-spec.json",
+        "run_prefix": "20261112-125052-b78cb8",
+        "sha256": "883a6a06f52705bddc6bce5ee38ecbee2bde74da05013b0c851b1440096ff2f6",
+        "spec_sha256": "3adc7f369ce10f0141965d7bd9d0a078aaaf51fb498a075d16a3ed59a74a8d21"
+      }
+    },
+    "ground_top": 857,
+    "trunk_alignment": {
+      "source": [
+        0,
+        235,
+        1318,
+        1536
+      ],
+      "target": [
+        0,
+        186,
+        1350,
+        1536
+      ]
+    },
+    "layers": {
+      "ferns_left": {
+        "replaces": "ivy_left",
+        "source": "ferns",
+        "crop": [
+          47,
+          94,
+          461,
+          738
+        ],
+        "rect": [
+          52,
+          693,
+          88,
+          137
+        ],
+        "opacity": 0.92,
+        "period": 6.0,
+        "amplitude": [
+          7.0,
+          0.8
+        ],
+        "turns": 0.9,
+        "phase": 0.0
+      },
+      "ferns_right": {
+        "replaces": "ivy_right_top",
+        "source": "ferns",
+        "crop": [
+          633,
+          178,
+          1090,
+          744
+        ],
+        "rect": [
+          1395,
+          700,
+          105,
+          130
+        ],
+        "opacity": 0.92,
+        "period": 4.0,
+        "amplitude": [
+          7.5,
+          0.7
+        ],
+        "turns": 1.0,
+        "phase": 0.25
+      },
+      "stream_ripples": {
+        "replaces": "ivy_right_lower",
+        "source": "ripples",
+        "crop": [
+          60,
+          240,
+          1270,
+          550
+        ],
+        "rect": [
+          341,
+          725,
+          816,
+          61
+        ],
+        "opacity": 0.32,
+        "period": 6.0,
+        "amplitude": [
+          18.0,
+          1.35
+        ],
+        "turns": 0.7,
+        "phase": 0.45
+      }
+    }
+  },
+  "prepared": {
+    "environment/ambient_background.png": {
+      "size": [
+        1536,
+        960
+      ],
+      "sha256": "f305075c7a202b055cfe7573faba5d70d06c01f0a71d6ea9b2510421791e1f1a",
+      "alpha_bounds": [
+        0,
+        0,
+        1536,
+        960
+      ]
+    },
+    "environment/ground.png": {
+      "size": [
+        1536,
+        103
+      ],
+      "sha256": "cf74d43df533b5fdb196861e013ac8d9c441fa8b383bde41b638b0bce2041f73",
+      "alpha_bounds": [
+        0,
+        0,
+        1536,
+        103
+      ]
+    },
+    "environment/ambient_ferns_left.png": {
+      "size": [
+        88,
+        137
+      ],
+      "sha256": "e4cf802a829c21fe0149ec2402124cd04793814924018b1836a886c97694edeb",
+      "alpha_bounds": [
+        0,
+        0,
+        88,
+        137
+      ]
+    },
+    "environment/ambient_ferns_right.png": {
+      "size": [
+        105,
+        130
+      ],
+      "sha256": "25da79fa2954ad804a762331332a3f96821fa2f885cc50513d72fc06891b1151",
+      "alpha_bounds": [
+        0,
+        0,
+        105,
+        130
+      ]
+    },
+    "environment/ambient_stream_ripples.png": {
+      "size": [
+        816,
+        61
+      ],
+      "sha256": "ca770cd4b76edb74bcb892558945c2731b2ca24dbc81153661488e35a38139b1",
+      "alpha_bounds": [
+        9,
+        0,
+        810,
+        61
+      ]
+    },
+    "environment/background.png": {
+      "size": [
+        1536,
+        960
+      ],
+      "sha256": "9dfe3bfe02c527ff9455415ec7ea973911c921a31f7f0f367f429248dee53b29",
+      "alpha_bounds": [
+        0,
+        0,
+        1536,
+        960
+      ]
+    }
+  }
+}

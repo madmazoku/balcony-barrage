@@ -1,0 +1,11 @@
+{
+  "engine": "flux2",
+  "model": "flux-2-klein-4b.safetensors",
+  "sampler": "euler",
+  "steps": 4,
+  "guidance": 1,
+  "seed": 242003,
+  "width": 1344,
+  "height": 768,
+  "prompt": "A transparent-ready hand painted water highlight sprite for a cozy woodland storybook game. A wide horizontal arrangement of twelve small, very thin, scattered, pale muted icy sage-blue and warm grey short horizontal strokes, like broken reflected light across a shallow forest creek. Fine slightly curved horizontal ripples in two staggered rows, the longest about one seventh of the total arrangement, gently feathered softly painted edges. Quiet understated reflections, watercolor gouache, no waves or shore. Keep all strokes separate and well within the canvas, with broad magenta empty margins above and below. Every gap and all the space around the isolated painted lines is completely solid saturated vivid hot magenta RGB 255 0 255. The image contains only the reflection strokes on the plain chroma key."
+}

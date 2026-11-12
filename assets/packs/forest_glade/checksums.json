@@ -405,7 +405,7 @@
   },
   {
     "path": "assets/packs/forest_glade/effects/bolt.png",
-    "sha256": "3867520bdedace2a4e0e1cf8ca2ce7eb5d63568060edb111046f6a31a571fe17"
+    "sha256": "aaec9833441b41886038df98debf81b95ea77bc9988e1ca6ce5f8352535080ce"
   },
   {
     "path": "assets/packs/forest_glade/effects/crossbow.png",
@@ -449,23 +449,23 @@
   },
   {
     "path": "assets/packs/forest_glade/environment/ambient_background.png",
-    "sha256": "aa8bab7be5d3456b8554a9c3e8db10b8b3bc82bb582495d0b496e13b472e7048"
+    "sha256": "f305075c7a202b055cfe7573faba5d70d06c01f0a71d6ea9b2510421791e1f1a"
   },
   {
-    "path": "assets/packs/forest_glade/environment/ambient_ivy_left.png",
-    "sha256": "4de4c3beec03242ae481d2d39a35468af4f629fcdf68b8b2adcf19a4e9b0d8b5"
+    "path": "assets/packs/forest_glade/environment/ambient_ferns_left.png",
+    "sha256": "e4cf802a829c21fe0149ec2402124cd04793814924018b1836a886c97694edeb"
   },
   {
-    "path": "assets/packs/forest_glade/environment/ambient_ivy_right_lower.png",
-    "sha256": "721e8e6aaacd3e4f5bed17e89d7c69d4e206bae85a652815cc0082d7fac65429"
+    "path": "assets/packs/forest_glade/environment/ambient_ferns_right.png",
+    "sha256": "25da79fa2954ad804a762331332a3f96821fa2f885cc50513d72fc06891b1151"
   },
   {
-    "path": "assets/packs/forest_glade/environment/ambient_ivy_right_top.png",
-    "sha256": "38b811f285767b5fd378701f3145c6bb5bea96975a9c099f77826cecc180a592"
+    "path": "assets/packs/forest_glade/environment/ambient_stream_ripples.png",
+    "sha256": "ca770cd4b76edb74bcb892558945c2731b2ca24dbc81153661488e35a38139b1"
   },
   {
     "path": "assets/packs/forest_glade/environment/background.png",
-    "sha256": "43a13497566ced0d99204bce58f817c98f64925e94181fa612d1363b756aeb68"
+    "sha256": "9dfe3bfe02c527ff9455415ec7ea973911c921a31f7f0f367f429248dee53b29"
   },
   {
     "path": "assets/packs/forest_glade/environment/balcony_0.png",
@@ -501,6 +501,6 @@
   },
   {
     "path": "assets/packs/forest_glade/environment/ground.png",
-    "sha256": "443179477bd822c56a3673889fbfc4b49e86afaffefbcd3a57cea9333c864931"
+    "sha256": "cf74d43df533b5fdb196861e013ac8d9c441fa8b383bde41b638b0bce2041f73"
   }
 ]

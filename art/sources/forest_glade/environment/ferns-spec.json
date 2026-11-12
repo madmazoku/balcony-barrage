@@ -1,0 +1,11 @@
+{
+  "engine": "flux2",
+  "model": "flux-2-klein-4b.safetensors",
+  "sampler": "euler",
+  "steps": 4,
+  "guidance": 1,
+  "seed": 242002,
+  "width": 1152,
+  "height": 896,
+  "prompt": "Two isolated hand-painted woodland fern clusters on one sprite sheet for a cozy children's picture book arcade game. Side by side with a generous clear gap. Each cluster is a single low fan of five rounded softly tapering fern fronds with small broad leaflets, springing from one shared root at the bottom, fully visible with ample margin. Left cluster olive and muted sage with blades leaning toward the right, right cluster muted deep moss and dusty olive with blades leaning toward the left. Soft gouache paper texture with very gentle pencil, simple broad softly scalloped readable edges, subtle muted shades of natural dark forest green. Each group is shorter than it is wide and centered in its own half of the sheet. Ground-level undergrowth illustration, just the two plants. Flat saturated vivid hot magenta chroma key throughout the background and between fronds, RGB 255 0 255."
+}

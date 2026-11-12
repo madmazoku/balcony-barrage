@@ -1,0 +1,11 @@
+{
+  "engine": "flux2",
+  "model": "flux-2-klein-4b.safetensors",
+  "sampler": "euler",
+  "steps": 4,
+  "guidance": 1,
+  "seed": 242001,
+  "width": 1536,
+  "height": 960,
+  "prompt": "A 2D side-view arcade game backdrop, the woodland clearing of a warm vintage children's storybook. Wide landscape, subtle soft gouache on paper with restrained colored pencil details. An open, calm central rectangle with misty muted sage and olive evergreens far in the distance. At the extreme left and extreme right edges stand two tall mature spruce trunks with beautiful warm umber scaly bark, the inner edge of each framing trunk at about twelve percent of the image width, visible from top to bottom. The tall trunks rise vertically and frame the scene without crossing the open center. Only a sparse hint of evergreen canopy at the very top corners. Soft diffused early morning light, midtone sage green in the central sky and forest, smooth large color shapes with low contrast and little fine detail in the open middle for small game characters to read. In the lower eighth of the background a narrow shallow steel-blue creek runs from the left edge to the right edge behind the foreground, a horizontal strip of still pale blue-green water with a couple smooth pebbles along its banks. The creek is entirely below the main open clearing but above the ground. Along the bottom twelve percent of the picture there is a level, dry, uninterrupted warm medium earth-brown path, parallel to the image bottom and going all the way from the left edge to the right edge. A few small moss accents only at the sides. The main area is open and spacious. The foreground path is flat and side-on with a clear straight upper edge. Environment art only, no characters, no text, just the two upright framing trees, the quiet clearing, shallow water and the dry path. Warm storybook animation background, naturally painted soft edges."
+}
