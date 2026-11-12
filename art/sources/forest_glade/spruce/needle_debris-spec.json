@@ -1,0 +1,11 @@
+{
+  "engine": "flux2",
+  "model": "flux-2-klein-4b.safetensors",
+  "steps": 4,
+  "guidance": 1,
+  "sampler": "euler",
+  "seed": 233108,
+  "width": 1024,
+  "height": 896,
+  "prompt": "A prop sprite sheet on perfectly flat vivid hot magenta chroma key. Three small separate silhouettes side by side with ample magenta gaps: a tiny pair of tapered olive-green spruce needles still joined at their base, a tiny pair of dry amber-brown spruce needles still joined at their base, and a tiny short tuft of three deep forest-green spruce needles. Each little fragment has a clean readable tapered curved silhouette and subdued painted shading, vintage woodland picture book soft gouache and gentle pencil. Each fragment is separate in its own third of the canvas, about 200 pixels long, with no branches, only the isolated loose needles, clear space all around them. Same scale for all three. Solid hot magenta around each fragment and in every gap, RGB 255 0 255."
+}

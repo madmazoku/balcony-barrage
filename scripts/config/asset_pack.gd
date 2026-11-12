@@ -39,6 +39,9 @@ extends Resource
 @export var player_anchor: Vector2
 @export var player_body_height: float
 @export var balcony_draw_height: float
+## Align the platform artwork with the boss foot line.
+@export var balcony_draw_offset_y: float = 0.0
+@export var platform_debris_origins: PackedVector2Array
 @export var show_names: bool = true
 @export_enum("silent", "supplied") var audio_mode: String = "silent"
 
@@ -113,6 +116,21 @@ func validation_errors() -> Array[String]:
 	for stage in 6:
 		environment_keys.append("balcony_" + str(stage))
 	_check_textures(environment, environment_keys, "environment", errors)
+	if environment.has("balcony_collapse_left") or environment.has("balcony_collapse_right"):
+		var left := environment.get("balcony_collapse_left") as Texture2D
+		var right := environment.get("balcony_collapse_right") as Texture2D
+		var frame := environment.get("balcony_4") as Texture2D
+		if left == null or right == null or frame == null \
+				or left.get_width() + right.get_width() != frame.get_width() \
+				or left.get_height() != frame.get_height() or right.get_height() != frame.get_height():
+			errors.append("Platform collapse artwork must include both registered sections.")
+	if effects.has("platform_debris") or not platform_debris_origins.is_empty():
+		var atlas := effects.get("platform_debris") as Texture2D
+		if atlas == null or atlas.get_width() != 3 * atlas.get_height() or platform_debris_origins.size() != 5:
+			errors.append("Platform debris needs three square atlas cells and five origins.")
+		for origin in platform_debris_origins:
+			if not origin.is_finite() or not Rect2(Vector2.ZERO, Vector2.ONE).has_point(origin):
+				errors.append("Platform debris origins must be normalized.")
 	if ambient != null:
 		errors.append_array(ambient.validation_errors())
 		var ambient_keys: Array[String] = ["ambient_background"]
@@ -213,6 +231,8 @@ func validation_errors() -> Array[String]:
 			errors.append("Player anchor must lie inside the frame.")
 	if player_body_height <= 0 or balcony_draw_height <= 0:
 		errors.append("Static pack needs positive visual geometry.")
+	if not is_finite(balcony_draw_offset_y):
+		errors.append("Platform drawing offset must be finite.")
 	if audio_mode == "supplied" and sfx.is_empty():
 		errors.append("Supplied audio pack needs sound effects.")
 	return errors

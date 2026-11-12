@@ -1,0 +1,12 @@
+{
+  "engine": "flux2",
+  "model": "flux-2-klein-4b.safetensors",
+  "steps": 4,
+  "guidance": 1,
+  "sampler": "euler",
+  "seed": 233107,
+  "denoise": 0.96,
+  "image_path": "G:\\Git\\Gemini\\tmp\\balcony-packs\\branches\\spruce\\intact-key.png",
+  "mask_path": "G:\\Git\\Gemini\\tmp\\balcony-packs\\branches\\spruce\\crack-mask.png",
+  "prompt": "Add one dark clear jagged hairline stress crack into the middle of the masked section of bark on the thin horizontal branch. The wood is starting to split from the underside, with a small warm cream exposed splinter on the split. Keep the whole thin branch its existing thickness and position, straight and continuous at the upper edge. Match the warm gray-brown colored pencil grain. The change is tiny and localized to the mask; existing colors, chroma magenta backdrop, and other details remain."
+}

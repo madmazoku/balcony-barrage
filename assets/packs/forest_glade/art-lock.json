@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "scope": "forest_glade",
-  "status": "accepted_player_minions_suspensions_and_boss",
+  "status": "accepted_player_minions_suspensions_boss_and_spruce",
   "image": {
     "engine": "flux2",
     "model": "flux-2-klein-4b.safetensors",
@@ -18,7 +18,7 @@
   "concept_manifest": "art/sources/forest_glade/concepts/recipe.json",
   "rules": [
     "All original runtime sprites in the forest pack must use this accepted model/common settings.",
-    "111 original forest PNGs accepted, with 12 explicit branch and environment placeholders.",
+    "120 original forest PNGs accepted; six explicit environment placeholders remain.",
     "Do not use rejected candidates, mix models into final sprites, or copy the rescue_rangers acceptance.",
     "No LoRA for the current Klein candidate; any future model/style change after approval requires a new full series."
   ],
@@ -79,6 +79,13 @@
       "recipe": "art/build-forest-fox.json",
       "png_count": 2,
       "scope": "Revised closed and open sacks matched to the fox drawing."
+    },
+    "spruce": {
+      "date": "2026-11-12",
+      "quote": "принимается",
+      "recipe": "art/build-forest-spruce.json",
+      "png_count": 9,
+      "scope": "Spruce platform, cumulative needle loss, collapse sections and debris atlas. Shared renderer; pack-owned artwork and anchors."
     }
   },
   "pending_blocks": {}

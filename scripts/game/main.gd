@@ -1,5 +1,7 @@
 extends Node2D
 
+const PLATFORM_MOTION := preload("res://config/platform_motion.tres")
+
 var managed_session: bool = false
 var hud_layer: CanvasLayer
 var settings: GameplayConfig = preload("res://config/gameplay.tres")
@@ -21,6 +23,7 @@ var motion: RoundMotion
 var ambient: RoundAmbient
 var boss_actions: BossActions
 var projectile_trail: ProjectileTrail
+var platform_motion: PlatformMotion
 
 func _ready() -> void:
 	texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
@@ -53,6 +56,9 @@ func _ready() -> void:
 	if pack.boss_actions != null:
 		boss_actions = BossActions.new(pack.boss_actions)
 		model.boss_action.connect(boss_actions.trigger)
+	if pack.readiness == "static":
+		platform_motion = PlatformMotion.new(PLATFORM_MOTION, pack)
+		model.boss_action.connect(_on_platform_action)
 	controls = PlayerControls.new()
 	controls.gameplay = settings
 	controls.player_x = model.player.x
@@ -139,6 +145,8 @@ func _restart() -> void:
 	player_pose = "right"
 	if feedback != null:
 		feedback.clear()
+	if platform_motion != null:
+		platform_motion.clear()
 	queue_redraw()
 
 func _shoot(direction: Vector2) -> void:
@@ -386,6 +394,8 @@ func _physics_process(delta: float) -> void:
 			ambient.advance(delta)
 		if feedback != null:
 			feedback.advance(delta)
+		if platform_motion != null:
+			platform_motion.advance(delta)
 		var movement: float = controls.movement(model.player.x, delta)
 		if motion != null:
 			motion.begin_step()
@@ -523,11 +533,7 @@ func _draw_static() -> void:
 	# Backdrop behind actors so a jumping boss stays visible; controls remain on CanvasLayer.
 	if hud_layer.visible:
 		draw_rect(Rect2(0, 0, settings.arena_size.x, 78 if managed_session else 112), pack.colors["hud_panel"])
-	# Five authored visual states interpolate across configurable boss health.
-	var stage: int = mini(5, int(ceil(float(model.broken_stages) / settings.balcony_stages * 5)))
-	draw_texture_rect(pack.environment["balcony_" + str(stage)] as Texture2D,
-		Rect2(settings.balcony_left, settings.balcony_y,
-			settings.balcony_right - settings.balcony_left, pack.balcony_draw_height), false)
+	_draw_platform()
 	_draw_boss()
 	if feedback == null or feedback.defeat.is_empty():
 		var tint := Color(1, 1, 1, .45 if model.grace > 0 else 1.0)
@@ -576,11 +582,28 @@ func _draw_static() -> void:
 		var boundary: float = settings.ground_y - controls.settings.ground_tap_height
 		draw_rect(Rect2(0, boundary, settings.arena_size.x, 2), pack.colors["touch_boundary"])
 
+func _platform_stage(damage: int) -> int:
+	return clampi(ceili(float(damage) / settings.balcony_stages * 5), 0, 5)
+
+func _on_platform_action(action: String) -> void:
+	if action == "land":
+		var hit_fraction: float = inverse_lerp(settings.balcony_left, settings.balcony_right, model.boss.x)
+		platform_motion.impact(_platform_stage(model.broken_stages - 1), _platform_stage(model.broken_stages), hit_fraction)
+
+func _draw_platform() -> void:
+	var stage: int = _platform_stage(model.broken_stages)
+	var texture := pack.environment["balcony_" + str(stage)] as Texture2D
+	var bounds := Rect2(settings.balcony_left, settings.balcony_y + pack.balcony_draw_offset_y,
+		settings.balcony_right - settings.balcony_left, pack.balcony_draw_height)
+	platform_motion.paint(self, bounds, texture)
+
 func _boss_visual_pose() -> Dictionary:
 	var pose: Dictionary = boss_actions.pose(model) if boss_actions != null and boss_actions.settings.enabled else {
 		"action": "", "scale": Vector2.ONE, "angle": 0.0, "sack": model.released < settings.release_roles.size(),
 		"sack_weight": 0.0, "furniture": model.furniture_windup > 0, "lift": 0.0}
 	pose.pos = model.boss_draw_position()
+	if platform_motion != null and model.result.is_empty() and model.jump_remaining <= 0.0:
+		pose.pos.y += platform_motion.sag()
 	pose.flip = model.boss_direction < 0
 	if pose.action in ["", "reach", "release", "hold"] and motion != null:
 		pose.pos.y += motion.bob("boss")

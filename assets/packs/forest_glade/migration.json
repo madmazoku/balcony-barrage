@@ -2318,86 +2318,110 @@
     {
       "path": "environment/balcony_0.png",
       "category": "environment",
-      "placeholder": true,
-      "accepted": false,
+      "placeholder": false,
+      "accepted": true,
       "source": "res://assets/packs/rescue_rangers/environment/balcony_0.png",
       "source_sha256": "2b35c8c110ceeea2459279594ceed725e441cfd23e29bfe922e25c14ebb20fbe",
       "placeholder_sha256": "e98c0c766540b55949d13b717f592bbcb49834a4db9710a3497bc2de85f75e60",
       "size": [
-        985,
-        250
+        1536,
+        132
       ],
-      "transform": "invert RGB; preserve alpha"
+      "transform": "generated spruce layers and debris atlas",
+      "placeholder_transform": "invert RGB; preserve alpha",
+      "sha256": "c7b0b13f64f9348e694d1311b73b34cab4749dd6805e8f3d3ac80f2d9bfb8f77",
+      "stage": "forest_spruce_accepted",
+      "replacement_recipe": "art/build-forest-spruce.json"
     },
     {
       "path": "environment/balcony_1.png",
       "category": "environment",
-      "placeholder": true,
-      "accepted": false,
+      "placeholder": false,
+      "accepted": true,
       "source": "res://assets/packs/rescue_rangers/environment/balcony_1.png",
       "source_sha256": "785127d80055b909110ca7710f84dbb7d5505fcb56dc8b60da0d1949fe981d5c",
       "placeholder_sha256": "d96876b41542c4674e7527f18a6b4f98c40f70eab31fcf974ba6828fd8d77c12",
       "size": [
-        985,
-        250
+        1536,
+        132
       ],
-      "transform": "invert RGB; preserve alpha"
+      "transform": "generated spruce layers and debris atlas",
+      "placeholder_transform": "invert RGB; preserve alpha",
+      "sha256": "5592d05f2283df3dcd839b8d1f81376374dd562911b748e5120755b3c849c2e1",
+      "stage": "forest_spruce_accepted",
+      "replacement_recipe": "art/build-forest-spruce.json"
     },
     {
       "path": "environment/balcony_2.png",
       "category": "environment",
-      "placeholder": true,
-      "accepted": false,
+      "placeholder": false,
+      "accepted": true,
       "source": "res://assets/packs/rescue_rangers/environment/balcony_2.png",
       "source_sha256": "82867b01e3923e395f106198e157f720241e337a77d1f3c88bcd0f2ebb9d7a77",
       "placeholder_sha256": "80161994f5cd84b90bde00015b42001c02af468a86eb540837ff5335ccad739a",
       "size": [
-        985,
-        250
+        1536,
+        132
       ],
-      "transform": "invert RGB; preserve alpha"
+      "transform": "generated spruce layers and debris atlas",
+      "placeholder_transform": "invert RGB; preserve alpha",
+      "sha256": "24af96b895aa04adf91b0c5a3528877a63c3c42c38f43ba3c59872d458f824c2",
+      "stage": "forest_spruce_accepted",
+      "replacement_recipe": "art/build-forest-spruce.json"
     },
     {
       "path": "environment/balcony_3.png",
       "category": "environment",
-      "placeholder": true,
-      "accepted": false,
+      "placeholder": false,
+      "accepted": true,
       "source": "res://assets/packs/rescue_rangers/environment/balcony_3.png",
       "source_sha256": "603a1bbae4fe35e749f23655d8f87b031a3d438532abfd9ec261cbf33a41c425",
       "placeholder_sha256": "940af341d894ee61d0d5608b1ab9fa6f44a397cfda2a6c10cb98d4d04dfd5496",
       "size": [
-        985,
-        250
+        1536,
+        132
       ],
-      "transform": "invert RGB; preserve alpha"
+      "transform": "generated spruce layers and debris atlas",
+      "placeholder_transform": "invert RGB; preserve alpha",
+      "sha256": "d89f9212fb64a3da0546e1178015674a5aff7f1fff7b30ab5ad724571b80b0f7",
+      "stage": "forest_spruce_accepted",
+      "replacement_recipe": "art/build-forest-spruce.json"
     },
     {
       "path": "environment/balcony_4.png",
       "category": "environment",
-      "placeholder": true,
-      "accepted": false,
+      "placeholder": false,
+      "accepted": true,
       "source": "res://assets/packs/rescue_rangers/environment/balcony_4.png",
       "source_sha256": "e5a38b5ecbca908ee58abb0a74da5b02c75a4e4b2f941f4237187a2e17776f4f",
       "placeholder_sha256": "5244f0ec7d37f85c129f0df34aedf0a24655a89bff4a114515e47a8694695b1d",
       "size": [
-        985,
-        250
+        1536,
+        132
       ],
-      "transform": "invert RGB; preserve alpha"
+      "transform": "generated spruce layers and debris atlas",
+      "placeholder_transform": "invert RGB; preserve alpha",
+      "sha256": "6e29956fe0ed8d5b54a07cd34f02eace12b312c4e9e8e3710013f730591d0a63",
+      "stage": "forest_spruce_accepted",
+      "replacement_recipe": "art/build-forest-spruce.json"
     },
     {
       "path": "environment/balcony_5.png",
       "category": "environment",
-      "placeholder": true,
-      "accepted": false,
+      "placeholder": false,
+      "accepted": true,
       "source": "res://assets/packs/rescue_rangers/environment/balcony_5.png",
       "source_sha256": "bd092d78810a92274d956c4c0efbd3f16e4dcfb9a9746fef1f8d295f0a7b4300",
       "placeholder_sha256": "0989cc428ad2f5400ea25fead19d86edeb74325048ae5c5b6f01d51b8c43a6ea",
       "size": [
-        985,
-        250
+        1536,
+        132
       ],
-      "transform": "invert RGB; preserve alpha"
+      "transform": "generated spruce layers and debris atlas",
+      "placeholder_transform": "invert RGB; preserve alpha",
+      "sha256": "15ef78fba1d37203249b99cc4f27ddb32aec59cf7a95441a033caa8055c7c2c9",
+      "stage": "forest_spruce_accepted",
+      "replacement_recipe": "art/build-forest-spruce.json"
     },
     {
       "path": "environment/ground.png",
@@ -2430,6 +2454,48 @@
       "accepted_at": "2026-11-10",
       "acceptance_quote": "принимается",
       "acceptance_scope": "Rabbit locomotion in both horizontal directions and while aiming up, shown in 0.17.0-dev."
+    },
+    {
+      "path": "environment/balcony_collapse_left.png",
+      "category": "environment",
+      "placeholder": false,
+      "accepted": true,
+      "size": [
+        799,
+        132
+      ],
+      "sha256": "f5d33df9785ed860cbae627faff6d53d10831e9182025f7deb73d953ee132274",
+      "stage": "forest_spruce_accepted",
+      "replacement_recipe": "art/build-forest-spruce.json",
+      "transform": "generated spruce layers and debris atlas"
+    },
+    {
+      "path": "environment/balcony_collapse_right.png",
+      "category": "environment",
+      "placeholder": false,
+      "accepted": true,
+      "size": [
+        737,
+        132
+      ],
+      "sha256": "389cf40214e310c2c823e34973a215eba1b519642909f6128af85fc8e98a7cef",
+      "stage": "forest_spruce_accepted",
+      "replacement_recipe": "art/build-forest-spruce.json",
+      "transform": "generated spruce layers and debris atlas"
+    },
+    {
+      "path": "effects/platform_debris.png",
+      "category": "effects",
+      "placeholder": false,
+      "accepted": true,
+      "size": [
+        384,
+        128
+      ],
+      "sha256": "a01822eef482b60aa1da29a46794520a474502cefde40a486f506d125f9a74be",
+      "stage": "forest_spruce_accepted",
+      "replacement_recipe": "art/build-forest-spruce.json",
+      "transform": "generated spruce layers and debris atlas"
     }
   ]
 }

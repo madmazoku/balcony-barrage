@@ -106,19 +106,16 @@ func _run() -> void:
 		check(not missing_run.validation_errors().is_empty(), "Missing running pose must fail validation.")
 	for role in ["normal", "tank", "thrower"]:
 		check(art.character_variants[role].size() == 3, "Each minion role needs three palettes.")
-	check((art.environment["balcony_5"] as Texture2D).get_image().is_invisible(),
-		"Final balcony state must be fully collapsed.")
 	var recipe: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://art/build-static-pack.json"))["balcony_preparation"]
-	var intact: Image = (art.environment["balcony_0"] as Texture2D).get_image()
-	var deck := Rect2i(0, 0, intact.get_width(), int(recipe.preserved_deck_rows))
-	var previous: Image = intact
-	for stage in range(1, 5):
-		var damaged: Image = (art.environment["balcony_" + str(stage)] as Texture2D).get_image()
-		check(damaged.get_size() == intact.get_size(), "Balcony states must share a fixed frame.")
-		check(damaged.get_region(deck).get_data() == intact.get_region(deck).get_data(),
-			"Intermediate damage must preserve the original continuous walking deck.")
-		check(damaged.get_data() != previous.get_data(), "Each damage stage must change visibly.")
-		previous = damaged
+	_check_damage_sequence(art, int(recipe.preserved_deck_rows))
+	check(art.balcony_draw_offset_y == 0.0, "The original platform retains its vertical placement.")
+	var forest := PackCatalog.new().load_pack("forest_glade")
+	check(forest != null, "The forest pack must load with its new bough states.")
+	if forest != null:
+		var branch_recipe: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://art/build-forest-spruce.json"))
+		_check_damage_sequence(forest, int(branch_recipe.walkway_rows))
+		check(is_equal_approx(forest.balcony_draw_offset_y, float(branch_recipe.draw_offset_y)),
+			"The bough placement must match its recipe.")
 	check(art.characters["boss_defeated"] != art.characters["boss"],
 		"Victory must use a separate defeated boss sprite.")
 	# Use the actual entry scene with both complete packs, while replaying identical combat inputs.
@@ -152,3 +149,19 @@ func _run() -> void:
 	if failures.is_empty():
 		print("ASSET_PACK_TESTS_OK")
 	quit(0 if failures.is_empty() else 1)
+
+func _check_damage_sequence(pack: AssetPack, walkway_rows: int) -> void:
+	var intact: Image = (pack.environment["balcony_0"] as Texture2D).get_image()
+	var deck := Rect2i(0, 0, intact.get_width(), walkway_rows)
+	var original_deck: PackedByteArray = intact.get_region(deck).get_data()
+	var previous: Image = intact
+	for stage in range(1, 5):
+		var damaged: Image = (pack.environment["balcony_" + str(stage)] as Texture2D).get_image()
+		check(damaged.get_size() == intact.get_size(), "Platform damage states must share a fixed frame.")
+		check(damaged.get_region(deck).get_data() == original_deck,
+			"Intermediate damage must preserve the original continuous walking deck.")
+		check(damaged.get_data() != previous.get_data(), "Each damage stage must change visibly.")
+		previous = damaged
+	var collapsed: Image = (pack.environment["balcony_5"] as Texture2D).get_image()
+	check(collapsed.get_size() == intact.get_size() and collapsed.is_invisible(),
+		"The final platform state must be a fully transparent frame of the same size.")

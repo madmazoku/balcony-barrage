@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="PlatformMotionConfig" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/config/platform_motion_config.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+debris_count = 16
+debris_size = Vector2(9.0, 19.0)
+debris_velocity = Vector2(77.0, 31.0)
+debris_seconds = 1.0
+debris_gravity = 335.0
+sag_pixels = 10.0
+sag_seconds = 0.32
+hinge_seconds = 0.19
+hinge_degrees = 13.5
+section_delay = 0.085
+fall_speed = 160.0
+fall_gravity = 1740.0
+fall_spin_degrees = 22.0
+collapse_seconds = 1.02

@@ -85,6 +85,55 @@ func _run() -> void:
 		and model.rng.state == baseline.rng.state and model.released == baseline.released and model.result == baseline.result
 		and model.elapsed == baseline.elapsed, "Boss presentation must preserve the complete scheduled combat replay.")
 	game.queue_free()
+	_check_platform_motion(pack)
 	await process_frame
 	if failures.is_empty(): print("BOSS_ACTION_TESTS_OK")
 	quit(0 if failures.is_empty() else 1)
+
+func _check_platform_motion(original: AssetPack) -> void:
+	check(not original.environment.has("balcony_collapse_left"), "Original platform retains its existing artwork.")
+	var forest := PackCatalog.new().load_pack("forest_glade")
+	check(forest != null and forest.effects.has("platform_debris"), "Forest platform assets must load from the pack.")
+	if forest == null:
+		return
+	var game: Node = load("res://scenes/main.tscn").instantiate()
+	game.set("pack_override", forest)
+	root.add_child(game)
+	game.set_physics_process(false)
+	(game.get("scenario_picker") as OptionButton).select(4)
+	game.call("_restart")
+	var model: RoundModel = game.get("model")
+	var platform: PlatformMotion = game.get("platform_motion")
+	check(platform.settings == load("res://config/platform_motion.tres") and platform.settings.validation_errors().is_empty(),
+		"Platform motion settings must come from the shared presentation config.")
+	model.furniture_enabled = false
+	for index in model.config.balcony_stages:
+		platform.advance(platform.settings.debris_seconds)
+		model.bolts.append({"pos": model.boss + Vector2(0, model.config.boss_size.y),
+			"velocity": Vector2.UP * model.config.bolt_speed})
+		model._update_bolts(0.2)
+		check(platform.bursts.is_empty(), "A bolt must wait for the actual landing to shed debris.")
+		game.call("_physics_process", model.config.boss_jump_seconds)
+		check(platform.bursts.size() == 1 and platform.bursts[0].stage == index,
+			"Every landing must shed the corresponding debris once.")
+		check(platform.collapsed == (index == model.config.balcony_stages - 1), "The platform only folds on the last landing.")
+		if index == 0:
+			game.call("_physics_process", 0.08)
+			var sag: float = platform.sag()
+			check(sag > 0.0, "The platform must visibly give after a nonfinal impact.")
+			game.call("_toggle_pause")
+			game.call("_physics_process", 0.1)
+			check(platform.sag() == sag, "Pause must freeze the platform and its debris.")
+			game.call("_toggle_pause")
+	check(model.boss_falling and model.result.is_empty(), "Boss falling starts on the same hit as the platform fold.")
+	game.call("_physics_process", platform.settings.section_delay * 0.75)
+	check(not is_zero_approx(platform.section_pose(platform.first_section).get_rotation())
+		and is_zero_approx(platform.section_pose(1 - platform.first_section).get_rotation()),
+		"The impacted section must fold before the other one follows.")
+	game.call("_physics_process", platform.settings.hinge_seconds + platform.settings.section_delay + 0.03)
+	check(platform.section_pose(0).origin.y > 0.0 and platform.section_pose(1).origin.y > 0.0,
+		"Both platform sections must detach and descend.")
+	game.call("_restart")
+	check(not platform.collapsed and platform.age < 0.0 and platform.bursts.is_empty(),
+		"Restart must clear the collapse and falling debris.")
+	game.queue_free()

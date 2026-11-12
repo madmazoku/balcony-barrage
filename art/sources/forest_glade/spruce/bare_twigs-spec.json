@@ -1,0 +1,11 @@
+{
+  "engine": "flux2",
+  "model": "flux-2-klein-4b.safetensors",
+  "steps": 4,
+  "guidance": 1,
+  "sampler": "euler",
+  "seed": 233106,
+  "width": 1152,
+  "height": 896,
+  "prompt": "Game prop sprite sheet on uniform flat saturated hot magenta, RGB 255 0 255. Three very small bare brown spruce branchlets, separate with generous pink gaps, arranged across the image in a horizontal row. Each is a thin tapered little woody stalk branching gently down into a few tiny forked twigs, like the bare skeleton of one drooping spruce needle spray after the needles fell. First branchlet angles down-left, middle hangs gently down and forks once, third angles down-right. Stems are thin and graceful, warm tawny brown, with tiny natural pointed stubs where needles used to grow. Each has a clearly visible top attachment tip. The third has one small remaining dark olive green tuft of just a few needles near the tip. Soft warm storybook gouache with fine dark pencil detail and simple rounded silhouettes, shown in exact side view. Each isolated branchlet is completely separate and entirely within its own one-third of the image. Large blank solid hot magenta margin around all three. Only the three small branchlets."
+}

@@ -145,3 +145,8 @@ capture_pack.gd --feedback=pop --role=tank --color=0 --frames=28 --step=0.025 п
 ## Лиса F5
 Прежняя sprite_assets.py update-boss --manifest art/build-forest-fox.json заменяет 18 существующих слотов. Использует green_cutout, rig_generated и place_generated. Рецепт задаёт общую регистрацию, маски лап, восемь фаз бега, позы и привязки реквизита. Все исходники и specs сверяются по SHA и принятой модели. SHA256 утилиты a61824f661474f5a9bcbcd533e260bd8711b501df847dbc63111bb026b117ea3. Хеши specs используют UTF-8 и LF для совместимости с Git в Windows и Linux.
 capture_pack.gd --pack=forest_glade --role=boss --simulate=true поддерживает --feedback=run|boss_release|boss_throw|boss_jump. Для падения используйте --feedback=ambient --scenario=boss --fall-time=0.06 --player-x=80. --focus=actor приближает бег и позы. Снимки и GIF fox-* лежат в G:/Git/Gemini/tmp/balcony-packs.
+
+
+## Еловые лапы F5
+Из корня игры: `python G:/Git/Gemini/scripts/sprite_assets.py update-spruce --manifest art/build-forest-spruce.json`. Использует утверждённую модель из forest_glade/art-lock.json, сверяет SHA пяти исходников и specs, сохраняет плавную прозрачность иголок, проверяет порядок потери хвои и постоянную кромку. Готовит шесть кадров, две секции падения и один атлас частиц. SHA256 утилиты 3106a722abc32fa93c859d8464dad3ada5141922642aad7b88204dc8e77e25c5.
+Съёмка: `tools/capture_pack.gd -- --pack=forest_glade --scenario=boss --feedback=boss_damage --pose=up --simulate=true --frames=185 --step=0.045 --capture=<PNG>` проводит пять игровых попаданий и проверяет победу. GIF и логи лежат в G:/Git/Gemini/tmp/balcony-packs/branches/spruce.
