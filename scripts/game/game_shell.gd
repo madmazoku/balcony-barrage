@@ -242,13 +242,16 @@ func _show(next_mode: String) -> void:
 		"help":
 			_label("КАК ИГРАТЬ", true)
 			help_label = _label(_controls_text())
-			_label("Сбивай врагов в воздухе. Приземлившихся отбрасывай выстрелом вбок.\nДеталей брони: %d. Без брони следующий удар завершает раунд." % game.settings.armor_parts)
-			_label("Когда мешок опустеет, стреляй в босса. Его приземления разрушают балкон.")
+			var enemy_help: String = style.text_for("enemy_help", "Сбивай врагов в воздухе. Приземлившихся отбрасывай выстрелом вбок.")
+			_label(enemy_help + "\nДеталей брони: %d. Без брони следующий удар завершает раунд." % game.settings.armor_parts)
+			_label(style.text_for("boss_help", "Когда мешок опустеет, стреляй в босса. Его приземления разрушают балкон."))
 			_label("Результат — сбитые враги в минуту. Рекорд засчитывается только за победу.")
 			_button("Назад", close_panel)
 		"result":
 			_label("ПОБЕДА!" if game.model.result == "win" else "ПОРАЖЕНИЕ", true)
-			result_detail = _label("Балкон не выдержал!" if game.model.result == "win" else game.model.cause)
+			var detail: String = style.text_for("victory_detail", "Балкон не выдержал!") if game.model.result == "win" else \
+				style.text_for(game.model.cause_key, game.model.cause)
+			result_detail = _label(detail)
 			_label("Сбито: %d   •   Время: %.1f с\nТемп: %.1f врагов в минуту" % [game.model.kills, game.model.elapsed, game.model.rate()])
 			record_label = _label(("НОВЫЙ РЕКОРД!\n" if new_record else "") + _record_text())
 			if profile.last_error != OK and profile.last_error != ERR_FILE_NOT_FOUND:

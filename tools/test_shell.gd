@@ -122,9 +122,52 @@ func _run() -> void:
 			"Switching packs must select its own complete menu style.")
 		other.queue_free()
 		await process_frame
+	_check_forest_interface(path)
+	await process_frame
 	DirAccess.remove_absolute(ProjectSettings.globalize_path(catalog_file))
 	DirAccess.remove_absolute(ProjectSettings.globalize_path(path))
 	if FileAccess.file_exists(path + ".tmp"):
 		DirAccess.remove_absolute(ProjectSettings.globalize_path(path + ".tmp"))
 	if failures.is_empty(): print("SHELL_TESTS_OK")
 	quit(0 if failures.is_empty() else 1)
+
+func _check_forest_interface(path: String) -> void:
+	var shell := load("res://scenes/app.tscn").instantiate() as GameShell
+	shell.profile_path = path
+	root.add_child(shell)
+	check(shell.select_pack("forest_glade"), "The forest pack must be selectable from the shared menu.")
+	shell.start_round()
+	var game: Node2D = shell.game
+	var model: RoundModel = game.model
+	game._update_hud()
+	check(game.hud.text.contains("Ветки 5/5") and game.furniture_check.text == "Шишки в финале",
+		"The forest pack must name its own platform and heavy attack.")
+	shell.open_panel("help")
+	var help_lines: Array[String] = []
+	for child in shell.content.get_children():
+		if child is Label:
+			help_lines.append(child.text)
+	var help_text: String = "\n".join(help_lines)
+	check(help_text.contains("листьях") and help_text.contains("ломают ветки") and help_text.contains("шишек"),
+		"Help must explain the active pack's actual visuals.")
+	shell.close_panel()
+	model.jump_remaining = 0.01
+	model.tick(0.02, 0.0)
+	game._update_hud()
+	check(game.footer.text.contains("ветки прогнулись") and game.hud.text.contains("Ветки 4/5"),
+		"The first real landing must report the damaged boughs.")
+	model.armor = 0
+	model.damage("Попадание мебелью", false, {"furniture": true})
+	game.feedback.advance(game.feedback.settings.defeat_max_seconds + 1)
+	shell._process(0.0)
+	check(shell.mode == "result" and shell.result_detail.text == "Попадание связкой шишек",
+		"The defeat screen must name the themed attack after the actual defeat.")
+	model.result = "win"
+	shell._show("result")
+	check(shell.result_detail.text == "Лис упал с веток!", "The forest victory must use its own result text.")
+	check(shell.select_pack("rescue_rangers"), "Switching back must select the original pack.")
+	shell.start_round()
+	shell.game._update_hud()
+	check(shell.game.hud.text.contains("Балкон 5/5") and shell.game.furniture_check.text == "Мебель в финале",
+		"Switching back must restore the original captions.")
+	shell.queue_free()
