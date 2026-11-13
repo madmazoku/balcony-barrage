@@ -30,9 +30,11 @@ var released: int = 0
 var kills: int = 0
 var result: String = ""
 var cause: String = ""
+var cause_key: String = ""
 var furniture_enabled: bool
 var scenario: String = "round"
 var last_event: String = ""
+var last_event_key: String = ""
 
 func _init(settings: GameplayConfig) -> void:
 	config = settings
@@ -61,7 +63,8 @@ func restart(mode: String = "round") -> void:
 	kills = 0
 	result = ""
 	cause = ""
-	last_event = ""
+	cause_key = ""
+	_report_event("", "")
 	furniture_enabled = config.furniture_enabled
 	if mode != "round":
 		released = config.release_roles.size()
@@ -139,12 +142,12 @@ func _update_boss(delta: float) -> void:
 		if jump_remaining == 0.0:
 			broken_stages += 1
 			boss_action.emit("land")
-			last_event = "Тяжёлое приземление — балкон треснул"
+			_report_event("platform_damage", "Тяжёлое приземление — балкон треснул")
 			if broken_stages >= config.balcony_stages:
 				boss_falling = true
 				boss_fall_velocity = 0.0
 				furniture_windup = 0.0
-				last_event = "Балкон рухнул — босс падает"
+				_report_event("platform_collapse", "Балкон рухнул — босс падает")
 		return
 	boss.x += boss_direction * config.boss_speed * delta
 	var left: float = config.balcony_left + config.boss_size.x / 2
@@ -174,7 +177,7 @@ func _update_boss_fall(delta: float) -> void:
 		boss_falling = false
 		result = "win"
 		cause = "Балкон разрушен"
-		last_event = "Босс приземлился"
+		_report_event("boss_landed", "Босс приземлился")
 
 func _update_minions(delta: float) -> void:
 	for enemy in minions:
@@ -219,19 +222,25 @@ func _update_minions(delta: float) -> void:
 	minions = minions.filter(func(e: Dictionary) -> bool:
 		return e.pos.y < config.arena_size.y + config.tank_size.y and e.pos.x > -config.tank_size.x and e.pos.x < config.arena_size.x + config.tank_size.x)
 
+func _report_event(key: String, message: String) -> void:
+	last_event_key = key
+	last_event = message
+
 func damage(reason: String, stolen: bool = false, source: Dictionary = {}) -> bool:
 	if result != "" or boss_falling or grace > 0:
 		return false
+	var kind: String = "capture" if stolen else ("furniture" if source.get("furniture", false) else "nut")
 	if armor > 0:
 		armor -= 1
 		grace = config.damage_grace_seconds
-		last_event = reason + " — потеря брони"
+		_report_event("armor_" + kind, reason + " — потеря брони")
 		armor_removed.emit(armor, stolen)
 	else:
 		result = "lose"
 		cause = reason
-		last_event = reason
-		player_defeated.emit("capture" if stolen else ("furniture" if source.get("furniture", false) else "nut"), source)
+		cause_key = kind
+		_report_event(kind, reason)
+		player_defeated.emit(kind, source)
 	return true
 
 func _throw_hazard(origin: Vector2, is_furniture: bool) -> void:
@@ -296,7 +305,7 @@ func _update_bolts(delta: float) -> void:
 			if hit_boss:
 				if released >= config.release_roles.size() and jump_remaining == 0:
 					jump_remaining = config.boss_jump_seconds
-					last_event = "Попадание в босса — ждём приземления"
+					_report_event("boss_hit", "Попадание в босса — ждём приземления")
 			elif not target.is_empty():
 				if target.state == "ground":
 					target.state = "fall"

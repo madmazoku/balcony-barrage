@@ -7,6 +7,7 @@ var hud_layer: CanvasLayer
 var settings: GameplayConfig = preload("res://config/gameplay.tres")
 var presentation: PresentationConfig = preload("res://config/presentation.tres")
 var pack: AssetPack
+var shell_style: ShellStyle
 var pack_override: AssetPack
 var model: RoundModel
 var paused: bool = false
@@ -38,6 +39,7 @@ func _ready() -> void:
 			push_error(failure)
 		set_physics_process(false)
 		return
+	shell_style = pack.ui["shell_style"] as ShellStyle
 	model = RoundModel.new(settings)
 	if pack.projectile_visual != null:
 		projectile_trail = ProjectileTrail.new(pack.projectile_visual)
@@ -79,7 +81,7 @@ func _create_controls() -> void:
 	panel.modulate = pack.colors["text"]
 	layer.add_child(panel)
 	var title := Label.new()
-	title.text = (pack.ui["shell_style"] as ShellStyle).title
+	title.text = shell_style.title
 	title.add_theme_font_size_override("font_size", 24)
 	panel.add_child(title)
 	var toolbar := HBoxContainer.new()
@@ -87,8 +89,10 @@ func _create_controls() -> void:
 	panel.add_child(toolbar)
 	toolbar.visible = not managed_session
 	scenario_picker = OptionButton.new()
-	for label in ["Полный раунд", "Две цели на линии", "Последний шарик у земли", "Захват + гайка", "Пустой мешок / босс", "Три типа вместе", "Поражение от захвата", "Поражение от гайки", "Поражение от мебели"]:
-		scenario_picker.add_item(label)
+	var scenario_labels := ["Полный раунд", "Две цели на линии", "Последний шарик у земли", "Захват + гайка",
+		"Пустой мешок / босс", "Три типа вместе", "Поражение от захвата", "Поражение от гайки", "Поражение от мебели"]
+	for index in scenario_ids.size():
+		scenario_picker.add_item(shell_style.text_for("scenario_" + scenario_ids[index], scenario_labels[index]))
 	scenario_picker.item_selected.connect(func(_index: int) -> void: _restart())
 	toolbar.add_child(scenario_picker)
 	var restart := Button.new()
@@ -96,7 +100,7 @@ func _create_controls() -> void:
 	restart.pressed.connect(_restart)
 	toolbar.add_child(restart)
 	furniture_check = CheckButton.new()
-	furniture_check.text = "Мебель в финале"
+	furniture_check.text = shell_style.text_for("boss_throw_option", "Мебель в финале")
 	furniture_check.button_pressed = settings.furniture_enabled
 	furniture_check.toggled.connect(func(enabled: bool) -> void:
 		model.furniture_enabled = enabled)
@@ -413,9 +417,9 @@ func _physics_process(delta: float) -> void:
 	queue_redraw()
 
 func _update_hud() -> void:
-	hud.text = "Броня %d  ·  Мешок %d  ·  Балкон %d/%d  ·  Сбито %d  ·  %.1f c  ·  %.1f / мин" % [
+	hud.text = "Броня %d  ·  Мешок %d  ·  %s %d/%d  ·  Сбито %d  ·  %.1f c  ·  %.1f / мин" % [
 		model.armor, settings.release_roles.size() - model.released,
-		settings.balcony_stages - model.broken_stages, settings.balcony_stages,
+		shell_style.text_for("platform_label", "Балкон"), settings.balcony_stages - model.broken_stages, settings.balcony_stages,
 		model.kills, model.elapsed, model.rate()]
 	match controls.last_device:
 		"gamepad":
@@ -424,7 +428,7 @@ func _update_hud() -> void:
 			footer.text = "Тяни — движение    Тап выше наземной полосы — вверх    Тап в полосе — вбок"
 		_:
 			footer.text = "A/D или стрелки — бег    Пробел — вверх; с направлением — вбок    R — повтор    P — пауза"
-	footer.text += "\n" + ("ПАУЗА" if paused else model.last_event)
+	footer.text += "\n" + ("ПАУЗА" if paused else shell_style.text_for(model.last_event_key, model.last_event))
 
 func _text(position: Vector2, text: String, size: int = 17) -> void:
 	draw_string(font, position, text, HORIZONTAL_ALIGNMENT_LEFT, -1, size, pack.colors["text"])
@@ -501,7 +505,9 @@ func _draw_result() -> void:
 		return
 	if model.result != "":
 		draw_rect(Rect2(300, 350, 680, 180), pack.colors.get("result_panel", Color(0.04, 0.06, 0.09, 0.96)))
-		_text(Vector2(340, 395), "ПОБЕДА — балкон рухнул!" if model.result == "win" else "ПОРАЖЕНИЕ — " + model.cause, 26)
+		var headline: String = shell_style.text_for("victory_banner", "ПОБЕДА — балкон рухнул!") if model.result == "win" else \
+			"ПОРАЖЕНИЕ — " + shell_style.text_for(model.cause_key, model.cause)
+		_text(Vector2(340, 395), headline, 26)
 		_text(Vector2(340, 437), "Сбито %d  /  %.1f сек  /  %.1f в минуту" % [model.kills, model.elapsed, model.rate()], 22)
 		_text(Vector2(340, 485), "R — попробовать снова", 22)
 

@@ -1,6 +1,6 @@
 class_name ShellStyle
 extends Resource
-## Menu appearance travels with the selected presentation pack.
+## Interface appearance and copy travel with the selected presentation pack.
 @export var title: String = "BALCONY BARRAGE"
 @export var subtitle: String = "Удержи двор. Опустоши мешок. Обрушь балкон."
 @export var panel: Color = Color("241a16")
@@ -14,6 +14,10 @@ extends Resource
 @export var heading_size: int = 38
 @export var body_size: int = 22
 @export var button_height: float = 54
+@export var round_text: Dictionary[String, String] = {}
+
+func text_for(key: String, default_text: String) -> String:
+	return round_text.get(key, default_text)
 
 func validation_errors() -> Array[String]:
 	var errors: Array[String] = []

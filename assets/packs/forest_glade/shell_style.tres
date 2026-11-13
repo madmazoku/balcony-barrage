@@ -5,7 +5,7 @@
 [resource]
 script = ExtResource("1")
 title = "ЛЕСНАЯ ПОЛЯНКА"
-subtitle = "Зайка, ежи, белки и кабанчики"
+subtitle = "Защити поляну от лиса и его миньонов"
 panel = Color(0.055, 0.13, 0.11, 1)
 border = Color(0.616, 0.471, 0.29, 1)
 accent = Color(0.918, 0.765, 0.49, 1)
@@ -17,3 +17,25 @@ panel_width = 680.0
 heading_size = 38
 body_size = 22
 button_height = 54.0
+round_text = Dictionary[String, String]({
+"scenario_landing": "Последний лист у земли",
+"scenario_damage": "Захват + орех",
+"scenario_defeat_nut": "Поражение от ореха",
+"scenario_defeat_furniture": "Поражение от шишек",
+"boss_throw_option": "Шишки в финале",
+"platform_label": "Ветки",
+"enemy_help": "Сбивай миньонов на листьях. Приземлившихся отбрасывай выстрелом вбок.",
+"boss_help": "Когда мешок опустеет, стреляй в лиса. Его приземления ломают ветки. Следи за связкой шишек.",
+"victory_banner": "ПОБЕДА — лис упал с веток!",
+"victory_detail": "Лис упал с веток!",
+"platform_damage": "Лис приземлился — ветки прогнулись",
+"platform_collapse": "Ветки обломились — лис падает",
+"boss_landed": "Лис приземлился",
+"boss_hit": "Камешек попал в лиса — ждём приземления",
+"furniture": "Попадание связкой шишек",
+"nut": "Попадание орехом",
+"capture": "Миньон поймал зайку",
+"armor_furniture": "Связка шишек сбила деталь брони",
+"armor_nut": "Орех сбил деталь брони",
+"armor_capture": "Миньон сорвал деталь брони"
+})
